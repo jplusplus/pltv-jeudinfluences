@@ -1,11 +1,6 @@
 var jslib = ['bower_modules/jquery/jquery.min.js',
-        'bower_modules/underscore/underscore-min.js',
+        'bower_modules/underscore/underscore.js',
         'bower_modules/bootstrap/dist/js/bootstrap.min.js',
-        'bower_modules/backbone/backbone-min.js',
-        'bower_modules/backbone.marionette/public/javascripts/json2.js',
-        'bower_modules/backbone.marionette/public/javascripts/backbone.babysitter.js',
-        'bower_modules/backbone.marionette/public/javascripts/backbone.wreqr.js',
-        'bower_modules/backbone.marionette/lib/backbone.marionette.min.js',
         'bower_modules/moment/min/moment.min.js',
         'bower_modules/moment/min/langs.min.js'
         ];
