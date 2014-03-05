@@ -21,9 +21,7 @@ module.exports = function(grunt) {
     concat: {
       coffee: {
         src: ['app/src/coffee/*.coffee',
-        'app/src/coffee/views/*.coffee',
-        'app/src/coffee/models/*.coffee',
-        'app/src/coffee/collections/*.coffee'],
+        'app/src/coffee/**/*.coffee'],
         dest: 'tmp/app.coffee'
       },
       bower_js: {
@@ -65,6 +63,9 @@ module.exports = function(grunt) {
     },
     coffee: {
       compile: {
+        options: {
+          bare: true
+        },
         files: {
           'public/dev/js/app.js': ['tmp/app.coffee']
         }
