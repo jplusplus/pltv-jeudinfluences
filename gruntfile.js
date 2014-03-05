@@ -2,7 +2,8 @@ var jslib = ['bower_modules/jquery/jquery.min.js',
         'bower_modules/underscore/underscore.js',
         'bower_modules/bootstrap/dist/js/bootstrap.min.js',
         'bower_modules/moment/min/moment.min.js',
-        'bower_modules/moment/min/langs.min.js'
+        'bower_modules/moment/min/langs.min.js',
+        'bower_modules/angular/angular.min.js',
         ];
 
 module.exports = function(grunt) {
@@ -39,6 +40,11 @@ module.exports = function(grunt) {
       bootstrap: {
         files: [
           {expand: true, flatten: true, src: ['bower_modules/bootstrap/img/*'], dest: 'public/img/', filter: 'isFile'}
+        ]
+      },
+      angular: {
+        files: [
+          {expand: true, flatten: true, src: ['bower_modules/angular/angular.min.js.map'], dest: 'public/js/', filter: 'isFile'}
         ]
       },
       dist: {
@@ -246,7 +252,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['jasmine']);
 
   // Setup environment for development
-  grunt.registerTask('development', ['copy:bootstrap','build','lib','assemble:development_html','assemble:development_php','clean:development','mkdir:clean']);
+  grunt.registerTask('development', ['copy:bootstrap','copy:angular','build','lib','assemble:development_html','assemble:development_php','clean:development','mkdir:clean']);
 
   // Setup environment for production
   grunt.registerTask('production', ['copy:bootstrap','build','lib:production','assemble:production_html','assemble:production_php','clean:production','mkdir:clean']);
