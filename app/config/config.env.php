@@ -1,0 +1,7 @@
+<?php
+
+$env = 'development';
+
+
+
+?>

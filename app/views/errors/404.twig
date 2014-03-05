@@ -1,0 +1,14 @@
+{% extends 'layouts/one_column.twig' %}
+
+{% block inline %} 
+
+{% endblock inline %}
+
+{% block content %}
+<div class="page-header"><h1>Error<br /><small>404 - File not found</small></h1></div>
+<em>{{ requesturi }}</em>
+<p class="lead">
+	You will be automatically redirected to the homepage <a href="{{ urlFor('Home') }}">pltv-spin</a> in five seconds.
+</p>
+<meta HTTP-EQUIV="REFRESH" content="5; url=/">
+{% endblock content %}   
