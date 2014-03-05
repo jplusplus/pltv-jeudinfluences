@@ -7,8 +7,6 @@
     "moment": ">=2.0.0",
     "bootstrap": ">=2.3.0",
     "underscore": ">=1.4.4",
-    "backbone": ">=1.0.0",
-    "backbone.marionette": ">=1.0.3",
     "angular": "1.2.5"
   }
 }

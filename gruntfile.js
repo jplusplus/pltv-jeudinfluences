@@ -13,7 +13,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     exec: {
       composer_install: {
-        command: 'php composer.phar install',
+        command: 'curl -sS https://getcomposer.org/installer | php && php composer.phar install',
         stdout: false,
         stderr: false
       }

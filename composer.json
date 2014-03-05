@@ -4,7 +4,7 @@
 		"bin-dir":"composer_modules/bin"
 	},
 	"require": {
-		"slim/slim": "angularjs_support#2.*",
+		"slim/slim": "2.*",
 		"slim/views": "0.1.*", 
 		"twig/twig": "1.*",
 		"gabordemooij/redbean": "dev-master",
