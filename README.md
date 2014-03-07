@@ -3,6 +3,11 @@ PLTV-SPIN
 
 _March 2014_
 
+## Requirements
+
+* npm
+	* grunt
+
 ## How to Install Dependencies
 
 	make install
