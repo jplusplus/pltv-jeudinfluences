@@ -4,6 +4,7 @@ var jslib = ['bower_modules/jquery/jquery.min.js',
         'bower_modules/moment/min/moment.min.js',
         'bower_modules/moment/min/langs.min.js',
         'bower_modules/angular/angular.min.js',
+        'bower_modules/angular-route/angular-route.min.js',
         ];
 
 module.exports = function(grunt) {
@@ -20,8 +21,10 @@ module.exports = function(grunt) {
     },
     concat: {
       coffee: {
-        src: ['app/src/coffee/*.coffee',
-        'app/src/coffee/**/*.coffee'],
+        src: [
+          'app/src/coffee/*.coffee',
+          'app/src/coffee/**/*.coffee',
+        ],
         dest: 'tmp/app.coffee'
       },
       bower_js: {
