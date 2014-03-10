@@ -5,6 +5,5 @@ run:
 
 install:
 	npm install
-	php -r "readfile('https://getcomposer.org/installer');" | php
 	grunt fetch
 
