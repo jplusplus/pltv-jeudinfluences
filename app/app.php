@@ -18,18 +18,6 @@ $app = new \Slim\Slim(array(
 	'templates.path' => '../app/views'
 ));
 
-$app->add(new \Slim\Middleware\SessionCookie(array(
-    'expires' => '20 minutes',
-    'path' => '/',
-    'domain' => null,
-    'secure' => false,
-    'httponly' => false,
-    'name' => 'slim_session',
-    'secret' => 'qQ3EnJ74r84L9GoneqL5ThRFcy1353',
-    'cipher' => MCRYPT_RIJNDAEL_256,
-    'cipher_mode' => MCRYPT_MODE_CBC
-)));
-
 //Loads all needed subfiles
 require 'bootstrap.php';
 
