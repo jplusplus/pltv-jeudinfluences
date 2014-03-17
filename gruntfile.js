@@ -32,8 +32,7 @@ module.exports = function(grunt) {
         dest: 'public/js/lib.min.js'
       },
       bower_css: {
-        src: ['bower_modules/bootstrap/dist/css/bootstrap.css',
-        'bower_modules/bootstrap/dist/css/bootstrap-responsive.css'],
+        src: [],
         dest: 'public/css/lib.css'
       }
     },
@@ -171,7 +170,7 @@ module.exports = function(grunt) {
     },
     watch: {
       options: {
-        nospawn: false,
+        nospawn: true,
         livereload: true
       },
       coffee: {
@@ -180,7 +179,7 @@ module.exports = function(grunt) {
       },
       less: {
         files: ['**/*.less','**/*.twig'],
-        tasks: ['less'], 
+        tasks: ['less']
       },
       twig: {
         files: ['**/*.twig'],

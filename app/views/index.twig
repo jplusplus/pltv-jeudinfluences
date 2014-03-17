@@ -1,20 +1,6 @@
-{# title Home #}
+{% extends 'layouts/master.twig' %}
 
-{% extends 'layouts/one_column.twig' %}
-
-{% block inline %} 
-
-{% endblock inline %}
 
 {% block content %}
-
-<div class="page-header">
-	<h1>Welcome <small>to pltv-spin</small></h1>
-</div>
-
-<div ng-view></div>
-
-</body>
-</html>
-
+	<div ng-view></div>
 {% endblock content %}
