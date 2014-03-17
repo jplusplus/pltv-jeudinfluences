@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html ng-app="app" xmlns:ng="http://angularjs.org" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html ng-app="app" xmlns:ng="http://angularjs.org" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html ng-app="app" xmlns:ng="http://angularjs.org" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html ng-app="app" xmlns:ng="http://angularjs.org" class="no-js"> <!--<![endif]-->    
+<!--[if lt IE 7]>      <html ng-app="spin" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html ng-app="spin" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html ng-app="spin" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html ng-app="spin" class="no-js"> <!--<![endif]-->    
     <head>
         {% block meta %}
-        <meta charset="utf-8">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+            <meta charset="utf-8">
+            <meta name="description" content="">
+            <meta name="viewport" content="width=device-width">
         {% endblock %}
 
         <title>pltv-spin - {{ viewName }}</title>
@@ -28,7 +28,9 @@
         <![endif]-->
         
         <div id="content">
-            {% block layout %}{{ layout|raw }}{% endblock layout %}            
+            {% block content %}
+                {{ content|raw }}
+            {% endblock content %}            
         </div>
 
         {% block inline%}{% endblock inline %}

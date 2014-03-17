@@ -2,6 +2,7 @@ tmp
 public/js
 public/dev
 public/css
+public/partials
 dist
 bower_modules
 node_modules

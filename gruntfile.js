@@ -5,6 +5,7 @@ var jslib = ['bower_modules/jquery/jquery.min.js',
         'bower_modules/moment/min/langs.min.js',
         'bower_modules/angular/angular.min.js',
         'bower_modules/angular-route/angular-route.min.js',
+        'bower_modules/angular-resource/angular-resource.min.js',
         ];
 
 module.exports = function(grunt) {
@@ -45,6 +46,26 @@ module.exports = function(grunt) {
       angular: {
         files: [
           {expand: true, flatten: true, src: ['bower_modules/angular/angular.min.js.map'], dest: 'public/js/', filter: 'isFile'}
+        ]
+      },
+      partials: {
+        files: [
+          {
+            flatten: true,
+            expand: true,
+            src: ['app/views/partials/*.html'], 
+            dest: 'public/partials/'
+          },
+        ]
+      },
+      data: {
+        files: [
+          {
+            flatten: true,
+            expand: true,
+            src: ['app/data/*.json'], 
+            dest: 'public/data/'
+          },
         ]
       },
       dist: {
@@ -184,6 +205,14 @@ module.exports = function(grunt) {
       twig: {
         files: ['**/*.twig'],
       },
+      partials: {
+        files: ['app/views/partials/*'],
+        tasks: ['copy:partials'], 
+      },
+      data: {
+        files: ['app/data*'],
+        tasks: ['copy:data'], 
+      },
     },
     php: {
       server: {
@@ -255,10 +284,10 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['jasmine']);
 
   // Setup environment for development
-  grunt.registerTask('development', ['copy:bootstrap','copy:angular','build','lib','assemble:development_html','assemble:development_php','clean:development','mkdir:clean']);
+  grunt.registerTask('development', ['copy:bootstrap', 'copy:angular','copy:partials', 'copy:data', 'build','lib','assemble:development_html','assemble:development_php','clean:development','mkdir:clean']);
 
   // Setup environment for production
-  grunt.registerTask('production', ['copy:bootstrap','build','lib:production','assemble:production_html','assemble:production_php','clean:production','mkdir:clean']);
+  grunt.registerTask('production', ['copy:bootstrap', 'copy:partials', 'copy:data', 'build','lib:production','assemble:production_html','assemble:production_php','clean:production','mkdir:clean']);
 
   grunt.registerTask('server', function(env){
     if(env == 'production'){

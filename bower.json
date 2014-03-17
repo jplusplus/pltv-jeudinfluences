@@ -8,6 +8,7 @@
     "bootstrap": ">=2.3.0",
     "underscore": ">=1.4.4",
     "angular": "1.2.5",
-    "angular-route": "~1.2.14"
+    "angular-route": "1.2.5",
+    "angular-resource": "1.2.5"
   }
 }
