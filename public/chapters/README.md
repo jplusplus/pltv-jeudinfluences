@@ -13,7 +13,7 @@
 
 | paramètres     |  notes                                                                                      |
 |:-------------- | -------------------------------------------------------------------------------------------:|
-| next_scene     | optional, no compatible if a scene without choice, in the sequence. Typically for flashback |
+| next_scene     | optional, only for scene without choice in the sequence (Typically for flashback )|
 | decor          | TODO                                                                                        |
 | sequence       | TODO                                                                                        |
 
