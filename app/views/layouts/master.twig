@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-    <html ng-app="app">
+<!--[if lt IE 7]>      <html ng-app="spin" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html ng-app="spin" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html ng-app="spin" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html ng-app="spin" class="no-js"> <!--<![endif]-->    
     <head>
         {% block meta %}
-        <meta charset="utf-8">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+            <meta charset="utf-8">
+            <meta name="description" content="">
+            <meta name="viewport" content="width=device-width">
         {% endblock %}
 
         <title>pltv-spin - {{ viewName }}</title>
 
         {% block link %}
-        <link rel="stylesheet" href="/css/lib.css" />
+            <link rel="stylesheet" href="/css/lib.css" />
         {% endblock %}
 
         {% block script %}
-        <script src="/js/lib.min.js"></script>
+            <script src="/js/lib.min.js"></script>
         {% endblock %}
 
         {% include 'layouts/head.html' %}
-
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -26,19 +28,11 @@
         <![endif]-->
         
         <div id="content">
-            <div class="container">
-                {% block layout %}{{ layout|raw }}{% endblock layout %}
-            </div>
+            {% block content %}
+                {{ content|raw }}
+            {% endblock content %}            
         </div>
-        <div id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="span12">
-                        Copyright &copy; {{ "now"|date('Y') }} Journalism++
-                    </div>
-                </div>
-            </div>
-        </div>
+
         {% block inline%}{% endblock inline %}
     </body>
 </html>

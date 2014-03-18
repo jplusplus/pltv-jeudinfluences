@@ -1,0 +1,18 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'completion' ]
+2 info using npm@1.2.18
+3 info using node@v0.10.15
+4 error Error: ENOENT, open '/usr/share/npm/lib/utils/completion.sh'
+5 error If you need help, you may report this log at:
+5 error     <http://bugs.debian.org/npm>
+5 error or use
+5 error     reportbug --attach /home/pirhoo/Lab/J++/Projects/pltv-spin/npm-debug.log npm
+6 error System Linux 3.11.0-18-generic
+7 error command "/usr/bin/nodejs" "/usr/bin/npm" "completion"
+8 error cwd /home/pirhoo/Lab/J++/Projects/pltv-spin
+9 error node -v v0.10.15
+10 error npm -v 1.2.18
+11 error path /usr/share/npm/lib/utils/completion.sh
+12 error code ENOENT
+13 error errno 34
+14 verbose exit [ 34, true ]

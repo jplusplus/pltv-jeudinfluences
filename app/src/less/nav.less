@@ -1,0 +1,44 @@
+.nav {
+	position:fixed;
+	bottom:0;
+	left:0;
+	right:0;
+	height:40px;
+	line-height: 40px;
+	background:fade(black, 99);
+
+	&__partners {
+		position:absolute;
+		left:0;
+		top:0;
+	}
+
+	&__links {
+		position:absolute;
+		left:50%;
+		top:0;	
+		.translate(-50%, 0);	
+
+		li {
+			padding:0;
+
+			&:last-child a {
+				border-right:0;
+			}
+		}
+
+		&__link {
+			padding:0 12px;
+			border-right:1px white solid;
+			height:10px;
+			line-height: 10px;
+			
+		}
+	}
+
+	&__cmd {
+		position:absolute;
+		right:0;
+		top:0;		
+	}
+}
