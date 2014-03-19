@@ -12,8 +12,8 @@ $app->configureMode('development', function () use ($app) {
 		'debug' => true,
 		'cache' => false,
 
-		'home_template' => "wait.twig",
-		// 'home_template' => "index.twig",
+		'home_template' => "wait.twig", // launching page
+		// 'home_template' => "index.twig", // spin game
 
 		# -----------------------------------
 		#    OPENING DATES
