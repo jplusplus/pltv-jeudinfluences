@@ -16,7 +16,7 @@ $app->configureMode('development', function () use ($app) {
 		'home_template' => "wait.twig", // launching page
 		// Mailchimp configuration
 		'mailchimp_id' => '',
-		'mailchimp_datacenter' => '',
+		'mailchimp_datacenter' => '', # ex: us8
 		'mailchimp_apikey' => '',		
 		// Opening dates of each chapter
 		'opening_dates' => array(
