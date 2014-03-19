@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     concat: {
       coffee: {
         src: [
-          'app/src/coffee/*.coffee',
+          'app/src/coffee/app.coffee',
           'app/src/coffee/**/*.coffee',
         ],
         dest: 'tmp/app.coffee'
