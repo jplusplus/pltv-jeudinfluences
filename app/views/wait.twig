@@ -1,6 +1,19 @@
 {% extends 'layouts/master.twig' %}
 
+{% block head %}
+    {% if mode == "development" %}
+        <link rel="stylesheet" href="/dev/css/wait.css" />
+        <script src="http://localhost:35729/livereload.js"></script>
+        <script type="text/javascript" src="/dev/js/wait.js"></script>
+    {% endif %}
+
+    {% if mode == "production" %}
+        <link rel="stylesheet" href="/css/wait.min.css" />
+        <script type="text/javascript" src="/js/wait.min.js"></script>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
-    <h1>Soyez patients !</h1>
+    <h1>Soyez patients ! {{mode}}</h1>
     {% include 'partials/nav.twig' %}
 {% endblock content %}

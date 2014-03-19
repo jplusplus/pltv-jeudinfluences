@@ -141,16 +141,6 @@ module.exports = function(grunt) {
       },
     },
     assemble: {
-      development_html: {
-        options: {
-          dev: true,
-          prod: false,
-          ext: '.html'
-        },
-        files: {
-          "app/views/layouts/head.html": ["app/src/hbs/head.hbs"]
-        }
-      },
       development_php: {
         options: {
           dev: true,
@@ -159,16 +149,6 @@ module.exports = function(grunt) {
         },
         files: {
           "app/config/config.env.php": ["app/src/hbs/config.env.hbs"]
-        }
-      },
-      production_html: {
-        options: {
-          dev: false,
-          prod: true,
-          ext: '.html'
-        },
-        files: {
-          "app/views/layouts/head.html": ["app/src/hbs/head.hbs"]
         }
       },
       production_php: {
@@ -274,10 +254,10 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['jasmine']);
 
   // Setup environment for development
-  grunt.registerTask('development', ['copy:bootstrap', 'copy:angular','copy:partials', 'build','lib','assemble:development_html','assemble:development_php','clean:development','mkdir:clean']);
+  grunt.registerTask('development', ['copy:bootstrap', 'copy:angular','copy:partials', 'build','lib', 'assemble:development_php','clean:development','mkdir:clean']);
 
   // Setup environment for production
-  grunt.registerTask('production', ['copy:bootstrap', 'copy:partials', 'build','lib:production','assemble:production_html','assemble:production_php','clean:production','mkdir:clean']);
+  grunt.registerTask('production', ['copy:bootstrap', 'copy:partials', 'build','lib:production', 'assemble:production_php','clean:production','mkdir:clean']);
 
   grunt.registerTask('server', function(env){
     if(env == 'production'){

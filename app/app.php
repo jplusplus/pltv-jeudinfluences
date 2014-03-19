@@ -38,10 +38,12 @@ $app->notFound(function () use ($app) {
     $app->render('errors/404.twig');
 });
 
-$app->view->setData(array('menu'=>array(
-    'Home',
-    ),
-));
+$app->view->setData(
+    array(
+        'menu' => array('Home',),
+        'mode' => $app->getMode()
+    )
+);
 
 //Run
 $app->run();
