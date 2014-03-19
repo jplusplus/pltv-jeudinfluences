@@ -12,4 +12,18 @@ $app->configureMode('production', function () use ($app) {
         'debug' => false,
         'cache' => realpath('../tmp/cache')
     ));
+
+    // TODO
+    // * Fichier static (video, sons)
+    //   - url vers le server
+    //   - path
+
+    // * Switch page d'attente
+
+    // * Date d'ouverture des chapitres
+
+    // * Emails
+
+    // * MailChimp
+
 });
