@@ -36,15 +36,19 @@ $app->get('/api/plot', function() use ($app) {
 		$chapter_number = basename($chapter_filename, ".json");
 		$content        = file_get_contents($chapter_filename);
 		$chapter        = json_decode($content, true);
-		$opening_date   = $chapter["opening_date"];
-		// compare the opening date with today : keep only opened chapters
-		if(strtotime(date('Y-m-d H:i:s')) >= strtotime($opening_date))  {
+		$opening_dates  = $app->config("opening_dates");
+		$opening_date   = isset($opening_dates[$chapter_number]) ? $opening_dates[$chapter_number] : null;
+		// if there is an opening date, compare it with today : keep only opened chapters
+		if(empty($opening_date) || strtotime(date('Y-m-d H:i:s')) >= strtotime($opening_date))  {
 			// retrieve scenes files for the current chapter
-			$scenes  = glob('chapters/'.$chapter_number.'.?.json', GLOB_BRACE);
-			$chapter['scenes'] = array();
+			$scenes  = glob('chapters/'.$chapter_number.'.?*.json', GLOB_BRACE);
+			$chapter['id']           = $chapter_number; # add the id from filename
+			$chapter['opening_date'] = $opening_date; # add the opening_date from config into the chapter object
+			$chapter['scenes']       = array();
 			foreach ($scenes as $scene_filename) {
 				$content             = file_get_contents($scene_filename);
 				$scene               = json_decode($content, true);
+				$scene["id"]         = join(".", array_slice(explode(".", basename($scene_filename, ".json")), 1)); # add the id from filename
 				$chapter['scenes'][] = $scene;
 			}
 			$response[] = $chapter;
