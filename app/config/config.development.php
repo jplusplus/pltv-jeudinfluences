@@ -12,6 +12,9 @@ $app->configureMode('development', function () use ($app) {
 		'debug' => true,
 		'cache' => false,
 
+		'home_template' => "wait.twig",
+		// 'home_template' => "index.twig",
+
 		# -----------------------------------
 		#    OPENING DATES
 		# -----------------------------------
