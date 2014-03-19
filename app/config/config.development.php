@@ -11,13 +11,14 @@ $app->configureMode('development', function () use ($app) {
 		'log.enabled' => true,
 		'debug' => true,
 		'cache' => false,
-
-		'home_template' => "wait.twig", // launching page
+		// Choose the right template for the homepage
 		// 'home_template' => "index.twig", // spin game
-
-		# -----------------------------------
-		#    OPENING DATES
-		# -----------------------------------
+		'home_template' => "wait.twig", // launching page
+		// Mailchimp configuration
+		'mailchimp_id' => '',
+		'mailchimp_datacenter' => '',
+		'mailchimp_apikey' => '',		
+		// Opening dates of each chapter
 		'opening_dates' => array(
 			'1' => "2014-03-19T16:00:00",
 			'4' => "2014-03-19T16:00:00"

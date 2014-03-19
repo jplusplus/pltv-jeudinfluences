@@ -1,11 +1,35 @@
 <?php
 namespace app\routes;
 
-function ok($response) {
-	header("Content-Type: application/json");
-	echo json_encode($response);
-	exit;
-}
+# -----------------------------------------------------------------------------
+#
+#    OUPUTS
+#
+# -----------------------------------------------------------------------------
+
+$ok = function($body) use (& $app) {
+	$response = $app->response();
+	$response['Content-Type'] = 'application/json';
+	$response->status(200);
+	$response->body(json_encode($body));
+};
+
+function ok($body) {
+	global $ok;
+	return $ok($body);
+}	
+
+$wrong = function($body, $status=500) use (& $app) {
+	$response = $app->response();
+	$response['Content-Type'] = 'application/json';
+	$response->status($status);
+	$response->body(json_encode($body));	
+};
+
+function wrong($body) {
+	global $wrong;
+	return $wrong($body);
+}	
 
 # -----------------------------------------------------------------------------
 #
@@ -41,5 +65,48 @@ $app->get('/api/plot', function() use ($app) {
 			$response[] = $chapter;
 		}
 	}
+
 	ok($response);
+});
+
+
+
+$app->post('/api/subscribe', function() use ($app) {
+
+	$mc_apikey = $app->config("mailchimp_apikey");
+	$mc_id = $app->config("mailchimp_id");
+	$mc_datacenter = $app->config("mailchimp_datacenter");
+
+	$data = array(
+	    'email_address'=> $app->request()->post('email'),
+	    'apikey'=> $mc_apikey,
+	    'id' => $mc_id,
+	    'double_optin' => true,
+	    'update_existing' => false,
+	    'replace_interests' => true,
+	    'send_welcome' => false,
+	    'email_type' => 'html'
+	);
+
+	$payload = json_encode($data);
+	 
+	//replace us2 with your actual datacenter
+	$submit_url = "http://{$mc_datacenter}.api.mailchimp.com/1.3/?method=listSubscribe";
+	 
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $submit_url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, urlencode($payload));
+	 
+	$result = curl_exec($ch);
+	curl_close($ch);
+	$data = json_decode($result);
+
+	if ( is_object($data) && isset($data->error) ){
+	    wrong( array("error" => $data->error) );
+	} else {
+	    ok( array("success" => "Look for the confirmation message.") );
+	}
+
 });
