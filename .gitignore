@@ -10,3 +10,4 @@ composer_modules
 composer.lock
 composer.phar
 npm-debug.log
+.env
