@@ -19,6 +19,20 @@
             "type": "narrative"
         },
         {
+            "header": null,
+            "body": "Nous allons changer d'option et répondre à l'interview. Ça évitera que votre silence soit interprété comme un aveu. Après tout, vous n'avez rien à cacher... ",
+            "character": "Patrick Luaud",
+            "type": "dialogue",
+            "condition": {"interview_acceptee":false}
+        },
+        {
+            "header": null,
+            "body": "Ils tapent fort. Vous avez peut-être raison, en répondant à l'interview vous pourrez aussi vous couvrir. \"Qui ne dit mot consent\"... Ça pourrait vous être reproché. Après tout, vous n'avez rien à cacher.",
+            "character": "Patrick Luaud",
+            "type": "dialogue",
+            "condition": {"interview_acceptee":true}
+        },
+        {
             "body": "/voix/voix1-1-1.mp3",
             "type": "voixoff"
         },
@@ -61,7 +75,8 @@
                         {
                             "karma": -5,
                             "stress": 5,
-                            "ubm": 10
+                            "ubm": 10,
+                            "trust": 3
                         }
                     ]
                 },

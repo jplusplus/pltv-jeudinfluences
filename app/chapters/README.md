@@ -20,7 +20,10 @@
 
 ### Séquences
 
-Un évenement peut être bloquant ou pas. Il est bloquant s'il nécessite une intéraction de l'utilisateur pour enchainer sur l'évenement suivant de la séquence.
+Un évenement (appelé aussi "réplique") peut être bloquant ou pas. Il est bloquant s'il nécessite une interaction de l'utilisateur pour enchainer sur l'évenement suivant de la séquence.
+
+Chaque évenement peut avoir un paramètre "condition". Dans ce cas là, la réplique ne s'affiche que si la condition est remplie. Exemple d'utilisation : "condition": {"interview_acceptee":true}
+
 
 | types          |  bouton suivant à la fin | bloquant | paramètres                                      |
 |:------------   | ------------------------:| --------:|:----------------------------------------------- |
@@ -39,10 +42,17 @@ Si `choice` n'est pas spécifié, le paramètre `next_scene` doit être reseign�
 | paramètres     |  notes                                                                          |
 |:-------------- |:------------------------------------------------------------------------------- |
 | default_option | default choice after a given delay, can be null for disable automatic selection |
-| delay          | required if a default_option is specified                                       |
+| delay          | required if a default_option is specified (in second                            |
 | options        | list of options                                                                 |
 
 ##### Options
+
+| paramètres     |  notes                                                                          |
+|:-------------- |:------------------------------------------------------------------------------- |
+| next_scene     | ID of the next scene to display if the user make this choice                    |
+| result         | Effects on the static variables (trust,karma,stress,ubm)                        |
+| outro          | Opt: Text to display as a feedback after the choice and before the next scene   |
+
 
 ```js
 {
@@ -53,6 +63,7 @@ Si `choice` n'est pas spécifié, le paramètre `next_scene` doit être reseign�
         {
             "karma": 5,
             "stress": 2,
+            "trust": 2,
             "ubm": 10
         }
     ]
