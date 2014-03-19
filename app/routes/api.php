@@ -73,11 +73,12 @@ $app->get('/api/plot', function() use ($app) {
 
 $app->post('/api/subscribe', function() use ($app) {
 
-	$mc_apikey = $app->config("mailchimp_apikey");
-	$mc_id = $app->config("mailchimp_id");
+	$mc_apikey     = $app->config("mailchimp_apikey");
+	$mc_id         = $app->config("mailchimp_id");
 	$mc_datacenter = $app->config("mailchimp_datacenter");
+	$mc_url        = "http://{$mc_datacenter}.api.mailchimp.com/1.3/?method=listSubscribe";
 
-	$data = array(
+	$params = array(
 	    'email_address'=> $app->request()->post('email'),
 	    'apikey'=> $mc_apikey,
 	    'id' => $mc_id,
@@ -87,17 +88,12 @@ $app->post('/api/subscribe', function() use ($app) {
 	    'send_welcome' => false,
 	    'email_type' => 'html'
 	);
-
-	$payload = json_encode($data);
-	 
-	//replace us2 with your actual datacenter
-	$submit_url = "http://{$mc_datacenter}.api.mailchimp.com/1.3/?method=listSubscribe";
-	 
+		
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $submit_url);
+	curl_setopt($ch, CURLOPT_URL, $mc_url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_POST, true);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, urlencode($payload));
+	curl_setopt($ch, CURLOPT_POSTFIELDS, urlencode( json_encode($params) ));
 	 
 	$result = curl_exec($ch);
 	curl_close($ch);
