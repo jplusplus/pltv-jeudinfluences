@@ -13,11 +13,10 @@ $app->configureMode('development', function () use ($app) {
 		'cache' => false,
 
 		# -----------------------------------
-		#    OPENING DATE
+		#    OPENING DATES
 		# -----------------------------------
 		'opening_dates' => array(
 			'1' => "2014-03-19T16:00:00",
-			'2' => "2014-03-19T16:00:00",
 			'4' => "2014-03-19T16:00:00"
 		)
 	));
