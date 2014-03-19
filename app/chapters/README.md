@@ -4,8 +4,7 @@
 
 {
     "title" : "Ce n'\u00e9tait qu'un jeu...", 
-    "bilan" : true, // tell if the bilan should be shown at the end of the chapter.
-    "opening_date" : "2014-03-20T16:00:00"
+    "bilan" : true // tell if the bilan should be shown at the end of the chapter.
 }
 
 ```

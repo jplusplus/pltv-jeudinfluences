@@ -7,9 +7,22 @@ if($env == 'development'){
 }
 
 $app->configureMode('development', function () use ($app) {
-    $app->config(array(
-        'log.enabled' => true,
-        'debug' => true,
-        'cache' => false,
-    ));
+	$app->config(array(
+		'log.enabled' => true,
+		'debug' => true,
+		'cache' => false,
+
+		'home_template' => "wait.twig", // launching page
+		// 'home_template' => "index.twig", // spin game
+
+		# -----------------------------------
+		#    OPENING DATES
+		# -----------------------------------
+		'opening_dates' => array(
+			'1' => "2014-03-19T16:00:00",
+			'4' => "2014-03-19T16:00:00"
+		)
+	));
 });
+
+// EOF

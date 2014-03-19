@@ -7,23 +7,23 @@ if($env == 'production'){
 }
 
 $app->configureMode('production', function () use ($app) {
-    $app->config(array(
-        'log.enabled' => true,
-        'debug' => false,
-        'cache' => realpath('../tmp/cache')
-    ));
+	$app->config(array(
+		'log.enabled' => true,
+		'debug' => false,
+		'cache' => realpath('../tmp/cache')
+	));
 
-    // TODO
-    // * Fichier static (video, sons)
-    //   - url vers le server
-    //   - path
+	// TODO
+	// * Fichier static (video, sons)
+	//   - url vers le server
+	//   - path
 
-    // * Switch page d'attente
+	// * Switch page d'attente
 
-    // * Date d'ouverture des chapitres
+	// * Date d'ouverture des chapitres
 
-    // * Emails
+	// * Emails
 
-    // * MailChimp
+	// * MailChimp
 
 });
