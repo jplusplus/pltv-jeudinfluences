@@ -14,6 +14,30 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Soyez patients ! {{mode}}</h1>
+    <div class="wait">
+
+        <div class="wait__intro">
+            <h1>Jeu d'influences</h1>
+            <p>
+                Jusqu'où suivrez-vous votre Spin Doctor ?<br />
+                Une fiction documentaire jouable au coeur<br />
+                de la communication de crise.
+            </p>            
+        </div>
+
+        <div class="wait__subscribe">
+            <p>Laissez votre email pour être informé de l'aventure</p>       
+            <form class="form-horizontal wait__subscribe__form" role="newsletter">     
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Mail&nbsp;:</label>
+                    <div class="col-sm-11">
+                        <input class="form-control" type="email" class="form-control" />
+                    </div>
+                    <input type="submit" class="wait__subscribe__form__submit btn btn-default" value="OK" />
+                </div>
+            </form>
+        </div>
+    </div>
+
     {% include 'partials/nav.twig' %}
 {% endblock content %}

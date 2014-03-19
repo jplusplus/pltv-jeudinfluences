@@ -1,4 +1,45 @@
+@import "bootstrap.variables.less";
 @import 'bootstrap.loader.less';
-
+@import 'bootstrap.forms.less';
 @import 'nav.less';
-    
+
+.wait {
+
+    width:440px;
+    position:absolute;
+    top:40%;
+    left:50%;
+    .translate(-50%, -50%);
+
+    h1 {
+        margin:0;
+        margin-bottom:10px;
+        padding:5px 0;
+        text-transform: uppercase;
+        text-shadow:0 0 10px @brand-primary;
+        border-bottom:2px solid #403f40;
+        text-align: justify;
+    }
+
+    &__intro,    
+    &__subscribe {
+        background:fade(black, 90);
+        margin-bottom:5px;
+        padding:15px 20px;
+    }
+
+    &__subscribe {        
+        
+        &__form {
+            position:relative;
+
+            &__submit {
+                position:absolute;
+                top:0;
+                left:101%;
+                padding:5px 6px;
+            }
+        }
+
+    }
+}

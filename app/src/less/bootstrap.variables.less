@@ -27,7 +27,7 @@
 //** Background color for `<body>`.
 @body-bg:               @gray-darker;
 //** Global text color on `<body>`.
-@text-color:            @gray-lighter;
+@text-color:            #626263;
 
 //** Global textual link color.
 @link-color:            white;
@@ -45,7 +45,7 @@
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          14px;
+@font-size-base:          11px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
@@ -63,9 +63,9 @@
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    inherit;
-@headings-font-weight:    500;
+@headings-font-weight:    bold;
 @headings-line-height:    1.1;
-@headings-color:          inherit;
+@headings-color:          white;
 
 
 //-- Iconography
@@ -143,23 +143,23 @@
 
 @btn-primary-color:              #fff;
 @btn-primary-bg:                 @brand-primary;
-@btn-primary-border:             darken(@btn-primary-bg, 5%);
+@btn-primary-border:             @brand-primary;
 
 @btn-success-color:              #fff;
 @btn-success-bg:                 @brand-success;
-@btn-success-border:             darken(@btn-success-bg, 5%);
+@btn-success-border:             @brand-success;
 
 @btn-info-color:                 #fff;
 @btn-info-bg:                    @brand-info;
-@btn-info-border:                darken(@btn-info-bg, 5%);
+@btn-info-border:                @brand-info;
 
 @btn-warning-color:              #fff;
 @btn-warning-bg:                 @brand-warning;
-@btn-warning-border:             darken(@btn-warning-bg, 5%);
+@btn-warning-border:             @brand-warning;
 
 @btn-danger-color:               #fff;
 @btn-danger-bg:                  @brand-danger;
-@btn-danger-border:              darken(@btn-danger-bg, 5%);
+@btn-danger-border:              @brand-danger;
 
 @btn-link-disabled-color:        @gray-light;
 
@@ -168,19 +168,20 @@
 //
 //##
 
+
 //** `<input>` background color
-@input-bg:                       #fff;
+@input-bg:                       #000;
 //** `<input disabled>` background color
-@input-bg-disabled:              @gray-lighter;
+@input-bg-disabled:              @gray-dark;
 
 //** Text color for `<input>`s
-@input-color:                    @gray;
+@input-color:                    #bfbfbf;
 //** `<input>` border color
-@input-border:                   #ccc;
+@input-border:                   #3e3e3e;
 //** `<input>` border radius
 @input-border-radius:            @border-radius-base;
 //** Border color for inputs on focus
-@input-border-focus:             #66afe9;
+@input-border-focus:             white;
 
 //** Placeholder text color
 @input-color-placeholder:        @gray-light;
