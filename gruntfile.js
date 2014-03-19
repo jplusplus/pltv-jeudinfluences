@@ -80,14 +80,16 @@ module.exports = function(grunt) {
           bare: true
         },
         files: {
-          'public/dev/js/app.js': ['tmp/app.coffee']
+          'public/dev/js/app.js': ['tmp/app.coffee'],
+          'public/dev/js/wait.js': ['app/src/coffee/wait.coffee']
         }
       }
     },
     uglify: {
       app: {
         files: {
-          'public/js/app.min.js': ['public/dev/js/app.js']
+          'public/js/app.min.js': ['public/dev/js/app.js'],
+          'public/js/wait.min.js': ['public/dev/js/wait.js']
         }
       },
       lib: {
@@ -99,7 +101,8 @@ module.exports = function(grunt) {
     less: {
       development: {
         files: {
-          "public/dev/css/styles.css": "app/src/less/styles.less"
+          "public/dev/css/styles.css": "app/src/less/styles.less",
+          "public/dev/css/wait.css": "app/src/less/wait.less"
         }
       },
       production: {
@@ -107,7 +110,8 @@ module.exports = function(grunt) {
           yuicompress: true
         },
         files: {
-          "public/css/styles.min.css": "app/src/less/styles.less"
+          "public/css/styles.min.css": "app/src/less/styles.less",
+          "public/css/wait.min.css": "app/src/less/wait.less"
         }
       }
     },
