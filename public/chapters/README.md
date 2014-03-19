@@ -12,29 +12,32 @@
 ## Scène
 
 | paramètres     |  notes                                                                                      |
-|:-------------- | -------------------------------------------------------------------------------------------:|
-| next_scene     | optional, only for scene without choice in the sequence (Typically for flashback )|
-| decor          | TODO                                                                                        |
-| sequence       | TODO                                                                                        |
-
-
+|:-------------- |:------------------------------------------------------------------------------------------- |
+| next_scene     | optional, but required for scene without choice in the sequence (Typically for flashback )  |
+| decor          | background, background_transition, soundtrack                                               |
+| sequence       | list of events                                                                              |
 
 
 ### Séquences
 
-| types        |  bouton suivant | paramètres                                      |
-|:------------ | ---------------:|:----------------------------------------------- |
-| dialogue     |               ✓ | header, body, character                         |
-| narrative    |               ✓ | body(str)                                       |
-| voixoff      |               ✕ | body(url)                                       |
-| video        |               ✓ | body(url)                                       |
-| notification |               ✓ | body(str), header, sound                        |
-| choice       |               ✕ | body(str), delay, default_option, options(list) |
+Un évenement peut être bloquant ou pas. Il est bloquant s'il nécessite une intéraction de l'utilisateur pour enchainer sur l'évenement suivant de la séquence.
+
+| types          |  bouton suivant à la fin | bloquant | paramètres                                      |
+|:------------   | ------------------------:| --------:|:----------------------------------------------- |
+| dialogue       |                        ✓ |        ✓ | header, body, character                         |
+| narrative      |                        ✓ |        ✓ | body(str)                                       |
+| voixoff        |                        ✕ |        ✕ | body(url)                                       |
+| video          |                        ✓ |        ✓ | body(url)                                       |
+| notification   |                        ✓ |        ✓ | body(str), header, sound                        |
+| new_background |                        ✕ |        ✕ | body(url), transition                           |
+| choice         |                        ✕ |        ✓ | body(str), delay, default_option, options(list) |
+
+Si `choice` n'est pas spécifié, le paramètre `next_scene` doit être reseigné dans l'objet `scene`.
 
 #### Choices
 
 | paramètres     |  notes                                                                          |
-|:-------------- | -------------------------------------------------------------------------------:|
+|:-------------- |:------------------------------------------------------------------------------- |
 | default_option | default choice after a given delay, can be null for disable automatic selection |
 | delay          | required if a default_option is specified                                       |
 | options        | list of options                                                                 |
@@ -56,15 +59,3 @@
 }
 
 ```
-
-## Annimation lorsqu'un chapitre commence
-```
---------------------------------------------------------------------------------------->
-| écran noir en fadein
-|......| affiche le titre pendant 3s puis disparait en fadeout
-            |....| affiche le background de la scène courrante en fadein avec un timeout de 2s
-                 | lance la séquence
-```
-
-bilan
-important de mettre les id en str
