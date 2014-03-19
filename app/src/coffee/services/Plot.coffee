@@ -1,4 +1,4 @@
-angular.module("spin.services", ['ngResource']).factory "Plot", ['$resource', ($resource)-> 
+angular.module("spin.service").factory "Plot", ['$resource', ($resource)-> 
     $resource './data/plot.json'
 ]
 

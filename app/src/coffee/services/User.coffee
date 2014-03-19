@@ -1,4 +1,4 @@
-angular.module("spin.services", ['ngResource']).factory "User", ['$resource', ($resource)-> 
+angular.module("spin.service").factory "User", ['$resource', ($resource)-> 
     # ──────────────────────────────────────────────────────────────────────────
     # Private attributes
     # ──────────────────────────────────────────────────────────────────────────

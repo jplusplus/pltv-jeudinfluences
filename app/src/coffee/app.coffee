@@ -1,4 +1,9 @@
-app = angular.module('spin', ["ngRoute", "spin.filters", "spin.services"])
+angular.module('spin.config',     ['ngResource'])
+angular.module('spin.directive',  ['ngResource'])
+angular.module('spin.filter',     ['ngResource'])
+angular.module('spin.service',    ['ngResource'])
+
+app = angular.module('spin', ["ngRoute", "spin.filter", "spin.service"])
 
 # -----------------------------------------------------------------------------
 #
