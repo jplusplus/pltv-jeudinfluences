@@ -39,10 +39,17 @@ Si `choice` n'est pas spécifié, le paramètre `next_scene` doit être reseign�
 | paramètres     |  notes                                                                          |
 |:-------------- |:------------------------------------------------------------------------------- |
 | default_option | default choice after a given delay, can be null for disable automatic selection |
-| delay          | required if a default_option is specified                                       |
+| delay          | required if a default_option is specified (in second                            |
 | options        | list of options                                                                 |
 
 ##### Options
+
+| paramètres     |  notes                                                                          |
+|:-------------- |:------------------------------------------------------------------------------- |
+| next_scene     | ID of the next scene to display if the user make this choice                    |
+| result         | Effects on the static variables (trust,karma,stress,ubm)                        |
+| outro          | Opt: Text to display as a feedback after the choice and before the next scene   |
+
 
 ```js
 {
@@ -53,6 +60,7 @@ Si `choice` n'est pas spécifié, le paramètre `next_scene` doit être reseign�
         {
             "karma": 5,
             "stress": 2,
+            "trust": 2,
             "ubm": 10
         }
     ]
