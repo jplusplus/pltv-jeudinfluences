@@ -41,5 +41,19 @@
             }
         }
 
+        &__alert {
+
+            .transition(0.6s);
+
+            &.ng-hide {
+                .opacity(0);
+                .translate(-60px, 0);
+            }
+            
+            &.ng-hide-add,
+            &.ng-hide-remove {
+                display:block!important;
+            }             
+        }
     }
 }

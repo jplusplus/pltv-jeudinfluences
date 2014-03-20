@@ -73,13 +73,16 @@ $app->get('/api/plot', function() use ($app) {
 
 $app->post('/api/subscribe', function() use ($app) {
 
+	// Angular send post data throught the body in JSON
+	$body = json_decode( $app->request()->getBody() );
+
 	$mc_apikey     = $app->config("mailchimp_apikey");
 	$mc_id         = $app->config("mailchimp_id");
 	$mc_datacenter = $app->config("mailchimp_datacenter");
 	$mc_url        = "http://{$mc_datacenter}.api.mailchimp.com/1.3/?method=listSubscribe";
 
 	$params = array(
-	    'email_address'=> $app->request()->post('email'),
+	    'email_address'=> $body->email,
 	    'apikey'=> $mc_apikey,
 	    'id' => $mc_id,
 	    'double_optin' => true,

@@ -3,7 +3,7 @@ angular.module('spin.directive',  ['ngResource'])
 angular.module('spin.filter',     ['ngResource'])
 angular.module('spin.service',    ['ngResource'])
 
-app = angular.module('spin', ["ngRoute", "spin.filter", "spin.service"])
+app = angular.module('spin', ["ngRoute", "ngAnimate", "spin.filter", "spin.service"])
 
 # -----------------------------------------------------------------------------
 #

@@ -4,6 +4,7 @@ var jslib = ['bower_modules/jquery/jquery.min.js',
         'bower_modules/moment/min/moment.min.js',
         'bower_modules/moment/min/langs.min.js',
         'bower_modules/angular/angular.min.js',
+        'bower_modules/angular-animate/angular-animate.min.js',
         'bower_modules/angular-route/angular-route.min.js',
         'bower_modules/angular-resource/angular-resource.min.js',
         ];
