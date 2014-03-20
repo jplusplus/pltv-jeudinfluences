@@ -12,8 +12,8 @@ $app->configureMode('development', function () use ($app) {
 		'debug' => true,
 		'cache' => false,
 		// Choose the right template for the homepage
-		// 'home_template' => "index.twig", // spin game
-		'home_template' => "wait.twig", // launching page
+		'home_template' => "index.twig", // spin game
+		//'home_template' => "wait.twig", // launching page
 		// Mailchimp configuration
 		'mailchimp_id' => '',
 		'mailchimp_datacenter' => '', # ex: us8

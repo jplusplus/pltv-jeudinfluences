@@ -1,3 +1,6 @@
 <div ng-repeat="chapter in plot.chapters" ng-controller="ChapterCtrl">
-	<h2>[[chapter.title]]</h2>
+    <div screen-height="400">
+    	<h2>[[chapter.title]]</h2>
+        <span  ng-show="chapter.id == user.chapter">ACTIVE</span>
+    </div>
 </div>

@@ -1,5 +1,10 @@
 app = angular.module('spin', ["ngAnimate"])
 
+app.config(['$interpolateProvider', ($interpolateProvider) ->    
+    $interpolateProvider.startSymbol('[[')
+    $interpolateProvider.endSymbol(']]')
+])
+
 class WaitCtrl
     @$inject: ["$scope", "$http"]
     constructor: (@scope, @http)->

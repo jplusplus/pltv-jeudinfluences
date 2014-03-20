@@ -1,14 +1,14 @@
-angular.module("spin.service").factory "User", ['$resource', ($resource)-> 
-    # ──────────────────────────────────────────────────────────────────────────
-    # Private attributes
-    # ──────────────────────────────────────────────────────────────────────────
-    chapter = 0    
+class User
+    @$inject: ['$http', 'Plot']
+
     # ──────────────────────────────────────────────────────────────────────────
     # Public method
     # ──────────────────────────────────────────────────────────────────────────
-    chapter: (c)->
-        if c? 
-            chapter = c
-        chapter
-]
+    constructor: (@Plot)-> 
+        @chapter = 1
+        return @
+
+        
+
+angular.module("spin.service").factory "User", User
 # EOF
