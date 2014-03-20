@@ -28,6 +28,38 @@ function wrong($body, $status=500) {
 #    API
 #
 # -----------------------------------------------------------------------------
+$app->get('/api/career(/:token)', function($token=NULL) use ($app) {
+	/**
+	* Retrieve the career progression for the given token from the database.
+	* If no token are given, use the session to guess it.
+	*
+	* TODO:
+	* [ ] (check if token is different than the one we have from session)
+	* [ ] token should be generated when the user start the game, at the first save.
+	*
+	*/
+	// NOTE : it's hard to get an email from a GET parameter. Screw you PHP.
+	// (see https://github.com/codeguy/Slim/issues/359)
+	// if(filter_var($token, FILTER_VALIDATE_EMAIL)) {echo "this is an email";}
+	if (!isset($token)) {
+		// $token = from session;
+	}
+	// retrieve career from database for the given token
+	$career = NULL;
+	ok($career);
+});
+
+$app->post('/api/career', function() use ($app) {
+	/**
+	* Save the career progression in database.
+	*
+	* TODO:
+	* [ ] token should be generated when the user start the game, at the first save.
+	*
+	*/
+	// $token = from session;
+});
+
 $app->get('/api/plot', function() use ($app) {
 	/**
 	* Retrieve the list of opened chapters and their scenes from the `chapters` folder.
