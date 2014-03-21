@@ -1,7 +1,8 @@
 //
 // Variables
 // --------------------------------------------------
-
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic,700italic);
+@import "/fonts/league-gothic/stylesheet.css";
 
 //== Colors
 //
@@ -13,7 +14,7 @@
 @gray-light:             lighten(#000, 60%);   // #999
 @gray-lighter:           lighten(#000, 93.5%); // #eee
 
-@brand-primary:         #b12409;
+@brand-primary:         #FF2A00;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
@@ -27,7 +28,7 @@
 //** Background color for `<body>`.
 @body-bg:               @gray-darker;
 //** Global text color on `<body>`.
-@text-color:            #bfbfbf;
+@text-color:            #fff;
 
 //** Global textual link color.
 @link-color:            white;
@@ -39,13 +40,13 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-sans-serif:  "League Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       "Merriweather", Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
-@font-family-base:        @font-family-sans-serif;
+@font-family-base:        @font-family-serif;
 
-@font-size-base:          11px;
+@font-size-base:          12px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
@@ -62,8 +63,8 @@
 @line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
 
 //** By default, this inherits from the `<body>`.
-@headings-font-family:    inherit;
-@headings-font-weight:    bold;
+@headings-font-family:    @font-family-sans-serif;
+@headings-font-weight:    normal;
 @headings-line-height:    1.1;
 @headings-color:          white;
 

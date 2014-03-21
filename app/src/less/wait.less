@@ -13,25 +13,40 @@
 
     h1 {
         margin:0;
-        margin-bottom:10px;
-        padding:5px 0;
+        padding:0;
         text-transform: uppercase;
         text-shadow:0 0 10px @brand-primary;
-        border-bottom:2px solid #403f40;
-        text-align: justify;
+        text-align: center;
     }
+
 
     &__intro,    
     &__subscribe {
-        background:fade(black, 90);
-        margin-bottom:5px;
+        background:fade(black, 75);
+        margin-bottom:15px;
         padding:10px 20px;
     }
 
+    &__intro {
+        padding-top:15px;
+
+        &__lead {            
+            padding:5px 0;
+            margin-bottom:20px;
+            text-align: center;
+            border-bottom:2px solid #403f40;
+            text-transform: uppercase;
+            color:white;
+        }
+    }
+
     &__subscribe {        
+
+        background:fade(black, 50);
         
         &__form {
             position:relative;
+            margin-bottom:15px;
 
             &__submit {
                 position:absolute;
