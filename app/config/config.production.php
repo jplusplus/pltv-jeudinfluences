@@ -23,7 +23,7 @@ $app->configureMode('production', function () use ($app) {
 		'mailchimp_apikey'     => '',
 		// Opening dates of each chapter
 		'opening_dates'        => array(
-			// ex: '1'                => "2014-03-19T16:00:00",
+			// ex: '1'         => "2014-03-19T16:00:00",
 		)
 	));
 
