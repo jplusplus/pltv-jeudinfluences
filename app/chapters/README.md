@@ -20,7 +20,7 @@
 
 ### Séquences
 
-Un évenement (appelé aussi "réplique") peut être bloquant ou pas. Il est bloquant s'il nécessite une interaction de l'utilisateur pour enchainer sur l'évenement suivant de la séquence.
+Un évenement (appelé aussi "réplique") peut être bloquant ou pas. Il est bloquant s'il nécessite d'être terminé pour enchainer sur l'évenement suivant de la séquence.
 
 Chaque évenement peut avoir un paramètre "condition". Dans ce cas là, la réplique ne s'affiche que si la condition est remplie. Exemple d'utilisation : "condition": {"interview_acceptee":true}
 
@@ -29,7 +29,7 @@ Chaque évenement peut avoir un paramètre "condition". Dans ce cas là, la rép
 |:------------   | ------------------------:| --------:|:----------------------------------------------- |
 | dialogue       |                        ✓ |        ✓ | header, body, character                         |
 | narrative      |                        ✓ |        ✓ | body(str)                                       |
-| voixoff        |                        ✕ |        ✕ | body(url)                                       |
+| voixoff        |                        ✕ |        ✓ | body(url)                                       |
 | video          |                        ✓ |        ✓ | body(url)                                       |
 | notification   |                        ✓ |        ✓ | body(str), header, sound                        |
 | new_background |                        ✕ |        ✕ | body(url), transition                           |
