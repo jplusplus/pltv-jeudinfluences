@@ -40,8 +40,10 @@ $app->notFound(function () use ($app) {
 
 $app->view->setData(
 	array(
-		'menu' => array('Home',),
-		'mode' => $app->getMode()
+		'mode'        => $app->getMode(),
+		'STATIC_ROOT' => $app->config("static_root"),
+		'STATIC_URL'  => $app->config("static_url"),
+		'menu' => array('Home',)
 	)
 );
 

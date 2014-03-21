@@ -11,6 +11,8 @@ $app->configureMode('development', function () use ($app) {
 		'log.enabled'          => true,
 		'debug'                => true,
 		'cache'                => false,
+		// assets
+		'static_url'           => "/",
 		// Choose the right template for the homepage
 		'home_template' => "index.twig", // spin game
 		//'home_template' => "wait.twig", // launching page

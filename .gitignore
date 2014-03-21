@@ -11,3 +11,4 @@ composer.lock
 composer.phar
 npm-debug.log
 .env
+fabfile.py
