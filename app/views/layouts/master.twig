@@ -12,24 +12,19 @@
 
         <title>pltv-spin - {{ viewName }}</title>
 
-        {% block link %}
-            <link rel="stylesheet" href="/css/lib.css" />
-        {% endblock %}
-
         {% block script %}
-            <script src="/js/lib.min.js"></script>
+            <script src="{{STATIC_URL}}js/lib.min.js"></script>
         {% endblock %}
 
         {% block head %}
             {% if mode == "development" %}
-                <link rel="stylesheet" href="/dev/css/styles.css" />
+                <link rel="stylesheet" href="{{STATIC_URL}}dev/css/styles.css" />
                 <script src="http://localhost:35729/livereload.js"></script>
-                <script type="text/javascript" src="/dev/js/app.js"></script>
+                <script type="text/javascript" src="{{STATIC_URL}}dev/js/app.js"></script>
             {% endif %}
-
             {% if mode == "production" %}
-                <link rel="stylesheet" href="/css/styles.min.css" />
-                <script type="text/javascript" src="/js/app.min.js"></script>
+                <link rel="stylesheet" href="{{STATIC_URL}}css/styles.min.css" />
+                <script type="text/javascript" src="{{STATIC_URL}}js/app.min.js"></script>
             {% endif %}
         {% endblock %}
     </head>

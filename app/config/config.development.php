@@ -11,6 +11,9 @@ $app->configureMode('development', function () use ($app) {
 		'log.enabled'          => true,
 		'debug'                => true,
 		'cache'                => false,
+		// assets
+		'static_url'           => "/",
+		'media_url'            => "/media/", # for video, sounds and large files
 		// Choose the right template for the homepage
 		//'home_template' => "index.twig", // spin game
 		'home_template' => "wait.twig", // launching page
