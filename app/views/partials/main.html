@@ -7,26 +7,39 @@
     
     <ul class="chapter__cmd list-unstyled">
         <li class="chapter__cmd__indicator chapter__cmd__indicator--ubm">
-            <abbr class="chapter__cmd__indicator__help">?</abbr>
+            <abbr class="chapter__cmd__indicator__help">
+                ?
+                <span class="chapter__cmd__indicator__help__definition">Unité de Bruit Médiatique</span>
+            </abbr>
+            <span class="chapter__cmd__indicator__label">UBM</span>
+            <span class="chapter__cmd__indicator__value">[[user.ubm]]%</span>
             <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar progress-bar-danger">
-                    <span class="sr-only">10%</span>
+                <span class="progress-bar progress-bar-danger" ng-style="{ width: user.ubm + '%' }">
                 </span>                
             </span>
         </li>
         <li class="chapter__cmd__indicator chapter__cmd__indicator--trust">
-            <abbr class="chapter__cmd__indicator__help">?</abbr>
+            <abbr class="chapter__cmd__indicator__help">
+                ?
+                <span class="chapter__cmd__indicator__help__definition">Lorem Ispum</span>
+            </abbr>
+            <span class="chapter__cmd__indicator__label">Confiance</span>
+
+            <span class="chapter__cmd__indicator__value">[[user.trust]]%</span>
             <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar progress-bar-info">
-                    <span class="sr-only">10%</span>
+                <span class="progress-bar progress-bar-info" ng-style="{ width: user.trust + '%' }">
                 </span>                
             </span>
         </li>
         <li class="chapter__cmd__indicator chapter__cmd__indicator--stress">
-            <abbr class="chapter__cmd__indicator__help">?</abbr>
+            <abbr class="chapter__cmd__indicator__help">
+                ?
+                <span class="chapter__cmd__indicator__help__definition">Dolor sit amet</span>
+            </abbr>
+            <span class="chapter__cmd__indicator__label">Stress</span>
+            <span class="chapter__cmd__indicator__value">[[user.stress]]%</span>
             <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar progress-bar-success">
-                    <span class="sr-only">10%</span>
+                <span class="progress-bar progress-bar-success" ng-style="{ width: user.stress + '%' }">
                 </span>                
             </span>
         </li>

@@ -35,4 +35,99 @@
             line-height: 65px;
         }
     }
+
+    &__cmd {
+        z-index:@chapter-zindex;
+        position:absolute;
+        left:0;
+        bottom:50px;
+        width:280px;
+
+        &__indicator {
+            width:auto;
+            margin-top:5px;
+            padding:0 10px;
+            height:24px;
+            line-height:24px;
+            background:fade(black, 75);
+            position:relative;
+
+
+
+            &__value {
+                position:absolute;
+                margin-left:5px;
+                left:100%;
+                top:0;
+                background:fade(black, 75);
+                height:24px;
+                padding:0 5px;
+                color:#fff;   
+                opacity: 0;                             
+                .translate(-40px, 0);
+                .transition(0.6s cubic-bezier(0.23, 1, 0.32, 1) );
+            }
+
+            &:hover &__value {
+                opacity: 1;                                             
+                .translate(0, 0);
+            }
+
+            &__help {
+                font-family: Helvetica, Arial, sans-serif;
+                font-size:10px;
+                display: inline-block;
+                margin-top:4px;
+                line-height: 16px;
+                height:16px;
+                width:16px;
+                text-align:center;
+                border:1px solid @text-color;
+                border-radius: 50%;
+                cursor:help;
+
+                &:hover &__definition {
+                    .translate(0, 0);                
+                }
+
+                &__definition {
+                    padding-left:10px;
+                    padding-right:5px;
+                    height:20px;
+                    font-size:12px;
+                    line-height: 20px;
+                    position:absolute;
+                    left:0;
+                    bottom:100%;
+                    background-color: fade(#fff, 75);
+                    color:fade(#000, 75);
+                    margin-bottom:5px;
+                    .translate(-100%, 0);
+                    .transition(0.6s cubic-bezier(0.23, 1, 0.32, 1) );
+                }
+            }
+
+
+            &__label {
+                position:absolute;
+                right:150px;
+                top:0;
+                bottom:0;
+                text-transform: uppercase;
+                color:white;
+            }
+
+            &__progress {
+                width:130px;
+                height:6px;
+                position:absolute;
+                right:10px;
+                top:9px;
+
+                .progress-bar, & {
+                    border-radius:3px;
+                }
+            }
+        }
+    }
 }
