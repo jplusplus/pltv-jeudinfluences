@@ -23,24 +23,20 @@
                 {
                     "header": "Non",
                     "next_scene": "4.3",
-                    "result": [
-                        {
-                            "karma": 5,
-                            "stress": 5,
-                            "ubm": 10
-                        }
-                    ]
+                    "result": {
+                        "karma": 5,
+                        "stress": 5,
+                        "ubm": 10
+                    }
                 },
                 {
                     "header": "Oui",
                     "next_scene": "4.4",
-                    "result": [
-                        {
-                            "karma": 0,
-                            "stress": 0,
-                            "ubm": 0
-                        }
-                    ]
+                    "result": {
+                        "karma": 0,
+                        "stress": 0,
+                        "ubm": 0
+                    }
                 }
             ]
         }
