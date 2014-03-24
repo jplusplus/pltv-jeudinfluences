@@ -3,9 +3,13 @@
     position:absolute;
     top:0;
     left:0;
+    right:0;
+    bottom:0;
+    overflow: hidden;
 
     &__intro {
 
+        z-index:@chapter-zindex;
         position:absolute;
         top:140px;
         left:0;
@@ -13,6 +17,7 @@
         text-align: right;
 
         &__id {            
+            margin-bottom:5px;
             padding:0 5px;
             line-height: 24px;
             height:24px;

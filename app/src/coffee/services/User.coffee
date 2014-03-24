@@ -5,7 +5,8 @@ class User
     # Public method
     # ──────────────────────────────────────────────────────────────────────────
     constructor: (@Plot)-> 
-        @chapter = 1
+        @chapter = "1"
+        @scene   = "1"
         return @
 
         

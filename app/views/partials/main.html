@@ -1,13 +1,41 @@
-<div ng-repeat="chapter in plot.chapters" ng-controller="ChapterCtrl" class="chapter" ng-show="chapter.id == user.chapter">
-
-
+<div ng-repeat="chapter in plot.chapters" class="chapter" ng-controller="ChapterCtrl" ng-show="shouldShowChapter(chapter)">    
+    
     <div class="chapter__intro">
         <div class="chapter__intro__id">Chapitre [[chapter.id]]</div>
         <h2 class="chapter__intro__title">[[chapter.title]]</h2>  
     </div>
+    
+    <ul class="chapter__cmd list-unstyled">
+        <li class="chapter__cmd__indicator chapter__cmd__indicator--ubm">
+            <abbr class="chapter__cmd__indicator__help">?</abbr>
+            <span class="chapter__cmd__indicator__progress progress">
+                <span class="progress-bar progress-bar-danger">
+                    <span class="sr-only">10%</span>
+                </span>                
+            </span>
+        </li>
+        <li class="chapter__cmd__indicator chapter__cmd__indicator--trust">
+            <abbr class="chapter__cmd__indicator__help">?</abbr>
+            <span class="chapter__cmd__indicator__progress progress">
+                <span class="progress-bar progress-bar-info">
+                    <span class="sr-only">10%</span>
+                </span>                
+            </span>
+        </li>
+        <li class="chapter__cmd__indicator chapter__cmd__indicator--stress">
+            <abbr class="chapter__cmd__indicator__help">?</abbr>
+            <span class="chapter__cmd__indicator__progress progress">
+                <span class="progress-bar progress-bar-success">
+                    <span class="sr-only">10%</span>
+                </span>                
+            </span>
+        </li>
+    </ul>
 
-    <div ng-repeat="scene in chapter.scenes" class="scene" ng-controller="SceneCtrl">
-        
+    <div ng-repeat="scene in chapter.scenes" class="scene" ng-controller="SceneCtrl" ng-show="shouldShowScene(scene)">        
+        <img class="scene__bg" ng-src="/img[[scene.decor[0].background]]" />            
     </div>
+
+
 
 </div>

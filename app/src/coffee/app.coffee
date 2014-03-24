@@ -1,3 +1,4 @@
+angular.module('spin.controller',['ngResource'])
 angular.module('spin.config',    ['ngResource'])
 angular.module('spin.directive', ['ngResource'])
 angular.module('spin.filter',    ['ngResource'])
