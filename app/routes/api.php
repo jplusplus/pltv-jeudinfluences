@@ -80,6 +80,7 @@ $app->post('/api/career(/:token)', function($token=NULL) use ($app) {
 	/**
 	* Save the career progression in database
 	* expected body : career in json (see `doc/career.md`)
+	* If token isn't given, create one and return it
 	*
 	*/
 	if (isset($token)) {
