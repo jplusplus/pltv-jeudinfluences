@@ -39,5 +39,5 @@ Or the choice can be implicit, with the `default_choice` scene's parameter.
 }
 ```
 
-__reached scene__   : `career.path[-1]` (last element of `path`)
+__reached scene__   : `career.history[-1].scene` (last element of `history`)
 __current context__ : this is the value of the context variables. To retrieve the context, loop over the history and compute each variable, starting from the initial values (TODO: to be defined somewhere).
