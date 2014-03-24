@@ -1,5 +1,6 @@
 <?php
 namespace app\routes;
+use RedBean_Facade as R;
 
 # -----------------------------------------------------------------------------
 #
@@ -28,7 +29,7 @@ function wrong($body, $status=500) {
 #    API
 #
 # -----------------------------------------------------------------------------
-$app->get('/api/career(/:token)', function($token=NULL) use ($app) {
+$app->get('/api/career/:token', function($token=NULL) use ($app) {
 	/**
 	* Retrieve the career progression for the given token from the database.
 	* If no token are given, use the session to guess it.
@@ -41,11 +42,9 @@ $app->get('/api/career(/:token)', function($token=NULL) use ($app) {
 	// NOTE : it's hard to get an email from a GET parameter. Screw you PHP.
 	// (see https://github.com/codeguy/Slim/issues/359)
 	// if(filter_var($token, FILTER_VALIDATE_EMAIL)) {echo "this is an email";}
-	if (!isset($token)) {
-		// $token = from session;
-	}
+
 	// retrieve career from database for the given token
-	$career = NULL;
+	$career = R::load('career', $token);
 	ok($career);
 });
 

@@ -3,7 +3,7 @@
 use RedBean_Facade as R;
 
 if($env == 'development'){
-	R::setup('sqlite:../tmp/db.sqlite','user','password');
+	R::setup('sqlite:../tmp/db.sqlite', NULL, NULL);
 }
 
 $app->configureMode('development', function () use ($app) {
