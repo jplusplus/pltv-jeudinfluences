@@ -60,37 +60,31 @@
                 {
                     "header": "Appeler Nadia",
                     "next_scene": "1.1",
-                    "result": [
-                        {
-                            "karma": 5,
-                            "stress": 5,
-                            "ubm": 10
-                        }
-                    ]
+                    "result": {
+                        "karma": 5,
+                        "stress": 5,
+                        "ubm": 10
+                    }
                 },
                 {
                     "header": "Ne pas appeler Nadia",
                     "next_scene": "1.2",
-                    "result": [
-                        {
-                            "karma": -5,
-                            "stress": 5,
-                            "ubm": 10,
-                            "trust": 3
-                        }
-                    ]
+                    "result": {
+                        "karma": -5,
+                        "stress": 5,
+                        "ubm": 10,
+                        "trust": 3
+                    }
                 },
                 {
                     "header": "Envoyer un DM \u00e0 Nadia",
                     "next_scene": "2.1",
                     "outro": "Nadia a bien re\u00e7u votre DM...",
-                    "result": [
-                        {
-                            "karma": 5,
-                            "stress": 2,
-                            "ubm": 10
-                        }
-                    ]
+                    "result": {
+                        "karma": 5,
+                        "stress": 2,
+                        "ubm": 10
+                    }
                 }
             ]
         }

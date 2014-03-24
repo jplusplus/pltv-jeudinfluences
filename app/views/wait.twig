@@ -14,27 +14,29 @@
 {% endblock %}
 
 {% block content %}
+    
+    <div class="bg bg--wait"></div>
+
     <div class="wait" ng-controller="WaitCtrl">
 
         <div class="wait__intro">
             <h1>Jeu d'influences</h1>
+            <p class="wait__intro__lead">
+                Jusqu'où suivrez-vous votre Spin Doctor ?
+            </p>
             <p>
-                Jusqu'où suivrez-vous votre Spin Doctor ?<br />
-                Une fiction documentaire jouable au coeur<br />
-                de la communication de crise.
+                Une fiction documentaire jouable au coeur de la communication de crise.
+            </p>
+            <p class="wait__intro__start">
+                Début de l'aventure le 27/04/2014
             </p>
         </div>
 
         <div class="wait__subscribe">
             <p>Laissez votre email pour être informé de l'aventure</p>       
-            <form class="form-horizontal wait__subscribe__form" role="newsletter" ng-submit="submit()" name="form">     
-                <div class="form-group">
-                    <label class="col-sm-1 control-label">Mail</label>
-                    <div class="col-sm-11">
-                        <input class="form-control" ng-model="email" required type="email" class="form-control" />
-                    </div>
-                    <input type="submit" class="wait__subscribe__form__submit btn btn-default" value="OK" ng-disabled="form.$invalid" />
-                </div>
+            <form class="form-horizontal wait__subscribe__form" role="newsletter" ng-submit="submit()" name="form">                     
+                <input class="form-control" placeholder="email@exemple.org" ng-model="email" required type="email" class="form-control" /> 
+                <button type="submit" class="wait__subscribe__form__submit btn btn-default"ng-disabled="form.$invalid">OK</button>                
             </form>
             <div class="alert alert-danger form-horizontal wait__subscribe__alert" ng-show="error">
                 <button type="button" class="close" aria-hidden="true" ng-click="error = false">&times;</button>
@@ -47,5 +49,6 @@
         </div>
     </div>
 
-    {% include 'partials/nav.twig' %}
+    {% include 'partials/nav-lite.twig' %}
+    
 {% endblock content %}

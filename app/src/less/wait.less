@@ -3,6 +3,19 @@
 @import 'bootstrap.forms.less';
 @import 'nav.less';
 
+.bg {    
+    background: no-repeat 0 0 @body-bg;
+    background-size: cover;
+    background-image:url("/img/bg/wait.jpg");    
+    min-height:100%;
+    min-width:100%;
+    display:block;
+    position:absolute;
+    top:50%;
+    left:50%;
+    .translate(-50%, -50%);
+}
+
 .wait {
 
     width:440px;
@@ -13,31 +26,70 @@
 
     h1 {
         margin:0;
-        margin-bottom:10px;
-        padding:5px 0;
+        padding:0;
         text-transform: uppercase;
-        text-shadow:0 0 10px @brand-primary;
-        border-bottom:2px solid #403f40;
-        text-align: justify;
+        text-shadow:0 0 5px @brand-primary;
+        text-align: center;
+        font-size: 82px;
+        height:80px;
+        white-space: nowrap;
     }
+
 
     &__intro,    
     &__subscribe {
-        background:fade(black, 90);
-        margin-bottom:5px;
-        padding:10px 20px;
+        background:fade(black, 75);
+        margin-bottom:15px;
+        padding:20px;
+    }
+
+    &__intro {
+        padding-top:15px;
+
+        &__lead {            
+            white-space: nowrap;
+            padding:0;
+            padding-bottom:5px;
+            margin-bottom:20px;
+            text-align: center;
+            border-bottom:2px solid #4C4C4C;
+            text-transform: uppercase;
+            color:white;
+            font-size:12px;
+        }
+
+        &__start {
+            color:#FF7F00;
+        }
     }
 
     &__subscribe {        
+
+        background:fade(black, 50);
         
         &__form {
             position:relative;
+            padding-right:10px;
+            margin-bottom:5px;
+
+            &:after {
+                content:"";
+                position:absolute;
+                top:31px;
+                right:-31px;
+                background:url("/img/ui/triangle1.png") no-repeat right 0;                    
+                height:5px;
+                width:11px;
+                z-index:-1;                
+            }
 
             &__submit {
+                z-index:10;
                 position:absolute;
                 top:0;
-                left:101%;
+                right:-32px;
                 padding:5px 6px;
+
             }
         }
 
