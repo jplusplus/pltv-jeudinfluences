@@ -22,8 +22,8 @@
 
 ```json
 "next_scene" : {
-    "positif" : "2.2", // si karma est positif ( >=0 ), aller à la scène 2.2
-    "negatif" : "2.1"  // // si karma est négatif ( <0 ), aller à la scène 2.1
+    "positif_karma" : "2.2", // si karma est positif ( >=0 ), aller à la scène 2.2
+    "negatif_karma" : "2.1"  // si karma est négatif ( <0 ), aller à la scène 2.1
 }
 ```
 
