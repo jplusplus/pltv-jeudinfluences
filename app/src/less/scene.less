@@ -10,7 +10,28 @@
 
     &__bg {
         .covering();
-        z-index:@scenebg-zindex;
+        z-index:-1;
     }
     
+
+    &__sequence {    
+        position:absolute;
+        bottom:60px;
+        left:50%;
+        background:fade(#000, 75);
+        width:440px;
+        padding:20px;
+        .translate(-50%, 0);
+
+        &__next {
+            position:absolute;
+            bottom:20px;
+            right:-15px;
+            height:30px;
+            width:30px;
+            display:block;
+            padding:0;
+            background:url("/img/ui/btn_next.png") no-repeat center center #000;
+        }
+    }
 }
