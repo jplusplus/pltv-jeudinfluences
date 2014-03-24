@@ -11,6 +11,7 @@ $app->configureMode('production', function () use ($app) {
 		'log.enabled'          => true,
 		'debug'                => false,
 		'cache'                => realpath('../tmp/cache'),
+		'archimade_idsite'     => 2439,
 		// assets
 		'static_url'           => "/",
 		'media_url'            => "/media/", # for video, sounds and large files

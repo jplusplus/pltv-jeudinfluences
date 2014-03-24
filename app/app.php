@@ -40,10 +40,10 @@ $app->notFound(function () use ($app) {
 
 $app->view->setData(
 	array(
-		'mode'        => $app->getMode(),
-		'STATIC_ROOT' => $app->config("static_root"),
-		'STATIC_URL'  => $app->config("static_url"),
-		'menu' => array('Home',)
+		'MODE'             => $app->getMode(),
+		'ARCHIMADE_IDSITE' => $app->config("archimade_idsite"),
+		'STATIC_ROOT'      => $app->config("static_root"),
+		'STATIC_URL'       => $app->config("static_url")
 	)
 );
 

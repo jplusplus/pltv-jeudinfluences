@@ -5,7 +5,14 @@ class User
     # Public method
     # ──────────────────────────────────────────────────────────────────────────
     constructor: (@Plot)-> 
-        @chapter = 1
+        # Position
+        @chapter = "1"
+        @scene   = "1"
+        # Indicators
+        @ubm     = ~~(Math.random()*100)
+        @trust   = ~~(Math.random()*100)
+        @stress  = ~~(Math.random()*100)
+
         return @
 
         
