@@ -48,43 +48,48 @@ $app->get("/api/career/:token", function($token) use ($app) {
 	}
 });
 
-$app->post("/api/career", function() use ($app) {
-	/**
-	* Similar than `get("/api/career/:token")`.
-	* Retrieve the career progression for the given email from the database.
-	* This uses the post method b/c of an issue with dot in url parameters. 404 is triggered :(
-	* Screw you PHP.
-	* (see https://github.com/codeguy/Slim/issues/359)
-	*
-	* expected body : `{"email" : "example@wanadoo.fr"}`
-	*
-	*/
-	$data = json_decode($app->request()->getBody(), false);
-	if(filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
-		$career = R::findOne('career', 'email=?', array($data->email));
-		if (empty($career)) {
-			wrong(array('error' => 'empty'));
-		} else {
-			if (empty($career->export()["json"])) {
-				wrong(array('error' => 'undefined'));
-			} else {
-				ok($career->export()["json"], false);
-			}
-		}
-	} else {
-		wrong(array('error' => 'email required'));
-	}
-});
-$app->post('/api/career/:token', function($token) use ($app) {
+// NOTE : retrieve a career from the email. Need to find an other url signature
+// $app->post("/api/career", function() use ($app) {
+// 	/**
+// 	* Similar than `get("/api/career/:token")`.
+// 	* Retrieve the career progression for the given email from the database.
+// 	* But this uses the post method b/c of an issue with dot in url parameters. 404 is triggered :(
+// 	* Screw you PHP.
+// 	* (see https://github.com/codeguy/Slim/issues/359)
+// 	* 
+// 	* expected body : `{"email" : "example@wanadoo.fr"}`
+// 	*/
+// 	$data = json_decode($app->request()->getBody(), false);
+// 	if(filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
+// 		$career = R::findOne('career', 'email=?', array($data->email));
+// 		if (empty($career)) {
+// 			wrong(array('error' => 'empty'));
+// 		} else {
+// 			if (empty($career->export()["json"])) {
+// 				wrong(array('error' => 'undefined'));
+// 			} else {
+// 				ok($career->export()["json"], false);
+// 			}
+// 		}
+// 	} else {
+// 		wrong(array('error' => 'email required'));
+// 	}
+// });
+
+$app->post('/api/career(/:token)', function($token=NULL) use ($app) {
 	/**
 	* Save the career progression in database
 	* expected body : career in json (see `doc/career.md`)
 	*
 	*/
-	$career = R::findOne('career', 'token=?', array($token));
-	if (empty($career)) {
-		// no result
+	if (isset($token)) {
+		$career = R::findOne('career', 'token=?', array($token));
+		if (empty($career)) {
+			wrong(array('error' => 'empty'));
+		}
+	} else {
 		$career        = R::dispense('career');
+		$token         = uniqid();
 		$career->token = $token; # save the token
 	}
 	// update the career (json syntax)
