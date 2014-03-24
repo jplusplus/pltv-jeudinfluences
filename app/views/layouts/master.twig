@@ -3,11 +3,13 @@
 <!--[if IE 7]>         <html ng-app="spin" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html ng-app="spin" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html ng-app="spin" class="no-js"> <!--<![endif]-->    
-    <head>
+    <head>    
         {% block meta %}
             <meta charset="utf-8">
             <meta name="description" content="">
             <meta name="viewport" content="width=device-width">
+            <meta name="archimade_idsite" content="{{ ARCHIMADE_IDSITE }}">
+            <meta name="archimade_token"  content="default">
         {% endblock %}
 
         <title>pltv-spin - {{ viewName }}</title>
@@ -17,28 +19,46 @@
         {% endblock %}
 
         {% block head %}
-            {% if mode == "development" %}
+            {% if MODE == "development" %}
                 <link rel="stylesheet" href="{{STATIC_URL}}dev/css/styles.css" />
                 <script src="http://localhost:35729/livereload.js"></script>
                 <script type="text/javascript" src="{{STATIC_URL}}dev/js/app.js"></script>
             {% endif %}
-            {% if mode == "production" %}
+            {% if MODE == "production" %}
                 <link rel="stylesheet" href="{{STATIC_URL}}css/styles.min.css" />
                 <script type="text/javascript" src="{{STATIC_URL}}js/app.min.js"></script>
             {% endif %}
         {% endblock %}
+
+        {{archimade.variables|raw}}
+
+        {% for tag in archimade.tags %}
+            {{tag|raw}}
+        {% endfor %}
+
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
         
-        <div id="content">
+
+        {{archimade.header|raw}}
+
+        <div id="content" class="site_content">
             {% block content %}
                 {{ content|raw }}
             {% endblock content %}            
         </div>
-
+        
         {% block inline%}{% endblock inline %}
-    </body>
-</html>
+
+{# Archimade create the ending markup itself #}
+{% if archimade %}
+    {{archimade.footer|raw}}
+{# If Archimade is not set, we close the page #}
+{% else %}
+        </body>
+    </html>
+{% endif %}
+
