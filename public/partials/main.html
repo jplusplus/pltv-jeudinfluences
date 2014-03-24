@@ -1,13 +1,1 @@
-<div ng-repeat="chapter in plot.chapters" ng-controller="ChapterCtrl" class="chapter" ng-show="chapter.id == user.chapter">
-
-
-    <div class="chapter__intro">
-        <div class="chapter__intro__id">Chapitre [[chapter.id]]</div>
-        <h2 class="chapter__intro__title">[[chapter.title]]</h2>  
-    </div>
-
-    <div ng-repeat="scene in chapter.scenes" class="scene" ng-controller="SceneCtrl">
-        
-    </div>
-
-</div>
+<div ng-repeat="chapter in plot.chapters" ng-include="'partials/chapter.html'"></div>
