@@ -7,7 +7,7 @@ Or the choice can be implicit, with the `default_choice` scene's parameter.
 
 ```json
 {
-	"token" : "3d09baddc21a365b7da5ae4d0aa5cb95"
+	"token" : "3d09baddc21a365b7da5ae4d0aa5cb95",
 	"history" : [
 		{
 			"scene" : "1.1",
