@@ -18,6 +18,15 @@
 | sequence       | list of events                                                                              |
 
 
+`next_scene` peut-être une chaine représentant une scène ("2.2" par exemple) ou une condition sur la variable `karma` comme ci dessous :
+
+```json
+"next_scene" : {
+    "positif" : "2.2", // si karma est positif ( >=0 ), aller à la scène 2.2
+    "negatif" : "2.1"  // // si karma est négatif ( <0 ), aller à la scène 2.1
+}
+```
+
 ### Séquences
 
 Un évenement (appelé aussi "réplique") peut être bloquant ou pas. Il est bloquant s'il nécessite d'être terminé pour enchainer sur l'évenement suivant de la séquence.
