@@ -15,8 +15,7 @@ $app->configureMode('development', function () use ($app) {
 		'static_url'           => "/",
 		'media_url'            => "/media/", # for video, sounds and large files
 		// Choose the right template for the homepage
-		//'home_template' => "index.twig", // spin game
-		'home_template' => "wait.twig", // launching page
+		'home_template' => "index.twig", // spin game
 		// Mailchimp configuration
 		'mailchimp_id'         => '',
 		'mailchimp_datacenter' => '', # ex: us8
