@@ -23,8 +23,7 @@ angular.module("spin.service").factory "User", ['Plot', 'localStorageService', '
             $rootScope.$watch (=>@), @updateLocalStorage, yes
             return @
 
-        updateLocalStorage: (user)=> 
-            console.log user
+        updateLocalStorage: (user=@)=> 
             localStorageService.set("user", user) if user?
 
         nextSequence: =>   
