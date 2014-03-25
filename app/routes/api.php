@@ -83,9 +83,11 @@ $app->get("/api/career/:token", function($token) use ($app) {
 $app->post('/api/career(/:token)', function($token=NULL) use ($app) {
 	/**
 	* Save the career progression in database
-	* expected body : career history in json as a list (see `doc/career.md`)
+	* expected body : career's history in json as a list (see `doc/career.md`)
 	* If token isn't given, create one and return it
-	*
+	* TODO: partial update
+	* TODO: delete
+	* TODO: create empty
 	*/
 	if (isset($token)) {
 		$career = R::findOne('career', 'token=?', array($token));
@@ -126,6 +128,7 @@ $app->get('/api/plot', function() use ($app) {
 	/**
 	* Retrieve the list of opened chapters and their scenes from the `chapters` folder.
 	* Chapter must have a name like [0-9].json
+	* TODO: to be cached
 	*/
 	$response = array();
 	$chapters = glob('chapters/[0-9*].json', GLOB_BRACE);
