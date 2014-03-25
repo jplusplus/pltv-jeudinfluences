@@ -19,6 +19,14 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', (
                             volume: 0
                         )
                         # Play the sound with a fadein entrance
-                        @soundtrack.play => @soundtrack.fade(0, User.volume, 10000)
+                        @soundtrack.play => @soundtrack.fade(0, User.volume, 2000)
+
+
+            # Update the volume
+            $rootScope.$watch (-> User.volume ), (volume, old)=>                 
+                # New volume set
+                if old?
+                    # For the soundtrack
+                    @soundtrack.volume(volume) if @soundtrack?            
 ]
 # EOF

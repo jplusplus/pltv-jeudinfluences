@@ -5,7 +5,7 @@ angular.module("spin.service").factory "User", ['Plot', (Plot)->
         # ──────────────────────────────────────────────────────────────────────────
         constructor: -> 
             # Sound control
-            @volume   = 1/50
+            @volume   = 50
             # Position
             @chapter  = 1
             @scene    = 1
