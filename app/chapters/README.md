@@ -31,7 +31,7 @@
 
 Un évenement (appelé aussi "réplique") peut être bloquant ou pas. Il est bloquant s'il nécessite d'être terminé pour enchainer sur l'évenement suivant de la séquence.
 
-Chaque évenement peut avoir un paramètre "condition". Dans ce cas là, la réplique ne s'affiche que si la condition est remplie. Exemple d'utilisation : `"condition": {"interview_acceptee":true, "i_want_to_die": true}`. Ici `interview_acceptee` et `i_want_to_die` doivent être vrais pour afficher la réplique.
+Chaque évenement peut avoir un paramètre "condition". Dans ce cas là, la réplique ne s'affiche que si la condition est remplie. Exemple d'utilisation : `"condition": {"interview_acceptee":true, "i_want_to_die": true}`. Ici `interview_acceptee` __ET__ `i_want_to_die` doivent être vrais pour afficher la réplique.
 
 
 | types          |  bouton suivant à la fin | bloquant | paramètres                                      |
