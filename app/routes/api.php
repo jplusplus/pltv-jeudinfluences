@@ -146,7 +146,7 @@ $app->get('/api/plot', function() use ($app) {
 				$content             = file_get_contents($scene_filename);
 				$scene               = json_decode($content, true);
 				$scene["id"]         = join(".", array_slice(explode(".", basename($scene_filename, ".json")), 1)); # add the id from filename
-				// $chapter['scenes'][] = $scene;
+				$chapter['scenes'][] = $scene;
 			}
 			$response[] = $chapter;
 		}
