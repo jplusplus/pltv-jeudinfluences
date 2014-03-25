@@ -16,15 +16,7 @@ $app->configureMode('production', function () use ($app) {
 		// assets
 		'static_url'           => "/",
 		'media_url'            => "/media/", # for video, sounds and large files
-		// template file for the homepage
-		'home_template'    => function () {
-			$launching_date = "2014-05-06T10:00:00";
-			if (strtotime(date('Y-m-d H:i:s')) >= strtotime($launching_date)) {
-				return "index.twig";
-			} else {
-				return "wait.twig";
-			}
-		},
+		'launching_date'       => "2014-05-06T10:00:00", # after this date, switch to the game home page
 		// Mailchimp configuration
 		'mailchimp_id'         => '',
 		'mailchimp_datacenter' => '', # ex: us8

@@ -16,8 +16,7 @@ $app->configureMode('development', function () use ($app) {
 		// assets
 		'static_url'           => "/",
 		'media_url'            => "/media/", # for video, sounds and large files
-		// Choose the right template for the homepage
-		'home_template' => "index.twig", // spin game
+		// 'launching_date'       => "2013-01-01T10:00:00", # after this date, switch to the game home page
 		// Mailchimp configuration
 		'mailchimp_id'         => '',
 		'mailchimp_datacenter' => '', # ex: us8
