@@ -9,6 +9,8 @@ require 'autoload.php';
 require 'config/config.production.php';
 require 'config/config.development.php';
 
+require 'filters.php';
+
 //Load routes
 foreach (glob("routes/*.php") as $filename)
 {
