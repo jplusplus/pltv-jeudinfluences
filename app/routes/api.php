@@ -43,7 +43,11 @@ $app->get("/api/career/:token", function($token) use ($app) {
 		if (empty($career->export()["json"])) {
 			wrong(array('error' => 'undefined'));
 		} else {
-			ok($career->export()["json"], false);
+			$response = array(
+				"token"   => $token,
+				"history" => json_decode($career->json, true)
+			);
+			ok($response);
 		}
 	}
 });
@@ -79,7 +83,7 @@ $app->get("/api/career/:token", function($token) use ($app) {
 $app->post('/api/career(/:token)', function($token=NULL) use ($app) {
 	/**
 	* Save the career progression in database
-	* expected body : career in json (see `doc/career.md`)
+	* expected body : career history in json as a list (see `doc/career.md`)
 	* If token isn't given, create one and return it
 	*
 	*/
@@ -89,9 +93,11 @@ $app->post('/api/career(/:token)', function($token=NULL) use ($app) {
 			wrong(array('error' => 'empty'));
 		}
 	} else {
-		$career        = R::dispense('career');
-		$token         = uniqid();
-		$career->token = $token; # save the token
+		// generate a token and add it to the attribute
+		$career          = R::dispense('career');
+		$token           = str_replace(".", "", uniqid("", true));
+		$career->token   = $token; # save the token
+		$career->created = R::isoDateTime();
 	}
 	// update the career (json syntax)
 	$career->json = $app->request()->getBody();
@@ -99,7 +105,7 @@ $app->post('/api/career(/:token)', function($token=NULL) use ($app) {
 	ok(array('status' => 'done', 'token' => $token));
 });
 
-$app->post('/api/associate_email/:token', function($token=NULL) use ($app) {
+$app->post('/api/career/associate_email/:token', function($token=NULL) use ($app) {
 	/**
 	* Associate an email to a token
 	* expected body : `{"email" : "example@wanadoo.fr"}`

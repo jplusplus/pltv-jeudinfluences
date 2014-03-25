@@ -2,8 +2,7 @@ Career
 ======
 
 A career is a list of scene done which include to the option selected if exists.  
-Scene doesn't have necessary a choice (flashback for exemple).  
-Or the choice can be implicit, with the `default_choice` scene's parameter.
+Scene doesn't have necessary a choice (flashback for exemple).
 
 ```json
 {
