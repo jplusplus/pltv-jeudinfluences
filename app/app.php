@@ -37,16 +37,15 @@ $app->view->parserOptions = array(
 	'debug' => true,
 	'cache' => $app->config('cache'),
 );
+
 $app->view->parserExtensions = array(
 	new \Slim\Views\TwigExtension(),
+	new \app\SpinTwigExtension()
 );
 
 //Load 404 Route
-$app->notFound(function () use ($app) {
-	$request = $app->request();
-	$requesturi = 'http://'.$_SERVER["HTTP_HOST"].$request->getRootUri().$request->getResourceUri();
-	$app->view->appendData(array('viewName'=>'Page not found','requesturi'=>$requesturi));
-	$app->render('errors/404.twig');
+$app->notFound(function () use ($app) {	
+	$app->redirect('/404.html');
 });
 
 $app->view->setData(

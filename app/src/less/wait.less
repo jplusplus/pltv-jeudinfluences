@@ -1,11 +1,14 @@
 @import "bootstrap.variables.less";
 @import 'bootstrap.loader.less';
+@import 'bootstrap.fix.less';
 @import 'bootstrap.forms.less';
 
-@nav-zindex: 1000;
+@nav-zindex    : 1000;
+@metanav-zindex: @nav-zindex + 1000;
 
 @import 'mixins.less';
 @import 'nav.less';
+@import 'metanav.less';
 
 .bg {    
     .covering();
@@ -90,6 +93,9 @@
         }
 
         &__alert {
+
+            margin-top:15px;
+            margin-bottom:0;
 
             .transition(0.6s);
 

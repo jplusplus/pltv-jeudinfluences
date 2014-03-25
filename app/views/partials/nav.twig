@@ -1,4 +1,4 @@
-<header class="nav">
+<header class="nav" ng-controller="NavCtrl">
 	<ul class="nav__partners list-inline">
         <li>
             <a class="nav__partners__logo" href="http://pltv.fr/" target="_blank">
@@ -47,7 +47,9 @@
 			<a class="nav__cmd__save" href="">Sauvegarder</a>
 		</li>
 		<li class="nav__cmd__part">
-			<span class="nav__cmd__volume"></span>
+			<span class="nav__cmd__volume">
+                <input type="range" ng-model="volume" value="50" min="0" max="100">         
+            </span>
 		</li>
 	</ul>
 </header>

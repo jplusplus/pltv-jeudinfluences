@@ -2,14 +2,14 @@
 
 {% block head %}
     {% if MODE == "development" %}
-        <link rel="stylesheet" href="/dev/css/wait.css" />
+        <link rel="stylesheet" href="{{STATIC_URL}}dev/css/wait.css" />
         <script src="http://localhost:35729/livereload.js"></script>
-        <script type="text/javascript" src="/dev/js/wait.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}dev/js/wait.js"></script>
     {% endif %}
 
     {% if MODE == "production" %}
-        <link rel="stylesheet" href="/css/wait.min.css" />
-        <script type="text/javascript" src="/js/wait.min.js"></script>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/wait.min.css?v={{ "../public/css/wait.min.css" | md5 }}" />
+        <script type="text/javascript" src="{{STATIC_URL}}js/wait.min.js?v={{ "../public/js/wait.min.js" | md5 }}"></script>
     {% endif %}
 {% endblock %}
 
@@ -28,7 +28,7 @@
                 Une fiction documentaire jouable au coeur de la communication de crise.
             </p>
             <p class="wait__intro__start">
-                Début de l'aventure le 27/04/2014
+                Début de l'aventure le 6/05/2014
             </p>
         </div>
 

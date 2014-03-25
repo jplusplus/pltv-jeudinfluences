@@ -24,8 +24,12 @@ $app->get('/', function() use ($app) {
         );
 
     }
-
-	$app->render( $app->config("home_template"), $locales );
+    if ($app->config("launching_date") && strtotime(date('Y-m-d H:i:s')) < strtotime($app->config("launching_date"))) {
+        $template = "wait.twig";
+    } else {
+        $template = "index.twig";
+    }
+    $app->render($template, $locales );
 
 })->name('Home');
 

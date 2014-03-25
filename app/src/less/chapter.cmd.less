@@ -32,7 +32,7 @@
                 .transition(0.6s cubic-bezier(0.23, 1, 0.32, 1) );
             }
 
-            &:hover &__value {
+            &:hover .chapter__cmd__indicator__value {
                 opacity: 1;                                             
                 .translate(0, 0);
             }
@@ -50,7 +50,7 @@
                 border-radius: 50%;
                 cursor:help;
 
-                &:hover &__definition {
+                &:hover .chapter__cmd__indicator__help__definition {
                     .translate(0, 0);                
                 }
 
@@ -58,7 +58,7 @@
                     padding-left:10px;
                     padding-right:5px;
                     height:20px;
-                    font-size:12px;
+                    font-size:10px;
                     line-height: 20px;
                     position:absolute;
                     left:0;
@@ -66,6 +66,7 @@
                     background-color: fade(#fff, 75);
                     color:fade(#000, 75);
                     margin-bottom:5px;
+                    white-space:nowrap;
                     .translate(-100%, 0);
                     .transition(0.6s cubic-bezier(0.23, 1, 0.32, 1) );
                 }

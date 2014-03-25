@@ -31,56 +31,31 @@ function wrong($body, $status=500,  $json_encode=true) {
 #
 # -----------------------------------------------------------------------------
 
-$app->get("/api/career/:token", function($token) use ($app) {
+$app->get("/api/career", function() use ($app) {
 	/**
 	* Retrieve the career progression for the given token from the database.
 	*
 	*/
-	$career = R::findOne('career', 'token=?', array($token));
-	if (empty($career)) {
-		wrong(array('error' => 'empty'));
+	$params = $app->request()->params();
+	if (isset($params['token'])) {
+		$career = R::findOne('career', 'token=?', array($params['token']));
 	} else {
-		if (empty($career->export()["json"])) {
-			wrong(array('error' => 'undefined'));
+		if (isset($params['email'])) {
+			$career  = R::findOne('career', 'email=?', array($params['email']));
 		} else {
-			$response = array(
-				"token"   => $token,
-				"history" => json_decode($career->json, true)
-			);
-			ok($response);
+			return wrong(array('error' => 'token or email needed'));
 		}
 	}
+	if (empty($career))                   return wrong(array('error' => 'empty'));
+	if (empty($career->export()["json"])) return wrong(array('error' => 'undefined'));
+	$response = array(
+		"token"   => $career->token,
+		"history" => json_decode($career->json, true)
+	);
+	return ok($response);
 });
 
-// NOTE : retrieve a career from the email. Need to find an other url signature
-// $app->post("/api/career", function() use ($app) {
-// 	/**
-// 	* Similar than `get("/api/career/:token")`.
-// 	* Retrieve the career progression for the given email from the database.
-// 	* But this uses the post method b/c of an issue with dot in url parameters. 404 is triggered :(
-// 	* Screw you PHP.
-// 	* (see https://github.com/codeguy/Slim/issues/359)
-// 	* 
-// 	* expected body : `{"email" : "example@wanadoo.fr"}`
-// 	*/
-// 	$data = json_decode($app->request()->getBody(), false);
-// 	if(filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
-// 		$career = R::findOne('career', 'email=?', array($data->email));
-// 		if (empty($career)) {
-// 			wrong(array('error' => 'empty'));
-// 		} else {
-// 			if (empty($career->export()["json"])) {
-// 				wrong(array('error' => 'undefined'));
-// 			} else {
-// 				ok($career->export()["json"], false);
-// 			}
-// 		}
-// 	} else {
-// 		wrong(array('error' => 'email required'));
-// 	}
-// });
-
-$app->post('/api/career(/:token)', function($token=NULL) use ($app) {
+$app->post('/api/career', function() use ($app) {
 	/**
 	* Save the career progression in database
 	* expected body : career's history in json as a list (see `doc/career.md`)
@@ -89,10 +64,12 @@ $app->post('/api/career(/:token)', function($token=NULL) use ($app) {
 	* TODO: delete
 	* TODO: create empty
 	*/
-	if (isset($token)) {
+	$params = $app->request()->params();
+	if (isset($params['token'])) {
+		$token  = $params['token'];
 		$career = R::findOne('career', 'token=?', array($token));
 		if (empty($career)) {
-			wrong(array('error' => 'empty'));
+			return wrong(array('error' => 'empty'));
 		}
 	} else {
 		// generate a token and add it to the attribute
@@ -104,24 +81,27 @@ $app->post('/api/career(/:token)', function($token=NULL) use ($app) {
 	// update the career (json syntax)
 	$career->json = $app->request()->getBody();
 	R::store($career);
-	ok(array('status' => 'done', 'token' => $token));
+	return ok(array('status' => 'done', 'token' => $token));
 });
 
-$app->post('/api/career/associate_email/:token', function($token=NULL) use ($app) {
+$app->post('/api/career/associate_email', function() use ($app) {
 	/**
 	* Associate an email to a token
 	* expected body : `{"email" : "example@wanadoo.fr"}`
 	*
 	*/
+	$params = $app->request()->params();
+	if (!isset($params['token'])) {return wrong(array('error' => 'token needed'));}
+	$token  = $params['token'];
 	$career = R::findOne('career', 'token=?', array($token));
-	if (empty($career)) {wrong(array('error' => 'unknown token'));}
+	if (empty($career)) {return wrong(array('error' => 'unknown token'));}
 	$data = json_decode($app->request()->getBody(), false);
-	if(filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
-		$career->email = $app->request()->getBody();
+	if(isset($data->email) && filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
+		$career->email = $data->email;
 		R::store($career);
-		ok(array('status' => 'done'));
+		return ok(array('status' => 'done'));
 	}
-	wrong(array('error' => 'email required'));
+	return wrong(array('error' => 'email required'));
 });
 
 $app->get('/api/plot', function() use ($app) {
@@ -149,12 +129,12 @@ $app->get('/api/plot', function() use ($app) {
 				$content             = file_get_contents($scene_filename);
 				$scene               = json_decode($content, true);
 				$scene["id"]         = join(".", array_slice(explode(".", basename($scene_filename, ".json")), 1)); # add the id from filename
-				// $chapter['scenes'][] = $scene;
+				$chapter['scenes'][] = $scene;
 			}
 			$response[] = $chapter;
 		}
 	}
-	ok($response);
+	return ok($response);
 });
 
 # -----------------------------------------------------------------------------
