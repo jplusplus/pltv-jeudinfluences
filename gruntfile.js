@@ -7,6 +7,7 @@ var jslib = ['bower_modules/jquery/jquery.min.js',
         'bower_modules/angular-animate/angular-animate.min.js',
         'bower_modules/angular-route/angular-route.min.js',
         'bower_modules/angular-resource/angular-resource.min.js',
+        'bower_modules/howler/howler.min.js',
         ];
 
 module.exports = function(grunt) {

@@ -4,6 +4,8 @@ angular.module("spin.service").factory "User", ['Plot', (Plot)->
         # Public method
         # ──────────────────────────────────────────────────────────────────────────
         constructor: -> 
+            # Sound control
+            @volume   = 1/50
             # Position
             @chapter  = 1
             @scene    = 1

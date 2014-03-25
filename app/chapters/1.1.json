@@ -4,7 +4,7 @@
         {
             "background": "/bg/wait.jpg",
             "background_transition": "fadein",
-            "soundtrack": "/sons/son1.mp3"
+            "soundtrack": "https://dl.dropboxusercontent.com/s/ap5dvcl5j4dyrfd/SPIN_1_A.mp3?dl=1"
         }
     ],
     "sequence": [
