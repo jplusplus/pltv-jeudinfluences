@@ -2,7 +2,7 @@ angular.module('spin.controller',['ngResource'])
 angular.module('spin.config',    ['ngResource'])
 angular.module('spin.directive', ['ngResource'])
 angular.module('spin.filter',    ['ngResource'])
-angular.module('spin.service',   ['ngResource'])
+angular.module('spin.service',   ['ngResource', 'LocalStorageModule'])
 
 app = angular.module('spin', ["ngRoute", "ngResource", "ngAnimate", "spin.filter", "spin.service", "spin.directive"])
 

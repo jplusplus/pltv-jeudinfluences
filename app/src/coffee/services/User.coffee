@@ -1,14 +1,16 @@
-angular.module("spin.service").factory "User", ['Plot', (Plot)->
+angular.module("spin.service").factory "User", ['Plot', 'localStorageService', '$rootScope', (Plot, localStorageService, $rootScope)->
     new class User
         # ──────────────────────────────────────────────────────────────────────────
         # Public method
         # ──────────────────────────────────────────────────────────────────────────
         constructor: -> 
+            # This user is saved into local storage
+            master    = localStorageService.get("user") or {}
             # User authentication
-            @token    = null
-            @email    = null
+            @token    = master.token or null
+            @email    = master.email or null
             # Sound control
-            @volume   = 50
+            @volume   = master.volume or 0.5
             # Position
             @chapter  = 1
             @scene    = 1
@@ -16,8 +18,15 @@ angular.module("spin.service").factory "User", ['Plot', (Plot)->
             # Indicators
             @ubm      = ~~(Math.random()*100)
             @trust    = ~~(Math.random()*100)
-            @stress   = ~~(Math.random()*100)        
+            @stress   = ~~(Math.random()*100)     
+            # Update local storage
+            $rootScope.$watch (=>@), @updateLocalStorage, yes
             return @
+
+        updateLocalStorage: (user)=> 
+            console.log user
+            localStorageService.set("user", user) if user?
+
         nextSequence: =>   
             if Plot.sequence(@chapter, @scene, @sequence + 1)?                
                 # Go simply to the next sequence
