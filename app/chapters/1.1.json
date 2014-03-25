@@ -2,7 +2,7 @@
     "next_scene" : "2.2",
     "decor": [
         {
-            "background": "/illus/illu1.jpg",
+            "background": "/bg/wait.jpg",
             "background_transition": "fadein",
             "soundtrack": "/sons/son1.mp3"
         }

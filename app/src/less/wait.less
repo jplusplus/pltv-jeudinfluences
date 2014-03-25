@@ -1,19 +1,15 @@
 @import "bootstrap.variables.less";
 @import 'bootstrap.loader.less';
 @import 'bootstrap.forms.less';
+
+@nav-zindex: 1000;
+
+@import 'mixins.less';
 @import 'nav.less';
 
 .bg {    
-    background: no-repeat 0 0 @body-bg;
-    background-size: cover;
+    .covering();
     background-image:url("/img/bg/wait.jpg");    
-    min-height:100%;
-    min-width:100%;
-    display:block;
-    position:absolute;
-    top:50%;
-    left:50%;
-    .translate(-50%, -50%);
 }
 
 .wait {

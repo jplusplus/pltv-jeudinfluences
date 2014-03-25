@@ -1,26 +1,28 @@
 <?php
 namespace app\routes;
+use RedBean_Facade as R;
 
 # -----------------------------------------------------------------------------
 #
 #    OUPUTS
 #
 # -----------------------------------------------------------------------------
-
-function ok($body) {
+function ok($body, $json_encode=true) {
 	global $app;
 	$response = $app->response();
 	$response['Content-Type'] = 'application/json';
 	$response->status(200);
-	$response->body(json_encode($body));
+	if ($json_encode) {$body = json_encode($body);}
+	$response->body($body);
 }
 
-function wrong($body, $status=500) {
+function wrong($body, $status=500,  $json_encode=true) {
 	global $app;
 	$response = $app->response();
 	$response['Content-Type'] = 'application/json';
 	$response->status($status);
-	$response->body(json_encode($body));	
+	if ($json_encode) {$body = json_encode($body);}
+	$response->body($body);
 }
 
 # -----------------------------------------------------------------------------
@@ -28,42 +30,105 @@ function wrong($body, $status=500) {
 #    API
 #
 # -----------------------------------------------------------------------------
-$app->get('/api/career(/:token)', function($token=NULL) use ($app) {
+
+$app->get("/api/career/:token", function($token) use ($app) {
 	/**
 	* Retrieve the career progression for the given token from the database.
-	* If no token are given, use the session to guess it.
-	*
-	* TODO:
-	* [ ] (check if token is different than the one we have from session)
-	* [ ] token should be generated when the user start the game, at the first save.
 	*
 	*/
-	// NOTE : it's hard to get an email from a GET parameter. Screw you PHP.
-	// (see https://github.com/codeguy/Slim/issues/359)
-	// if(filter_var($token, FILTER_VALIDATE_EMAIL)) {echo "this is an email";}
-	if (!isset($token)) {
-		// $token = from session;
+	$career = R::findOne('career', 'token=?', array($token));
+	if (empty($career)) {
+		wrong(array('error' => 'empty'));
+	} else {
+		if (empty($career->export()["json"])) {
+			wrong(array('error' => 'undefined'));
+		} else {
+			$response = array(
+				"token"   => $token,
+				"history" => json_decode($career->json, true)
+			);
+			ok($response);
+		}
 	}
-	// retrieve career from database for the given token
-	$career = NULL;
-	ok($career);
 });
 
-$app->post('/api/career', function() use ($app) {
+// NOTE : retrieve a career from the email. Need to find an other url signature
+// $app->post("/api/career", function() use ($app) {
+// 	/**
+// 	* Similar than `get("/api/career/:token")`.
+// 	* Retrieve the career progression for the given email from the database.
+// 	* But this uses the post method b/c of an issue with dot in url parameters. 404 is triggered :(
+// 	* Screw you PHP.
+// 	* (see https://github.com/codeguy/Slim/issues/359)
+// 	* 
+// 	* expected body : `{"email" : "example@wanadoo.fr"}`
+// 	*/
+// 	$data = json_decode($app->request()->getBody(), false);
+// 	if(filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
+// 		$career = R::findOne('career', 'email=?', array($data->email));
+// 		if (empty($career)) {
+// 			wrong(array('error' => 'empty'));
+// 		} else {
+// 			if (empty($career->export()["json"])) {
+// 				wrong(array('error' => 'undefined'));
+// 			} else {
+// 				ok($career->export()["json"], false);
+// 			}
+// 		}
+// 	} else {
+// 		wrong(array('error' => 'email required'));
+// 	}
+// });
+
+$app->post('/api/career(/:token)', function($token=NULL) use ($app) {
 	/**
-	* Save the career progression in database.
-	*
-	* TODO:
-	* [ ] token should be generated when the user start the game, at the first save.
+	* Save the career progression in database
+	* expected body : career's history in json as a list (see `doc/career.md`)
+	* If token isn't given, create one and return it
+	* TODO: partial update
+	* TODO: delete
+	* TODO: create empty
+	*/
+	if (isset($token)) {
+		$career = R::findOne('career', 'token=?', array($token));
+		if (empty($career)) {
+			wrong(array('error' => 'empty'));
+		}
+	} else {
+		// generate a token and add it to the attribute
+		$career          = R::dispense('career');
+		$token           = str_replace(".", "", uniqid("", true));
+		$career->token   = $token; # save the token
+		$career->created = R::isoDateTime();
+	}
+	// update the career (json syntax)
+	$career->json = $app->request()->getBody();
+	R::store($career);
+	ok(array('status' => 'done', 'token' => $token));
+});
+
+$app->post('/api/career/associate_email/:token', function($token=NULL) use ($app) {
+	/**
+	* Associate an email to a token
+	* expected body : `{"email" : "example@wanadoo.fr"}`
 	*
 	*/
-	// $token = from session;
+	$career = R::findOne('career', 'token=?', array($token));
+	if (empty($career)) {wrong(array('error' => 'unknown token'));}
+	$data = json_decode($app->request()->getBody(), false);
+	if(filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
+		$career->email = $app->request()->getBody();
+		R::store($career);
+		ok(array('status' => 'done'));
+	}
+	wrong(array('error' => 'email required'));
 });
 
 $app->get('/api/plot', function() use ($app) {
 	/**
 	* Retrieve the list of opened chapters and their scenes from the `chapters` folder.
 	* Chapter must have a name like [0-9].json
+	* TODO: to be cached
 	*/
 	$response = array();
 	$chapters = glob('chapters/[0-9*].json', GLOB_BRACE);
@@ -84,7 +149,7 @@ $app->get('/api/plot', function() use ($app) {
 				$content             = file_get_contents($scene_filename);
 				$scene               = json_decode($content, true);
 				$scene["id"]         = join(".", array_slice(explode(".", basename($scene_filename, ".json")), 1)); # add the id from filename
-				$chapter['scenes'][] = $scene;
+				// $chapter['scenes'][] = $scene;
 			}
 			$response[] = $chapter;
 		}

@@ -18,6 +18,17 @@ $app = new \Slim\Slim(array(
 	'templates.path' => '../app/views'
 ));
 
+// setup session cookie middleware
+$app->add(new \Slim\Middleware\SessionCookie(array(
+	'expires'  => 2000000000,
+	'path'     => '/',
+	'domain'   => null,
+	'secure'   => false,
+	'httponly' => false,
+	'name'     => 'spin_session',
+	'secret'   => $app->config('secret_session_key'),
+)));
+
 //Loads all needed subfiles
 require 'bootstrap.php';
 
@@ -40,10 +51,10 @@ $app->notFound(function () use ($app) {
 
 $app->view->setData(
 	array(
-		'mode'        => $app->getMode(),
-		'STATIC_ROOT' => $app->config("static_root"),
-		'STATIC_URL'  => $app->config("static_url"),
-		'menu' => array('Home',)
+		'MODE'             => $app->getMode(),
+		'ARCHIMADE_IDSITE' => $app->config("archimade_idsite"),
+		'STATIC_ROOT'      => $app->config("static_root"),
+		'STATIC_URL'       => $app->config("static_url")
 	)
 );
 

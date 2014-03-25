@@ -2,17 +2,11 @@ Career
 ======
 
 A career is a list of scene done which include to the option selected if exists.  
-Scene doesn't have necessary a choice (flashback for exemple).  
-Or the choice can be implicit, with the `default_choice` scene's parameter.
+Scene doesn't have necessary a choice (flashback for exemple).
 
 ```json
 {
-	"token" : "3d09baddc21a365b7da5ae4d0aa5cb95"
-	"context" : {
-		"karma"  : 5,
-		"stress" : 5,
-		"ubm"    : 10
-	},
+	"token" : "3d09baddc21a365b7da5ae4d0aa5cb95",
 	"history" : [
 		{
 			"scene" : "1.1",
@@ -44,4 +38,5 @@ Or the choice can be implicit, with the `default_choice` scene's parameter.
 }
 ```
 
-__reached scene__ : `career.path[-1]` (last element of `path`)
+__reached scene__   : `career.history[-1].scene` (last element of `history`)
+__current context__ : this is the value of the context variables. To retrieve the context, loop over the history and compute each variable, starting from the initial values (TODO: to be defined somewhere).
