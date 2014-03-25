@@ -1,4 +1,4 @@
-<?
+<?php
 namespace app;
 
 require '../composer_modules/autoload.php';

@@ -40,7 +40,7 @@ $app->view->parserOptions = array(
 
 $app->view->parserExtensions = array(
 	new \Slim\Views\TwigExtension(),
-	new SpinTwigExtension()
+	new \app\SpinTwigExtension()
 );
 
 //Load 404 Route
