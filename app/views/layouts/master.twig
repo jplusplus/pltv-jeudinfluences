@@ -15,7 +15,7 @@
         <title>pltv-spin - {{ viewName }}</title>
 
         {% block script %}
-            <script src="{{STATIC_URL}}js/lib.min.js"></script>
+            <script src="{{STATIC_URL}}js/lib.min.js?v={{ "../public/js/lib.min.js" | md5 }}"></script>
         {% endblock %}
 
         {% block head %}
@@ -25,8 +25,8 @@
                 <script type="text/javascript" src="{{STATIC_URL}}dev/js/app.js"></script>
             {% endif %}
             {% if MODE == "production" %}
-                <link rel="stylesheet" href="{{STATIC_URL}}css/styles.min.css" />
-                <script type="text/javascript" src="{{STATIC_URL}}js/app.min.js"></script>
+                <link rel="stylesheet" href="{{STATIC_URL}}css/styles.min.css?v={{ "../public/css/styles.min.css" | md5 }}" />
+                <script type="text/javascript" src="{{STATIC_URL}}js/app.min.js?v={{ "../public/js/app.min.js" | md5 }}"></script>
             {% endif %}
         {% endblock %}
 
@@ -48,7 +48,7 @@
         <div id="content" class="site_content">
             {% block content %}
                 {{ content|raw }}
-            {% endblock content %}            
+            {% endblock content %}
         </div>
         
         {% block inline%}{% endblock inline %}
