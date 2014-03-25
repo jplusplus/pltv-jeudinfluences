@@ -7,20 +7,20 @@ API
 
 ### GET
 	
-	/api/career/:token
+	/api/career?(token=|email=)
 
-Retrieve the career progression for the given token from the database
+Retrieve the career progression for the given token or email from the database
 
 ### POST
 
-	/api/career(/:token)
+	/api/career(?token=)
 
 Save the career progression in database.  
 expected body : career's history in json as a list (see [doc/career.md](career.md)).  
 If token isn't given, it creates one and returns it. You should use it after to save again the career.
 
 
-	/api/career/associate_email/:token
+	/api/career/associate_email?token=
 
 Associate an email to a token.  
 expected body : `{"email" : "example@wanadoo.fr"}`
