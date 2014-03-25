@@ -24,8 +24,8 @@ $app->get('/', function() use ($app) {
         );
 
     }
-
-	$app->render( $app->config("home_template"), $locales );
+    $get_home_template_name = $app->config("home_template");
+    $app->render($get_home_template_name(), $locales );
 
 })->name('Home');
 
