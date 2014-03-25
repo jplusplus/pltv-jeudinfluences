@@ -11,13 +11,13 @@ $app->configureMode('development', function () use ($app) {
 		'log.enabled'          => true,
 		'debug'                => true,
 		'cache'                => false,
-		'archimade_idsite'     => null,
+		'archimade_idsite'     => 2439,
 		'secret_session_key'   => "ddf31d78-0508-4fc5-85e3-ef3da4f35e67",
 		// assets
 		'static_url'           => "/",
 		'media_url'            => "/media/", # for video, sounds and large files
 		// Choose the right template for the homepage
-		'home_template' => "index.twig", // spin game
+		'home_template' => "wait.twig", // spin game
 		// Mailchimp configuration
 		'mailchimp_id'         => '',
 		'mailchimp_datacenter' => '', # ex: us8

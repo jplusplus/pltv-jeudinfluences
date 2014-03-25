@@ -1,14 +1,18 @@
 @import "bootstrap.variables.less";
 @import 'bootstrap.loader.less';
+@import 'bootstrap.fix.less';
 @import 'bootstrap.forms.less';
 
 @scene-zindex  : 1000;
 @scenebg-zindex: @scene-zindex   - 100;
 @chapter-zindex: @scene-zindex   + 1000;
 @nav-zindex    : @chapter-zindex + 1000;
+@metanav-zindex: @nav-zindex + 1000;
 
 @import 'mixins.less';
 @import 'nav.less';
+@import 'metanav.less';
 @import 'chapter.less';
 @import 'chapter.cmd.less';
 @import 'scene.less';
+
