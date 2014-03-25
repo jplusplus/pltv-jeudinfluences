@@ -1,4 +1,7 @@
-var ChapterCtrl, MainCtrl, Plot, SceneCtrl, User, app;
+var ChapterCtrl, MainCtrl, SceneCtrl, app,
+  __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+angular.module('spin.controller', ['ngResource']);
 
 angular.module('spin.config', ['ngResource']);
 
@@ -24,10 +27,16 @@ app.config([
 ]);
 
 ChapterCtrl = (function() {
-  ChapterCtrl.$inject = ['$scope'];
+  ChapterCtrl.$inject = ['$scope', 'Plot', 'User'];
 
-  function ChapterCtrl(scope) {
+  function ChapterCtrl(scope, Plot, User) {
+    var _this = this;
     this.scope = scope;
+    this.Plot = Plot;
+    this.User = User;
+    this.scope.shouldShowChapter = function(chapter) {
+      return 1 * chapter.id === _this.User.chapter;
+    };
   }
 
   return ChapterCtrl;
@@ -43,7 +52,6 @@ MainCtrl = (function() {
     this.User = User;
     this.scope.plot = this.Plot;
     this.scope.user = this.User;
-    console.log(this.User.chapter);
   }
 
   return MainCtrl;
@@ -51,10 +59,26 @@ MainCtrl = (function() {
 })();
 
 SceneCtrl = (function() {
-  SceneCtrl.$inject = ['$scope'];
+  SceneCtrl.$inject = ['$scope', 'Plot', 'User'];
 
-  function SceneCtrl(scope) {
+  function SceneCtrl(scope, Plot, User) {
+    var SEQUENCE_TYPE_BLOCKING, SEQUENCE_TYPE_WITH_NEXT,
+      _this = this;
     this.scope = scope;
+    this.Plot = Plot;
+    this.User = User;
+    SEQUENCE_TYPE_WITH_NEXT = ["dialogue", "narrative", "video", "notification"];
+    SEQUENCE_TYPE_BLOCKING = ["dialogue", "narrative", "voixoff", "video", "notification", "choice"];
+    this.scope.shouldShowScene = function(scene) {
+      return 1 * scene.id === _this.User.scene;
+    };
+    this.scope.shouldShowSequence = function(idx) {
+      return 1 * idx === _this.User.sequence;
+    };
+    this.scope.shouldShowNext = function(sequence) {
+      return SEQUENCE_TYPE_WITH_NEXT.indexOf(sequence.type.toLowerCase()) > -1;
+    };
+    this.scope.goToNextSequence = this.User.nextSequence;
   }
 
   return SceneCtrl;
@@ -91,35 +115,80 @@ angular.module("spin.filter", []).filter("checkmark", function() {
   };
 });
 
-Plot = (function() {
-  Plot.$inject = ['$http'];
+angular.module("spin.service").factory("Plot", [
+  '$http', function($http) {
+    var Plot;
+    return new (Plot = (function() {
+      function Plot() {
+        this.sequence = __bind(this.sequence, this);
+        this.scene = __bind(this.scene, this);
+        this.chapter = __bind(this.chapter, this);
+        var _this = this;
+        this.chapters = [];
+        $http.get("/api/plot").success(function(chapters) {
+          return _this.chapters = chapters;
+        });
+        return this;
+      }
 
-  function Plot($http) {
-    var _this = this;
-    this.chapters = [];
-    $http.get("/api/plot").success(function(chapters) {
-      return _this.chapters = chapters;
-    });
-    return this;
+      Plot.prototype.chapter = function(chapterId) {
+        return _.find(this.chapters || [], function(chapter) {
+          return 1 * chapter.id === 1 * chapterId;
+        });
+      };
+
+      Plot.prototype.scene = function(chapterId, sceneId) {
+        var chapter;
+        chapter = this.chapter(chapterId) || {};
+        return _.find(chapter.scenes || [], function(scene) {
+          return 1 * scene.id === 1 * sceneId;
+        });
+      };
+
+      Plot.prototype.sequence = function(chapterId, sceneId, sequenceIdx) {
+        var scene;
+        scene = this.scene(chapterId, sceneId) || {
+          sequence: []
+        };
+        return scene.sequence[sequenceIdx];
+      };
+
+      return Plot;
+
+    })());
   }
+]);
 
-  return Plot;
+angular.module("spin.service").factory("User", [
+  'Plot', function(Plot) {
+    var User;
+    return new (User = (function() {
+      function User() {
+        this.nextSequence = __bind(this.nextSequence, this);
+        this.chapter = 1;
+        this.scene = 1;
+        this.sequence = 0;
+        this.ubm = ~~(Math.random() * 100);
+        this.trust = ~~(Math.random() * 100);
+        this.stress = ~~(Math.random() * 100);
+        return this;
+      }
 
-})();
+      User.prototype.nextSequence = function() {
+        if (Plot.sequence(this.chapter, this.scene, this.sequence + 1) != null) {
+          return ++this.sequence;
+        } else if (Plot.scene(this.chapter, this.scene + 1) != null) {
+          this.sequence = 0;
+          return ++this.scene;
+        } else if (Plot.chapter(this.chapter + 1) != null) {
+          this.sequence = 0;
+          this.scene = Plot.chapter(this.chapter + 1).scene[0].id;
+          return ++this.chapter;
+        }
+      };
 
-angular.module("spin.service").factory("Plot", Plot);
+      return User;
 
-User = (function() {
-  User.$inject = ['$http', 'Plot'];
-
-  function User(Plot) {
-    this.Plot = Plot;
-    this.chapter = 1;
-    return this;
+    })());
   }
-
-  return User;
-
-})();
-
-angular.module("spin.service").factory("User", User);
+]);

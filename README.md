@@ -15,6 +15,7 @@ _March 2014_
 
 * npm
 	* grunt
+* php5-sqlite
 
 ### How to Install Dependencies
 

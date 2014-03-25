@@ -3,7 +3,7 @@
 use RedBean_Facade as R;
 
 if($env == 'development'){
-	R::setup('sqlite:../tmp/db.sqlite','user','password');
+	R::setup('sqlite:../tmp/db.sqlite', NULL, NULL);
 }
 
 $app->configureMode('development', function () use ($app) {
@@ -12,6 +12,7 @@ $app->configureMode('development', function () use ($app) {
 		'debug'                => true,
 		'cache'                => false,
 		'archimade_idsite'     => null,
+		'secret_session_key'   => "ddf31d78-0508-4fc5-85e3-ef3da4f35e67",
 		// assets
 		'static_url'           => "/",
 		'media_url'            => "/media/", # for video, sounds and large files

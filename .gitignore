@@ -2,7 +2,6 @@ tmp
 dist
 bower_modules
 node_modules
-composer_modules
 composer.lock
 composer.phar
 npm-debug.log
