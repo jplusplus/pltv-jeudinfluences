@@ -5,7 +5,7 @@ _March 2014_
 
 ## Production
 
-This part of the manuel explain how to install this project from the production branch of this repository.
+This part of the manuel explains how to install this project from the production branch.
 
 * PHP 5.4 is prerequired
 * Setup your Apache Webserver DocumentRoot to `public/`
