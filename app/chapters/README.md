@@ -18,7 +18,7 @@
 | sequence       | list of events                                                                              |
 
 
-`next_scene` peut-être une chaine représentant une scène ("2.2" par exemple) ou une condition sur la variable `karma` comme ci dessous :
+`next_scene` peut-être **une chaine** représentant une scène ("2.2" par exemple) **ou une condition**sur la variable `karma` comme ci dessous :
 
 ```json
 "next_scene" : {
@@ -31,7 +31,9 @@
 
 Un évenement (appelé aussi "réplique") peut être bloquant ou pas. Il est bloquant s'il nécessite d'être terminé pour enchainer sur l'évenement suivant de la séquence.
 
-Chaque évenement peut avoir un paramètre "condition". Dans ce cas là, la réplique ne s'affiche que si la condition est remplie. Exemple d'utilisation : `"condition": {"interview_acceptee":true, "i_want_to_die": true}`. Ici `interview_acceptee` __ET__ `i_want_to_die` doivent être vrais pour afficher la réplique.
+Chaque évenement peut avoir **un paramètre "condition"**. Dans ce cas là, la réplique ne s'affiche que si la condition est remplie. Exemple d'utilisation : `"condition": {"interview_acceptee":true, "i_want_to_die": true}`. Ici `interview_acceptee` __ET__ `i_want_to_die` doivent être vrais pour afficher la réplique.
+
+Chaque évenement peut avoir **un paramètre "timeout"**. Cela indique le temps (en secondes) après lequel l'événement doit s'afficher. Ce timeout est **non-bloquant**, c'est à dire que les autres événements continuent de défiler.
 
 
 | types          |  bouton suivant à la fin | bloquant | paramètres                                      |
@@ -51,7 +53,7 @@ Si `choice` n'est pas spécifié, le paramètre `next_scene` doit être reseign�
 | paramètres     |  notes                                                                          |
 |:-------------- |:------------------------------------------------------------------------------- |
 | default_option | default choice after a given delay, can be null for disable automatic selection |
-| delay          | required if a default_option is specified (in second                            |
+| delay          | required if a default_option is specified (in seconds)                          |
 | options        | list of options                                                                 |
 
 ##### Options
