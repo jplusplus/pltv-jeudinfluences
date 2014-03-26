@@ -18,17 +18,6 @@ $app = new \Slim\Slim(array(
 	'templates.path' => '../app/views'
 ));
 
-// setup session cookie middleware
-$app->add(new \Slim\Middleware\SessionCookie(array(
-	'expires'  => 2000000000,
-	'path'     => '/',
-	'domain'   => null,
-	'secure'   => false,
-	'httponly' => false,
-	'name'     => 'spin_session',
-	'secret'   => $app->config('secret_session_key'),
-)));
-
 //Loads all needed subfiles
 require 'bootstrap.php';
 
