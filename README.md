@@ -5,16 +5,15 @@ _March 2014_
 
 ## Production
 
-This part of the manuel explain how to install this project from the production branch of this repository.
+This part of the manuel explains how to install this project from the production branch.
 
 * PHP 5.4 is prerequired
 * Setup your Apache Webserver DocumentRoot to `public/`
 * Change the mysql and others settings in [app/config/config.production.php](app/config/config.production.php) to your needs
-* Install the composer dependancies:
-
-```
-curl -sS https://getcomposer.org/installer | php && php composer.phar install
-```
+* Install the composer dependancies:  
+    ```
+    curl -sS https://getcomposer.org/installer | php && php composer.phar install
+    ```
 
 ## Development
 

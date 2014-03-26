@@ -33,7 +33,7 @@
             "condition": {"interview_acceptee":true}
         },
         {
-            "body": "/voix/voix1-1-1.mp3",
+            "body": "https://archive.org/download/BradInterviewMp3/BradInterviewVersion2.mp3",
             "type": "voixoff"
         },
         {

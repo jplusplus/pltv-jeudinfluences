@@ -8,7 +8,7 @@ class SceneCtrl
         # True if the given sequence is visible
         @scope.shouldShowSequence = (idx)=> 1*idx is @User.sequence
         # True if the sequence's button should be shown
-        @scope.shouldShowNext = (sequence)=> SEQUENCE_TYPE_WITH_NEXT.indexOf( sequence.type.toLowerCase() ) > -1
+        @scope.shouldShowNext = (sequence)=> yes or SEQUENCE_TYPE_WITH_NEXT.indexOf( sequence.type.toLowerCase() ) > -1
         # Just wraps the function from the user service
         @scope.goToNextSequence = @User.nextSequence
 # EOF

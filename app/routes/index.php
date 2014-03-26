@@ -6,7 +6,7 @@ $app->get('/', function() use ($app) {
     # Template's locale variables
     $locales = array();
 
-    $archimade = realpath("../vendor/kit_archimade.php");
+    $archimade = realpath("../vendor/archimade/kit_archimade.php");
     // As Archimade is a private submodule, we made not mandatory
     if( file_exists($archimade) and is_integer($app->config("archimade_idsite")) ) {        
         require_once $archimade;
