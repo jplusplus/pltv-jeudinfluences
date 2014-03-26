@@ -9,3 +9,4 @@ npm-debug.log
 .env
 fabfile.py
 *.pyc
+public/dev
