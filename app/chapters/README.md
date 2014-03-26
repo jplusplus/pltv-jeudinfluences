@@ -18,7 +18,7 @@
 | sequence       | list of events                                                                              |
 
 
-`next_scene` peut-être **une chaine** représentant une scène ("2.2" par exemple) **ou une condition**sur la variable `karma` comme ci dessous :
+`next_scene` peut-être **une chaine** représentant une scène ("2.2" par exemple) **ou une condition** sur la variable `karma` comme ci dessous :
 
 ```json
 "next_scene" : {
