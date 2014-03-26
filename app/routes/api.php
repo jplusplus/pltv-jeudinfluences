@@ -102,7 +102,7 @@ $app->put('/api/career', function() use ($app) {
 	return ok(array('status' => 'done', 'token' => $token));
 });
 
-$app->post('/api/career/associate_email', function() use ($app) {
+$app->put('/api/career/associate_email', function() use ($app) {
 	/**
 	* Associate an email to a token
 	* expected body : `{"email" : "example@wanadoo.fr"}`
