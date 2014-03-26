@@ -36,8 +36,8 @@ Chaque évenement peut avoir **un paramètre "condition"**. Dans ce cas là, la 
 Chaque évenement peut avoir **un paramètre "timeout"**. Cela indique le temps (en secondes) après lequel l'événement doit s'afficher. Ce timeout est **non-bloquant**, c'est à dire que les autres événements continuent de défiler.
 
 
-| types          |  bouton suivant à la fin | bloquant | paramètres speciaux                              | parametres
-|:------------   | ------------------------:| --------:|:-----------------------------------------------  |
+| types          |  bouton suivant à la fin | bloquant | paramètres                                      |
+|:------------   | ------------------------:| --------:|:----------------------------------------------- |
 | dialogue       |                        ✓ |        ✓ | header, body, character                         |
 | narrative      |                        ✓ |        ✓ | body(str)                                       |
 | voixoff        |                        ✕ |        ✓ | body(url)                                       |
