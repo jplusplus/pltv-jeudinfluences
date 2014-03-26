@@ -68,14 +68,13 @@ Si `choice` n'est pas spécifié, le paramètre `next_scene` doit être reseign�
     "header": "Envoyer un DM \u00e0 Nadia",
     "next_scene": "2.1", // need to be a string to prevent rounding, special cast..
     "outro": "Nadia a bien re\u00e7u votre DM...", // optional, this is a message that has to be shown before the next scene
-    "result": [
-        {
-            "karma": 5,
-            "stress": 2,
-            "trust": 2,
-            "ubm": 10
-        }
-    ]
+    "result": {
+        "karma": 5,
+        "stress": 2,
+        "trust": 2,
+        "ubm": 10
+    }
+    
 }
 
 ```

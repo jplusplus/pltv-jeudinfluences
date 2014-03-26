@@ -41,7 +41,7 @@ $app->view->setData(
 	array(
 		'MODE'             => $app->getMode(),
 		'ARCHIMADE_IDSITE' => $app->config("archimade_idsite"),
-		'STATIC_ROOT'      => $app->config("static_root"),
+		'MEDIA_URL'        => $app->config("media_url"),
 		'STATIC_URL'       => $app->config("static_url")
 	)
 );
