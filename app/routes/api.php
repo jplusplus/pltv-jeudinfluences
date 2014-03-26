@@ -46,8 +46,9 @@ $app->get("/api/career", function() use ($app) {
 			return wrong(array('error' => 'token or email needed'));
 		}
 	}
-	if (empty($career))                   return wrong(array('error' => 'empty'));
-	if (empty($career->export()["json"])) return wrong(array('error' => 'undefined'));
+	$export = $career->export();
+	if (empty($career))         return wrong(array('error' => 'empty'));
+	if (empty($export["json"])) return wrong(array('error' => 'undefined'));
 	$response = array(
 		"token"   => $career->token,
 		"history" => json_decode($career->json, true)
