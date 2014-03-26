@@ -61,17 +61,13 @@ $app->post('/api/career', function() use ($app) {
 	* Save the career progression in database
 	* expected body : career's history in json as a list (see `doc/career.md`)
 	* If token isn't given, create one and return it
-	* TODO: partial update
 	* TODO: delete
-	* TODO: create empty
 	*/
 	$params = $app->request()->params();
 	if (isset($params['token'])) {
 		$token  = $params['token'];
 		$career = R::findOne('career', 'token=?', array($token));
-		if (empty($career)) {
-			return wrong(array('error' => 'empty'));
-		}
+		if (empty($career)) return wrong(array('error' => 'empty'));
 	} else {
 		// generate a token and add it to the attribute
 		$career          = R::dispense('career');
@@ -80,7 +76,28 @@ $app->post('/api/career', function() use ($app) {
 		$career->created = R::isoDateTime();
 	}
 	// update the career (json syntax)
+	if (is_null(json_decode($app->request()->getBody()))) return wrong(array('error' => 'body invalid. Need json.'));
 	$career->json = $app->request()->getBody();
+	R::store($career);
+	return ok(array('status' => 'done', 'token' => $token));
+});
+
+$app->put('/api/career', function() use ($app) {
+	/**
+	* Append an history element to the career progression in database
+	* expected body : career's history element in json as a dictionary (see `doc/career.md`)
+	*/
+	$params = $app->request()->params();
+	if (!isset($params['token'])) return wrong(array('error' => 'token needed'));
+	$token  = $params['token'];
+	$career = R::findOne('career', 'token=?', array($token));
+	if (empty($career)) return wrong(array('error' => 'empty'));
+	// update the career (json syntax)
+	$career_json     = json_decode($career->json, true);
+	$history_element = json_decode($app->request()->getBody(), true);
+	if (is_null($history_element)) return wrong(array("error" => "body invalid. Need json."));
+	$career_json[] = $history_element;
+	$career->json  = json_encode($career_json);
 	R::store($career);
 	return ok(array('status' => 'done', 'token' => $token));
 });
