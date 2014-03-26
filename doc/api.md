@@ -25,6 +25,13 @@ If token isn't given, it creates one and returns it. You should use it after to 
 Associate an email to a token.  
 expected body : `{"email" : "example@wanadoo.fr"}`
 
+### PUT
+
+	/api/career(?token=)
+
+Update a career by adding the given history element to the already saved history list.
+expected body : career's history element in json as a dictionary (see [doc/career.md](career.md)).  
+
 ## Story Plot
 
 ### GET
