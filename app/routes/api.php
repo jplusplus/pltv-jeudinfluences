@@ -128,6 +128,9 @@ $app->get('/api/plot', function() use ($app) {
 	* Chapter must have a name like [0-9].json
 	* TODO: to be cached
 	*/
+	// cache
+	$app->etag('api-plot');
+	$app->expires('+20 minutes');
 	$response = array();
 	$chapters = glob('chapters/[0-9*].json', GLOB_BRACE);
 	foreach ($chapters as $chapter_filename) {
