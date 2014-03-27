@@ -8,6 +8,21 @@ API
 	
 	/api/career?(token=|email=)
 
+response:
+
+```
+{
+    "context": {
+        "karma": 5,
+        "stress": 2,
+        "trust": 2,
+        "ubm": 10
+    },
+    "reached_scene": "2.2",
+    "token": "5334508f65d76011359246"
+}
+```
+
 Retrieve the career progression for the given token or email from the database
 
 ### POST
