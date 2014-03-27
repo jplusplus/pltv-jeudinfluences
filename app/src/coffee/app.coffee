@@ -1,26 +1,21 @@
-angular.module('spin.controller',['ngResource'])
-angular.module('spin.config',    ['ngResource'])
-angular.module('spin.directive', ['ngResource'])
-angular.module('spin.filter',    ['ngResource'])
-angular.module('spin.service',   ['ngResource', 'LocalStorageModule'])
+angular.module('spin.constant',  [])
+angular.module('spin.config',    ['ngRoute',    'spin.constant'])
+angular.module('spin.controller',['ngResource', 'spin.constant'])
+angular.module('spin.directive', ['ngResource', 'spin.constant'])
+angular.module('spin.filter',    ['ngResource', 'spin.constant'])
+angular.module('spin.service',   ['ngResource', 'LocalStorageModule', 'spin.constant'])
 
-app = angular.module('spin', ["ngRoute", "ngResource", "ngAnimate", "spin.filter", "spin.service", "spin.directive"])
-
-# -----------------------------------------------------------------------------
-#
-#    CONFIGURATION
-#       - set providers that configure services and specialized objects
-# -----------------------------------------------------------------------------
-app.config(['$interpolateProvider', '$routeProvider', ($interpolateProvider, $routeProvider) ->    
-
-    $interpolateProvider.startSymbol('[[')
-    $interpolateProvider.endSymbol(']]')
-
-    $routeProvider.when("/",
-        templateUrl: "partials/main.html"
-        controller: "MainCtrl"
-    ).otherwise redirectTo : "/"    
-])
-
+app = angular.module 'spin', [
+    # Angular dependancies
+    "ngRoute"
+    "ngResource"
+    "ngAnimate"
+    # Internal dependancies
+    "spin.constant"
+    "spin.config"
+    "spin.filter"
+    "spin.service"
+    "spin.directive"
+]
 
 # EOF

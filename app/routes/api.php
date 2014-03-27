@@ -45,7 +45,7 @@ $app->get("/api/career", function() use ($app) {
 		} else {
 			return wrong(array('error' => 'token or email needed'));
 		}
-	}
+	}	
 	$export = $career->export();
 	if (empty($career))         return wrong(array('error' => 'empty'));
 	if (empty($export["json"])) return wrong(array('error' => 'undefined'));
