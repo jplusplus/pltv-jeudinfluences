@@ -14,6 +14,8 @@
 
         <title>Jeu d'influences</title>
 
+        <base href="/" />
+
         {% block script %}
             <script src="{{STATIC_URL}}js/lib.min.js?v={{ "../public/js/lib.min.js" | md5 }}"></script>
         {% endblock %}

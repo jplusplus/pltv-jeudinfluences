@@ -34,7 +34,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', (
                 # Get sequence object
                 sequence = Plot.sequence(chapter, scene, sequence)                     
                 # Sequence is a voicetrack
-                if sequence.type is "voixoff"
+                if sequence? and sequence.type is "voixoff"
                     tracks = [sequence.body]
                     # Update the voicetrack if it is different
                     if not @voicetrack? or not angular.equals( @voicetrack.urls(), tracks)
