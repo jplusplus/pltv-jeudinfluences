@@ -4,7 +4,6 @@ API
 
 ## Career
 
-
 ### GET
 	
 	/api/career?(token=|email=)
@@ -28,8 +27,9 @@ expected body :
 	}
 }
 ```
+
 (both of `reached_scene` and `context` are optional).  
-If token isn't given, it creates one and returns it. You should use it after to save again the career.
+If token isn't given, it creates one and returns it. You should save it in order to update later the career.
 
 ### PUT
 
