@@ -78,7 +78,6 @@ Si `choice` n'est pas spécifié, le paramètre `next_scene` doit être reseign�
         "trust": 2,
         "ubm": 10
     }
-    
 }
 
 ```
