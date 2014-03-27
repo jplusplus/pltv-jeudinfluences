@@ -7,7 +7,8 @@ _March 2014_
 
 This part of the manuel explains how to install this project from the production branch.
 
-* PHP 5.4 is prerequired
+* PHP 5.3 is prerequired
+* Your Apache configuration must support **URL Rewritting**
 * Setup your Apache Webserver DocumentRoot to `public/`
 * Change the mysql and others settings in [app/config/config.production.php](app/config/config.production.php) to your needs
 * Install the composer dependancies:  

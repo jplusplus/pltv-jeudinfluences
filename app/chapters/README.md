@@ -18,7 +18,7 @@
 | sequence       | list of events                                                                              |
 
 
-`next_scene` peut-être une chaine représentant une scène ("2.2" par exemple) ou une condition sur la variable `karma` comme ci dessous :
+`next_scene` peut-être **une chaine** représentant une scène ("2.2" par exemple) **ou une condition** sur la variable `karma` comme ci dessous :
 
 ```json
 "next_scene" : {
@@ -31,18 +31,22 @@
 
 Un évenement (appelé aussi "réplique") peut être bloquant ou pas. Il est bloquant s'il nécessite d'être terminé pour enchainer sur l'évenement suivant de la séquence.
 
-Chaque évenement peut avoir un paramètre "condition". Dans ce cas là, la réplique ne s'affiche que si la condition est remplie. Exemple d'utilisation : `"condition": {"interview_acceptee":true, "i_want_to_die": true}`. Ici `interview_acceptee` __ET__ `i_want_to_die` doivent être vrais pour afficher la réplique.
+Chaque évenement peut avoir **un paramètre "condition"**. Dans ce cas là, la réplique ne s'affiche que si la condition est remplie. Exemple d'utilisation : `"condition": {"interview_acceptee":true, "i_want_to_die": true}`. Ici `interview_acceptee` __ET__ `i_want_to_die` doivent être vrais pour afficher la réplique.
+
+Un évenement `new_background` peut avoir **un paramètre "timeout"**. Cela indique le temps (en secondes) après lequel l'événement doit s'afficher. Ce timeout est **non-bloquant**, c'est à dire que les autres événements continuent de défiler. L'évenement est ainsi reporté à plus tard.
+
+Chaque évenement peut avoir **un paramètre "result"**. Ce dictionnaire permet d'incrémenter ou décrémenter les variables de contextes.
 
 
-| types          |  bouton suivant à la fin | bloquant | paramètres                                      |
-|:------------   | ------------------------:| --------:|:----------------------------------------------- |
-| dialogue       |                        ✓ |        ✓ | header, body, character                         |
-| narrative      |                        ✓ |        ✓ | body(str)                                       |
-| voixoff        |                        ✕ |        ✓ | body(url)                                       |
-| video          |                        ✓ |        ✓ | body(url)                                       |
-| notification   |                        ✓ |        ✓ | body(str), header, sound                        |
-| new_background |                        ✕ |        ✕ | body(url), transition                           |
-| choice         |                        ✕ |        ✓ | body(str), delay, default_option, options(list) |
+| types          |  bouton suivant à la fin | bloquant | paramètres                                                                  |
+|:------------   | ------------------------:| --------:|:----------------------------------------------------------------------------|
+| dialogue       |                        ✓ |        ✓ | header, body, character, result, condition                                  |
+| narrative      |                        ✓ |        ✓ | body(str), result, condition                                                |
+| voixoff        |                        ✕ |        ✓ | body(url), result, condition                                                |
+| video          |                        ✓ |        ✓ | body(url), result, condition                                                |
+| notification   |                        ✓ |        ✓ | body(str), header, sound, result, condition                                 |
+| new_background |                        ✕ |        ✕ | body(url), transition, result, condition, timeout                           |
+| choice         |                        ✕ |        ✓ | body(str), delay, default_option, options(list), condition                  |
 
 Si `choice` n'est pas spécifié, le paramètre `next_scene` doit être reseigné dans l'objet `scene`.
 
@@ -51,7 +55,7 @@ Si `choice` n'est pas spécifié, le paramètre `next_scene` doit être reseign�
 | paramètres     |  notes                                                                          |
 |:-------------- |:------------------------------------------------------------------------------- |
 | default_option | default choice after a given delay, can be null for disable automatic selection |
-| delay          | required if a default_option is specified (in second                            |
+| delay          | required if a default_option is specified (in seconds)                          |
 | options        | list of options                                                                 |
 
 ##### Options

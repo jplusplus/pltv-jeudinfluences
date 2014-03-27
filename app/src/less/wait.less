@@ -7,15 +7,18 @@
 @metanav-zindex: @nav-zindex + 1000;
 
 @import 'mixins.less';
-@import 'nav.less';
-@import 'metanav.less';
 
-.bg {    
+.site_content {      
+    @import 'nav.less';
+    @import 'metanav.less';
+}
+
+.site_content .bg {    
     .covering();
     background-image:url("/img/bg/wait.jpg");    
 }
 
-.wait {
+.site_content .wait {
 
     width:440px;
     position:absolute;
@@ -38,33 +41,41 @@
     &__intro,    
     &__subscribe {
         background:fade(black, 75);
-        margin-bottom:15px;
-        padding:20px;
+        margin-bottom:25px;
+        padding:10px 20px;
     }
 
     &__intro {
         padding-top:15px;
+        text-align: center; 
+        color:white;
+        font-size:11px;  
+        white-space: nowrap;
 
-        &__lead {            
-            white-space: nowrap;
+        &__lead {                  
             padding:0;
-            padding-bottom:5px;
             margin-bottom:20px;
+            padding-bottom:5px;
             text-align: center;
             border-bottom:2px solid #4C4C4C;
             text-transform: uppercase;
-            color:white;
             font-size:12px;
         }
 
         &__start {
             color:#FF7F00;
+            text-transform: uppercase;
+            padding:0;
+            padding-top:10px;
+            margin:0;
+            font-size:12px;
         }
     }
 
     &__subscribe {        
 
-        background:fade(black, 50);
+        padding:15px 20px;
+        background:fade(black, 30);
         
         &__form {
             position:relative;
@@ -74,7 +85,7 @@
             &:after {
                 content:"";
                 position:absolute;
-                top:31px;
+                top:25px;
                 right:-31px;
                 background:url("/img/ui/triangle1.png") no-repeat right 0;                    
                 height:5px;
@@ -87,8 +98,10 @@
                 position:absolute;
                 top:0;
                 right:-32px;
-                padding:5px 6px;
-
+                padding:4px 6px;   
+                width: @input-height-base;  
+                height: @input-height-base;
+                font-size:10px;     
             }
         }
 
