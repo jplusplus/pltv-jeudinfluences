@@ -16,16 +16,22 @@ Retrieve the career progression for the given token or email from the database
 	/api/career(?token=)
 
 Save the career progression in database.  
-expected body : career's history in json as a list (see [doc/career.md](career.md)).  
+expected body : 
+```
+{
+	"reached_scene" : "2.2",
+	"context":{
+		"karma":5,
+		"stress":2,
+		"trust":2,
+		"ubm":10
+	}
+}
+```
+(both of `reached_scene` and `context` are optional).  
 If token isn't given, it creates one and returns it. You should use it after to save again the career.
 
 ### PUT
-
-	/api/career(?token=)
-
-Partial update. Update a career by adding the given history element to the already saved history list.
-You can also use the post method but you have to give __all__ the history as a list.  
-expected body : career's history element in json as a dictionary (see [doc/career.md](career.md)).  
 
 	/api/career/associate_email?token=
 
