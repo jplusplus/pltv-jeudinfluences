@@ -14,13 +14,14 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
             # Sound control
             @volume   = if isNaN(master.volume) then 0.5 else master.volume         
             # Position
-            @chapter  = 1
-            @scene    = 1
-            @sequence = 0
+            @chapter  = master.chapter or 1
+            @scene    = master.scene or 1
+            @sequence = master.sequence or 0
             # Indicators
             @ubm      = ~~(Math.random()*100)
             @trust    = ~~(Math.random()*100)
-            @stress   = ~~(Math.random()*100)     
+            @stress   = ~~(Math.random()*100)    
+            @karma    = 0 
             # Load career data from the API
             do @loadCareer
             # Update chapter, scene and sequence according the last scene of the career array
@@ -44,8 +45,13 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
             # Do we start acting?
             unless career.length is 0
                 # Find the last history item to set the chapter and scene values                
+                last = career[-1..][0]
                 # and get the 'next_scene' vlaue from the choice we did
-                [@chapter, @scene] = career[-1..][0].choice.next_scene.split "."
+                if last.choice?                                
+                    [@chapter, @scene] = last.choice.next_scene.split "."
+                # Or takes it from the current scene
+                else 
+                    [@chapter, @scene] = last.scene.split "."
                 # Start to the first sequence
                 @sequence = 0
 
@@ -70,11 +76,11 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
             if Plot.sequence(@chapter, @scene, @sequence + 1)?                
                 # Go simply to the next sequence
                 ++@sequence 
-            else if Plot.scene(@chapter, @scene + 1)?                
+            else if @scene.next_scene? and Plot.scene(@chapter, @scene.next_scene)?                
                 # Restore sequence
                 @sequence = 0
-                # And go the next scene
-                ++@scene
+                # And go to the next scene
+                [@chapter, @scene] = @scene.next_scene.split(".")
             else if Plot.chapter(@chapter+1)?
                 # Restore sequence and scene
                 @sequence = 0

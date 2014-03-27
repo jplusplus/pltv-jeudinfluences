@@ -15,29 +15,47 @@
     
 
     &__sequence {    
-        position:absolute;
-        bottom:60px;
-        left:50%;
-        background:fade(#000, 75);
-        width:440px;
-        padding:20px;
-        .translate(-50%, 0);
 
-        &__body {
-            border:2px solid @text-color;
-            background:#000;
-            .box-shadow(0 0 3px 0 black);
+        // Choice box, a the middle of the screen
+        &--choice {
+            position:absolute;
+            top:30%;
+            left:50%;
+            background:fade(#000, 75);
+            width:440px;
+            padding:20px;
+            .translate(-50%, -50%);
         }
 
-        &__next {
+        // Dialog box, a the bottom of the screen
+        &--dialogue,
+        &--narrative,
+        &--voixoff {
+
             position:absolute;
-            bottom:20px;
-            right:-15px;
-            height:30px;
-            width:30px;
-            display:block;
-            padding:0;
-            background:url("/img/ui/btn_next.png") no-repeat center center #000;
+            bottom:60px;
+            left:50%;
+            background:fade(#000, 75);
+            width:440px;
+            padding:20px;
+            .translate(-50%, 0);
+
+            &__body {
+                border:2px solid @text-color;
+                background:#000;
+                .box-shadow(0 0 3px 0 black);
+            }
+
+            &__next {
+                position:absolute;
+                bottom:20px;
+                right:-15px;
+                height:30px;
+                width:30px;
+                display:block;
+                padding:0;
+                background:url("/img/ui/btn_next.png") no-repeat center center #000;
+            }
         }
     }
 }
