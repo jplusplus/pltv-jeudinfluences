@@ -14,14 +14,14 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
             # Sound control
             @volume   = if isNaN(master.volume) then 0.5 else master.volume         
             # Position
-            @chapter  = master.chapter or 1
-            @scene    = master.scene or 1
+            @chapter  = master.chapter  or 1
+            @scene    = master.scene    or 1
             @sequence = master.sequence or 0
             # Indicators
-            @ubm      = ~~(Math.random()*100)
-            @trust    = ~~(Math.random()*100)
-            @stress   = ~~(Math.random()*100)    
-            @karma    = 0 
+            @ubm      = master.ubm    or 0
+            @trust    = master.trust  or 0
+            @stress   = master.stress or 0    
+            @karma    = master.karma  or 100 
             # Load career data from the API
             do @loadCareer
             # Update chapter, scene and sequence according the last scene of the career array
@@ -43,15 +43,13 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
 
         updateProgression: (career=@career)=>
             # Do we start acting?
-            unless career.length is 0
-                # Find the last history item to set the chapter and scene values                
-                last = career[-1..][0]
-                # and get the 'next_scene' vlaue from the choice we did
-                if last.choice?                                
-                    [@chapter, @scene] = last.choice.next_scene.split "."
-                # Or takes it from the current scene
-                else 
-                    [@chapter, @scene] = last.scene.split "."
+            if career.reached_scene?
+                [@chapter, @scene] = career.reached_scene.split "."
+                # Save indicators                        
+                @karma  = career.context.karma
+                @stress = career.context.stress
+                @trust  = career.context.trust
+                @ubm    = career.context.ubm
                 # Start to the first sequence
                 @sequence = 0
 
