@@ -2,7 +2,7 @@
     "next_scene" : "2.2",
     "decor": [
         {
-            "background": "/bg/wait.jpg",
+            "background": "https://www.dropbox.com/s/w86s3s96ivhvqe2/SPIN-02DEF.jpg?dl=1",
             "background_transition": "fadein",
             "soundtrack": "https://dl.dropboxusercontent.com/s/ap5dvcl5j4dyrfd/SPIN_1_A.mp3?dl=1"
         }
@@ -68,7 +68,7 @@
                 },
                 {
                     "header": "Ne pas appeler Nadia",
-                    "next_scene": "1.2",
+                    "next_scene": "4.1",
                     "result": {
                         "karma": -5,
                         "stress": 5,

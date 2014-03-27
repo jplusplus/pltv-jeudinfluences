@@ -2,9 +2,9 @@
     "next_scene" : null,
     "decor": [
         {
-            "background": "/illus/illu1.jpg",
+            "background": "https://www.dropbox.com/s/ahwjsz65ht7xaxh/SPIN-03DEF.jpg?dl=1",
             "background_transition": "fadein",
-            "soundtrack": "/sons/son1.mp3"
+            "soundtrack": "https://www.dropbox.com/s/6umpzbeixbnzxca/SPIN_1_B.mp3?dl=1"
         }
     ],
     "sequence": [

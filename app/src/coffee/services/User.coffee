@@ -23,7 +23,7 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
             @stress   = master.stress or 0    
             @karma    = master.karma  or 100 
             # Load career data from the API
-            do @loadCareer
+            # do @loadCareer
             # Update chapter, scene and sequence according the last scene of the career array
             $rootScope.$watch (=>@career), @updateProgression, yes
             # Update local storage
@@ -59,6 +59,7 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
             # We can use the token XOR the email to retreive the session
             params = if @token? then "token=#{@token}" else ""
             params = if @email? then "email=#{@email}" else params
+            # Create initial
             # Get value using the token
             $http[method]("#{api.career}?#{params}", {})
                 # Save the token
@@ -66,7 +67,7 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
                     @token  = data.token
                     @career = data.history if data.history?
                 # Something wrong happends
-                .error (error)=>
+                .error (error)=>                    
                     # Restore the User model
                     do @newUser if @token? or @email?                        
 
@@ -85,5 +86,23 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
                 @scene    = Plot.chapter(@chapter+1).scene[0].id
                 # And go the next scene
                 ++@chapter
+
+        nextScene: (str)=>
+            [chapter, scene] = str.split "."              
+            # Check that the next step exists
+            warn = (m)-> console.warn "#{m} doesn't exist (#{str})."
+            # Chapter exits?
+            return warn('Chapter') unless Plot.chapter(chapter)?           
+            # Scene exits?
+            return warn('Scene') unless Plot.scene(chapter, scene)?                       
+            # If we effectively change
+            if 1*@chapter isnt 1*chapter or 1*@scene isnt 1*scene
+                # Update values
+                [@chapter, @scene, @sequence] = [chapter, scene, 0]
+            else
+                # Next sequence exits?
+                return warn('Next sequence') unless Plot.sequence(chapter, scene, @sequence+1)?  
+                # Just go further
+                @sequence++   
 ]
 # EOF
