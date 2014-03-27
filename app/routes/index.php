@@ -2,7 +2,11 @@
 namespace app\routes;
 
 $app->get('/', function() use ($app) {
-
+    // $mode is "wait" or "index", depends of the current daate
+    $mode = ($app->config("launching_date") && strtotime(date('Y-m-d H:i:s')) < strtotime($app->config("launching_date"))) ? "wait" : "index";
+    // cache
+    $app->etag('home-' . $mode);
+    $app->expires('+20 minutes');
     # Template's locale variables
     $locales = array();
 
@@ -24,7 +28,7 @@ $app->get('/', function() use ($app) {
         );
 
     }
-    if ($app->config("launching_date") && strtotime(date('Y-m-d H:i:s')) < strtotime($app->config("launching_date"))) {
+    if ($mode == "wait") {
         $template = "wait.twig";
     } else {
         $template = "index.twig";

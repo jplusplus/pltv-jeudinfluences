@@ -61,17 +61,13 @@ $app->post('/api/career', function() use ($app) {
 	* Save the career progression in database
 	* expected body : career's history in json as a list (see `doc/career.md`)
 	* If token isn't given, create one and return it
-	* TODO: partial update
 	* TODO: delete
-	* TODO: create empty
 	*/
 	$params = $app->request()->params();
 	if (isset($params['token'])) {
 		$token  = $params['token'];
 		$career = R::findOne('career', 'token=?', array($token));
-		if (empty($career)) {
-			return wrong(array('error' => 'empty'));
-		}
+		if (empty($career)) return wrong(array('error' => 'empty'));
 	} else {
 		// generate a token and add it to the attribute
 		$career          = R::dispense('career');
@@ -80,12 +76,33 @@ $app->post('/api/career', function() use ($app) {
 		$career->created = R::isoDateTime();
 	}
 	// update the career (json syntax)
+	if (is_null(json_decode($app->request()->getBody()))) return wrong(array('error' => 'body invalid. Need json.'));
 	$career->json = $app->request()->getBody();
 	R::store($career);
 	return ok(array('status' => 'done', 'token' => $token));
 });
 
-$app->post('/api/career/associate_email', function() use ($app) {
+$app->put('/api/career', function() use ($app) {
+	/**
+	* Append an history element to the career progression in database
+	* expected body : career's history element in json as a dictionary (see `doc/career.md`)
+	*/
+	$params = $app->request()->params();
+	if (!isset($params['token'])) return wrong(array('error' => 'token needed'));
+	$token  = $params['token'];
+	$career = R::findOne('career', 'token=?', array($token));
+	if (empty($career)) return wrong(array('error' => 'empty'));
+	// update the career (json syntax)
+	$career_json     = json_decode($career->json, true);
+	$history_element = json_decode($app->request()->getBody(), true);
+	if (is_null($history_element)) return wrong(array("error" => "body invalid. Need json."));
+	$career_json[] = $history_element;
+	$career->json  = json_encode($career_json);
+	R::store($career);
+	return ok(array('status' => 'done', 'token' => $token));
+});
+
+$app->put('/api/career/associate_email', function() use ($app) {
 	/**
 	* Associate an email to a token
 	* expected body : `{"email" : "example@wanadoo.fr"}`
@@ -111,6 +128,9 @@ $app->get('/api/plot', function() use ($app) {
 	* Chapter must have a name like [0-9].json
 	* TODO: to be cached
 	*/
+	// cache
+	$app->etag('api-plot');
+	$app->expires('+20 minutes');
 	$response = array();
 	$chapters = glob('chapters/[0-9*].json', GLOB_BRACE);
 	foreach ($chapters as $chapter_filename) {
