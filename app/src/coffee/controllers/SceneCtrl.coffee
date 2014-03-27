@@ -15,11 +15,10 @@ class SceneCtrl
         # True if the sequence is visible into the dialog box
         @isDialog = @scope.isDialog = (sequence)=> SEQUENCE_TYPE_DIALOG.indexOf( sequence.type.toLowerCase() ) > -1
         # True if the sequence is a choice
-        @isChoice = @scope.isChoice = (sequence)=> sequence.type.toLowerCase() is "choice"
-        # Select an option within a sequence 
-        @scope.selectOption = (option)=>      
-            # Wrapper the User's method       
-            @User.nextScene option.next_scene
+        @isChoice = @scope.isChoice = (sequence)=> sequence.type.toLowerCase() is "choice"        
+        # Select an option within a sequence by wrappeing the User's method       
+        @scope.selectOption = (option)=> @User.nextScene option.next_scene
+
 
     getLastDialogIdx: =>        
         # Get current indexes
