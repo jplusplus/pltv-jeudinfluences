@@ -2,7 +2,7 @@
     "next_scene" : null,
     "decor": [
         {
-            "background": "/illus/illu1.jpg",
+            "background": "https://www.dropbox.com/s/8831drg5d9eqf8i/SPIN-06RDEF.jpg?dl=1",
             "background_transition": "fadein",
             "soundtrack": "/sons/son1.mp3"
         }

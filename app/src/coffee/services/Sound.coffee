@@ -13,19 +13,18 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', (
 
         startScene: (chapter=User.chapter, scene=User.scene)=>
             # Start a new scene
-            if scene? and Plot.chapters.length   
+            if scene? and Plot.chapters.length and Plot.scene(chapter, scene)?
                 # Get scene object
-                scene  = Plot.scene(chapter, scene) 
+                scene  = Plot.scene(chapter, scene)                 
                 tracks = [scene.decor[0].soundtrack]
                 # Update the soundtrack if it is different
                 if not @soundtrack? or not angular.equals( @soundtrack.urls(), tracks)
                     # Create the new sound
-                    @soundtrack = new Howl(
-                        urls: tracks                    
-                        loop: yes
+                    @soundtrack = new Howl
+                        urls  : tracks                    
+                        loop  : yes
                         buffer: yes
                         volume: 0
-                    )
                     # Play the sound with a fadein entrance
                     @soundtrack.play => @soundtrack.fade(0, User.volume, 2000)
 
@@ -39,12 +38,11 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', (
                     # Update the voicetrack if it is different
                     if not @voicetrack? or not angular.equals( @voicetrack.urls(), tracks)
                         # Create the new sound
-                        @voicetrack = new Howl(
+                        @voicetrack = new Howl
                             urls: tracks                    
                             loop: no
                             buffer: yes
                             volume: 0
-                        )
                         @soundtrack.fade( @soundtrack.volume(), User.volume/2 ) if @soundtrack?
                         # Play the sound with a fadein entrance
                         @voicetrack.play => @voicetrack.fade(0, User.volume, 2000)

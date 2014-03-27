@@ -16,7 +16,7 @@ $app->configureMode('development', function () use ($app) {
 		// assets
 		'static_url'           => "/",
 		'media_url'            => "/media/", # for video, sounds and large files
-		'launching_date'       => "2016-01-01T10:00:00", # after this date, switch to the game home page
+		'launching_date'       => "2010-01-01T10:00:00", # after this date, switch to the game home page
 		// Mailchimp configuration
 		'mailchimp_id'         => '',
 		'mailchimp_datacenter' => '', # ex: us8

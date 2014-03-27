@@ -1,4 +1,4 @@
-angular.module("spin.service").factory "User", ['$http', 'config.api', 'Plot', 'localStorageService', '$location', '$rootScope', ($http, api, Plot, localStorageService, $location, $rootScope)->
+angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot', 'localStorageService', '$location', '$rootScope', ($http, api, Plot, localStorageService, $location, $rootScope)->
     new class User
         # ──────────────────────────────────────────────────────────────────────────
         # Public method
@@ -29,25 +29,42 @@ angular.module("spin.service").factory "User", ['$http', 'config.api', 'Plot', '
             $rootScope.$watch (=>@), @updateLocalStorage, yes
             return @
 
+        newUser: ()=>
+            # Reset identication tokens
+            [@token, @email] = [null, null] 
+            # Reset progression
+            [@chapter, @scene, @sequence] = [1, 1, 0]
+            # And create a new session
+            @loadCareer()
+
         updateLocalStorage: (user=@)=>
             localStorageService.set("user", user) if user?
 
         updateProgression: (career=@career)=>
             # Do we start acting?
             unless career.length is 0
-                console.log career
-
+                # Find the last history item to set the chapter and scene values                
+                # and get the 'next_scene' vlaue from the choice we did
+                [@chapter, @scene] = career[-1..][0].choice.next_scene.split "."
+                # Start to the first sequence
+                @sequence = 0
 
         loadCareer: =>
             # Get or create career 
-            method = if @token? then "get" else "post"            
+            method = if @token? or @email? then "get" else "post"            
+            # We can use the token XOR the email to retreive the session
             params = if @token? then "token=#{@token}" else ""
+            params = if @email? then "email=#{@email}" else params
             # Get value using the token
             $http[method]("#{api.career}?#{params}", {})
                 # Save the token
-                .then (body)=>
-                    @token  = body.data.token
-                    @career = body.data.history if body.data.history?
+                .success (data)=>
+                    @token  = data.token
+                    @career = data.history if data.history?
+                # Something wrong happends
+                .error (error)=>
+                    # Restore the User model
+                    do @newUser if @token? or @email?                        
 
         nextSequence: =>   
             if Plot.sequence(@chapter, @scene, @sequence + 1)?                
