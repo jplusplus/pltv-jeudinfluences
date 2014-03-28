@@ -32,18 +32,10 @@ Retrieve the career progression for the given token or email from the database
 Save the career progression in database.  
 expected body : 
 ```
-{
-	"reached_scene" : "2.2",
-	"context":{
-		"karma":5,
-		"stress":2,
-		"trust":2,
-		"ubm":10
-	}
-}
+     {"reached_scene" : "2.2"}
+or   {"scene" : "2.1", "choice": 2}  // `choice` is the index of the selected option
 ```
 
-(both of `reached_scene` and `context` are optional).  
 If token isn't given, it creates one and returns it. You should save it in order to update later the career.
 
 ### PUT
