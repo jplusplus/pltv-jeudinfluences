@@ -88,8 +88,10 @@ $app->post('/api/career', function() use ($app) {
 	if (isset($data["reached_scene"])) {
 		// TODO: check if already exists
 		$scenes = json_decode($career->scenes, true);
-		$scenes[] = (string)$data["reached_scene"];
-		$career->scenes = json_encode($scenes);
+		if (!in_array((string)$data["reached_scene"], $scenes)) {
+			$scenes[] = (string)$data["reached_scene"];
+			$career->scenes = json_encode($scenes);
+		}
 	}
 	if (isset($data["scene"]) && isset($data["choice"])){
 		$choices                 = json_decode($career->choices, true);
