@@ -6,15 +6,39 @@
     right:0;
     bottom:0;
     overflow: hidden;
+    opacity:1;
+
+    &.chapter--starting {        
+        .animation(chapter-entrance @chapter-starting-duration-1);
+    }
 
     &__intro {
-        .transition(@chapter-starting-duration);        
         z-index:@chapter-zindex;
         position:absolute;
         top:140px;
         left:0;
         width: 327px;
         text-align: right;
+
+
+        &.ng-hide-add,
+        &.ng-hide-remove {
+            display:block!important;
+            .transition(@chapter-starting-duration-2);
+        }        
+
+        &.ng-hide-add.ng-hide-add-active,
+        &.ng-hide-remove {          
+            opacity:0;       
+            .translate(-100%, 0); 
+        }
+
+        &.ng-hide-remove.ng-hide-remove-active,    
+        &.ng-hide-add {          
+            opacity:1;
+            .translate(0, 0);
+        }
+
 
         &__id {            
             margin-bottom:5px;
@@ -37,8 +61,8 @@
         }
     }
 
+
     &__track {
-        .transition(@chapter-starting-duration);
         z-index:@chapter-zindex;
         position:absolute;
         width:270px;
@@ -51,6 +75,24 @@
         padding:0 20px;
         text-transform: uppercase;
         white-space: nowrap;
+        
+        &.ng-hide-add,
+        &.ng-hide-remove {
+            display:block!important;
+            .transition(@chapter-starting-duration-2);
+        }        
+
+        &.ng-hide-add.ng-hide-add-active,
+        &.ng-hide-remove {          
+            opacity:0;
+            .translate(-100%, 0);    
+        }
+
+        &.ng-hide-remove.ng-hide-remove-active,    
+        &.ng-hide-add {          
+            opacity:1;
+            .translate(0, 0);
+        }
 
         &__id b {
             font-weight:800;

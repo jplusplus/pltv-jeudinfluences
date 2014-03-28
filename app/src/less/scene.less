@@ -13,10 +13,24 @@
         z-index:-1;
     }
     
-
     &__sequence {    
 
-        .transition(@chapter-starting-duration);
+        .transition(@chapter-starting-duration-2);
+
+        &.ng-hide-add,
+        &.ng-hide-remove {
+            display:block!important;
+        }        
+
+        &.ng-hide-add.ng-hide-add-active,
+        &.ng-hide-remove {          
+            opacity:0; 
+        }
+
+        &.ng-hide-remove.ng-hide-remove-active,    
+        &.ng-hide-add {          
+            opacity:1;
+        }
 
         // Choice box, a the middle of the screen
         &--choice {

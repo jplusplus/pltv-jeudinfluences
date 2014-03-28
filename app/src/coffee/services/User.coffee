@@ -77,8 +77,7 @@ angular.module("spin.service").factory "User", [
                 # Start the tracking loop
                 do @chapterTrackingLoop
             
-            chapterTrackingLoop: =>       
-                console.log @isStartingChapter()        
+            chapterTrackingLoop: =>           
                 if not @isStartingChapter() and @trackChapterChanging?
                     # Stop until chapter is effectively not starting
                     $timeout.cancel(@trackChapterChanging) 
