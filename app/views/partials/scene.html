@@ -1,7 +1,7 @@
 <div class="scene" ng-controller="SceneCtrl" ng-show="shouldShowScene(scene)">  
     <!-- This is the main illustration -->      
     <img class="scene__bg" ng-src="[[scene.decor[0].background]]" /> 
-    
+      
     <!-- Scene's sequence -->
     <div ng-repeat="sequence in scene.sequence" 
          class="scene__sequence scene__sequence--[[sequence.type]]"

@@ -36,4 +36,64 @@
             font-family: @font-family-sans-serif;
         }
     }
+
+    &__track {
+        z-index:@chapter-zindex;
+        position:absolute;
+        width:270px;
+        left:0;
+        top:20px;
+        background:fade(black, 75);
+        height:25px;
+        line-height:25px;
+        color:white;
+        padding:0 20px;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &__id b {
+            font-weight:800;
+            padding-left:5px;
+        }
+
+        &__title {
+            margin:0;
+            padding:0;
+            text-transform: uppercase;
+            text-shadow:0 0 5px @brand-primary;
+            font-size: 23px;
+            font-family: @font-family-sans-serif;
+            line-height: 20/14;
+            white-space: normal;            
+        }
+
+        &__bullets {
+
+            position:absolute;
+            top:0;
+            height:25px;
+            right:55px;
+
+            &__bullet {
+                display:inline-block;
+                background-color: fade(white, 75);
+                height: 8px;
+                width: 8px;
+                margin-left:10px;
+                border-radius: 15px;
+
+                &.active {
+                    background:white;  
+                }
+            }
+        }
+
+        &__progression {
+            position:absolute;
+            top:0;
+            right:10px;
+            height:25px;
+            font-weight: bold;
+        }
+    }
 }

@@ -14,8 +14,8 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
             # Sound control
             @volume   = if isNaN(master.volume) then 0.5 else master.volume         
             # Position
-            @chapter  = master.chapter  or 1
-            @scene    = master.scene    or 1
+            @chapter  = master.chapter  or "1"
+            @scene    = master.scene    or "1"
             @sequence = master.sequence or 0
             # Indicators
             @ubm      = master.ubm    or 0
@@ -34,7 +34,7 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
             # Reset identication tokens
             [@token, @email] = [null, null] 
             # Reset progression
-            [@chapter, @scene, @sequence] = [1, 1, 0]
+            [@chapter, @scene, @sequence] = ["1", "1", "0"]
             # And create a new session
             @loadCareer()
 
@@ -75,19 +75,12 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
             if Plot.sequence(@chapter, @scene, @sequence + 1)?                
                 # Go simply to the next sequence
                 ++@sequence 
-            else if @scene.next_scene? and Plot.scene(@chapter, @scene.next_scene)?                
-                # Restore sequence
-                @sequence = 0
-                # And go to the next scene
-                [@chapter, @scene] = @scene.next_scene.split(".")
-            else if Plot.chapter(@chapter+1)?
-                # Restore sequence and scene
-                @sequence = 0
-                @scene    = Plot.chapter(@chapter+1).scene[0].id
-                # And go the next scene
-                ++@chapter
+            else if @scene.next_scene?
+                @goToScene @scene.next_scene
+                
+            
 
-        nextScene: (str)=>
+        goToScene: (str)=>
             [chapter, scene] = str.split "."              
             # Check that the next step exists
             warn = (m)-> console.warn "#{m} doesn't exist (#{str})."
@@ -96,7 +89,7 @@ angular.module("spin.service").factory "User", ['$http', 'constant.api', 'Plot',
             # Scene exits?
             return warn('Scene') unless Plot.scene(chapter, scene)?                       
             # If we effectively change
-            if 1*@chapter isnt 1*chapter or 1*@scene isnt 1*scene
+            if @chapter isnt chapter or @scene isnt scene
                 # Update values
                 [@chapter, @scene, @sequence] = [chapter, scene, 0]
             else
