@@ -1,11 +1,11 @@
-<div class="chapter" ng-controller="ChapterCtrl" ng-show="shouldShowChapter(chapter)">    
+<div class="chapter" ng-controller="ChapterCtrl" ng-show="shouldShowChapter(chapter)" ng-class="chapterClasses(chapter)">    
 
-    <div class="chapter__intro chapter__intro--starting">
+    <div class="chapter__intro" ng-show="user.isStartingChapter()">
         <div class="chapter__intro__id">Chapitre [[chapter.id]]</div>
         <h2 class="chapter__intro__title">[[chapter.title]]</h2>  
     </div>
 
-    <div class="chapter__track">
+    <div class="chapter__track" ng-hide="user.isStartingChapter()">
         <div class="chapter__track__id">Chapitre <b>[[chapter.id]]</b> / 4</div>
         <div class="chapter__track__bullets">
             <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 4" ng-class="{ active: i <= chapter.id - 1 }"></i>
@@ -17,6 +17,6 @@
     </div>
     
     <div ng-include="'partials/chapter.cmd.html'"></div>    
-    <div ng-repeat="scene in chapter.scenes" ng-include="'partials/scene.html'"></div>
+    <div ng-repeat="scene in chapter.scenes" ng-include="'partials/scene.html'"></div> 
 
 </div>

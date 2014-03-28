@@ -8,7 +8,7 @@
     overflow: hidden;
 
     &__intro {
-
+        .transition(@chapter-starting-duration);        
         z-index:@chapter-zindex;
         position:absolute;
         top:140px;
@@ -38,6 +38,7 @@
     }
 
     &__track {
+        .transition(@chapter-starting-duration);
         z-index:@chapter-zindex;
         position:absolute;
         width:270px;

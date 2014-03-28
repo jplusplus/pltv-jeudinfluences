@@ -5,7 +5,7 @@
     <!-- Scene's sequence -->
     <div ng-repeat="sequence in scene.sequence" 
          class="scene__sequence scene__sequence--[[sequence.type]]"
-         ng-show="shouldShowSequence($index)">
+         ng-show="shouldShowSequence($index) && !user.isStartingChapter()">
 
         <!-- Dialog box, a the bottom of the screen -->
         <div ng-if="isDialog(sequence)">
