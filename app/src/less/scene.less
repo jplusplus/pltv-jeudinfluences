@@ -7,7 +7,6 @@
     right:0;
     z-index:@scene-zindex;
 
-
     &__bg {
         .covering();
         z-index:-1;
@@ -16,15 +15,15 @@
     &__sequence {    
 
         .transition(@chapter-starting-duration-2);
-
+                        
         &.ng-hide-add,
         &.ng-hide-remove {
             display:block!important;
-        }        
+        }
 
         &.ng-hide-add.ng-hide-add-active,
         &.ng-hide-remove {          
-            opacity:0; 
+            opacity:0;
         }
 
         &.ng-hide-remove.ng-hide-remove-active,    
