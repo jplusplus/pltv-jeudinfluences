@@ -25,10 +25,12 @@
                 <link rel="stylesheet" href="{{STATIC_URL}}dev/css/styles.css" />
                 <script src="http://localhost:35729/livereload.js"></script>
                 <script type="text/javascript" src="{{STATIC_URL}}dev/js/app.js"></script>
+                <script type="text/javascript" src="{{STATIC_URL}}dev/js/template.js"></script>
             {% endif %}
             {% if MODE == "production" %}
-                <link rel="stylesheet" href="{{STATIC_URL}}css/styles.min.css?v={{ "../public/css/styles.min.css" | md5 }}" />
+                <link rel="stylesheet" href="{{STATIC_URL}}css/styles.min.css?v={{ "../public/css/styles.min.css" | md5 }}" />                
                 <script type="text/javascript" src="{{STATIC_URL}}js/app.min.js?v={{ "../public/js/app.min.js" | md5 }}"></script>
+                <script type="text/javascript" src="{{STATIC_URL}}js/template.min.js?v={{ "../public/js/template.min.js" | md5 }}"></script>
             {% endif %}
         {% endblock %}
 

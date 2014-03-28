@@ -3,6 +3,7 @@ angular.module('spin.config',    ['ngRoute',    'spin.constant'])
 angular.module('spin.controller',['ngResource', 'spin.constant'])
 angular.module('spin.directive', ['ngResource', 'spin.constant'])
 angular.module('spin.filter',    ['ngResource', 'spin.constant'])
+angular.module('spin.template',  ['ngRoute'])
 angular.module('spin.service',   ['ngResource', 'LocalStorageModule', 'spin.constant'])
 
 app = angular.module 'spin', [
@@ -15,6 +16,7 @@ app = angular.module 'spin', [
     "spin.config"
     "spin.filter"
     "spin.service"
+    "spin.template"
     "spin.directive"
 ]
 
