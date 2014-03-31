@@ -12,7 +12,7 @@ angular.module("spin.service").factory "User", [
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
             # ──────────────────────────────────────────────────────────────────────────
-            constructor: -> 
+            constructor: ->                 
                 # This user is saved into local storage
                 master    = localStorageService.get("user") or {}
                 # User authentication
@@ -32,9 +32,7 @@ angular.module("spin.service").factory "User", [
                 @stress   = master.stress or 0    
                 @karma    = master.karma  or 100 
                 # Load career data from the API
-                # do @loadCareer
-                # Update chapter, scene and sequence according the last scene of the career array
-                $rootScope.$watch (=>@career), @updateProgression, yes
+                do @loadCareer
                 # Record begining date of a chapter
                 $rootScope.$watch (=>@chapter), @saveChapterChanging, yes
                 # Update local storage
@@ -45,16 +43,16 @@ angular.module("spin.service").factory "User", [
                 # Reset identication tokens
                 [@token, @email] = [null, null] 
                 # Reset progression
-                [@chapter, @scene, @sequence] = ["1", "1", "0"]
+                [@chapter, @scene, @sequence] = ["1", "1", 0]
                 # And create a new session
                 @loadCareer()
 
             updateLocalStorage: (user=@)=>
                 localStorageService.set("user", user) if user?
 
-            updateProgression: (career=@career)=>
+            updateProgression: (career)=>
                 # Do we start acting?
-                if career.reached_scene?
+                if career.reached_scene? and typeof(career.reached_scene) is String
                     [@chapter, @scene] = career.reached_scene.split "."
                     # Save indicators                        
                     @karma  = career.context.karma
@@ -90,26 +88,34 @@ angular.module("spin.service").factory "User", [
                 method = if @token? or @email? then "get" else "post"            
                 # We can use the token XOR the email to retreive the session
                 params = if @token? then "token=#{@token}" else ""
-                params = if @email? then "email=#{@email}" else params
-                # Create initial
+                params = if @email? then "email=#{@email}" else params                                
+                state  = if method is "post" then {reached_scene: @scene + "." + @scene} else {}
                 # Get value using the token
-                $http[method]("#{api.career}?#{params}", {})
+                $http[method]("#{api.career}?#{params}", state)
                     # Save the token
                     .success (data)=>
                         @token  = data.token
-                        @career = data.history if data.history?
+                        # Update chapter, scene and sequence according 
+                        # the last scene of the career array
+                        @updateProgression(data)
                     # Something wrong happends
                     .error (error)=>                    
                         # Restore the User model
-                        do @newUser if @token? or @email?                        
+                        do @newUser if @token? or @email?   
+
+            updateCareer: (choice)=>
+                return no unless @token
+                # Add reached scene parameter
+                state = if choice? then choice else reached_scene: @scene + "." + @scene                       
+                # Get value using the token
+                $http.post "#{api.career}?token=#{@token}", state
 
             nextSequence: =>   
                 if Plot.sequence(@chapter, @scene, @sequence + 1)?                
                     # Go simply to the next sequence
                     ++@sequence 
                 else if @scene.next_scene?
-                    @goToScene @scene.next_scene
-                    
+                    @goToScene @scene.next_scene                    
 
             goToScene: (str)=>
                 [chapter, scene] = str.split "."              
@@ -123,6 +129,8 @@ angular.module("spin.service").factory "User", [
                 if @chapter isnt chapter or @scene isnt scene
                     # Update values
                     [@chapter, @scene, @sequence] = [chapter, scene, 0]
+                    # Save the career
+                    do @updateCareer
                 else
                     # Next sequence exits?
                     return warn('Next sequence') unless Plot.sequence(chapter, scene, @sequence+1)?  
