@@ -51,16 +51,6 @@ module.exports = function(grunt) {
           {expand: true, flatten: true, src: ['bower_modules/angular/angular.min.js.map'], dest: 'public/js/', filter: 'isFile'}
         ]
       },
-      partials: {
-        files: [
-          {
-            flatten: true,
-            expand: true,
-            src: ['app/views/partials/*.html'], 
-            dest: 'public/partials/'
-          },
-        ]
-      },
       dist: {
         files: [
           {src: ['public/.htaccess'], dest: 'dist/', filter: 'isFile'},
@@ -70,6 +60,13 @@ module.exports = function(grunt) {
         ]
       }
     },
+    ngtemplates:  {
+      'spin.template': {
+        cwd:  'app/views/',
+        src:  'partials/*.html',
+        dest: 'public/dev/js/template.js'
+      }
+    },    
     bower: {
       install: {
         options: {
@@ -92,7 +89,8 @@ module.exports = function(grunt) {
       app: {
         files: {
           'public/js/app.min.js': ['public/dev/js/app.js'],
-          'public/js/wait.min.js': ['public/dev/js/wait.js']
+          'public/js/wait.min.js': ['public/dev/js/wait.js'],
+          'public/js/template.min.js': ['public/dev/js/template.js']
         }
       },
       lib: {
@@ -184,7 +182,7 @@ module.exports = function(grunt) {
       },
       partials: {
         files: ['app/views/partials/*'],
-        tasks: ['copy:partials'], 
+        tasks: ['ngtemplates'], 
       }
     },
     php: {
@@ -236,11 +234,16 @@ module.exports = function(grunt) {
   // Testing tools
   grunt.loadNpmTasks('grunt-contrib-jasmine');
 
+  // Template tool  
+  grunt.loadNpmTasks('grunt-angular-templates');
+
   // Modules for server and watcher
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-php');
   grunt.loadNpmTasks('grunt-parallel');
   grunt.loadNpmTasks('assemble');
+
+
   
   // Basic tasks.
   grunt.registerTask('default', ['development']);
@@ -257,10 +260,10 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['jasmine']);
 
   // Setup environment for development
-  grunt.registerTask('development', ['copy:bootstrap', 'copy:angular','copy:partials', 'build','lib', 'assemble:development_php','clean:development','mkdir:clean']);
+  grunt.registerTask('development', ['copy:bootstrap', 'copy:angular', 'ngtemplates', 'build','lib', 'assemble:development_php','clean:development','mkdir:clean']);
 
   // Setup environment for production
-  grunt.registerTask('production', ['copy:bootstrap', 'copy:partials', 'build','lib:production', 'assemble:production_php','clean:production','mkdir:clean']);
+  grunt.registerTask('production', ['copy:bootstrap', 'ngtemplates', 'build','lib:production', 'assemble:production_php','clean:production','mkdir:clean']);
 
   grunt.registerTask('server', function(env){
     if(env == 'production'){
@@ -269,6 +272,7 @@ module.exports = function(grunt) {
       grunt.task.run(['default','parallel:server']);
     }
   });
+
 
   grunt.registerTask('browser', function(){
     var done = this.async();

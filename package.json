@@ -7,7 +7,7 @@
     "grunt-exec": "~0.4.1",
     "grunt-mkdir": "~0.1.1",
     "grunt-bower-task": "~0.2.3",
-    "grunt-open":"~0.2.0",
+    "grunt-open": "~0.2.0",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-coffee": "~0.8.0",
@@ -17,11 +17,12 @@
     "grunt-contrib-watch": "~0.4.4",
     "grunt-contrib-jasmine": "~0.5.1",
     "assemble": "~0.3.80",
-    "grunt-php":"~0.1.1",
-    "grunt-parallel":"~0.2.0"
+    "grunt-php": "~0.1.1",
+    "grunt-parallel": "~0.2.0",
+    "grunt-angular-templates": "~0.5.3"
   },
   "engines": {
-  	"node": ">=0.10.0"
+    "node": ">=0.10.0"
   },
   "scripts": {
     "start": "make run"

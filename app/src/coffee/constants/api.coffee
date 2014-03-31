@@ -1,3 +1,3 @@
-angular.module('spin.constant').constant 'config.api',
+angular.module('spin.constant').constant 'constant.api',
     career: '/api/career'
     plot  : '/api/plot'

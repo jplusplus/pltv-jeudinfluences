@@ -1,4 +1,4 @@
-angular.module("spin.service").factory "Plot", ['$http', ($http)->
+angular.module("spin.service").factory "Plot", ['$http', 'constant.api', ($http, api)->
     new class Plot    
         # ──────────────────────────────────────────────────────────────────────────
         # Public method
@@ -6,16 +6,16 @@ angular.module("spin.service").factory "Plot", ['$http', ($http)->
         constructor: ->
             @chapters = []
             # Get plot
-            $http.get("/api/plot").success (chapters)=> @chapters = chapters
+            $http.get(api.plot).success (chapters)=> @chapters = chapters
             return @           
         # Getter shortcuts
         chapter : (chapterId)=> 
             # Fetch the chapters list
-            _.find @chapters or [], (chapter)-> 1*chapter.id is 1*chapterId                        
+            _.find @chapters or [], (chapter)-> chapter.id is chapterId                        
         scene   : (chapterId, sceneId)=>
-            chapter = @chapter(chapterId) or {}            
+            chapter = @chapter(chapterId) or {}                  
             # Fetch the chapters list and its scenes
-            _.find chapter.scenes or [], (scene)-> 1*scene.id is 1*sceneId
+            _.find chapter.scenes or [], (scene)-> scene.id is sceneId
         sequence: (chapterId, sceneId, sequenceIdx)=>                         
             # Find a scene, inside a chapter, then takes the given element
             scene = @scene(chapterId, sceneId) or { sequence: [] }        

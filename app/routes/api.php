@@ -30,7 +30,6 @@ function wrong($body, $status=500,  $json_encode=true) {
 #    API
 #
 # -----------------------------------------------------------------------------
-
 $app->get("/api/career", function() use ($app) {
 	/**
 	* Retrieve the career progression for the given token from the database.
@@ -45,13 +44,16 @@ $app->get("/api/career", function() use ($app) {
 		} else {
 			return wrong(array('error' => 'token or email needed'));
 		}
-	}	
+	}
+	if (empty($career)) return wrong(array('error' => 'empty'));
 	$export = $career->export();
-	if (empty($career))         return wrong(array('error' => 'empty'));
-	if (empty($export["json"])) return wrong(array('error' => 'undefined'));
+	if (empty($export["scenes"])) return wrong(array('error' => 'undefined'));
+	$last_scene = json_decode($career->scenes, true);
+	$last_scene = end($last_scene);
 	$response = array(
-		"token"   => $career->token,
-		"history" => json_decode($career->json, true)
+		"token"         => $career->token,
+		"reached_scene" => $last_scene,
+		"context"       => \app\helpers\Game::computeContext($export)
 	);
 	return ok($response);
 });
@@ -59,8 +61,10 @@ $app->get("/api/career", function() use ($app) {
 $app->post('/api/career', function() use ($app) {
 	/**
 	* Save the career progression in database
-	* expected body : career's history in json as a list (see `doc/career.md`)
 	* If token isn't given, create one and return it
+	* expected body : {"reached_scene" : "2.2"}
+	* or              {"scene" : "2.1", "choice": 2}
+	*
 	* TODO: delete
 	*/
 	$params = $app->request()->params();
@@ -73,31 +77,28 @@ $app->post('/api/career', function() use ($app) {
 		$career          = R::dispense('career');
 		$token           = str_replace(".", "", uniqid("", true));
 		$career->token   = $token; # save the token
+		$career->choices = "{}";
+		$career->scenes  = "[]";
 		$career->created = R::isoDateTime();
 	}
 	// update the career (json syntax)
-	if (is_null(json_decode($app->request()->getBody()))) return wrong(array('error' => 'body invalid. Need json.'));
-	$career->json = $app->request()->getBody();
-	R::store($career);
-	return ok(array('status' => 'done', 'token' => $token));
-});
-
-$app->put('/api/career', function() use ($app) {
-	/**
-	* Append an history element to the career progression in database
-	* expected body : career's history element in json as a dictionary (see `doc/career.md`)
-	*/
-	$params = $app->request()->params();
-	if (!isset($params['token'])) return wrong(array('error' => 'token needed'));
-	$token  = $params['token'];
-	$career = R::findOne('career', 'token=?', array($token));
-	if (empty($career)) return wrong(array('error' => 'empty'));
-	// update the career (json syntax)
-	$career_json     = json_decode($career->json, true);
-	$history_element = json_decode($app->request()->getBody(), true);
-	if (is_null($history_element)) return wrong(array("error" => "body invalid. Need json."));
-	$career_json[] = $history_element;
-	$career->json  = json_encode($career_json);
+	$data = json_decode($app->request()->getBody(), true);
+	if (is_null($data)) return wrong(array("error" => "body invalid. Need json."));
+	// update field
+	if (isset($data["reached_scene"])) {
+		// TODO: check if already exists
+		$scenes = json_decode($career->scenes, true);
+		if (!in_array((string)$data["reached_scene"], $scenes)) {
+			$scenes[] = (string)$data["reached_scene"];
+			$career->scenes = json_encode($scenes);
+		}
+	}
+	if (isset($data["scene"]) && isset($data["choice"])){
+		$choices                 = json_decode($career->choices, true);
+		$choices[$data["scene"]] = $data["choice"];
+		$career->choices         = json_encode($choices);
+	}
+	// save
 	R::store($career);
 	return ok(array('status' => 'done', 'token' => $token));
 });
@@ -131,31 +132,8 @@ $app->get('/api/plot', function() use ($app) {
 	// cache
 	$app->etag('api-plot');
 	$app->expires('+20 minutes');
-	$response = array();
-	$chapters = glob('chapters/[0-9*].json', GLOB_BRACE);
-	foreach ($chapters as $chapter_filename) {
-		$chapter_number = basename($chapter_filename, ".json");
-		$content        = file_get_contents($chapter_filename);
-		$chapter        = json_decode($content, true);
-		$opening_dates  = $app->config("opening_dates");
-		$opening_date   = isset($opening_dates[$chapter_number]) ? $opening_dates[$chapter_number] : null;
-		// if there is an opening date, compare it with today : keep only opened chapters
-		if(empty($opening_date) || strtotime(date('Y-m-d H:i:s')) >= strtotime($opening_date))  {
-			// retrieve scenes files for the current chapter
-			$scenes  = glob('chapters/'.$chapter_number.'.?*.json', GLOB_BRACE);
-			$chapter['id']           = $chapter_number; # add the id from filename
-			$chapter['opening_date'] = $opening_date; # add the opening_date from config into the chapter object
-			$chapter['scenes']       = array();
-			foreach ($scenes as $scene_filename) {
-				$content             = file_get_contents($scene_filename);
-				$scene               = json_decode($content, true);
-				$scene["id"]         = join(".", array_slice(explode(".", basename($scene_filename, ".json")), 1)); # add the id from filename
-				$chapter['scenes'][] = $scene;
-			}
-			$response[] = $chapter;
-		}
-	}
-	return ok($response);
+	$plot = \app\helpers\Game::getPlot($app->config("opening_dates"));
+	return ok($plot);
 });
 
 # -----------------------------------------------------------------------------

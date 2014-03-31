@@ -7,37 +7,91 @@
     right:0;
     z-index:@scene-zindex;
 
-
     &__bg {
         .covering();
         z-index:-1;
     }
     
-
     &__sequence {    
-        position:absolute;
-        bottom:60px;
-        left:50%;
-        background:fade(#000, 75);
-        width:440px;
-        padding:20px;
-        .translate(-50%, 0);
+                    
+        // Choice box, a the middle of the screen
+        &--choice {
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:440px;
+            padding:10px 0;
+            padding-bottom:20px;
+            text-align: center;
+            white-space:nowrap;
+            .translate(-50%, -50%);
+            #gradient > .vertical(fade(#000, 30), fade(#000, 0) );
 
-        &__body {
-            border:2px solid @text-color;
-            background:#000;
-            .box-shadow(0 0 3px 0 black);
+            &.ng-hide-add,
+            &.ng-hide-remove {
+                display:block!important;
+                .transition(@chapter-starting-duration-2);
+            }
+
+            &.ng-hide-add.ng-hide-add-active,
+            &.ng-hide-remove {          
+                opacity:0;
+            }
+
+            &.ng-hide-remove.ng-hide-remove-active,    
+            &.ng-hide-add {          
+                opacity:1;
+            }
+
+            &__question {
+                position:absolute;
+                bottom:100%;
+                left:-20px;
+                right:-20px;
+                margin:0;
+                padding:12px 0;
+                background:fade(#fff, 75);    
+                color: fade(#000, 75);
+                font-weight:bold;
+                font-size: 22px;                
+            }
+
+            &__option {
+                height:60px;
+                width:150px;
+                margin:0 10px 15px;
+            }
         }
 
-        &__next {
+        // Dialog box, a the bottom of the screen
+        &--dialogue,
+        &--narrative,
+        &--voixoff {
+
             position:absolute;
-            bottom:20px;
-            right:-15px;
-            height:30px;
-            width:30px;
-            display:block;
-            padding:0;
-            background:url("/img/ui/btn_next.png") no-repeat center center #000;
+            bottom:60px;
+            left:50%;
+            background:fade(#000, 75);
+            width:440px;
+            padding:20px;
+            .translate(-50%, 0);
+
+            &__body {
+                border:2px solid @text-color;
+                background:#000;
+                .box-shadow(0 0 3px 0 black);
+            }
+
+            &__next {
+                position:absolute;
+                bottom:20px;
+                right:-15px;
+                height:30px;
+                width:30px;
+                display:block;
+                padding:0;
+                background:url("/img/ui/btn_next.png") no-repeat center center #000;
+            }
         }
     }
 }
