@@ -46,7 +46,7 @@
         <li class="nav__cmd__part">
             <a class="nav__cmd__save" ng-click="user.newUser()">R</a>/
             <a class="nav__cmd__save" ng-click="user.inGame = true">S</a>:
-            <span class="nav__cmd__save">[[user.isChapterStarting]]</span>
+            [[1*user.isStartingChapter()|json]]
         </li>
         <li class="nav__cmd__part">
             <a class="nav__cmd__save" href="">Sauvegarder</a>
