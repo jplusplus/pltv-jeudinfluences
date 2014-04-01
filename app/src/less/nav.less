@@ -42,6 +42,39 @@
 		position:absolute;
 		right:0;
 		top:0;		
+
+		&__share {
+
+
+			li {
+				padding-left:0;
+			}
+
+			&__third-party {
+
+				.hide-text();
+				height:30px;
+				width:30px;
+				background:no-repeat center center;
+				background-color:@btn-default-bg;
+				
+				&--mail {
+					background-image:url("/img/ui/pic_mail.png");
+				}
+				&--facebook {
+					background-image:url("/img/ui/pic_facebook.png");
+
+				}
+				&--twitter {
+					background-image:url("/img/ui/pic_twitter.png");
+
+				}
+				&--google {
+					background-image:url("/img/ui/pic_google.png");
+
+				}
+			}
+		}
 	}
 
 

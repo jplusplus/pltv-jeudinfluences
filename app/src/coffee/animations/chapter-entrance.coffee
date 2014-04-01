@@ -1,12 +1,13 @@
-angular.module("spin.animation").animation '.chapter-entrance-animation', ["$timeout", ($timeout)->    
-    # make sure to call the done() function when the animation is complete.
+angular.module("spin.animation").animation '.chapter-entrance-animation', ["$timeout", "constant.delay", ($timeout, delay)->    
     removeClass: (element, className, done) ->    
         if className is "ng-hide"      
             element.css("opacity", 0)
-            element.animate
-                opacity: 1
-            # Wait 3000 seconds before the end of the animation
-            , 3000, -> $timeout(done, 2000)
+            $timeout ->
+                element.animate
+                    opacity: 1
+                , delay.chapterStarting/2, done
+            # Wait 3000 seconds before the start of the animation
+            , delay.chapterStarting/2
         else
             done()
         return

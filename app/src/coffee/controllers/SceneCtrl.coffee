@@ -16,6 +16,8 @@ class SceneCtrl
         @isDialog = @scope.isDialog = (sequence)=> SEQUENCE_TYPE_DIALOG.indexOf( sequence.type.toLowerCase() ) > -1
         # True if the sequence is a choice
         @isChoice = @scope.isChoice = (sequence)=> sequence.type.toLowerCase() is "choice"        
+        # True if the sequence is a notification
+        @isNotification = @scope.isNotification= (sequence)=> sequence.type.toLowerCase() is "notification"        
         # Select an option within a sequence by wrappeing the User's method       
         @scope.selectOption = (option)=> @User.goToScene option.next_scene
 

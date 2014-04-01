@@ -68,8 +68,7 @@ angular.module("spin.service").factory("User", [
                 # Chapter is considered as starting during {delay.chapterStarting} millisecond
                 Date.now() - @lastChapterChanging < delay.chapterStarting
 
-            saveChapterChanging: (chapter)=>                     
-                console.log chapter
+            saveChapterChanging: (chapter)=>      
                 # Stop here until a chapter id is set
                 return unless chapter?
                 @lastChapterChanging = Date.now()            

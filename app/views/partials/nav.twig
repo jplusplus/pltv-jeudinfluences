@@ -37,19 +37,33 @@
 	<ul class="nav__cmd list-inline">
 		<li class="nav__cmd__part">
 			<ul class="nav__cmd__share list-inline">
-				<li><a href="">Email</a></li>
-				<li><a href="">Facebook</a></li>
-				<li><a href="">Twitter</a></li>
-                <li><a href="">Google+</a></li>
+				<li>
+                    <a href="" class="btn btn-default btn-sm nav__cmd__share__third-party nav__cmd__share__third-party--mail">
+                        Email
+                    </a>
+                </li>
+				<li>
+                    <a href="" class="btn btn-default btn-sm nav__cmd__share__third-party nav__cmd__share__third-party--facebook">
+                        Facebook
+                    </a>
+                </li>
+				<li>
+                    <a href="" class="btn btn-default btn-sm nav__cmd__share__third-party nav__cmd__share__third-party--twitter">
+                        Twitter
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="btn btn-default btn-sm nav__cmd__share__third-party nav__cmd__share__third-party--google">
+                        Google
+                    </a>
+                </li>
 			</ul>
 		</li>
-        <li class="nav__cmd__part">
-            <a class="nav__cmd__save" ng-click="user.newUser()">R</a>/
-            <a class="nav__cmd__save" ng-click="user.inGame = true">S</a>:
-            [[1*user.isStartingChapter()|json]]
+        <li class="nav__cmd__part btn-group">
+            <a class="nav__cmd__save btn btn-sm btn-default" ng-click="user.newUser(); user.inGame = false">Restart</a>
         </li>
         <li class="nav__cmd__part">
-            <a class="nav__cmd__save" href="">Sauvegarder</a>
+            <a class="nav__cmd__save btn btn-sm btn-default" href="">Sauvegarder</a>
         </li>
 		<li class="nav__cmd__part">
 			<span class="nav__cmd__volume">
