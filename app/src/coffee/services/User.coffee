@@ -41,6 +41,8 @@ angular.module("spin.service").factory("User", [
                 $rootScope.$watch (=>@), @updateLocalStorage, yes
                 return @
 
+            pos: ()=> @chapter + "." + @scene
+
             newUser: ()=>
                 # Reset identication tokens
                 [@token, @email] = [null, null] 
@@ -91,7 +93,7 @@ angular.module("spin.service").factory("User", [
                 # We can use the token XOR the email to retreive the session
                 params = if @token? then "token=#{@token}" else ""
                 params = if @email? then "email=#{@email}" else params                                
-                state  = if method is "post" then {reached_scene: @scene + "." + @scene} else {}
+                state  = if method is "post" then {reached_scene: @pos()} else {}
                 # Get value using the token
                 $http[method]("#{api.career}?#{params}", state)
                     # Save the token
@@ -108,7 +110,7 @@ angular.module("spin.service").factory("User", [
             updateCareer: (choice)=>
                 return no unless @token
                 # Add reached scene parameter
-                state = if choice? then choice else reached_scene: @scene + "." + @scene                       
+                state = if choice? then choice else reached_scene: @pos()
                 # Get value using the token
                 $http.post "#{api.career}?token=#{@token}", state
 
@@ -119,7 +121,7 @@ angular.module("spin.service").factory("User", [
                 else if @scene.next_scene?
                     @goToScene @scene.next_scene                    
 
-            goToScene: (str)=>
+            goToScene: (str, shouldUpdateCareer=yes)=>
                 [chapter, scene] = str.split "."              
                 # Check that the next step exists
                 warn = (m)-> console.warn "#{m} doesn't exist (#{str})."
@@ -132,7 +134,7 @@ angular.module("spin.service").factory("User", [
                     # Update values
                     [@chapter, @scene, @sequence] = [chapter, scene, 0]
                     # Save the career
-                    do @updateCareer
+                    do @updateCareer if shouldUpdateCareer
                 else
                     # Next sequence exits?
                     return warn('Next sequence') unless Plot.sequence(chapter, scene, @sequence+1)?  
