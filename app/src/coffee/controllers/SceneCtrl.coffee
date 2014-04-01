@@ -19,7 +19,11 @@ class SceneCtrl
         # True if the sequence is a notification
         @isNotification = @scope.isNotification= (sequence)=> sequence.type.toLowerCase() is "notification"        
         # Select an option within a sequence by wrappeing the User's method       
-        @scope.selectOption = (option)=> @User.goToScene option.next_scene
+        @scope.selectOption = (option, idx)=>      
+            # Save choice for this scene
+            @User.updateCareer choice: idx, scene: @User.pos()
+            # Go to the next scene without updating the career
+            @User.goToScene option.next_scene, no
 
 
     getLastDialogIdx: =>        

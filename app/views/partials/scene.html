@@ -22,7 +22,7 @@
             </h3>
             <button ng-repeat="option in sequence.options"
                     class="btn btn-lg btn-default scene__sequence--choice__option" 
-                    ng-click="selectOption(option)">
+                    ng-click="selectOption(option, $index)">
                 [[option.header]]
             </button>
         </div>
