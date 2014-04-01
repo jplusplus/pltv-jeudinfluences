@@ -1,4 +1,4 @@
-<div class="chapter" ng-controller="ChapterCtrl" ng-show="shouldShowChapter(chapter)" ng-class="chapterClasses(chapter)">    
+<div class="chapter chapter-entrance-animation ng-hide" ng-controller="ChapterCtrl" ng-show="shouldShowChapter(chapter) && user.inGame" ng-class="chapterClasses(chapter)">    
 
     <div class="chapter__intro" ng-show="user.isStartingChapter()">
         <div class="chapter__intro__id">Chapitre [[chapter.id]]</div>
@@ -60,7 +60,7 @@
 
 
     <div ng-repeat="scene in chapter.scenes">
-        <div class="scene" ng-controller="SceneCtrl" ng-show="shouldShowScene(scene)">  
+        <div class="scene" ng-controller="SceneCtrl" ng-show="shouldShowScene(scene)">              
             <!-- This is the main illustration -->      
             <img class="scene__bg" ng-src="[[scene.decor[0].background]]" /> 
               

@@ -13,6 +13,11 @@ var jslib = ['bower_modules/jquery/jquery.min.js',
 
 module.exports = function(grunt) {
 
+  var parallel = ['php:server','watch'];
+  if( ! grunt.option("disable-browser") ) {
+    parallel.push("browser");
+  }
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -48,7 +53,10 @@ module.exports = function(grunt) {
       },
       angular: {
         files: [
-          {expand: true, flatten: true, src: ['bower_modules/angular/angular.min.js.map'], dest: 'public/js/', filter: 'isFile'}
+          {expand: true, flatten: true, src: ['bower_modules/angular/angular.min.js.map'], dest: 'public/js/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bower_modules/angular-animate/angular-animate.min.js.map'], dest: 'public/js/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bower_modules/angular-resource/angular-resource.min.js.map'], dest: 'public/js/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bower_modules/angular-rpite/angular-rpite.min.js.map'], dest: 'public/js/', filter: 'isFile'}
         ]
       },
       dist: {
@@ -201,7 +209,7 @@ module.exports = function(grunt) {
           grunt: true,
           stream: true
         },
-        tasks: ['php:server','watch','browser']
+        tasks: parallel
       }
     },
     jasmine: {

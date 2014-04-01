@@ -129,9 +129,11 @@ $app->get('/api/plot', function() use ($app) {
 	* Chapter must have a name like [0-9].json
 	* TODO: to be cached
 	*/
+	
 	// cache
 	$app->etag('api-plot');
-	$app->expires('+20 minutes');
+	$app->expires('+10 minutes');
+    
 	$plot = \app\helpers\Game::getPlot($app->config("opening_dates"));
 	return ok($plot);
 });

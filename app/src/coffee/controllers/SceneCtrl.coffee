@@ -27,7 +27,7 @@ class SceneCtrl
         sequenceIdx = @User.sequence
         while yes
             sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)
-            break if sequence < 0 or sequence? and @isDialog sequence 
+            break if not sequence? or sequence < 0 or @isDialog sequence
             sequenceIdx--
         sequenceIdx
 

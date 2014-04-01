@@ -1,3 +1,4 @@
+angular.module('spin.animation', ["ngAnimate"])
 angular.module('spin.constant',  [])
 angular.module('spin.config',    ['ngRoute',    'spin.constant'])
 angular.module('spin.controller',['ngResource', 'spin.constant'])
@@ -12,6 +13,7 @@ app = angular.module 'spin', [
     "ngResource"
     "ngAnimate"
     # Internal dependancies
+    "spin.animation"
     "spin.constant"
     "spin.config"
     "spin.filter"
@@ -19,5 +21,4 @@ app = angular.module 'spin', [
     "spin.template"
     "spin.directive"
 ]
-
 # EOF

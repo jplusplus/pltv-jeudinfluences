@@ -1,4 +1,4 @@
-angular.module("spin.service").factory "User", [
+angular.module("spin.service").factory("User", [
     '$http'
     '$timeout'
     'constant.api'
@@ -12,9 +12,11 @@ angular.module("spin.service").factory "User", [
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
             # ──────────────────────────────────────────────────────────────────────────
-            constructor: ->                 
+            constructor: ->                                 
                 # This user is saved into local storage
                 master    = localStorageService.get("user") or {}
+                # False until the player starts the game
+                @inGame   = yes
                 # User authentication
                 @token    = $location.search().token or master.token or null
                 @email    = master.email or null
@@ -34,7 +36,7 @@ angular.module("spin.service").factory "User", [
                 # Load career data from the API
                 do @loadCareer
                 # Record begining date of a chapter
-                $rootScope.$watch (=>@chapter), @saveChapterChanging, yes
+                $rootScope.$watch (=>@chapter or @inGame), @saveChapterChanging, yes
                 # Update local storage
                 $rootScope.$watch (=>@), @updateLocalStorage, yes
                 return @
@@ -68,7 +70,7 @@ angular.module("spin.service").factory "User", [
 
             saveChapterChanging: (chapter)=>                     
                 # Stop here until a chapter id is set
-                return unless chapter?            
+                return unless chapter?
                 @lastChapterChanging = Date.now()            
                 # Cancel any current timeout
                 if @trackChapterChanging? then $timeout.cancel @trackChapterChanging
@@ -136,5 +138,4 @@ angular.module("spin.service").factory "User", [
                     return warn('Next sequence') unless Plot.sequence(chapter, scene, @sequence+1)?  
                     # Just go further
                     @sequence++   
-]
-# EOF
+])
