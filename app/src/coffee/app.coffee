@@ -1,5 +1,5 @@
-angular.module('spin.animation', ["ngAnimate"])
 angular.module('spin.constant',  [])
+angular.module('spin.animation', ['ngAnimate', 'spin.constant'])
 angular.module('spin.config',    ['ngRoute',    'spin.constant'])
 angular.module('spin.controller',['ngResource', 'spin.constant'])
 angular.module('spin.directive', ['ngResource', 'spin.constant'])
@@ -13,8 +13,8 @@ app = angular.module 'spin', [
     "ngResource"
     "ngAnimate"
     # Internal dependancies
-    "spin.animation"
     "spin.constant"
+    "spin.animation"
     "spin.config"
     "spin.filter"
     "spin.service"

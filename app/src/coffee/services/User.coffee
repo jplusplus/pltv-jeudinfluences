@@ -16,7 +16,7 @@ angular.module("spin.service").factory("User", [
                 # This user is saved into local storage
                 master    = localStorageService.get("user") or {}
                 # False until the player starts the game
-                @inGame   = no
+                @inGame   = yes
                 # User authentication
                 @token    = $location.search().token or master.token or null
                 @email    = master.email or null
@@ -68,8 +68,7 @@ angular.module("spin.service").factory("User", [
                 # Chapter is considered as starting during {delay.chapterStarting} millisecond
                 Date.now() - @lastChapterChanging < delay.chapterStarting
 
-            saveChapterChanging: (chapter)=>                     
-                console.log chapter
+            saveChapterChanging: (chapter)=>      
                 # Stop here until a chapter id is set
                 return unless chapter?
                 @lastChapterChanging = Date.now()            

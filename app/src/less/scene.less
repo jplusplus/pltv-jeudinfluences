@@ -64,6 +64,26 @@
             }
         }
 
+        // Notification box, a the top right corner of the screen
+        &--notification {
+
+            position:absolute;
+            top:20px;
+            right:0;
+            background:fade(#000, 75);
+            width:270px;
+            padding:15px;
+            color:white;
+
+            &__header {
+                font-style: italic;
+                font-size:10px;
+                margin-bottom:10px;
+                padding-left:20px;
+                background:url("/img/ui/notification.png") left center no-repeat;
+            }
+        }
+
         // Dialog box, a the bottom of the screen
         &--dialogue,
         &--narrative,
