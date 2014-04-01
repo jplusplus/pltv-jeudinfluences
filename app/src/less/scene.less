@@ -54,7 +54,27 @@
                 background:fade(#fff, 75);    
                 color: fade(#000, 75);
                 font-weight:bold;
-                font-size: 22px;                
+                font-size: 22px;   
+                
+                &:after,
+                &:before {
+                    content:"";
+                    position:absolute;
+                    top:100%;
+                    background:no-repeat 0 0;
+                    height:10px;                    
+                    width:20px;                    
+                }       
+
+                &:after {
+                    right:0;
+                    background-image:url("/img/ui/question_right.png");
+                }      
+
+                &:before {
+                    left:0;
+                    background-image:url("/img/ui/question_left.png");
+                }      
             }
 
             &__option {

@@ -2,10 +2,12 @@ angular.module("spin.animation").animation '.chapter-entrance-animation', ["$tim
     removeClass: (element, className, done) ->    
         if className is "ng-hide"      
             element.css("opacity", 0)
-            element.animate
-                opacity: 1
-            # Wait 3000 seconds before the end of the animation
-            , delay.chapterStarting/2, -> $timeout(done, delay.chapterStarting/3)
+            $timeout ->
+                element.animate
+                    opacity: 1
+                , delay.chapterStarting/2, done
+            # Wait 3000 seconds before the start of the animation
+            , delay.chapterStarting/2
         else
             done()
         return

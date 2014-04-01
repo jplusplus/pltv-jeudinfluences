@@ -6,7 +6,8 @@
 @scene-zindex  : 1000;
 @scenebg-zindex: @scene-zindex   - 100;
 @chapter-zindex: @scene-zindex   + 1000;
-@nav-zindex    : @chapter-zindex + 1000;
+@welcome-zindex: @chapter-zindex + 1000;
+@nav-zindex    : @welcome-zindex + 1000;
 @metanav-zindex: @nav-zindex + 1000;
 
 @chapter-starting-duration-1: 6s;
@@ -21,5 +22,6 @@
     @import 'chapter.less';
     @import 'chapter.cmd.less';
     @import 'scene.less';
+    @import 'welcome.less';
 }
 

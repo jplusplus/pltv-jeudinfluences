@@ -16,7 +16,7 @@ angular.module("spin.service").factory("User", [
                 # This user is saved into local storage
                 master    = localStorageService.get("user") or {}
                 # False until the player starts the game
-                @inGame   = yes
+                @inGame   = no
                 # User authentication
                 @token    = $location.search().token or master.token or null
                 @email    = master.email or null
