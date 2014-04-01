@@ -53,7 +53,10 @@ module.exports = function(grunt) {
       },
       angular: {
         files: [
-          {expand: true, flatten: true, src: ['bower_modules/angular/angular.min.js.map'], dest: 'public/js/', filter: 'isFile'}
+          {expand: true, flatten: true, src: ['bower_modules/angular/angular.min.js.map'], dest: 'public/js/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bower_modules/angular-animate/angular-animate.min.js.map'], dest: 'public/js/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bower_modules/angular-resource/angular-resource.min.js.map'], dest: 'public/js/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bower_modules/angular-rpite/angular-rpite.min.js.map'], dest: 'public/js/', filter: 'isFile'}
         ]
       },
       dist: {

@@ -41,11 +41,12 @@
 				<li><a href="">Facebook</a></li>
 				<li><a href="">Twitter</a></li>
                 <li><a href="">Google+</a></li>
-				<li><a href="">[[isStartingChapter|json]]</a></li>
 			</ul>
 		</li>
         <li class="nav__cmd__part">
-            <a class="nav__cmd__save" ng-click="user.newUser()">Recommencer</a>
+            <a class="nav__cmd__save" ng-click="user.newUser()">R</a>/
+            <a class="nav__cmd__save" ng-click="user.inGame = true">S</a>:
+            <span class="nav__cmd__save">[[user.isChapterStarting]]</span>
         </li>
         <li class="nav__cmd__part">
             <a class="nav__cmd__save" href="">Sauvegarder</a>
