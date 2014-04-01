@@ -88,24 +88,25 @@ angular.module("spin.service").factory("User", [
                     @trackChapterChanging = $timeout @chapterTrackingLoop, 200
 
             loadCareer: =>
-                # Get or create career 
-                method = if @token? or @email? then "get" else "post"            
-                # We can use the token XOR the email to retreive the session
-                params = if @token? then "token=#{@token}" else ""
-                params = if @email? then "email=#{@email}" else params                                
-                state  = if method is "post" then {reached_scene: @pos()} else {}
-                # Get value using the token
-                $http[method]("#{api.career}?#{params}", state)
-                    # Save the token
-                    .success (data)=>
-                        @token  = data.token
+                # Get career 
+                if @token?
+                    # Get value using the token
+                    $http.get("#{api.career}?token=#{@token}")
                         # Update chapter, scene and sequence according 
-                        # the last scene of the career array
-                        @updateProgression(data)
-                    # Something wrong happends
-                    .error (error)=>                    
-                        # Restore the User model
-                        do @newUser if @token? or @email?   
+                        # the last scene given by the career
+                        .success( (data)=> @updateProgression(data) )
+                        # Something wrong happends, restores the User model
+                        .error( (data)=> do @newUser if @token? or @email? )
+                # Or create a new one
+                else                    
+                    # Get value using the token
+                    $http.post("#{api.career}", {})
+                        # Save the token
+                        .success (data)=>                                   
+                            # Save the token
+                            @token = data.token
+                            # And call this function again
+                            do @loadCareer   
 
             updateCareer: (choice)=>
                 return no unless @token
