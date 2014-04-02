@@ -14,7 +14,8 @@ $app->configureMode('production', function () use ($app) {
 		'archimade_idsite'     => 2439,
 		// assets
 		'static_url'           => "/",
-		'media_url'            => "/media/", # for video, sounds and large files
+		// for video, sounds and large files
+		'media_url'            => "http://jacob.jplusplus.org/~pirhoo/pltv-spin",
 		'launching_date'       => "2014-05-06T10:00:00", # after this date, switch to the game home page
 		// Mailchimp configuration
 		'mailchimp_id'         => '',
@@ -22,7 +23,10 @@ $app->configureMode('production', function () use ($app) {
 		'mailchimp_apikey'     => '',
 		// Opening dates of each chapter
 		'opening_dates'        => array(
-			// ex: '1'         => "2014-03-19T16:00:00",
+			'1'                => "2014-03-10T16:00:00",
+			'2'                => "2014-03-10T16:00:00",
+			'3'                => "2014-03-10T16:00:00",
+			'4'                => "2014-03-10T16:00:00"
 		)
 	));
 
