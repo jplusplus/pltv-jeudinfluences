@@ -9,6 +9,10 @@
     ],
     "sequence": [
         {
+        "type": "narrative", 
+        "body": "..." 
+        },
+        {
             "type": "notification",
             "sound": "/medias/sounddesign/notif-1.mp3",
             "header": "Message reçu du 06.11.03.52.42",

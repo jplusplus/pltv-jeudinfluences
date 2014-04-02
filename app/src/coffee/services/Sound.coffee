@@ -26,9 +26,9 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                         buffer: yes
                         volume: 0
                         # Default states
-                        onplay : -> @isPlaying = yes
-                        onpause: -> @isPlaying = no
-                        onend  : -> @isPlaying = no
+                        onplay : => $rootScope.$apply => @soundtrack.isPlaying = yes
+                        onpause: => $rootScope.$apply => @soundtrack.isPlaying = no
+                        onend  : => $rootScope.$apply => @soundtrack.isPlaying = no
                     # Play the sound with a fadein entrance
                     @soundtrack.play => @soundtrack.fade(0, User.volume, 1000)
 
@@ -48,9 +48,9 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                             buffer: yes
                             volume: 0
                             # Default states
-                            onplay : -> @isPlaying = yes
-                            onpause: -> @isPlaying = no
-                            onend  : -> @isPlaying = no
+                            onplay : => $rootScope.$apply => @voicetrack.isPlaying = yes
+                            onpause: => $rootScope.$apply => @voicetrack.isPlaying = no
+                            onend  : => $rootScope.$apply => @voicetrack.isPlaying = no
                         @soundtrack.fade( @soundtrack.volume(), User.volume/2 ) if @soundtrack?
                         # Play the sound with a fadein entrance
                         @voicetrack.play => @voicetrack.fade(0, User.volume, 1000)
