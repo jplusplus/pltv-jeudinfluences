@@ -1,7 +1,7 @@
 angular.module('spin.constant').constant 'constant.settings',
     # URL where to find the media
     # (Append using "media" filter )
-    mediaUrl          : "http://localhost/J++/Projects/pltv-spin-media/"
+    mediaUrl          : window.MEDIA_URL or ""
     # Duration of chapter starting (in milliseconds)
     chapterStarting   : 6*1000/12
     # Some types of sequence have differents behavior
