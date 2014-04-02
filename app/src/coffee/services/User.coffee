@@ -100,7 +100,7 @@ angular.module("spin.service").factory("User", [
                 # Or create a new one
                 else                    
                     # Get value using the token
-                    $http.post("#{api.career}", {})
+                    $http.post("#{api.career}", reached_scene: "1.1")
                         # Save the token
                         .success (data)=>                                   
                             # Save the token
@@ -114,6 +114,8 @@ angular.module("spin.service").factory("User", [
                 state = if choice? then choice else reached_scene: @pos()
                 # Get value using the token
                 $http.post "#{api.career}?token=#{@token}", state
+                # And load the refresfed data
+                do @loadCareer
 
             nextSequence: =>   
                 scene = Plot.scene(@chapter, @scene)
