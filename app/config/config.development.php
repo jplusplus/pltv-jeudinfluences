@@ -15,7 +15,7 @@ $app->configureMode('development', function () use ($app) {
 		// assets
 		'static_url'           => "/",
 		// for video, sounds and large files
-		'media_url'            => "http://localhost/J++/Projects/pltv-spin-media",
+		'media_url'            => "http://jacob.jplusplus.org/~pirhoo/pltv-spin",
 		// after this date, switch to the game home page
 		'launching_date'       => "2010-01-01T10:00:00", 
 		// Mailchimp configuration
