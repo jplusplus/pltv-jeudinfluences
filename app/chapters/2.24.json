@@ -1,0 +1,72 @@
+{
+    "next_scene": "2.26",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-13.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Non, je ne suis pas très à l'aise avec ce tweet."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "De quoi avez-vous peur ? D'attirer l'attention ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Sans doute."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "C'est justement l'objectif. Occuper le terrain."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Non, ça ne me va pas. Mika était un proche et je suis plutôt discret par nature."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Discret ? Comme quand vous êtes l'effigie d'Habinat dans les campagnes presse ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "C'est de la com', c'est différent."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Non, justement. Le geste de Mickael vous ébranle, et je le comprends. Mais actuellement, vous avez deux choses à gérer : votre peine intime et la survie de votre entreprise et de ses employés. Et pour la seconde, la com' est nécessaire."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Bon, très bien, laissons tomber. On va réfléchir au communiqué."
+        }
+    ]
+}

@@ -59,10 +59,10 @@
                 </li>
 			</ul>
 		</li>
-        <li class="nav__cmd__part btn-group">
+        <li class="nav__cmd__part btn-group" ng-show="user.inGame">
             <a class="nav__cmd__save btn btn-sm btn-default" ng-click="user.newUser(); user.inGame = false">Restart</a>
         </li>
-        <li class="nav__cmd__part">
+        <li class="nav__cmd__part" ng-show="user.inGame">
             <a class="nav__cmd__save btn btn-sm btn-default" href="">Sauvegarder</a>
         </li>
 		<li class="nav__cmd__part">

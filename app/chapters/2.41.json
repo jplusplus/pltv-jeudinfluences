@@ -1,0 +1,16 @@
+{
+    "next_scene": "3.1",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-20.jpg",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "narrative",
+            "body": "Urgent - Industrie - Fait divers. Selon une source proche du dossier, le suicide de Mickael Saulat serait lié à des problèmes personnels. Mickael Saulat était responsable de la branche R&D de l'entreprise Habinat. Il avait 38 ans. PGH/AFP."
+        }
+    ]
+}

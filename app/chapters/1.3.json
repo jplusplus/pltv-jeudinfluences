@@ -1,0 +1,18 @@
+{
+    "next_scene": "1.4",
+    "decor": [
+        {
+            "background": "/medias/chap1/illustrations/illustr-ch1-01.gif",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Dites-lui juste qu'il peut me rappeler s'il le souhaite."
+        }
+    ]
+}

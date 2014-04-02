@@ -1,0 +1,22 @@
+{
+    "next_scene": "2.6",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-fb-00_a.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap2/voix-off/louis-ch2-flashback-00.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "narrative",
+            "body": "10 ans plus tôt..."
+        },
+        {
+            "type": "new_background",
+            "timeout": 30,
+            "body": "/medias/chap2/illustrations/illustr-ch2-fb-00_b.jpg",
+            "transition": "fadout"
+        }
+    ]
+}

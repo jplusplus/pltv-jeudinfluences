@@ -1,4 +1,4 @@
-angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', (User, Plot, $rootScope)->
+angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '$filter', (User, Plot, $rootScope, $filter)->
     new class Sound
         # ──────────────────────────────────────────────────────────────────────────
         # Public method
@@ -16,7 +16,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', (
             if scene? and Plot.chapters.length and Plot.scene(chapter, scene)?
                 # Get scene object
                 scene  = Plot.scene(chapter, scene)                 
-                tracks = [scene.decor[0].soundtrack]
+                tracks = [ $filter('media')(scene.decor[0].soundtrack) ]
                 # Update the soundtrack if it is different
                 if not @soundtrack? or not angular.equals( @soundtrack.urls(), tracks)
                     # Create the new sound
@@ -25,8 +25,12 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', (
                         loop  : yes
                         buffer: yes
                         volume: 0
+                        # Default states
+                        onplay : -> @isPlaying = yes
+                        onpause: -> @isPlaying = no
+                        onend  : -> @isPlaying = no
                     # Play the sound with a fadein entrance
-                    @soundtrack.play => @soundtrack.fade(0, User.volume, 2000)
+                    @soundtrack.play => @soundtrack.fade(0, User.volume, 1000)
 
         startSequence: (chapter=User.chapter, scene=User.scene, sequence=User.sequence)=>            
             if sequence?
@@ -34,7 +38,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', (
                 sequence = Plot.sequence(chapter, scene, sequence)                     
                 # Sequence is a voicetrack
                 if sequence? and sequence.type is "voixoff"
-                    tracks = [sequence.body]
+                    tracks = [$filter('media')(sequence.body)]
                     # Update the voicetrack if it is different
                     if not @voicetrack? or not angular.equals( @voicetrack.urls(), tracks)
                         # Create the new sound
@@ -43,14 +47,18 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', (
                             loop: no
                             buffer: yes
                             volume: 0
+                            # Default states
+                            onplay : -> @isPlaying = yes
+                            onpause: -> @isPlaying = no
+                            onend  : -> @isPlaying = no
                         @soundtrack.fade( @soundtrack.volume(), User.volume/2 ) if @soundtrack?
                         # Play the sound with a fadein entrance
-                        @voicetrack.play => @voicetrack.fade(0, User.volume, 2000)
+                        @voicetrack.play => @voicetrack.fade(0, User.volume, 1000)
                 # Stop sound
                 else if @voicetrack?
                     @soundtrack.fade( @soundtrack.volume(), User.volume ) if @soundtrack?
                     # Play the sound with a fadein entrance
-                    @voicetrack.fade @voicetrack.volume(), 0, 2000, => @voicetrack.stop()
+                    @voicetrack.fade @voicetrack.volume(), 0, 1000, => @voicetrack.stop()
 
         updateVolume: (volume)=>                      
             # New volume set

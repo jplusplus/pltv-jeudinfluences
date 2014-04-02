@@ -21,6 +21,13 @@
         {% endblock %}
 
         {% block head %}
+
+            <script type="text/javascript">
+                // Values passed throught server-side app configuration
+                window.MEDIA_URL  = "{{MEDIA_URL|raw}}";
+                window.STATIC_URL = "{{STATIC_URL|raw}}";
+            </script>
+            
             {% if MODE == "development" %}
                 <link rel="stylesheet" href="{{STATIC_URL}}dev/css/styles.css" />
                 <script src="http://localhost:35729/livereload.js"></script>

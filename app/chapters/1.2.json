@@ -3,22 +3,11 @@
     "decor": [
         {
             "background": "/medias/chap1/illustrations/illustr-ch1-01.gif",
-            "background_transition": "fade",
-            "soundtrack": "/medias/chap1/musiques/soundtrack-ch1-a.mp3"
+            "background_transition": null,
+            "soundtrack": null
         }
     ],
     "sequence": [
-        {
-            "type": "dialogue",
-            "character": "Louis",
-            "header": "Mercredi 23 mai, 21h57.",
-            "body": "Ce jour-là, je rentre tout juste du Brésil. Trois jours de rendez-vous ininterrompus, un marathon commercial. Le jeu en valait la chandelle. Mais je suis content de revenir sur mes terres, de retrouver mon entreprise, mon usine."
-        },
-        {
-            "type": "new_background",
-            "body": "/medias/chap1/illustrations/illustr-ch1-02.gif",
-            "transition": null
-        },
         {
             "type": "voixoff",
             "character": "Siri",
@@ -27,18 +16,19 @@
         },
         {
             "type": "choice",
-            "body": "Rappeler Mika ?",
+            "body": "Laisser un message ?",
             "default_option": null,
             "delay": null,
             "options": [
                 {
                     "header": "Oui",
-                    "next_scene": "1.2",
+                    "next_scene": "1.3",
                     "result": [
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": 0
+                            "ubm": 0,
+                            "trust": 0
                         }
                     ]
                 },
@@ -49,7 +39,8 @@
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": 0
+                            "ubm": 0,
+                            "trust": 0
                         }
                     ]
                 }

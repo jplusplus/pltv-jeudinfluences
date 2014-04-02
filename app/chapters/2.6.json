@@ -1,0 +1,82 @@
+{
+    "next_scene": null,
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-05.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "narrative",
+            "body": "Jeudi 24 mai, 4h35"
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "sound": "/medias/chap2/voixoff/louis-ch2-02.mp3"
+        },
+        {
+            "type": "new_background",
+            "body": "/medias/chap2/illustrations/illustr-ch2-06.jpg",
+            "transition": null
+        },
+        {
+            "type": "voixoff",
+            "character": "Journaliste",
+            "sound": "/medias/chap2/voixoff/journaliste-ch2-01.mp3"
+        },
+        {
+            "type": "new_background",
+            "body": "/medias/chap2/illustrations/illustr-ch2-07.jpg",
+            "transition": null
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "sound": "/medias/chap2/voixoff/louis-ch2-03.mp3"
+        },
+        {
+            "type": "new_background",
+            "body": "/medias/chap2/illustrations/illustr-ch2-08.jpg",
+            "transition": null
+        },
+        {
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "Je lui ai donné ton numéro. Il s'appelle Patrick Luaud, il pourra t'aider face aux médias. Moi je ne peux plus rien gérer pour toi.\nUne enquête va être lancée et je serai la première interrogée. Ne reste pas ici, ça ne sert à rien.\n\nPrends cette carte."
+        },
+        {
+            "type": "choice",
+            "body": "Prendre la carte ?",
+            "delay": 15,
+            "default_option": 2,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "2.9",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "2.7",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "next_scene": null,
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-19.jpg",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "C'est un peu cliché, non ? Et puis surtout, je n'ai aucune certitude..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Le cliché, c'est l'idéal car nos interlocuteurs adorent les raccourcis. Et le cliché, c'est le raccourci par excellence. Ensuite, il n'est pas question de faire l'enquête à la place de la presse. Ce que nous allons faire c'est utiliser le doute. Si cette piste est fausse, peu importe. En attendant, elle aura éloigné les journalistes d'Habinat pendant quelque temps.\nC'est toujours ça de pris.\n\nOn y va ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Faites-moi confiance. Si on ne fait rien, les médias tourneront boucle sur la seule miette qu'ils ont à grignoter : Mickael Saulat s'est suicidé à cause d'un mal-être à vos côtés. C'est ce que vous voulez ?"
+        },
+        {
+            "type": "choice",
+            "body": "C'est ce que vous voulez ?",
+            "delay": null,
+            "default_option": null,
+            "options": [
+                {
+                    "header": "Non, mais...",
+                    "next_scene": "2.39",
+                    "outro": "Vous venez de modifer le passé...",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "2.40",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "trashing_nadia": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

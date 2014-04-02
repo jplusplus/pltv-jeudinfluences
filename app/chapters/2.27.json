@@ -1,0 +1,64 @@
+{
+    "next_scene": null,
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-17_a.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "C'est parti. RTL est la première radio de France. Le journal de 9h00 est très écouté. L'UBM a dû grimper en flèche. Il n'y a plus de temps à perdre."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Il faut que nous fassions partir ce communiqué. La première rumeur, c'est un mal-être lié à l'entreprise. Le lien est facile. Le contraste parfait. La part sombre au coeur du rêve. Il y a de quoi faire couler de l'encre. À nous de trouver mieux."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Avant d'aller plus loin : est-ce que cette piste est fausse ? Il n'y avait pas d'ombre qui planait sur Mickael au sein de l'entreprise ?"
+        },
+        {
+            "type": "choice",
+            "body": "Y avait-il des difficultés avec Mickael au sein de l'entreprise ?",
+            "delay": 15,
+            "default_option": 2,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "2.33",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non [mentir]",
+                    "next_scene": "2.28",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

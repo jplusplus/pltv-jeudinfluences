@@ -1,0 +1,30 @@
+{
+    "next_scene": "2.4",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-03.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "À l'autre bout du fil, j'ai d'abord entendu un long silence..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "Mika s'est suicidé.\n\n<em>Un long silence. Assourdissant.</em>\n\nViens."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "J'ai enfilé machinalement une chemise, un pantalon et mes chaussures. Je suis descendu au garage et j'ai pris la route sans même fermer derrière moi."
+        }
+    ]
+}

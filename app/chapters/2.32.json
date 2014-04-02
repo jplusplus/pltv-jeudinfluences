@@ -1,0 +1,17 @@
+{
+    "next_scene": "2.37",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-fb-01.jpg",
+            "background_transition": "fade",
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap2/voix-off/louis-ch2-flashback-01_a.mp3"
+        }
+    ]
+}

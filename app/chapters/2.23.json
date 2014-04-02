@@ -1,0 +1,24 @@
+{
+    "next_scene": "2.26",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-13.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "notification",
+            "sound": "/medias/sounddesign/notif-1.mp3",
+            "header": null,
+            "body": "Votre message \"Mickael était un collègue hors pair devenu un ami infaillible. Sa perte est inestimable. Rien n'existera plus comme avant.\" a bien été envoyé avec le compte @l_esmond"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Parfait, c'est une bonne chose de faite, mais ça ne suffira pas. Il va falloir lancer rapidement un communiqué via le canal \"officiel\" d'Habinat."
+        }
+    ]
+}

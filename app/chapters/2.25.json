@@ -1,0 +1,90 @@
+{
+    "next_scene": "2.26",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-13.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Ok, dans ce cas, mettons-nous directement sur le communiqué."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Attendez, je ne comprends pas. Pourquoi faire un communiqué, ou même un tweet ? Je n'ai rien à me reprocher."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Tant mieux pour vous...\nMais tout le monde s'en fou. La réalité, c'est que la marque de votre entreprise est associée au suicide de celui qui a bâti son succès."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Mais ce succès, c'est moi !"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Calmez-vous Louis. Moins la presse aura d'infos, plus elle va schématiser, simplifier. Elle va tenter de tirer des conclusions sans avoir de faits. C'est pour ça qu'il faut communiquer. Pour limiter les raccourcis et maitriser la matière première sur laquelle vont travailler les journalistes. Parce qu'ils vont travailler sur ce suicide, croyez moi.\nRacontez-moi un peu Mickael."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Je l'ai recruté quand j'ai pris la direction du pôle R&D. Quelques années plus tard, je lui en ai confié les rênes quand je suis moi-même devenu P-DG.\n\n...\n\nSon acte est cruel."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Restez sur les faits, l'histoire. Qu'est-ce qui a motivé son embauche ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Je voulais lancer des recherches sur un nouveau type de béton. C'était une question de business : nous étions au bord du dépôt de bilan et le marché de la construction labelisée \"écologique\" pouvait permettre de sauver l'entreprise. C'était même la seule option viable."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Et ça a marché."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Bien sûr."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Grâce à Mickael Saulat."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "En partie, oui, c'est indéniable."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Alors, nous allons lui rendre hommage. C'est aussi simple que cela."
+        }
+    ]
+}

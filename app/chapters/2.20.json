@@ -1,0 +1,70 @@
+{
+    "next_scene": null,
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-13.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Je mettrais :\n\"Nous sommes profondément affectés part la perte de Mickael Saulat, pierre essentielle de notre édifice. Son geste reste incompréhensible.\""
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": "Patrick Luaud hausse les sourcils.",
+            "body": "Pourquoi tendre une telle perche ? Bien sûr que son geste est incompréhensible. Quel suicide ne l'est pas ? Et puis \"la pierre essentielle notre l'édifice\" pour un concepteur de béton... Ne prenez pas les gens pour des idiots."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Il faut quelque chose de plus authentique. Si vous voulez prendre la parole, faites-le vraiment. Avec votre propre compte Twitter, pas celui de l'entreprise. Il n'y a pas de risque, nous pouvons peser chaque mot."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Voilà ce que je vous propose :\n\n\"Mickael était un collègue hors pair devenu un ami infaillible. Sa perte est inestimable. Rien n'existera plus comme avant.\"\n\nVous n'ouvrez aucune piste, aucune voie d'eau. Vous êtes simplement un homme qui en pleure un autre. Quoi de plus humain ?\nC'est bien ce que vous souhaitez ?"
+        },
+        {
+            "type": "choice",
+            "body": "Envoyer le tweet proposé par Patrick Luaud ?",
+            "delay": null,
+            "default_option": null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "2.23",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "2.24",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

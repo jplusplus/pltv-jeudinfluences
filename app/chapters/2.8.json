@@ -1,0 +1,36 @@
+{
+    "next_scene": "2.9",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-09.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Non, je suis désolé mais ma dir' com' c'est toi Nadia. On doit gérer ça ensemble."
+        },
+        {
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "Tu plaisantes, Louis ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Tu sais que je pourrai t'épauler. Tu me connais, je tiendrai le choc. Tu pourras t'appuyer sur moi. Y compris financièrement... Mais j'ai besoin de toi.\n\nFais-le pour Mika."
+        },
+        {
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": "En une seconde son regard à changé.",
+            "body": "Va-t'en. Appelle qui tu veux, Luaud ou pas, je m'en fous, mais pars. Vite. C'est la seule chose humaine dont tu sois encore capable."
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "next_scene": "2.11",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-10.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap2/voix-off/louis-ch2-04.mp3"
+        }
+    ]
+}

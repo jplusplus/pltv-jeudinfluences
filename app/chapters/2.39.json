@@ -1,0 +1,24 @@
+{
+    "next_scene": "3.1",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-19.jpg",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Bien sûr que non. Mais je ne peux pas faire porter ça à Nadia. Elle vient de perdre Mika, elle a besoin d'être seule avec ses proches. Je ne veux pas mettre la presse sur sa trace."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "C'est risqué pour l'image de l'entreprise, mais je comprends. À l'heure qu'il est, le communiqué est parti. On va voir comment ça évolue et on s'adaptera en fonction."
+        }
+    ]
+}
