@@ -9,6 +9,10 @@
     ],
     "sequence": [
         {
+        "type": "narrative", 
+        "body": "..." 
+        },
+        {
             "type": "notification",
             "sound": "/medias/sounddesign/sonnerie-tel.mp3",
             "header": "4h42",

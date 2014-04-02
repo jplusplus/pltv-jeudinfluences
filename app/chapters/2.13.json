@@ -9,6 +9,10 @@
     ],
     "sequence": [
         {
+        "type": "narrative", 
+        "body": "..." 
+        },
+        {
             "type": "notification",
             "sound": null,
             "header": null,
