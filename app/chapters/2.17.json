@@ -2,7 +2,7 @@
     "next_scene": "2.18",
     "decor": [
         {
-            "background": "/medias/chap2/illustrations/illustr-ch2-15.jpg",
+            "background": "/medias/illustrations/tablette.jpg",
             "background_transition": null,
             "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-a.mp3"
         }
