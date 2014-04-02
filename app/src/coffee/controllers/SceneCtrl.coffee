@@ -55,21 +55,22 @@ class SceneCtrl
                 higherId = id if id <= @User.sequence
             # Return the following assertion                        
             bg.sequence is higherId
+        # Last dialog box that we seen
+        @getLastDialogIdx = @scope.getLastDialogIdx = =>        
+            # Get current indexes
+            chapterIdx  = @User.chapter
+            sceneIdx    = @User.scene
+            sequenceIdx = @User.sequence
+            while yes
+                sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                   
+                break if sequenceIdx is 0 or not sequence? or @isPlayer sequence or @isDialog sequence
+                sequenceIdx--
+            sequenceIdx
 
         # Play of pause the soundtrack
         # @scope.toggleSoundtrack = ()=>            
 
 
 
-    getLastDialogIdx: =>        
-        # Get current indexes
-        chapterIdx  = @User.chapter
-        sceneIdx    = @User.scene
-        sequenceIdx = @User.sequence
-        while yes
-            sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                  
-            break if not sequence? or  @isPlayer sequence or @isDialog sequence
-            sequenceIdx--
-        sequenceIdx
 
 # EOF
