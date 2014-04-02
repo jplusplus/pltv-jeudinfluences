@@ -100,7 +100,7 @@ angular.module("spin.service").factory("User", [
                 # Or create a new one
                 else                    
                     # Get value using the token
-                    $http.post("#{api.career}", {})
+                    $http.post("#{api.career}", reached_scene: "1.1")
                         # Save the token
                         .success (data)=>                                   
                             # Save the token
