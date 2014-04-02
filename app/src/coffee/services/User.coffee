@@ -114,6 +114,8 @@ angular.module("spin.service").factory("User", [
                 state = if choice? then choice else reached_scene: @pos()
                 # Get value using the token
                 $http.post "#{api.career}?token=#{@token}", state
+                # And load the refresfed data
+                do @loadCareer
 
             nextSequence: =>   
                 scene = Plot.scene(@chapter, @scene)
