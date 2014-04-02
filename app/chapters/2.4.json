@@ -9,6 +9,10 @@
     ],
     "sequence": [
         {
+        "type": "narrative", 
+        "body": "..." 
+        },
+        {
             "type": "notification",
             "sound": "/medias/chap2/voix-off/siri-ch2-01.mp3",
             "header": null,
