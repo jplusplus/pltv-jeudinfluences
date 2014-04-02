@@ -28,6 +28,23 @@
             </a>
         </div>
 
+        <!-- Player box, a the bottom of the screen -->
+        <div ng-if="isPlayer(sequence)">
+            <p class="scene__sequence--[[sequence.type]]__character" ng-if="sequence.character">
+                [[sequence.character]]&nbsp;:                
+            </p>
+            <button class="btn btn-default scene__sequence--[[sequence.type]]__play" ng-click="toggleVoicetrack()">
+                <span ng-show="sound.voicetrack.isPlaying">Pause<span>
+                <span ng-hide="sound.voicetrack.isPlaying">Play<span>
+            </button>                
+            <div class="scene__sequence--[[sequence.type]]__head" ng-if="getHeadSrc(sequence)">
+                <img ng-src="[[getHeadSrc(sequence)]]" />
+            </div>            
+            <a class="scene__sequence--dialogue__next btn btn-default" ng-show="shouldShowNext($parent.sequence)" ng-click="goToNextSequence()">
+                <span class="sr-only">Continuer</span>
+            </a>
+        </div>
+
         <!-- Choice box, at the middle of the screen -->
         <div ng-if="isChoice(sequence)">
             <h3 class="scene__sequence--choice__question">

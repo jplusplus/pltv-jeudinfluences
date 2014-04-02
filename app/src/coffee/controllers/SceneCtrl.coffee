@@ -1,16 +1,19 @@
 class SceneCtrl
-    @$inject: ['$scope', 'Plot', 'User', 'constant.characters', 'constant.settings']
-    constructor: (@scope, @Plot, @User, characters, settings) ->                                       
+    @$inject: ['$scope', 'Plot', 'User', 'Sound', 'constant.characters', 'constant.settings']
+    constructor: (@scope, @Plot, @User, @Sound, characters, settings) ->    
+        @scope.sound = @Sound                                   
         # True if the given scene is visible
         @scope.shouldShowScene = (scene)=> scene.id is @User.scene   
         # True if the given sequence is visible
         @scope.shouldShowSequence = (idx)=> [ @getLastDialogIdx(), @User.sequence ].indexOf(idx) > -1
         # True if the sequence's button should be shown
-        @scope.shouldShowNext = (sequence)=> yes or settings.sequence_with_next.indexOf( sequence.type.toLowerCase() ) > -1
+        @scope.shouldShowNext = (sequence)=> settings.sequence_with_next.indexOf( sequence.type.toLowerCase() ) > -1
         # True if the sequence is visible into the dialog box
         @isDialog = @scope.isDialog = (sequence)=> settings.sequence_dialog.indexOf( sequence.type.toLowerCase() ) > -1
         # True if the sequence is a choice
-        @isChoice = @scope.isChoice = (sequence)=> sequence.type.toLowerCase() is "choice"        
+        @isChoice = @scope.isChoice = (sequence)=> sequence.type.toLowerCase() is "choice"                # True if the sequence is a choice
+        # True if the sequence is a voixoff
+        @isPlayer = @scope.isPlayer = (sequence)=> sequence.type.toLowerCase() is "voixoff"        
         # True if the sequence is a notification
         @isNotification = @scope.isNotification= (sequence)=> sequence.type.toLowerCase() is "notification"        
         # Just wraps the function from the user service
@@ -39,8 +42,8 @@ class SceneCtrl
         sceneIdx    = @User.scene
         sequenceIdx = @User.sequence
         while yes
-            sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)
-            break if not sequence? or sequence < 0 or @isDialog sequence
+            sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                  
+            break if not sequence? or  @isPlayer sequence or @isDialog sequence
             sequenceIdx--
         sequenceIdx
 

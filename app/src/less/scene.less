@@ -104,10 +104,56 @@
             }
         }
 
+        // Player box, a the bottom of the screen
+        &--voixoff {            
+            position:absolute;
+            bottom:60px;
+            left:50%;
+            background:fade(#000, 75);
+            width:440px;
+            padding:20px;
+            .translate(-50%, 0);
+
+            &__character {
+                color:@brand-secondary;
+                text-transform: uppercase;
+                margin-bottom:0;                    
+            }
+
+            &__play {        
+                height:24px;
+            }
+
+            &__head {
+                position:absolute;
+                top:20px;
+                right: 100%;
+                margin-right: 7px;
+                background:black;
+                border:2px solid black;
+                width:50px;
+
+                img {
+                    width:100%;
+                }
+
+                &:before {                    
+                    content:"";
+                    position:absolute;
+                    top:100%;
+                    background:no-repeat 0 0 url("/img/ui/question_left.png");
+                    height:10px;                    
+                    width:20px;                   
+                    left:0;
+                    margin-top:2px;
+                    margin-left:-2px;
+                }
+            }
+        }
+
         // Dialog box, a the bottom of the screen
         &--dialogue,
-        &--narrative,
-        &--voixoff {
+        &--narrative {
 
             position:absolute;
             bottom:60px;
