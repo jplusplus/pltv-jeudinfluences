@@ -1,0 +1,69 @@
+{
+    "next_scene": null,
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-17_a.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Parfait. Si ce n'est pas le cas, dites-le moi maintenant. Le problème n'est pas de dissimuler, mais à qui dissimuler. En l'occurence, c'est important que l'on soit en confiance, vous et moi."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Gérer une crise c'est faire des choix, définir ce que vous souhaitez protéger et donc ce que vous êtes prêt à sacrifier. Il faut donner à manger à la meute, sinon elle trouvera par elle-même. Et pour ça, je dois savoir ce qu'il y a dans le frigo."
+        },
+        {
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/chap2/illustrations/illustr-ch2-17_b.jpg"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Donc, rien sur Mickael au sein de l'entreprise, aucune tension, aucun malaise ?"
+        },
+        {
+            "type": "choice",
+            "body": "Aucune difficulté avec Mickael au sein de l'entreprise ?",
+            "delay": 10,
+            "default_option": 2,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "2.33",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non [mentir]",
+                    "next_scene": "2.29",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

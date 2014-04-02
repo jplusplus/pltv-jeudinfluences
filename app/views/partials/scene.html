@@ -1,6 +1,6 @@
 <div class="scene" ng-controller="SceneCtrl" ng-show="shouldShowScene(scene)">              
     <!-- This is the main illustration -->      
-    <img class="scene__bg" ng-src="[[scene.decor[0].background]]" /> 
+    <img class="scene__bg" ng-src="[[scene.decor[0].background | media]]" /> 
       
     <!-- Scene's sequence -->
     <div ng-repeat="sequence in scene.sequence" 
@@ -9,7 +9,20 @@
 
         <!-- Dialog box, a the bottom of the screen -->
         <div ng-if="isDialog(sequence)">
-            <pre>[[sequence|json]]</pre>
+            <div class="scene__sequence--[[sequence.type]]__frame">            
+                <p class="scene__sequence--[[sequence.type]]__frame__header" ng-if="sequence.header">
+                    [[sequence.header]]
+                </p>
+                <p class="scene__sequence--[[sequence.type]]__frame__character" ng-if="sequence.character">
+                    [[sequence.character]]&nbsp;:
+                </p>
+                <p class="scene__sequence--[[sequence.type]]__frame__body">
+                    [[sequence.body]]
+                </p>
+                <div class="scene__sequence--[[sequence.type]]__frame__head" ng-if="getHeadSrc(sequence)">
+                    <img ng-src="[[getHeadSrc(sequence)]]" />
+                </div>
+            </div>
             <a class="scene__sequence--dialogue__next btn btn-default" ng-show="shouldShowNext($parent.sequence)" ng-click="goToNextSequence()">
                 <span class="sr-only">Continuer</span>
             </a>

@@ -2,12 +2,12 @@ angular.module("spin.service").factory("User", [
     '$http'
     '$timeout'
     'constant.api'
-    'constant.delay'
+    'constant.settings'
     'Plot'
     'localStorageService'
     '$location'
     '$rootScope'
-    ($http, $timeout, api, delay, Plot, localStorageService, $location, $rootScope)->
+    ($http, $timeout, api, settings, Plot, localStorageService, $location, $rootScope)->
         new class User
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
@@ -16,7 +16,7 @@ angular.module("spin.service").factory("User", [
                 # This user is saved into local storage
                 master    = localStorageService.get("user") or {}
                 # False until the player starts the game
-                @inGame   = no
+                @inGame   = yes
                 # User authentication
                 @token    = $location.search().token or master.token or null
                 @email    = master.email or null
@@ -67,8 +67,8 @@ angular.module("spin.service").factory("User", [
                     @sequence = 0
 
             isStartingChapter: =>                 
-                # Chapter is considered as starting during {delay.chapterStarting} millisecond
-                Date.now() - @lastChapterChanging < delay.chapterStarting
+                # Chapter is considered as starting during {settings.chapterStarting} millisecond
+                Date.now() - @lastChapterChanging < settings.chapterStarting
 
             saveChapterChanging: (chapter)=>      
                 # Stop here until a chapter id is set
@@ -116,11 +116,18 @@ angular.module("spin.service").factory("User", [
                 $http.post "#{api.career}?token=#{@token}", state
 
             nextSequence: =>   
+                scene = Plot.scene(@chapter, @scene)
+                # Go to the next sequence within the current scene
                 if Plot.sequence(@chapter, @scene, @sequence + 1)?                
                     # Go simply to the next sequence
                     ++@sequence 
-                else if @scene.next_scene?
-                    @goToScene @scene.next_scene                    
+                    # Return the new sequence
+                    Plot.sequence(@chapter, @scene, @sequence)
+                # Go the next scene
+                else if scene and scene.next_scene?
+                    @goToScene scene.next_scene   
+                    # Return the new sequence
+                    Plot.sequence(@chapter, @scene, @sequence)
 
             goToScene: (str, shouldUpdateCareer=yes)=>
                 [chapter, scene] = str.split "."              

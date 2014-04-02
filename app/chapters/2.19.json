@@ -1,0 +1,65 @@
+{
+    "next_scene": null,
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-13.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Parfait, il ne s'agit pas d'être frontal mais plutôt de poser des éléments qui nous serviront plus tard. Toujours avoir un coup d'avance.\n\nIntuitivement, vous écririez quoi ?"
+        },
+        {
+            "type": "choice",
+            "body": "Quel tweet ?",
+            "delay": null,
+            "default_option": null,
+            "options": [
+                {
+                    "header": "Nous sommes profondément affectés...",
+                    "next_scene": "2.20",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Mickael était le meilleur d'entre nous...",
+                    "next_scene": "2.21",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "En dépit du drame qui nous touche...",
+                    "next_scene": "2.22",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

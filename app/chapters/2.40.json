@@ -1,0 +1,92 @@
+{
+    "next_scene": null,
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-20.jpg",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap2/voix-off/louis-ch2-08.mp3"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "...\nNon, tu sais comment je travaille, c'est moi qui vais gérer le dossier en direct."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "...\nLouis Esmond ? Il est franchement choqué. Il ne comprend absolument pas le geste. À part quelques frictions dans son couple, tout allait bien pour Mika."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "...\nOui, c'est vrai, on imagine toujours des choses hors-normes. Enfin, ça serait quand même dingue que ça vienne juste du couple. Bon allez, je dois y retourner."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "...\nNon, pour l'instant pas d'interview mais, promis, je te fais signe dès que ça bouge. À très vite."
+        },
+        {
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/chap2/illustrations/illustr-ch2-21.jpg"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Ça va fonctionner. On reprend la main."
+        },
+        {
+            "type": "notification",
+            "sound": "/medias/sounddesign/notif-1.mp3",
+            "header": null,
+            "body": "Une dépêche en provenance de l'Agence France Presse, mentionnant votre entreprise, vient de paraitre. Souhaitez-vous la lire ?"
+        },
+        {
+            "type": "choice",
+            "body": "Lire la dépêche ?",
+            "delay": null,
+            "default_option": null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "2.41",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "3.1",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

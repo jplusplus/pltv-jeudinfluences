@@ -1,0 +1,27 @@
+{
+    "next_scene": "2.27",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-16.jpg",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {
+                "tweet": false
+            },
+            "type": "voixoff",
+            "character": "Radio",
+            "body": "/medias/chap2/voix-off/flash-ch2-01-cond-1.mp3"
+        },
+        {
+            "condition": {
+                "tweet": true
+            },
+            "type": "voixoff",
+            "body": "/medias/chap2/voix-off/flash-ch2-01-cond-2.mp3"
+        }
+    ]
+}

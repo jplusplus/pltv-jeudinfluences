@@ -1,0 +1,24 @@
+{
+    "next_scene": "2.5",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-04.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "notification",
+            "sound": "/medias/chap2/voix-off/siri-ch2-01.mp3",
+            "header": null,
+            "body": "À 50 mètres, tournez à droite."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Mika, Mickael... Mon plus proche collaborateur.\nC'est avec lui que j'ai transformé l'entreprise. Lui et sa femme, Nadia, notre dir' com'."
+        }
+    ]
+}

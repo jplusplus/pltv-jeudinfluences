@@ -1,0 +1,44 @@
+{
+    "next_scene": {
+        "positif_karma": "3.36",
+        "negatif_karma": "3.32"
+    },
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-17_a.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "J'aimerais que l'on parle aussi de l'entreprise, de sa stabilité. C'est important que l'on sente que le geste de Mika ne nous déstabilise pas."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "À mon avis, il vaudrait mieux éviter. La douleur et le deuil sont au plus fort, ça va donner une tonalité proche de l'indécence à ce communiqué."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Vous trouverez la formulation pour que cela passe. Je vous fais confiance."
+        },
+        {
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/chap2/illustrations/illustr-ch2-18.jpg"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Très bien. De notre côté, il faut trouver quelque chose, une nouvelle piste à suivre pour les médias. Il ne faut pas qu'ils associent trop longtemps le suicide et l'entreprise. Réfléchissez-y. Je reviens."
+        }
+    ]
+}

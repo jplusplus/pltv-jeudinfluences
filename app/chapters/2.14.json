@@ -1,0 +1,81 @@
+{
+    "next_scene": "2.15",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-13.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "narrative",
+            "body": "Jeudi 24 mai, 6h18."
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap2/voix-off/louis-ch2-07.mp3"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Louis ? Vous comprenez ? Vous êtes avec moi ? Louis ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Pardon, oui, bien sûr..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Alors ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Alors ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Qu'est-ce qu'on fait ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Qu'est-ce qu'on fait ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "C'est vous qui avez cette réponse, non ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Non, c'est à vous de décider. Moi, je ne fais que vous proposer des choix.\nVous avez lu la dépêche, au moins ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Quelle dépêche ?"
+        }
+    ]
+}

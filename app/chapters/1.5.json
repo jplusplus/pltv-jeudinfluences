@@ -1,0 +1,29 @@
+{
+    "next_scene": "2.1",
+    "decor": [
+        {
+            "background": "/medias/chap1/illustrations/illustr-ch1-05_a.jpg",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Rien de bien passionnant depuis mon départ : quelques annonces politiques saupoudrées de faits divers, le tout clôturé par de mornes résultats sportifs. Le Brésil était plus vivifiant."
+        },
+        {
+            "type": "new_background",
+            "body": "/medias/chap1/illustrations/illustr-ch1-05_b.jpg",
+            "transition": "fade"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Tiens...\nFinalement, côté prospectives, je m'en suis plutôt bien tiré... Habinat ne s'est jamais aussi bien porté que depuis que j'en suis P-DG. J'ai fait ce qu'il fallait pour ça. Tout ce qu'il fallait."
+        }
+    ]
+}

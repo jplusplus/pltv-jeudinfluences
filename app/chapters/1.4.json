@@ -2,54 +2,56 @@
     "next_scene": null,
     "decor": [
         {
-            "background": "/medias/chap1/illustrations/illustr-ch1-01.gif",
+            "background": "/medias/chap1/illustrations/illustr-ch1-03.gif",
             "background_transition": "fade",
-            "soundtrack": "/medias/chap1/musiques/soundtrack-ch1-a.mp3"
+            "soundtrack": null
         }
     ],
     "sequence": [
         {
             "type": "dialogue",
             "character": "Louis",
-            "header": "Mercredi 23 mai, 21h57.",
-            "body": "Ce jour-là, je rentre tout juste du Brésil. Trois jours de rendez-vous ininterrompus, un marathon commercial. Le jeu en valait la chandelle. Mais je suis content de revenir sur mes terres, de retrouver mon entreprise, mon usine."
+            "header": null,
+            "body": "Bientôt 15 ans que j'ai atterri ici. Stagiaire \"chargé des prospectives\", voilà comment je suis rentré chez Habinat. Et maintenant, c'est moi qui dirige le bateau..."
         },
         {
             "type": "new_background",
-            "body": "/medias/chap1/illustrations/illustr-ch1-02.gif",
-            "transition": null
+            "body": "/medias/chap1/illustrations/illustr-ch1-04.gif",
+            "transition": "fade"
         },
         {
-            "type": "voixoff",
-            "character": "Siri",
+            "type": "dialogue",
+            "character": "Louis",
             "header": null,
-            "body": "/medias/chap1/voix-off/siri-ch1-01.mp3"
+            "body": "Enfin rentré."
         },
         {
             "type": "choice",
-            "body": "Rappeler Mika ?",
+            "body": "Monter directement se coucher ?",
             "default_option": null,
             "delay": null,
             "options": [
                 {
                     "header": "Oui",
-                    "next_scene": "1.2",
+                    "next_scene": "1.6",
                     "result": [
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": 0
+                            "ubm": 0,
+                            "trust": 0
                         }
                     ]
                 },
                 {
                     "header": "Non",
-                    "next_scene": "1.4",
+                    "next_scene": "1.5",
                     "result": [
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": 0
+                            "ubm": 0,
+                            "trust": 0
                         }
                     ]
                 }

@@ -1,0 +1,70 @@
+{
+    "next_scene": null,
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-13.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Je mettrais :\n\"En dépit du drame qui nous touche, Habinat continuera à honorer ses engagements. C'est le plus bel hommage que nous puissions rendre.\""
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": "Patrick Luaud laisse échapper un rire.",
+            "body": "Et pourquoi pas \"C'est triste mais le business continue\" ? Vous tentez de mettre les formes mais votre insatiable appétit commercial transpire dans chacun des 134 caractères. Un peu de sérieux. Et de réserve."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Le meilleur moyen de préserver le business, puisque c'est ce qui vous importe, c'est de ne pas en parler. Ces derniers temps, la courbe est ascendante non ? Alors n'y touchez pas."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Voilà ce que je vous propose :\n\n\"Mickael était un collègue hors pair devenu un ami infaillible. Sa perte est inestimable. Rien n'existera plus comme avant.\"\n\nVEt vous publiez le tweet avec votre compte, pas celui de l'entreprise. Ainsi, vous n'ouvrez aucune piste, aucune voie d'eau. Vous vous placez simplement du coté de ceux qui porteront sa mémoire.\nC'est bien ce que vous souhaitez ?"
+        },
+        {
+            "type": "choice",
+            "body": "Envoyer le tweet proposé par Patrick Luaud ?",
+            "delay": null,
+            "default_option": null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "2.23",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "2.24",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

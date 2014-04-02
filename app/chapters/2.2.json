@@ -1,0 +1,30 @@
+{
+    "next_scene": "2.3",
+    "decor": [
+        {
+            "background": "/medias/chap2/illustrations/illustr-ch2-01.jpg",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "J'ai toujours eu du mal à gérer le décalage horaire. Et puis ces trois jours au Brésil m'avaient épuisé. J'étais incapable du moindre mouvement."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Mais Nadia a insisté. Voyant que je ne répondais pas sur le portable, elle a fait sonner le fixe. Puis le portable à nouveau."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "J'ai fini par décrocher..."
+        }
+    ]
+}
