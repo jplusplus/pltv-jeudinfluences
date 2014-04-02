@@ -7,7 +7,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
             # Scene is changing
             $rootScope.$watch (-> Plot.chapters or User.scene ), => do @startScene    
             # Sequence is changing
-            # $rootScope.$watch (-> User.sequence ), => do @startSequence   
+            $rootScope.$watch (-> User.sequence ), => do @startSequence   
             # Update the volume
             $rootScope.$watch (-> User.volume ), @updateVolume   
 

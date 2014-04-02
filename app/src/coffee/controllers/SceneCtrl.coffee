@@ -25,15 +25,18 @@ class SceneCtrl
         @scope.selectOption = (option, idx)=>      
             # Save choice for this scene
             @User.updateCareer choice: idx, scene: @User.pos()
-            # Go to the next scene without updating the career
-            @User.goToScene option.next_scene, no
+            # Go to the next scene
+            @User.goToScene option.next_scene
         # Get the head of this character
         @scope.getHeadSrc = (sequence)=>            
             if sequence.character?                
                 # slugify the character name (to avoir error)
                 character = sequence.character.toLowerCase().replace(/[^\w-]+/g,'')                
                 # Just returns the URL
-                characters[character]        
+                characters[character]       
+        # Play of pause the soundtrack
+        # @scope.toggleSoundtrack = ()=>            
+
 
 
     getLastDialogIdx: =>        
