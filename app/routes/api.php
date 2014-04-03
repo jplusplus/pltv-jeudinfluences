@@ -130,9 +130,11 @@ $app->get('/api/plot', function() use ($app) {
 	* TODO: to be cached
 	*/
 	
-	// cache
-	$app->etag('api-plot');
-	$app->expires('+10 minutes');
+	// cache on production
+	if( $app->getMode() != "development" ) {		
+		$app->etag('api-plot');
+		$app->expires('+10 minutes');
+	}
     
 	$plot = \app\helpers\Game::getPlot($app->config("opening_dates"));
 	return ok($plot);

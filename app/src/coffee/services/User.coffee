@@ -12,7 +12,7 @@ angular.module("spin.service").factory("User", [
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
             # ──────────────────────────────────────────────────────────────────────────
-            constructor: ->                                 
+            constructor: ->
                 # This user is saved into local storage
                 master    = localStorageService.get("user") or {}
                 # False until the player starts the game
@@ -35,10 +35,6 @@ angular.module("spin.service").factory("User", [
                 @karma    = master.karma  or 100 
                 # Load career data from the API
                 do @loadCareer
-                # Record begining date of a chapter
-                $rootScope.$watch (=> [@chapter, @inGame]), @saveChapterChanging, yes
-                # Update local storage
-                $rootScope.$watch (=>@), @updateLocalStorage, yes
                 return @
 
             pos: ()=> @chapter + "." + @scene

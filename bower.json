@@ -11,7 +11,9 @@
     "angular-animate": "1.2.5",
     "angular-route": "1.2.5",
     "angular-resource": "1.2.5",
+    "angular-sanitize": "1.2.5",
     "howler": "1.1.18",
-    "angular-local-storage": "0.0.1"
+    "angular-local-storage": "0.0.1",
+    "angular-markdown-directive": "~0.2.0"
   }
 }

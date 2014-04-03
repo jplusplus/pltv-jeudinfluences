@@ -17,7 +17,9 @@ class SceneCtrl
          # True if the sequence is a new_background
         @isNewBg  = @scope.isNewBg  = (sequence)=> sequence.type.toLowerCase() is "new_background"        
         # True if the sequence is a notification
-        @isNotification = @scope.isNotification= (sequence)=> sequence.type.toLowerCase() is "notification"        
+        @isNotification = @scope.isNotification = (sequence)=> sequence.type.toLowerCase() is "notification"  
+        # True if the given sequence can be exited
+        @hasExit = @scope.hasExit = (sequence)=> @isPlayer(sequence) or @isDialog(sequence) or @isChoice(sequence)      
         # Just wraps the function from the user service
         @scope.goToNextSequence = =>
             sequence = do @User.nextSequence       
@@ -55,20 +57,19 @@ class SceneCtrl
                 higherId = id if id <= @User.sequence
             # Return the following assertion                        
             bg.sequence is higherId
+        # Play of pause the soundtrack
+        @scope.toggleVoicetrack = @Sound.toggleSequence
         # Last dialog box that we seen
-        @getLastDialogIdx = @scope.getLastDialogIdx = =>        
+        @getLastDialogIdx = @scope.getLastDialogIdx = =>                    
             # Get current indexes
             chapterIdx  = @User.chapter
             sceneIdx    = @User.scene
             sequenceIdx = @User.sequence
             while yes
-                sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                   
-                break if sequenceIdx is 0 or not sequence? or @isPlayer sequence or @isDialog sequence
-                sequenceIdx--
+                sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                                  
+                break if sequenceIdx <= 0 or not sequence? or @hasExit(sequence)
+                sequenceIdx--            
             sequenceIdx
-
-        # Play of pause the soundtrack
-        # @scope.toggleSoundtrack = ()=>            
 
 
 

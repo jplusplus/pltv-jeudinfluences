@@ -17,9 +17,7 @@
                 <p class="scene__sequence--[[sequence.type]]__frame__character" ng-if="sequence.character">
                     [[sequence.character]]&nbsp;:
                 </p>
-                <p class="scene__sequence--[[sequence.type]]__frame__body">
-                    [[sequence.body]]
-                </p>
+                <div class="scene__sequence--[[sequence.type]]__frame__body" btf-markdown="sequence.body"></div>
                 <div class="scene__sequence--[[sequence.type]]__frame__head" ng-if="getHeadSrc(sequence)">
                     <img ng-src="[[getHeadSrc(sequence)]]" />
                 </div>
@@ -34,9 +32,9 @@
             <p class="scene__sequence--voixoff__character" ng-if="sequence.character">
                 [[sequence.character]]&nbsp;:                
             </p>
-            <button class="btn btn-default scene__sequence--voixoff__play" ng-click="toggleVoicetrack()">
-                <span ng-show="sound.voicetrack.isPlaying">Pause<span>
-                <span ng-hide="sound.voicetrack.isPlaying">Play<span>
+            <button class="btn btn-default scene__sequence--voixoff__play" ng-click="toggleVoicetrack()" ng-class="{ 'active': sound.voicetrack.isPlaying }">
+                <span class="sr-only" ng-show="sound.voicetrack.isPlaying">Pause<span>
+                <span class="sr-only" ng-hide="sound.voicetrack.isPlaying">Play<span>
             </button>                
             <div class="scene__sequence--voixoff__progression"></div>
             <div class="scene__sequence--voixoff__head" ng-if="getHeadSrc(sequence)">
@@ -62,7 +60,7 @@
         <!-- Notification, a the top right corner of the screen -->
         <div ng-if="isNotification(sequence)">
             <div class="scene__sequence--notification__header">[[sequence.header]]&nbsp;:</div>
-            <div class="scene__sequence--notification__body">"[[sequence.body]]"</div>            
+            <div class="scene__sequence--notification__body" btf-markdown="sequence.body"></div>            
         </div>
 
     </div>   

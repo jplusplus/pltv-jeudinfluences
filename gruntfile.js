@@ -1,15 +1,20 @@
-var jslib = ['bower_modules/jquery/jquery.min.js',
-        'bower_modules/underscore/underscore.js',
-        'bower_modules/bootstrap/dist/js/bootstrap.min.js',
-        'bower_modules/moment/min/moment.min.js',
-        'bower_modules/moment/min/langs.min.js',
-        'bower_modules/angular/angular.min.js',
-        'bower_modules/angular-animate/angular-animate.min.js',
-        'bower_modules/angular-local-storage/angular-local-storage.min.js',
-        'bower_modules/angular-route/angular-route.min.js',
-        'bower_modules/angular-resource/angular-resource.min.js',
-        'bower_modules/howler/howler.min.js',
-        ];
+var jslib = [
+  'bower_modules/jquery/jquery.min.js',
+  'bower_modules/underscore/underscore.js',
+  'bower_modules/bootstrap/dist/js/bootstrap.min.js',
+  'bower_modules/moment/min/moment.min.js',
+  'bower_modules/moment/min/langs.min.js',
+  'bower_modules/angular/angular.min.js',
+  'bower_modules/angular-animate/angular-animate.min.js',
+  'bower_modules/angular-local-storage/angular-local-storage.min.js',
+  'bower_modules/angular-route/angular-route.min.js',
+  'bower_modules/angular-resource/angular-resource.min.js',
+  'bower_modules/angular-sanitize/angular-sanitize.min.js',
+  'bower_modules/angular-markdown-directive/markdown.js',
+  'bower_modules/howler/howler.min.js',
+  'bower_modules/markdown/lib/markdown.js',
+  'bower_modules/showdown/src/showdown.js'
+];
 
 module.exports = function(grunt) {
 
@@ -146,7 +151,7 @@ module.exports = function(grunt) {
     },
     open : {
       server : {
-        path: 'http://localhost:8080'
+        path: 'http://0.0.0.0:8080'
       },
     },
     assemble: {
@@ -199,7 +204,8 @@ module.exports = function(grunt) {
           port: 8080,
           keepalive: true,
           open: false,
-          base: 'public'
+          base: 'public',
+          hostname: "0.0.0.0"
         }
       }
     },
