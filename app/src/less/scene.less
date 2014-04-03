@@ -128,13 +128,19 @@
                 padding:0;
                 height:24px;                
                 width:24px;
-                background-image:url("/img/ui/btn_play.png");
                 background-repeat:no-repeat;
                 background-position: center center;
+                background-image:url("/img/ui/btn_play.png");
 
-                &.active {
+                &:focus, &:active {
+                    background-image:url("/img/ui/btn_play.png");
+                }
+
+                &.active, &.active:focus, &.active:active {
                     background-image:url("/img/ui/btn_pause.png");
                 }
+
+
             }
 
             &__head {
