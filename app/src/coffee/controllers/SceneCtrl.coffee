@@ -58,15 +58,15 @@ class SceneCtrl
         # Play of pause the soundtrack
         @scope.toggleVoicetrack = @Sound.toggleSequence
         # Last dialog box that we seen
-        @getLastDialogIdx = @scope.getLastDialogIdx = =>        
+        @getLastDialogIdx = @scope.getLastDialogIdx = =>                    
             # Get current indexes
             chapterIdx  = @User.chapter
             sceneIdx    = @User.scene
             sequenceIdx = @User.sequence
             while yes
-                sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                   
-                break if sequenceIdx is 0 or not sequence? or @isPlayer sequence or @isDialog sequence
-                sequenceIdx--
+                sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                                  
+                break if sequenceIdx <= 0 or not sequence? or @isPlayer(sequence) or @isDialog(sequence)
+                sequenceIdx--            
             sequenceIdx
 
 
