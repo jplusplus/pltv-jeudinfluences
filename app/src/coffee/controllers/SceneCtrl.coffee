@@ -17,7 +17,9 @@ class SceneCtrl
          # True if the sequence is a new_background
         @isNewBg  = @scope.isNewBg  = (sequence)=> sequence.type.toLowerCase() is "new_background"        
         # True if the sequence is a notification
-        @isNotification = @scope.isNotification= (sequence)=> sequence.type.toLowerCase() is "notification"        
+        @isNotification = @scope.isNotification = (sequence)=> sequence.type.toLowerCase() is "notification"  
+        # True if the given sequence can be exited
+        @hasExit = @scope.hasExit = (sequence)=> @isPlayer(sequence) or @isDialog(sequence) or @isChoice(sequence)      
         # Just wraps the function from the user service
         @scope.goToNextSequence = =>
             sequence = do @User.nextSequence       
@@ -65,7 +67,7 @@ class SceneCtrl
             sequenceIdx = @User.sequence
             while yes
                 sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                                  
-                break if sequenceIdx <= 0 or not sequence? or @isPlayer(sequence) or @isDialog(sequence)
+                break if sequenceIdx <= 0 or not sequence? or @hasExit(sequence)
                 sequenceIdx--            
             sequenceIdx
 
