@@ -8,11 +8,14 @@ angular.module('spin.template',  ['ngRoute'])
 angular.module('spin.service',   ['ngResource', 'LocalStorageModule', 'spin.constant'])
 
 app = angular.module 'spin', [
-    # Angular dependancies
+    # Angular dependencies
     "ngRoute"
     "ngResource"
     "ngAnimate"
-    # Internal dependancies
+    "ngSanitize"
+    # External dependencies
+    "btford.markdown"
+    # Internal dependencies
     "spin.constant"
     "spin.animation"
     "spin.config"

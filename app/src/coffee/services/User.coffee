@@ -12,7 +12,7 @@ angular.module("spin.service").factory("User", [
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
             # ──────────────────────────────────────────────────────────────────────────
-            constructor: ->                                 
+            constructor: ->
                 # This user is saved into local storage
                 master    = localStorageService.get("user") or {}
                 # False until the player starts the game
