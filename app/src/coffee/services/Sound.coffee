@@ -52,7 +52,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                                     @voicetrack._interval = setInterval ((context) =>
                                         context.voicetrack._position = context.voicetrack.pos() or 0
                                         return =>
-                                            if context.voicetrack.isPlaying
+                                            if context.voicetrack? and context.voicetrack.isPlaying
                                                 $rootScope.safeApply =>
                                                     context.voicetrack._position = do context.voicetrack.pos
                                     )(@), 500
@@ -72,8 +72,27 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                     # Pause sound
                     else if @voicetrack? and @voicetrack.isPlaying?                        
                         do @voicetrack.pause
-                else if @voicetrack?
-                    do @voicetrack.stop
+                else
+                    if @voicetrack?
+                        do @voicetrack.stop
+                        @voicetrack = null
+                    if sequence? and sequence.type is "notification"
+                        tracks = [$filter('media')(sequence.sound)]
+                        @notificationtrack = new Howl
+                            urls : tracks
+                            loop : no
+                            buffer : yes
+                            volume : User.volume
+                            autoplay : yes
+                            onplay : =>
+                                $rootScope.safeApply =>
+                                    @notificationtrack.isPlaying = yes
+                            onpause : =>
+                                $rootScope.safeApply =>
+                                    @notificationtrack.isPlaying = no
+                            onend : =>
+                                $rootScope.safeApply =>
+                                    @notificationtrack.isPlaying = no
 
         updateVolume: (volume)=>                      
             # New volume set
