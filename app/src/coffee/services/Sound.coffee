@@ -50,7 +50,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                                     @voicetrack.fade(0, User.volume, duration)                                     
                                     @voicetrack.isPlaying = yes
                                     @voicetrack._interval = setInterval ((context) =>
-                                        context.voicetrack._position = 0
+                                        context.voicetrack._position = context.voicetrack.pos() or 0
                                         return =>
                                             if context.voicetrack.isPlaying
                                                 $rootScope.safeApply =>
@@ -61,7 +61,8 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                                     @voicetrack.isPlaying = no
                             onend   : => 
                                 $rootScope.safeApply => 
-                                    @soundtrack.fade( @soundtrack.volume(), User.volume ) if @soundtrack?
+                                    @soundtrack.fade( @soundtrack.volume(), User.volume ) if @soundtrack?                                    
+                                    $rootScope.safeApply => @voicetrack._position = @voicetrack._duration
                                     @voicetrack.pos(0)
                                     @voicetrack.isPlaying = no
                                     clearInterval @voicetrack._interval
@@ -71,9 +72,8 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                     # Pause sound
                     else if @voicetrack? and @voicetrack.isPlaying?                        
                         do @voicetrack.pause
-                else
-                    if @voicetrack?
-                        do @voicetrack.stop
+                else if @voicetrack?
+                    do @voicetrack.stop
 
         updateVolume: (volume)=>                      
             # New volume set

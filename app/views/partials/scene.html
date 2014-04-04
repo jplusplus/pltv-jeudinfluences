@@ -37,11 +37,11 @@
                 <span class="sr-only" ng-hide="sound.voicetrack.isPlaying">Play<span>
             </button>                
             <div class="scene__sequence--voixoff__progression">
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 60%;"></div>
+                <div class="progress">                
+                    <div class="progress-bar" role="progressbar" ng-style="{ width: (sound.voicetrack._position/sound.voicetrack._duration)*100 + '%'}"></div>
                 </div>
                 <span class="scene__sequence--voixoff__progression__timestamp">
-                    0:45 / 3:12
+                    [[sound.voicetrack._position|minutes]] / [[sound.voicetrack._duration|minutes]]
                 </span>
             </div>
             <div class="scene__sequence--voixoff__head" ng-if="getHeadSrc(sequence)">
