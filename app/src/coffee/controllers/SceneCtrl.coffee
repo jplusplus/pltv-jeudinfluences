@@ -1,7 +1,7 @@
 class SceneCtrl
     @$inject: ['$scope', 'Plot', 'User', 'Sound', 'constant.characters', 'constant.settings']
     constructor: (@scope, @Plot, @User, @Sound, characters, settings) ->    
-        @scope.sound = @Sound                                   
+        @scope.sound = @Sound
         # True if the given scene is visible
         @scope.shouldShowScene = (scene)=> scene.id is @User.scene   
         # True if the given sequence is visible

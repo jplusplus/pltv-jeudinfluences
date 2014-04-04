@@ -13,7 +13,7 @@ var jslib = [
   'bower_modules/angular-resource/angular-resource.min.js',
   'bower_modules/angular-sanitize/angular-sanitize.min.js',
   'bower_modules/angular-markdown-directive/markdown.js',
-  'bower_modules/dkCircles/dk-circles.min.js',  
+  'bower_modules/circles/index.js',  
   'bower_modules/howler/howler.min.js',
   'bower_modules/markdown/lib/markdown.js',
   'bower_modules/showdown/src/showdown.js'
