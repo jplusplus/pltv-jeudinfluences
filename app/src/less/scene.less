@@ -133,34 +133,6 @@
             padding:20px;
             .translate(-50%, 0);
 
-            &__character {
-                color:@brand-secondary;
-                text-transform: uppercase;
-                margin-bottom:5px;                    
-            }
-
-            &__play {        
-                .btn();
-                .btn-default();
-
-                padding:0;
-                height:24px;                
-                width:24px;
-                background-repeat:no-repeat;
-                background-position: center center;
-                background-image:url("/img/ui/btn_play.png");
-
-                &:focus, &:active {
-                    background-image:url("/img/ui/btn_play.png");
-                }
-
-                &.active, &.active:focus, &.active:active {
-                    background-image:url("/img/ui/btn_pause.png");
-                }
-
-
-            }
-
             &__head {
                 position:absolute;
                 top:20px;
@@ -184,6 +156,71 @@
                     left:0;
                     margin-top:2px;
                     margin-left:-2px;
+                }
+            }
+
+            &__character {
+                color:@brand-secondary;
+                text-transform: uppercase;
+                margin-bottom:5px;                    
+            }
+
+
+            &__play {        
+                .btn();
+                .btn-default();
+
+                padding:0;
+                height:24px;                
+                width:24px;
+                background-repeat:no-repeat;
+                background-position: center center;
+                background-image:url("/img/ui/btn_play.png");
+
+                &:focus, &:active {
+                    background-image:url("/img/ui/btn_play.png");
+                }
+
+                &.active, &.active:focus, &.active:active {
+                    background-image:url("/img/ui/btn_pause.png");
+                }
+
+            }
+
+            &__progression {
+                border:2px solid @text-color;                
+                height:24px;
+                position:absolute;
+                left:50px;
+                right:20px;
+                bottom:20px;
+                background:fade(#000, 75);
+                .box-shadow(~"0 0 3px 0 black, 0 0 3px 0 black inset");
+
+                &__timestamp {
+                    position:absolute;
+                    right:0;
+                    bottom:100%;
+                    color:white;
+                    font-family: @font-family-serif;
+                    font-style: italic;
+                    margin-bottom:5px;
+                }
+
+                .progress {
+                    position:absolute;
+                    top:7px;
+                    left:7px;
+                    right:7px;
+                    height:6px;
+
+                    .progress-bar, & {
+                        border-radius:3px;
+                    }
+
+                    .progress-bar {
+                        background: @brand-secondary;
+                    }
                 }
             }
         }
@@ -260,7 +297,7 @@
                 display:block;
                 padding:0;
                 background:url("/img/ui/btn_next.png") no-repeat center center #000;
-                .animation(0.7s move-next linear alternate infinite);
+                .animation(0.3s move-next linear alternate infinite);
 
                 &:before {                    
                     content:"";

@@ -36,7 +36,14 @@
                 <span class="sr-only" ng-show="sound.voicetrack.isPlaying">Pause<span>
                 <span class="sr-only" ng-hide="sound.voicetrack.isPlaying">Play<span>
             </button>                
-            <div class="scene__sequence--voixoff__progression"></div>
+            <div class="scene__sequence--voixoff__progression">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 60%;"></div>
+                </div>
+                <span class="scene__sequence--voixoff__progression__timestamp">
+                    0:45 / 3:12
+                </span>
+            </div>
             <div class="scene__sequence--voixoff__head" ng-if="getHeadSrc(sequence)">
                 <img ng-src="[[getHeadSrc(sequence)]]" />
             </div>  
