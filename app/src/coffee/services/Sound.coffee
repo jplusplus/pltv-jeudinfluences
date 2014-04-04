@@ -42,29 +42,38 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                             volume  : 0
                             autoplay: yes
                             # Default states
-                            onplay  : => 
+                            onplay  : =>
                                 $rootScope.safeApply => 
                                     @soundtrack.fade( @soundtrack.volume(), User.volume/2 ) if @soundtrack?
                                     # Duration only on starting
                                     duration = if @soundtrack.pos() is 0 then 1000 else 0
                                     @voicetrack.fade(0, User.volume, duration)                                     
                                     @voicetrack.isPlaying = yes
+                                    @voicetrack._interval = setInterval ((context) =>
+                                        context.voicetrack._position = context.voicetrack.pos() or 0
+                                        return =>
+                                            if context.voicetrack.isPlaying
+                                                $rootScope.safeApply =>
+                                                    context.voicetrack._position = do context.voicetrack.pos
+                                    )(@), 500
                             onpause : => 
                                 $rootScope.safeApply => 
                                     @voicetrack.isPlaying = no
                             onend   : => 
                                 $rootScope.safeApply => 
-                                    @soundtrack.fade( @soundtrack.volume(), User.volume ) if @soundtrack?
+                                    @soundtrack.fade( @soundtrack.volume(), User.volume ) if @soundtrack?                                    
+                                    $rootScope.safeApply => @voicetrack._position = @voicetrack._duration
                                     @voicetrack.pos(0)
                                     @voicetrack.isPlaying = no
+                                    clearInterval @voicetrack._interval
                     # Just play the voice
                     else if @voicetrack? and not @voicetrack.isPlaying 
                         do @voicetrack.play
                     # Pause sound
                     else if @voicetrack? and @voicetrack.isPlaying?                        
                         do @voicetrack.pause
-                else
-                    do @voicetrack.stop()
+                else if @voicetrack?
+                    do @voicetrack.stop
 
         updateVolume: (volume)=>                      
             # New volume set
