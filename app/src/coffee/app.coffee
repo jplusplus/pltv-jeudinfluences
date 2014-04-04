@@ -13,6 +13,7 @@ app = angular.module 'spin', [
     "ngResource"
     "ngAnimate"
     "ngSanitize"
+    "nouislider"
     # External dependencies
     "btford.markdown"
     "dkCircles"

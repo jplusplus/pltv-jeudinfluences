@@ -75,6 +75,36 @@
 				}
 			}
 		}
+
+		&__volume {
+			position: relative;
+			height: 20px;
+			width: 150px;
+
+			&__state {
+				position: absolute;
+				top: 4px;
+				cursor: pointer;
+			 	height: 30px;
+			 	width: 30px;
+
+			 	&--on {
+					background-image:url("/img/ui/sound_on.png");
+			 		
+			 	}
+			 	&--off {
+					background-image:url("/img/ui/sound_off.png");
+			 		
+			 	}
+			}
+			&__slider-holder {
+				position: absolute;
+				top: 15px;
+				left: 35px;
+				width: 105px;
+				height: 20px;
+			}
+		}
 	}
 
 

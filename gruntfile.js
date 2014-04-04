@@ -5,6 +5,8 @@ var jslib = [
   'bower_modules/moment/min/moment.min.js',
   'bower_modules/moment/min/langs.min.js',
   'bower_modules/angular/angular.min.js',
+  'bower_modules/nouislider/jquery.nouislider.js',
+  'bower_modules/angular-nouislider/src/nouislider.js',
   'bower_modules/angular-animate/angular-animate.min.js',
   'bower_modules/angular-local-storage/angular-local-storage.min.js',
   'bower_modules/angular-route/angular-route.min.js',
@@ -15,6 +17,10 @@ var jslib = [
   'bower_modules/howler/howler.min.js',
   'bower_modules/markdown/lib/markdown.js',
   'bower_modules/showdown/src/showdown.js'
+];
+
+var csslib = [
+  'bower_modules/nouislider/jquery.nouislider.css'
 ];
 
 module.exports = function(grunt) {
@@ -47,7 +53,7 @@ module.exports = function(grunt) {
         dest: 'public/js/lib.min.js'
       },
       bower_css: {
-        src: [],
+        src: csslib,
         dest: 'public/css/lib.css'
       }
     },
@@ -80,7 +86,7 @@ module.exports = function(grunt) {
         src:  'partials/*.html',
         dest: 'public/dev/js/template.js'
       }
-    },    
+    },
     bower: {
       install: {
         options: {
@@ -185,7 +191,7 @@ module.exports = function(grunt) {
       },
       coffee: {
         files: ['**/*.coffee','**/*.twig'],
-        tasks: ['concat:coffee','coffee','uglify:app'], 
+        tasks: ['concat:coffee','coffee','uglify:app']
       },
       less: {
         files: ['**/*.less','**/*.twig'],
@@ -196,7 +202,7 @@ module.exports = function(grunt) {
       },
       partials: {
         files: ['app/views/partials/*'],
-        tasks: ['ngtemplates'], 
+        tasks: ['ngtemplates']
       }
     },
     php: {
