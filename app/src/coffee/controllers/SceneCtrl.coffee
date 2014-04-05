@@ -1,9 +1,15 @@
 class SceneCtrl
     @$inject: ['$scope', 'Plot', 'User', 'Sound', 'constant.characters', 'constant.settings']
-    constructor: (@scope, @Plot, @User, @Sound, characters, settings) ->    
+    constructor: (@scope, @Plot, @User, @Sound, characters, settings) ->                           
+        @scope.plot  = @Plot
+        @scope.user  = @User         
         @scope.sound = @Sound
+        # Establishes a bound between "src" and "chapter" arguments
+        # provided by the scene directive and the Countroller
+        @scene = @scope.scene = @scope.src              
+        @chapter = @scope.chapter
         # True if the given scene is visible
-        @scope.shouldShowScene = (scene)=> scene.id is @User.scene   
+        @scope.shouldShowScene = => @scene.id is @User.scene   
         # True if the given sequence is visible
         @scope.shouldShowSequence = (idx)=> [ @getLastDialogIdx(), @User.sequence ].indexOf(idx) > -1
         # True if the sequence's button should be shown
@@ -39,13 +45,13 @@ class SceneCtrl
                 # Just returns the URL
                 characters[character]     
         # Get the list of the background for the given scene
-        @scope.getSceneBgs = (scene)=>
+        @scope.getSceneBgs = =>
             # Cache bgs to avoid infinite digest iteration
             return @bgs if @bgs?
             # First background is the one from the scene      
-            @bgs = [src: scene.decor[0].background, sequence: -1]
+            @bgs = [src: @scene.decor[0].background, sequence: -1]
             # Look into each scene's sequence to find the new background
-            for sequence, idx  in scene.sequence                                
+            for sequence, idx  in @scene.sequence                                
                 # Add the bg to bg list
                 @bgs.push src: sequence.body, sequence: idx if @isNewBg sequence            
             @bgs
@@ -72,6 +78,5 @@ class SceneCtrl
             sequenceIdx
 
 
-
-
+angular.module('spin.controller').controller("SceneCtrl", SceneCtrl)
 # EOF

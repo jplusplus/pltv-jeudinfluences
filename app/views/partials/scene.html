@@ -1,7 +1,7 @@
-<div class="scene" ng-controller="SceneCtrl" ng-show="shouldShowScene(scene)">              
+<div class="scene" ng-show="shouldShowScene()">              
 
     <!-- This is the main illustration -->      
-    <img class="scene__bg" ng-src="[[bg.src | media]]" ng-repeat="bg in getSceneBgs(scene) | filter:shouldDisplayBg" /> 
+    <img class="scene__bg" ng-src="[[bg.src | media]]" ng-repeat="bg in getSceneBgs() | filter:shouldDisplayBg" /> 
       
     <!-- Scene's sequence -->
     <div ng-repeat="sequence in scene.sequence" 

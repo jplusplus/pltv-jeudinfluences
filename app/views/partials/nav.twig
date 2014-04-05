@@ -66,7 +66,7 @@
             <a class="nav__cmd__save btn btn-sm btn-default" href="">Sauvegarder</a>
         </li>
 		<li class="nav__cmd__part">
-            <div class="nav__cmd__volume" ng-init="volume=50" >
+            <div class="nav__cmd__volume">
                 <div class="nav__cmd__volume__state"  ng-class="{ 'nav__cmd__volume__state--on': volume > 0, 'nav__cmd__volume__state--off': volume == 0 }" ng-click="volume=0"></div>
                 <div class="nav__cmd__volume__slider-holder">
                     <div slider ng-model="volume" step="1" start="0" end="100"></div>

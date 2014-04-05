@@ -1,4 +1,4 @@
-<div class="chapter chapter-entrance-animation ng-hide" ng-controller="ChapterCtrl" ng-show="shouldShowChapter(chapter) && user.inGame" ng-class="chapterClasses(chapter)">    
+<div class="chapter chapter-entrance-animation" ng-show="shouldShowChapter()" ng-class="chapterClasses()">    
 
     <div class="chapter__intro" ng-show="user.isStartingChapter()">
         <div class="chapter__intro__id">Chapitre [[chapter.id]]</div>
@@ -54,6 +54,6 @@
         </li>
     </ul>
 
-    <div ng-repeat="scene in chapter.scenes" ng-include="'partials/scene.html'"></div>
+    <scene ng-repeat="scene in chapter.scenes" src="scene" chapter="chapter"></scene>    
 
 </div>
