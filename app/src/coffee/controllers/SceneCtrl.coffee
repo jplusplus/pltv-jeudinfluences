@@ -62,7 +62,7 @@ class SceneCtrl
                 # Took the last higher id than the current sequence
                 higherId = id if id <= @User.sequence
             # Return the following assertion                        
-            bg.sequence is higherId
+            bg.sequence is 0 or (bg.sequence is higherId and @User.scene is @scene.id)
         # Play of pause the soundtrack
         @scope.toggleVoicetrack = @Sound.toggleSequence
         # Last dialog box that we seen
