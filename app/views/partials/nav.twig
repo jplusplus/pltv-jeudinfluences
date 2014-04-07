@@ -60,10 +60,12 @@
 			</ul>
 		</li>
         <li class="nav__cmd__part btn-group" ng-show="user.inGame">
-            <a class="nav__cmd__save btn btn-sm btn-default" ng-click="user.newUser(); user.inGame = false">Restart</a>
+            <a class="btn btn-sm btn-default" ng-click="user.newUser(); user.inGame = false">Restart</a>
         </li>
         <li class="nav__cmd__part" ng-show="user.inGame">
-            <a class="nav__cmd__save btn btn-sm btn-default" href="">Sauvegarder</a>
+            <button class="nav__cmd__save btn btn-sm btn-default" ng-click="shouldShowSaveForm = !shouldShowSaveForm" ng-class="{ 'nav__cmd__save--on': shouldShowSaveForm && user.inGame  }">
+                Sauvegarder
+            </button>
         </li>
 		<li class="nav__cmd__part">
             <div class="nav__cmd__volume">
@@ -74,4 +76,12 @@
             </div>
 		</li>
 	</ul>
+
+    <div class="nav__save" ng-class="{ 'nav__save--visible': shouldShowSaveForm && user.inGame  }">
+        <form class="nav__save__form form-horizontal">
+            <input class="form-control" placeholder="email@exemple.org" ng-model="email" required type="email" class="form-control" /> 
+            <button type="submit" class="nav__save__form__submit btn btn-default" ng-disabled="form.$invalid">OK</button>
+            <p class="nav__save__form__indication">Sauvegardez votre progression</p>
+        </form>
+    </div>
 </header>

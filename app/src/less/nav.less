@@ -8,6 +8,13 @@
 	background:fade(black, 75);
     z-index:@nav-zindex;
 
+    .btn {
+    	height:24px;
+    	line-height: 21px;
+    	padding:0 10px;
+    	text-transform: uppercase;
+    }
+
 	&__partners {
 		padding-left:10px;
 		position:absolute;
@@ -43,6 +50,28 @@
 		right:0;
 		top:0;		
 		text-transform: uppercase;
+
+		// Overide .btn padding
+		&__save.btn {
+			padding-right:25px;
+			position:relative;
+
+			&:after {
+				content:"";
+				height:10px;
+				width:15px;
+				background: url("/img/ui/arrow_save.png") no-repeat 0 0;
+				position: absolute;
+				right:5px;
+				top:50%;
+				margin-top:-5px;
+				.transition(0.7s);
+			}						
+		}
+
+		&__save--on:after {
+			.rotate(180deg);
+		}
 
 		&__share {
 
@@ -113,6 +142,64 @@
 		&__partners {
 			left:50%;
 			.translate(-50%, 0);
+		}
+	}
+
+	&__save {
+		position:absolute;
+		bottom:100%;
+		right:0px;
+		display:block;
+		width:300px;
+		height:100px;
+		overflow:hidden;
+
+		&--visible {
+			.nav__save__form {
+				.translate(0,0);
+			}			
+		}
+
+		&__form {
+			line-height:@line-height-base;
+			background:fade(black, 75);
+			position:absolute;
+			bottom:0;
+			left:20px;
+			right:20px;
+			padding:10px;
+			padding-right:18px;	
+			.translate(0,100%);	
+			.transition(0.7s);	
+
+            &:after {
+                content:"";
+                position:absolute;
+                top:34px;
+                left:100%;
+                background:url("/img/ui/triangle1.png") no-repeat right 0;                    
+                height:5px;
+                width:11px;
+                z-index:-1;                
+            }
+
+            &__submit {
+                z-index:10;
+                position:absolute;
+                top:10px;
+                right:-12px;
+                padding:0;   
+                width: @input-height-base;  
+                height: @input-height-base;
+                line-height: @input-height-base;
+                font-size:10px;     
+
+            }
+
+            &__indication {
+            	margin:0;
+            	margin-top:10px;
+            }
 		}
 	}
 }
