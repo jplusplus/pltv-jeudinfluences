@@ -6,7 +6,7 @@
     <!-- Scene's sequence -->
     <div ng-repeat="sequence in scene.sequence" 
          class="scene__sequence scene__sequence--[[sequence.type]]"
-         ng-show="shouldShowSequence($index) && !user.isStartingChapter()">
+         ng-show="shouldShowSequence($index) && !user.isStartingChapter() && !user.isGameOver">
 
         <!-- Dialog box, a the bottom of the screen -->
         <div ng-if="isDialog(sequence)">
