@@ -3,27 +3,33 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
         # ──────────────────────────────────────────────────────────────────────────
         # Public method
         # ──────────────────────────────────────────────────────────────────────────        
+        startSoundTrack: (tracks) =>
+            # Create the new sound
+            @soundtrack = new Howl
+                urls : tracks
+                loop : yes
+                buffer : yes
+                volume : 0
+                # Default states
+                onplay : => $rootScope.safeApply => @soundtrack.isPlaying = yes
+                onpause: => $rootScope.safeApply => @soundtrack.isPlaying = no
+                onend  : => $rootScope.safeApply => @soundtrack.isPlaying = no
+            # Play the sound with a fadein entrance
+            @soundtrack.play => @soundtrack.fade(0, User.volume, 1000)
+
         startScene: (chapter=User.chapter, scene=User.scene)=>
             # Start a new scene
             if scene? and Plot.chapters.length and Plot.scene(chapter, scene)?
                 # Get scene object
-                scene  = Plot.scene(chapter, scene)                 
+                scene  = Plot.scene(chapter, scene)
                 tracks = [ $filter('media')(scene.decor[0].soundtrack) ]
                 # Update the soundtrack if it is different
-                if not @soundtrack? or not angular.equals( @soundtrack.urls(), tracks)
-                    # Create the new sound
-                    @soundtrack = new Howl
-                        urls   : tracks                    
-                        loop   : yes
-                        buffer : yes
-                        volume : 0
-                        # Default states
-                        onplay : => $rootScope.safeApply => @soundtrack.isPlaying = yes
-                        onpause: => $rootScope.safeApply => @soundtrack.isPlaying = no
-                        onend  : => $rootScope.safeApply => @soundtrack.isPlaying = no
-                    # Play the sound with a fadein entrance
-                    @soundtrack.play => @soundtrack.fade(0, User.volume, 1000)
-
+                if scene.decor[0].soundtrack?
+                    if (not @soundtrack?)
+                        @startSoundTrack tracks
+                    else if (not angular.equals( @soundtrack.urls(), tracks))
+                        @soundtrack.fade User.volume, 0, 1000, =>
+                            @startSoundTrack tracks
 
         toggleSequence: (chapterIdx=User.chapter, sceneIdx=User.scene, sequenceIdx=User.sequence)=>            
             if sequenceIdx?
