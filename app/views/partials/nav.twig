@@ -69,7 +69,7 @@
         </li>
 		<li class="nav__cmd__part">
             <div class="nav__cmd__volume">
-                <div class="nav__cmd__volume__state"  ng-class="{ 'nav__cmd__volume__state--on': volume > 0, 'nav__cmd__volume__state--off': volume == 0 }" ng-click="volume=0"></div>
+                <div class="nav__cmd__volume__state"  ng-class="{ 'nav__cmd__volume__state--on': isVolumeOn(), 'nav__cmd__volume__state--off': !isVolumeOn() }" ng-click="volume=0"></div>
                 <div class="nav__cmd__volume__slider-holder">
                     <div slider ng-model="volume" step="1" start="0" end="100"></div>
                 </div>
@@ -79,7 +79,7 @@
 
     <div class="nav__save" ng-class="{ 'nav__save--visible': shouldShowSaveForm && user.inGame  }">
         <form class="nav__save__form form-horizontal">
-            <input class="form-control" placeholder="email@exemple.org" ng-model="email" required type="email" class="form-control" /> 
+            <input class="form-control" placeholder="email@exemple.org" ng-model="user.email" required type="email" class="form-control" /> 
             <button type="submit" class="nav__save__form__submit btn btn-default" ng-disabled="form.$invalid">OK</button>
             <p class="nav__save__form__indication">Sauvegardez votre progression</p>
         </form>
