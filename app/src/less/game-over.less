@@ -1,0 +1,49 @@
+.game-over {
+    z-index: @game-over-zindex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    // .box-shadow(inset 0 0 100px rgba(0, 0, 0, 0.9));
+    h1 {
+        margin:0;
+        padding:0;
+        text-transform: uppercase;
+        text-shadow:0 0 10px @brand-primary;
+        font-size: 82px;
+        height:80px;
+        white-space: nowrap;
+        font-family: @font-family-sans-serif;
+    }
+
+    &__message {
+        padding: 20px;
+        background: rgba(0,0,0, 0.8);
+        width: 440px;
+        position:absolute;
+        top:35%;
+        left:50%;
+        .translate(-50%, -50%);
+
+        &__description { 
+            margin-top: 10px;
+            border-top: 1px solid #808080;
+            padding-top: 10px;
+            font-family: @font-family-base;
+            color: white;
+        }
+    }
+
+    &__restart {
+        display: block;
+        text-transform: uppercase;
+        height:60px;
+        padding:0;
+        line-height:50px;
+        width:160px;
+        position: absolute;
+        top: 70%;
+        left:50%;
+        .translate(-50%, -50%);
+    }
+}
