@@ -1,11 +1,11 @@
 <div class="chapter chapter-entrance-animation" ng-show="shouldShowChapter()" ng-class="chapterClasses()">    
 
-    <div class="chapter__intro" ng-show="user.isStartingChapter()" ng-hide="user.isGameOver">
+    <div class="chapter__intro" ng-show="user.isStartingChapter() && !user.isGameOver">
         <div class="chapter__intro__id">Chapitre [[chapter.id]]</div>
         <h2 class="chapter__intro__title">[[chapter.title]]</h2>  
     </div>
 
-    <div class="chapter__track" ng-hide="user.isStartingChapter()||user.isGameOver">
+    <div class="chapter__track" ng-hide="user.isStartingChapter() || user.isGameOver">
         <div class="chapter__track__id">Chapitre <b>[[chapter.id]]</b> / 4</div>
         <div class="chapter__track__bullets">
             <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 4" ng-class="{ active: i <= chapter.id - 1 }"></i>
@@ -17,7 +17,7 @@
     </div>
     
     
-    <ul class="chapter__cmd list-unstyled" ng-hide="user.isStartingChapter()||user.isGameOver">
+    <ul class="chapter__cmd list-unstyled" ng-hide="user.isStartingChapter() || user.isGameOver">
         <li class="chapter__cmd__indicator chapter__cmd__indicator--ubm">
             <abbr class="chapter__cmd__indicator__help">
                 ?<span class="chapter__cmd__indicator__help__definition">Unité de Bruit Médiatique : présence de votre crise dans les médias</span>

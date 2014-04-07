@@ -3,7 +3,7 @@ class ResultsCtrl
     constructor: (@scope, @Progression, @Plot, @User)->                             
         @scope.plot  = @Plot
         @scope.user  = @User 
-        @scope.shouldShowResults = -> no
+        @scope.shouldShowResults = => @User.isGameDone
 
 
 angular.module('spin.controller').controller("ResultsCtrl", ResultsCtrl)    
