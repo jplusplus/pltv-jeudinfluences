@@ -115,10 +115,22 @@
                 padding:0 5px;
             }
 
-            &__continue {
+            &__continue.btn {
                 position:absolute;
                 right:-30px;
                 top:0;
+                padding-right:25px;
+
+                &:before {                    
+                    content:"";
+                    height:14px;
+                    width:10px;
+                    background: url("/img/ui/btn_next.png") no-repeat 0 0;
+                    position: absolute;
+                    right:5px;
+                    top:50%;
+                    margin-top:-7px;
+                }
 
                 &:after {
                     content:"";
