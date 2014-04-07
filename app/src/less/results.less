@@ -119,7 +119,7 @@
                 position:absolute;
                 right:-30px;
                 top:0;
-                padding-right:25px;
+                padding-right:20px;
 
                 &:before {                    
                     content:"";
@@ -142,8 +142,112 @@
                     height:7px;                    
                     margin-right:-2px;
                     margin-top:2px;
-                    z-index:-1;             
+                    z-index:-1;   
                 }
+            }
+        }
+    }
+
+    &__choices {
+
+        overflow: hidden;
+        position:absolute;
+        right:0;
+        top:20px;
+        bottom:20px;
+        width:300px;
+
+        &--on {
+
+            .results__choices__toggler {
+                min-width:280px;    
+                &:before {
+                    .rotate(0deg); 
+                }
+            }
+
+            .results__choices__panel {
+                .translate(0, 0);
+            }
+        }
+        
+        &__toggler {
+            position:absolute;
+            right:0;
+            top:20px;
+            text-align: left;
+            z-index:@results-zindex + 10;
+            min-width:20px;                        
+            padding-left:25px;
+            .transition(0.7s);  
+
+            &, &:hover, &:focus, &:active {
+                border-right:0;
+            }
+
+
+            &:before {                    
+                content:"";
+                height:14px;
+                width:10px;
+                background: url("/img/ui/btn_next.png") no-repeat 0 0;
+                position: absolute;
+                left:10px;
+                top:50%;
+                margin-top:-7px;
+                .rotate(180deg);  
+                .transition(0.7s);   
+            }
+        }
+
+
+        &__panel {
+
+            z-index:@results-zindex;    
+            position:absolute;
+            right:0;
+            top:0;
+            padding:20px;
+            background:fade(black, 75);
+            min-width:300px;            
+            padding-top:60px;
+            .transition(0.7s);
+            .translate(100%, 0);
+
+            &:after {
+                content:"";
+                position:absolute;
+                top:65px;
+                left:20px;
+                right:20px;
+                height:2px;
+                background:@text-color;
+            }
+
+            &__chapter {
+
+                margin-top:20px;
+
+                &__title {
+                    text-transform:uppercase;
+                    font-size:@font-size-base;
+                }
+
+                &__percentage {
+
+                    &__progress {                    
+                        height:6px;
+                        margin-bottom:10px;
+
+                        .progress-bar {
+                            background:@brand-secondary;
+                        }                
+                        .progress-bar, & {
+                            border-radius:3px;
+                        }
+                    } 
+                }
+
             }
         }
     }

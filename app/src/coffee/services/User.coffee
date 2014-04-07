@@ -18,7 +18,7 @@ angular.module("spin.service").factory("User", [
                 # False until the player starts the game
                 @inGame     = yes
                 @isGameOver = no
-                @isGameDone = yes
+                @isGameDone = no
                 # User authentication
                 @token    = $location.search().token or master.token or null
                 @email    = master.email or null

@@ -1,4 +1,5 @@
 <div class="results" ng-controller="ResultsCtrl" ng-show="shouldShowResults()">
+
     <div class="results__feedbacks">
         <p>Ne rester pas seul(e) dans cette crise,<br /> partagez votre expérience.</p>
 
@@ -41,5 +42,97 @@
             </button>
         </div>
 
+    </div>
+
+    <div class="results__choices" ng-class="{ 'results__choices--on': shouldShowChoices }">
+        <button class="results__choices__toggler btn btn-default" ng-click="shouldShowChoices = !shouldShowChoices">
+            Vos choix précédents
+        </button>
+        <div class="results__choices__panel">
+            <div class="results__choices__panel__chapter">
+                <h4 class="results__choices__panel__chapter__title">Chapitre 1</h4>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="results__choices__panel__chapter">
+                <h4 class="results__choices__panel__chapter__title">Chapitre 2</h4>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="results__choices__panel__chapter">
+                <h4 class="results__choices__panel__chapter__title">Chapitre 3</h4>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="results__choices__panel__chapter">
+                <h4 class="results__choices__panel__chapter__title">Chapitre 4</h4>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+                <div class="results__choices__panel__chapter__percentage">
+                    Vous avez rappelé Nadia
+                    <div class="progress results__choices__panel__chapter__percentage__progress">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
