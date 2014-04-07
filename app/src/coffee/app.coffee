@@ -16,7 +16,6 @@ app = angular.module 'spin', [
     "nouislider"
     # External dependencies
     "btford.markdown"
-    "dkCircles"
     # Internal dependencies
     "spin.constant"
     "spin.animation"

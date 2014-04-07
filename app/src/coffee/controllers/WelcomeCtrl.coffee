@@ -9,4 +9,6 @@ class WelcomeCtrl
             @User.email  = @scope.email
             # And starts the game!
             @User.inGame = yes
+
+angular.module('spin.controller').controller("WelcomeCtrl", WelcomeCtrl)
 # EOF

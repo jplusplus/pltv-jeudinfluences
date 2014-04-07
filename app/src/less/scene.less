@@ -100,6 +100,29 @@
                 width:150px;
                 margin:0 10px 15px;
             }
+
+            &__timeout {
+                position:absolute;
+                left:50%;
+                bottom:100%;
+                margin-bottom:70px;
+                width:50px;
+                height:50px;
+                .translate(-50%, 0);
+
+                &:before {
+                    z-index:-1;
+                    content:"";
+                    background:fade(#000, 75);
+                    border-radius: 50%;
+                    height:40px;
+                    width:40px;
+                    .translate(-50%, -50%);
+                    position:absolute;
+                    left:50%;
+                    top:50%;
+                }
+            }
         }
 
         // Notification box, a the top right corner of the screen
