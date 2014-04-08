@@ -112,11 +112,6 @@ module.exports = function(grunt) {
           'public/js/wait.min.js': ['public/dev/js/wait.js'],
           'public/js/template.min.js': ['public/dev/js/template.js']
         }
-      },
-      lib: {
-        files: {
-          'public/js/lib.min.js': ['public/js/lib.min.js']
-        }
       }
     },
     less: {
