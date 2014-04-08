@@ -3,7 +3,8 @@ angular.module("spin.service").factory "Progression", [
     'Plot'
     'User'
     'Sound'
-    ($rootScope, Plot, User, Sound)->
+    'Timeout'
+    ($rootScope, Plot, User, Sound, Timeout)->
         new class Progression    
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
@@ -16,7 +17,9 @@ angular.module("spin.service").factory "Progression", [
                 # Scene is changing
                 $rootScope.$watch (=>[Plot.chapters, User.scene]), (-> do Sound.startScene), yes    
                 # Sequence is changing
-                $rootScope.$watch (=>User.sequence), (-> do Sound.toggleSequence)
+                $rootScope.$watch (=>User.sequence), ->
+                    do Sound.toggleSequence
+                    do Timeout.toggleSequence
                 # Update the volume
                 $rootScope.$watch (=>User.volume), Sound.updateVolume
 ]
