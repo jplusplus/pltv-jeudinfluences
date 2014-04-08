@@ -268,7 +268,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dist', ['production','copy:dist','clean:dist','mkdir:dist']);
   grunt.registerTask('lib', function(env){
     if(env == 'production'){
-      grunt.task.run(['concat:bower_js','concat:bower_css','uglify:lib']);
+      grunt.task.run(['concat:bower_js','concat:bower_css']);
     } else {
       grunt.task.run(['concat:bower_js','concat:bower_css']);
     }
