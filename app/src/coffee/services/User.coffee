@@ -46,7 +46,7 @@ angular.module("spin.service").factory("User", [
             pos: ()=> @chapter + "." + @scene
 
             newUser: ()=>
-     git            # Reset identication tokens
+               # Reset identication tokens
                 [@token, @email] = [null, null] 
                 # Reset progression
                 [@chapter, @scene, @sequence] = ["1", "1", 0]
