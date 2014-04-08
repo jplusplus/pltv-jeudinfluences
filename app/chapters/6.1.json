@@ -1,0 +1,72 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap6/illustrations/illustr-ch6-1.jpg",
+            "background_transition": "fade",
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "notification",
+            "sound": "/medias/sounddesign/notif-1.mp3",
+            "header": "Message reçu de \"Nadia, dir' com'\"",
+            "body": "Je serai entendue par les juges lundi matin. Je voulais que tu sois au courant."
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "header": "Vendredi 1er juin, 09h12.",
+            "body": "/medias/chap6/voix-off/louis-ch6-01.mp3"
+        },
+        {
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/illustrations/tablette.jpg"
+        },
+        {
+            "type": "video",
+            "body": "http://www.dailymotion.com/video/k1yXcHHSgEmpaT6ofJh"
+        },
+        {
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/chap6/illustrations/illustr-ch6-1.jpg"
+        },
+        {
+            "type" : "choice",
+            "body": "Quelle option choisir ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Tout raconter à Patrick Luaud ?",
+                    "next_scene": "6.2",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Rester fidèle à vos mensonges ?",
+                    "next_scene": "6.16",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

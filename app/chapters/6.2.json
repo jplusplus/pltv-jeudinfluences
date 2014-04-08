@@ -1,0 +1,42 @@
+{
+    "next_scene" : "6.3",
+    "decor": [
+        {
+            "background": "/medias/chap6/illustrations/illustr-ch6-1.jpg",
+            "background_transition": "fade",
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "header": null,
+            "body": "/medias/chap6/voix-off/louis-ch6-02.mp3"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Vous savez Louis, la vérité, cette vérité, dans sa totalité, c'est mon principal outil de travail. En y piochant des éléments, je peux façonner l'histoire qui sera peut-être suivie par les médias. Mais je ne suis pas un magicien, je ne peux pas faire de miracles."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Avec une vérité partielle, mon histoire sonnera forcément faux à un moment ou à un autre. Et les zones d'ombre finiront par ressortir. Vous auriez dû m'en parler, nous les aurions définies ensemble, pour mieux les isoler."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Vous m'avez menti et je ne peux travailler sans confiance. C'est trop risqué. La dernière chose que je puisse faire, c'est vous donner un conseil : faites un \"20 heures\". Révélez tout ce que vous venez de me dire et annoncez votre démission. Dès ce soir."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Ça évitera que d'autres le fassent - et qui sait - ça pourrait même vous sauver. Je veux bien passer un dernier coup de fil pour organiser ces aveux.\n\nEnsuite, vous serez seul."
+        }
+    ]
+}

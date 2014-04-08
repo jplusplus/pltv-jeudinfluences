@@ -1,0 +1,44 @@
+{
+    "next_scene" : "4.16",
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-03.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Non, c'est Patrick Luaud qui me l'a imposé. Selon lui, on n'avait pas le choix. Les journalistes seraient venus quoi que l'on fasse..."
+        },
+        {
+            "condition": {"backing_nadia":true},
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "..."
+        },
+        {
+            "condition": {"backing_nadia":false},
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "Et c'est lui qui t'a aussi imposé de me laisser tomber face à la presse ? Ils sont sur mon dos du matin au soir, Louis."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Ecoute, j'essaie de faire au mieux. L'important, aujourd'hui, c'est Mika. Nous allons aussi faire une minute de silence pour lui dans l'usine, arrêter les machines..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "Merci. Il n'aurait sans doute pas voulu de cette mise en avant mais je t'avoue que moi, ça me fait du bien. Allez, allons-y."
+        }
+    ]
+}

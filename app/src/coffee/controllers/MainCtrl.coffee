@@ -4,5 +4,7 @@ class MainCtrl
         @scope.plot  = @Plot
         @scope.user  = @User 
         @scope.sound = @Sound 
-        
+
+
+angular.module('spin.controller').controller("MainCtrl", MainCtrl)    
 # EOF

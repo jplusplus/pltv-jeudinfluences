@@ -1,19 +1,21 @@
 {
   "name": "pltv-spin",
   "author": "Journalism++",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
-    "jquery": "1.9.1",
-    "moment": "2.5.1",
-    "bootstrap": "3.1.1",
-    "underscore": "1.6.0",
     "angular": "1.2.5",
     "angular-animate": "1.2.5",
-    "angular-route": "1.2.5",
-    "angular-resource": "1.2.5",
-    "angular-sanitize": "1.2.5",
-    "howler": "1.1.18",
     "angular-local-storage": "0.0.1",
-    "angular-markdown-directive": "~0.2.0"
+    "angular-markdown-directive": "~0.2.0",
+    "angular-nouislider": "~0.2.6",
+    "angular-resource": "1.2.5",
+    "angular-route": "1.2.5",
+    "angular-sanitize": "1.2.5",
+    "bootstrap": "3.1.1",
+    "howler": "1.1.18",
+    "jquery": "1.9.1",
+    "moment": "2.5.1",
+    "underscore": "1.6.0",
+    "circles": "https://raw.githubusercontent.com/lugolabs/circles/827b36f8f3cd47d73adedf5f361c06ce16d1d4ba/circles.js"
   }
 }

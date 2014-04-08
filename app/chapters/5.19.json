@@ -1,0 +1,71 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-06.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "voixoff",
+            "character": null,
+            "header": null,
+            "body": "/medias/chap5/voix-off/louis-ch5-06_journaliste.mp3"
+        },
+        {
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/chap5/illustrations/illustr-ch5-07.jpg"
+        },
+        {
+            "condition": {"itw_connaissance_pollution":false},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Si vous continuez sur cette voie Louis, c'est sans moi. On y retourne mais vous oubliez cette réponse. Trouvez un moyen de noyer le poisson pour passer à la suivante. Ok ?"
+        },
+        {
+            "condition": {"itw_connaissance_pollution":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Louis, vous plaisantez ? Si vous ne suivez pas les éléments de langage que nous avons défini, je perds mon temps avec vous. Trouvez à nouveau une idée pour revenir sur les rails et mais c'est la dernière fois. On est d'accord ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Suivre le conseil de Patrick Luaud ?",
+            "delay" : 5,
+            "default_option" : 2,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.19.suite",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.16",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

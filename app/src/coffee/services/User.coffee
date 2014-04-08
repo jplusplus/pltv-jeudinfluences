@@ -16,7 +16,9 @@ angular.module("spin.service").factory("User", [
                 # This user is saved into local storage
                 master    = localStorageService.get("user") or {}
                 # False until the player starts the game
-                @inGame   = no
+                @inGame     = yes
+                @isGameOver = no
+                @isGameDone = no
                 # User authentication
                 @token    = $location.search().token or master.token or null
                 @email    = master.email or null
@@ -28,11 +30,15 @@ angular.module("spin.service").factory("User", [
                 @chapter  = master.chapter  or "1"
                 @scene    = master.scene    or "1"
                 @sequence = master.sequence or 0
-                # Indicators
-                @ubm      = master.ubm    or 0
-                @trust    = master.trust  or 0
-                @stress   = master.stress or 0    
-                @karma    = master.karma  or 100 
+                @indicators =
+                    # Visible indicators
+                    @stress : master.stress  or 0    
+                    @trust  : master.trust   or 100
+                    @ubm    : master.ubm     or 0
+                    # Hidden indicators
+                    @guilt  : master.guilt   or 0 
+                    @honesty: master.honesty or 100 
+                    @karma  : master.karma   or 0 
                 # Load career data from the API
                 do @loadCareer
                 return @
@@ -55,10 +61,10 @@ angular.module("spin.service").factory("User", [
                 if career.reached_scene? and typeof(career.reached_scene) is String
                     [@chapter, @scene] = career.reached_scene.split "."
                     # Save indicators                        
-                    @karma  = career.context.karma
-                    @stress = career.context.stress
-                    @trust  = career.context.trust
-                    @ubm    = career.context.ubm
+                    @indicators.karma  = career.context.karma
+                    @indicators.stress = career.context.stress
+                    @indicators.trust  = career.context.trust
+                    @indicators.ubm    = career.context.ubm
                     # Start to the first sequence
                     @sequence = 0
 
@@ -104,10 +110,23 @@ angular.module("spin.service").factory("User", [
                             # And call this function again
                             do @loadCareer   
 
+            propagateChoice: (option)=>                                
+                for key, indicator of option.result[0] 
+                    @indicators[key] += parseInt(indicator)
+                do @updateLocalStorage
+
             updateCareer: (choice)=>
                 return no unless @token
                 # Add reached scene parameter
-                state = if choice? then choice else reached_scene: @pos()
+                if choice? 
+                    state = choice
+                    [chapterIdx, sceneIdx] = choice.scene.split(".")
+                    # Get the current sequence to  update the indicators
+                    sequence = Plot.sequence(chapterIdx, sceneIdx, @sequence)
+                    # Propagate the choices only if this sequence has options
+                    @propagateChoice(sequence.options[choice.choice]) if sequence.options?
+                else
+                    state = reached_scene: @pos()
                 # Get value using the token
                 $http.post "#{api.career}?token=#{@token}", state
                 # And load the refresfed data

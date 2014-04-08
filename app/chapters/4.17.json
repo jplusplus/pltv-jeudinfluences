@@ -1,0 +1,114 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-07.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"conf_obseques":true},
+            "type": "new_background",
+            "transition": "fade",
+            "body": "/medias/chap4/illustrations/illustr-ch4-08a.jpg"
+        },
+        {
+            "condition": {"conf_obseques":true},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": "29 mai, 10h43.",
+            "body": "/medias/chap4/voix-off/louis-ch4-03.mp3"
+        },
+        {
+            "condition": {"conf_obseques":false},
+            "type": "new_background",
+            "transition": "fade",
+            "body": "/medias/chap4/illustrations/illustr-ch4-08b.jpg"
+        },
+        {
+            "condition": {"conf_obseques":false},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": "29 mai, 10h43.",
+            "body": "/medias/chap4/voix-off/louis-ch4-05.mp3"
+        },
+        {
+            "type": "notification",
+            "sound": "",
+            "header": "Message reçu de Patrick Luaud :",
+            "body": "Essayez d'être pris en photo avec Nadia."
+        },
+        {
+            "condition": {"conf_obseques":true},
+            "type" : "choice",
+            "body": "Suivre le conseil de Patrick Luaud",
+            "delay" : 5,
+            "default_option" : 1,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "4.18.a",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "4.20",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "condition": {"conf_obseques":false},
+            "type" : "choice",
+            "body": "Suivre le conseil de Patrick Luaud",
+            "delay" : 5,
+            "default_option" : 1,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "4.18.b",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "4.20",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

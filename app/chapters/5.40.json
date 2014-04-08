@@ -1,0 +1,24 @@
+{
+    "next_scene" : "5.41",
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-10.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Parfait. Vous n'avez qu'à raconter cette histoire-là à vos employés. Jouez-le sur le ton de la confidence."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Vous avez sauvé Habinat de la faillite et vous avez toujours su éviter la confrontation. Ils devraient prendre notre parti sans trop d'efforts. Rejoignez-les à l'usine."
+        }
+    ]
+}

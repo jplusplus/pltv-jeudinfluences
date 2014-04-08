@@ -1,11 +1,23 @@
 class SceneCtrl
     @$inject: ['$scope', 'Plot', 'User', 'Sound', 'constant.characters', 'constant.settings']
-    constructor: (@scope, @Plot, @User, @Sound, characters, settings) ->    
-        @scope.sound = @Sound                                   
+    constructor: (@scope, @Plot, @User, @Sound, characters, settings) ->                           
+        @scope.plot  = @Plot
+        @scope.user  = @User         
+        @scope.sound = @Sound
+        # Establishes a bound between "src" and "chapter" arguments
+        # provided by the scene directive and the Countroller
+        @scene = @scope.scene = @scope.src              
+        @chapter = @scope.chapter
         # True if the given scene is visible
-        @scope.shouldShowScene = (scene)=> scene.id is @User.scene   
+        @scope.shouldShowScene = => @scene.id is @User.scene   
         # True if the given sequence is visible
-        @scope.shouldShowSequence = (idx)=> [ @getLastDialogIdx(), @User.sequence ].indexOf(idx) > -1
+        @scope.shouldShowSequence = (idx)=> 
+            # Hide the sequence is the user in one of this states
+            not @User.isStartingChapter() and 
+            not @User.isGameOver and
+            not @User.isGameDone and
+            # And show the sequence if it is the last one with a next button
+            [ @getLastDialogIdx(), @User.sequence ].indexOf(idx) > -1
         # True if the sequence's button should be shown
         @scope.shouldShowNext = (sequence)=> settings.sequence_with_next.indexOf( sequence.type.toLowerCase() ) > -1
         # True if the sequence is visible into the dialog box
@@ -39,13 +51,13 @@ class SceneCtrl
                 # Just returns the URL
                 characters[character]     
         # Get the list of the background for the given scene
-        @scope.getSceneBgs = (scene)=>
+        @scope.getSceneBgs = =>
             # Cache bgs to avoid infinite digest iteration
             return @bgs if @bgs?
             # First background is the one from the scene      
-            @bgs = [src: scene.decor[0].background, sequence: -1]
+            @bgs = [src: @scene.decor[0].background, sequence: -1]
             # Look into each scene's sequence to find the new background
-            for sequence, idx  in scene.sequence                                
+            for sequence, idx  in @scene.sequence                                
                 # Add the bg to bg list
                 @bgs.push src: sequence.body, sequence: idx if @isNewBg sequence            
             @bgs
@@ -56,7 +68,7 @@ class SceneCtrl
                 # Took the last higher id than the current sequence
                 higherId = id if id <= @User.sequence
             # Return the following assertion                        
-            bg.sequence is higherId
+            bg.sequence is 0 or (bg.sequence is higherId and @User.scene is @scene.id)
         # Play of pause the soundtrack
         @scope.toggleVoicetrack = @Sound.toggleSequence
         # Last dialog box that we seen
@@ -72,6 +84,5 @@ class SceneCtrl
             sequenceIdx
 
 
-
-
+angular.module('spin.controller').controller("SceneCtrl", SceneCtrl)
 # EOF

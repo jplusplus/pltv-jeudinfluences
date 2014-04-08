@@ -1,0 +1,42 @@
+{
+    "next_scene" : "4.16",
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-03.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Non, je comprends assez mal. Je fais tout mon possible pour que les choses s'apaisent, Nadia. Je ne sais pas si tu te rends bien compte..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "Louis, pas maintenant."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "...tu ne penses qu'à ta douleur. Tu ne vois que ça, toi et ta douleur. Moi aussi je souffre. Mais je me bats pour les vivants, je me bats pour la boîte. Mika est mort, il ne peut plus rien pour nous."
+        },
+        {
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "Louis..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Et même ces obsèques, tout ça, qui est-ce qui paie ? La boîte, Habinat, moi. Alors excuse-moi si, pour la préserver, je suis obligé de parler à quelques journalistes après la cérémonie. Excuse-moi d'être \"déplacé\". C'est triste que tu ne puisses pas accepter ça."
+        }
+    ]
+}

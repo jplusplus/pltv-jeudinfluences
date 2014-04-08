@@ -1,12 +1,12 @@
-<div class="scene" ng-controller="SceneCtrl" ng-show="shouldShowScene(scene)">              
+<div class="scene" ng-show="shouldShowScene()">              
 
     <!-- This is the main illustration -->      
-    <img class="scene__bg" ng-src="[[bg.src | media]]" ng-repeat="bg in getSceneBgs(scene) | filter:shouldDisplayBg" /> 
+    <img class="scene__bg" ng-src="[[bg.src | media]]" ng-repeat="bg in getSceneBgs() | filter:shouldDisplayBg" /> 
       
     <!-- Scene's sequence -->
     <div ng-repeat="sequence in scene.sequence" 
          class="scene__sequence scene__sequence--[[sequence.type]]"
-         ng-show="shouldShowSequence($index) && !user.isStartingChapter()">
+         ng-show="shouldShowSequence($index)">
 
         <!-- Dialog box, a the bottom of the screen -->
         <div ng-if="isDialog(sequence)">
@@ -36,7 +36,14 @@
                 <span class="sr-only" ng-show="sound.voicetrack.isPlaying">Pause<span>
                 <span class="sr-only" ng-hide="sound.voicetrack.isPlaying">Play<span>
             </button>                
-            <div class="scene__sequence--voixoff__progression"></div>
+            <div class="scene__sequence--voixoff__progression">
+                <div class="progress">                
+                    <div class="progress-bar" role="progressbar" ng-style="{ width: (sound.voicetrack._position/sound.voicetrack._duration)*100 + '%'}"></div>
+                </div>
+                <span class="scene__sequence--voixoff__progression__timestamp">
+                    [[sound.voicetrack._position|minutes]] / [[sound.voicetrack._duration|minutes]]
+                </span>
+            </div>
             <div class="scene__sequence--voixoff__head" ng-if="getHeadSrc(sequence)">
                 <img ng-src="[[getHeadSrc(sequence)]]" />
             </div>  
@@ -55,6 +62,14 @@
                     ng-click="selectOption(option, $index)">
                 [[option.header]]
             </button>
+            <div class="scene__sequence--choice__timeout">
+                <div circle 
+                     percentage="40"
+                     colors="transparent,#FF7F00"
+                     width="5"
+                     number=""
+                     radius="25"></div>
+            </div>
         </div>
 
         <!-- Notification, a the top right corner of the screen -->

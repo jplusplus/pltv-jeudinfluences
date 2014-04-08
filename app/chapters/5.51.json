@@ -1,0 +1,26 @@
+{
+    "next_scene" : {                                                                         
+        "positif_karma" : "5.52",                                                                         
+        "negatif_karma" : "5.53"                                                                         
+    },
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-15.jpg",
+            "background_transition": "fade",
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"video_costa":true},
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/illustrations/tablette.jpg"
+        },
+        {
+            "condition": {"video_costa":true},
+            "type": "video",
+            "body": "http://www.dailymotion.com/video/xs7kd_surf_sport"
+        }
+    ]
+}

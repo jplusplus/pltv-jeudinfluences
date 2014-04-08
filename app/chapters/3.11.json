@@ -1,0 +1,75 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-05.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Habinat n'est pas mentionné comme seule source suspecte, heureusement. Mais avec le suicide de Mickael il y a quelques jours, ça ne fait que renforcer l'attention médiatique. Ce n'est pas bon pour nous."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Heureusement, j'ai aussi une bonne nouvelle : grâce à quelques recherches bien ciblées, mes équipes sont tombées sur ce rapport."
+        },
+        {
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/chap3/illustrations/illustr-ch3-06.jpg"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "C'est un rapport d'inspection interne sur l'état de l'usine Rouvroy, également installé sur le Nizerand. Elle est en amont de la vôtre et fabrique des pièces pour machines industrielles. Les conclusions du rapport sont plutôt mauvaises : vétusté des installations et obligation de mise aux normes non respectée."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Plus vite la presse tombe sur ce document, plus vite elle oubliera Habinat dans cette histoire de pollution.\n\nÇa me parait essentiel de glisser cette info à quelques contacts, vous êtes d'accord ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Laisser Patrick Luaud fuiter le document à la presse ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "3.14",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "3.12",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

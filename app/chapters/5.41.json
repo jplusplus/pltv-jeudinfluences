@@ -1,0 +1,42 @@
+{
+    "next_scene" : "5.42",
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-11.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"charger_interimaires":true},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": "Jeudi 31 mai, 17h20.",
+            "body": "/medias/chap5/voix-off/louis-ch5-14.mp3"
+        },
+        {
+            "condition": {"charger_interimaires":true},
+            "type":"new_background",
+            "transition": "fade",
+            "body": "/medias/chap5/illustrations/illustr-ch5-12_a.jpg"
+        },
+        {
+            "condition": {"charger_ministresante":true},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": "Jeudi 31 mai, 17h20.",
+            "body": "/medias/chap5/voix-off/louis-ch5-15.mp3"
+        },
+        {
+            "condition": {"charger_ministresante":true},
+            "type":"new_background",
+            "transition": "fade",
+            "body": "/medias/chap5/illustrations/illustr-ch5-12_b.jpg"
+        },
+        {
+            "type": "narrative",
+            "body": "..."
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "next_scene" :
+        {
+            "positif_karma": "4.35",
+            "negatif_karma": "4.37"
+        },
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-12.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Malgré tout, pour être sûr, j'ai demandé à l'une de mes équipes de vérifier que ça ne venait pas de chez nous. Rien n'a été trouvé."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Une semaine après, les seuils d'alerte étaient relevés sans que j'en connaisse la raison. Ça simplifiait tout... J'ai pensé qu'il ne valait mieux rien dire."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Et vous avez eu raison. Quelqu'un d'autre était au courant ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Nadia, comme je vous l'ai dit. Mais elle était de mon avis."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Bon. Ça ne change rien à ce que l'on a décidé. Je vais organiser ce que l'on s'est dit.\n\nÀ demain."
+        }
+    ]
+}

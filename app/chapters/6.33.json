@@ -1,0 +1,70 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap6/illustrations/illustr-ch6-4.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Martin Jarendeau",
+            "header": "Mercredi 12 septembre, 9h33",
+            "body": "Merci d'être venu Louis. Je vais être direct : nous allons réorganiser le ministère. L'écologie devient l'affaire de tous, un seul ministère \"vert\" n'a plus de sens. Il faut en mettre un peu partout. C'est une volonté du président. Le Ministre de l'écologie assurera la coordination générale, mais il faut un référent dédié dans chaque Ministère."
+        },
+        {
+            "type": "dialogue",
+            "character": "Martin Jarendeau",
+            "header": null,
+            "body": "Je vais donc créer un nouveau poste : secrétaire d'état à la biodiversité rattaché au Ministre de l'Industrie. Sa mission sera de veiller à ce que nos choix de développement industriels ne mettent pas en péril tel ou tel écosystème. Il faudra bien sûr négocier avec les entreprises, souvent."
+        },
+        {
+            "type": "dialogue",
+            "character": "Martin Jarendeau",
+            "header": null,
+            "body": "Vous avez fait preuve d'un grand sang-froid lors de la crise que vous avez traversée il y a quelques mois. Vous avez fait les bons choix. Médiatiquement, cette histoire de pollution ne vous a jamais atteint. Votre image reste celle d'un entrepreneur à la fois innovant et préservant la nature."
+        },
+        {
+            "type": "dialogue",
+            "character": "Martin Jarendeau",
+            "header": null,
+            "body": "Et pour ne rien gâcher, j'ai totalement confiance en vous.\nVous feriez un merveilleux secrétaire d'État.\n\nAcceptez ce poste."
+        },
+        {
+            "type" : "choice",
+            "body": "Accepter le poste proposé par Martin Jarendeau ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "6.34",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "6.35",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

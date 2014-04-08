@@ -1,0 +1,16 @@
+{
+    "next_scene" : "4.17",
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-07.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "narrative",
+            "body": "..."
+        }
+    ]
+}

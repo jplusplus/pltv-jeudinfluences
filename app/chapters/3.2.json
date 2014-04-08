@@ -1,0 +1,24 @@
+{
+    "next_scene" : "3.4",
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-01.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Je n'ai pas envie de rentrer dans ces méthodes. La justice a déjà tranché. Si cet ouvrier s'en prend à nous, c'est un argument qui devrait suffire."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Si vous voulez. Dans ce cas, rejoignez-moi, on va discuter des éléments de langage à utiliser."
+        }
+    ]
+}

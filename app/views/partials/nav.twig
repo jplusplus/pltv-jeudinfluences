@@ -60,15 +60,28 @@
 			</ul>
 		</li>
         <li class="nav__cmd__part btn-group" ng-show="user.inGame">
-            <a class="nav__cmd__save btn btn-sm btn-default" ng-click="user.newUser(); user.inGame = false">Restart</a>
+            <a class="btn btn-sm btn-default" ng-click="user.newUser(); user.inGame = false">Restart</a>
         </li>
         <li class="nav__cmd__part" ng-show="user.inGame">
-            <a class="nav__cmd__save btn btn-sm btn-default" href="">Sauvegarder</a>
+            <button class="nav__cmd__save btn btn-sm btn-default" ng-click="shouldShowSaveForm = !shouldShowSaveForm" ng-class="{ 'nav__cmd__save--on': shouldShowSaveForm && user.inGame  }">
+                Sauvegarder
+            </button>
         </li>
 		<li class="nav__cmd__part">
-			<span class="nav__cmd__volume">
-                <input type="range" ng-model="volume" value="50" min="0" max="100">         
-            </span>
+            <div class="nav__cmd__volume">
+                <div class="nav__cmd__volume__state"  ng-class="{ 'nav__cmd__volume__state--on': isVolumeOn(), 'nav__cmd__volume__state--off': !isVolumeOn() }" ng-click="volume=0"></div>
+                <div class="nav__cmd__volume__slider-holder">
+                    <div slider ng-model="volume" step="1" start="0" end="100"></div>
+                </div>
+            </div>
 		</li>
 	</ul>
+
+    <div class="nav__save" ng-class="{ 'nav__save--visible': shouldShowSaveForm && user.inGame  }">
+        <form class="nav__save__form form-horizontal">
+            <input class="form-control" placeholder="email@exemple.org" ng-model="user.email" required type="email" class="form-control" /> 
+            <button type="submit" class="nav__save__form__submit btn btn-default" ng-disabled="form.$invalid">OK</button>
+            <p class="nav__save__form__indication">Sauvegardez votre progression</p>
+        </form>
+    </div>
 </header>

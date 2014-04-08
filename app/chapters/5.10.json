@@ -1,0 +1,59 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-04.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"pression_jarendeau":true},
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap5/voix-off/louis-ch5-01_cond1.mp3"
+        },
+        {
+            "condition": {"pression_jarendeau":false},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "/medias/chap5/voix-off/louis-ch5-01_cond2.mp3"
+        },
+        {
+            "type" : "choice",
+            "body": "Prévenir Martin Jarendeau ?",
+            "delay" : 10,
+            "default_option" : 2,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.11",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.12",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

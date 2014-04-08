@@ -1,0 +1,40 @@
+{
+    "next_scene" : "5.26",
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-08.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"itw_connaissance_pollution":false, "itw_jarendeau_seuils":false, "itw_mika_beton":false},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Bravo, vous vous en très êtes bien tiré ! Attendons demain pour lire cette enquête."
+        },
+        {
+            "condition": {"itw_connaissance_pollution":true, "itw_jarendeau_seuils":false, "itw_mika_beton": false},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Bon, vous avez rectifié le tir. Heureusement. Mais vos hésitations ont du confirmer les doutes de ce journaliste. Il ne reste plus qu'à attendre demain pour lire cette \"enquête\"."
+        },
+        {
+            "condition": {"itw_connaissance_pollution":true, "itw_jarendeau_seuils":true, "itw_mika_beton": false},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Bon, vous avez rectifié le tir. Heureusement. Mais vos hésitations ont du confirmer les doutes de ce journaliste. Il ne reste plus qu'à attendre demain pour lire cette \"enquête\"."
+        },
+        {
+            "condition": {"itw_connaissance_pollution":false, "itw_jarendeau_seuils":false, "itw_mika_beton":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Bon, vous avez rectifié le tir. Heureusement. Mais vos hésitations ont du confirmer les doutes de ce journaliste. Il ne reste plus qu'à attendre demain pour lire cette \"enquête\"."
+        }
+    ]
+}

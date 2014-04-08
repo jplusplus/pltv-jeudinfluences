@@ -1,0 +1,60 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-10.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Bon sang, faites un choix clair Louis !"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Le temps presse : vous voulez pointer les équipes de Mickael Saulat ou les liens entre Rouvroy et le Ministre de la Santé ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Que décidez-vous ?",
+            "delay" : 3,
+            "default_option" : 1,
+            "options": [
+                {
+                    "header": "Pointer les équipes de Mickael Saulat",
+                    "next_scene": "5.39",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "charger_interimaires" : true
+                        }
+                    ]
+                },
+                {
+                    "header": "Pointer les liens entre Rouvroy et le Ministre de la Santé",
+                    "next_scene": "5.40",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "charger_ministresante" : true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

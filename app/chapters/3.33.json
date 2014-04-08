@@ -1,0 +1,36 @@
+{
+    "next_scene" : "4.1",
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-flashback-02.jpg",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"diffamation_ouvrier": true},
+            "type": "new_background",
+            "transition": "fade",
+            "body": "/medias/chap3/illustrations/illustr-ch3-12.jpg"
+        },
+        {
+            "condition": {"shoot_ouvrier": true},
+            "type": "new_background",
+            "transition": "fade",
+            "body": "/medias/chap3/illustrations/illustr-ch3-13.jpg"
+        },
+        {
+            "condition": {"enquete_interne": true},
+            "type": "new_background",
+            "transition": "fade",
+            "body": "/medias/chap3/illustrations/illustr-ch3-14.jpg"
+        },
+        {
+            "type": "new_background",
+            "timeout": 7,
+            "transition": "fade",
+            "body": "/medias/illustrations/ecrannoir.jpg"
+        }
+    ]
+}

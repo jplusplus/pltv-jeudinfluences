@@ -1,0 +1,115 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-10.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": "29 mai, 11h27.",
+            "body": "Voilà pourquoi je vous ai demandé de me rejoindre \"au plus vite\". Lisez directement la fin, ça vous semblera plus clair."
+        },
+        {
+            "type": "narrative",
+            "body": "\"En ce qui concerne la concentration d'adjuvants chimiques dans les eaux du Nizerand, il est étonnant de constater un tel décrochage dans le seuil d'alerte. Alors qu'il était de 0,65 particules par mètre cube, comme dans tous les autres départements français, ce seuil est passé il y a un an à 1,50 particules par mètres cubes sans raison apparente. Sans cette modification de seuil, la pollution actuelle du Nizerand aurait été détectée bien plus tôt.\""
+        },
+        {
+            "type": "narrative",
+            "body": "\"Nous avons envoyé un courrier à M. Martin Jarendeau, le Président de région de l'époque, aujourd'hui ministre de l'Industrie, qui pourra sans doute nous donner quelques explications sur ce choix de son administration.\""
+        },
+        {
+            "type": "narrative",
+            "body": "\"Ces adjuvants chimiques, potentiellement cancérigènes, sont principalement utilisés dans la fabrication de matériaux de construction. Or, après quelques recherches, il s'avère que la dernière version du béton \"écologique\" de l'usine Habinat est entré en production dans leur usine du Nizerand un mois avant que le seuil d'alerte ne soient arbitrairement relevé.\""
+        },
+        {
+            "type": "narrative",
+            "body": "\"Nous n'avons encore aucun lien direct, aucune preuve matérielle pour établir une corrélation. Il semble cependant clair que des vies pourraient être en jeu. On observe par exemple une tendance à la hausse des admissions dans les services d'oncologie des hôpitaux de la région ces derniers temps sur certaines pathologies. Les chiffres pour les mois de mars et d'avril sont presque 20% supérieurs à ceux de l'année dernière à la même époque. Nous attendons la publication de celui de mai pour voir si la tendance se confirme.\""
+        },
+        {
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/chap4/illustrations/illustr-ch4-11.jpg"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Sur Twitter, l'info tourne un peu. Pour l'instant, ça reste cantonné à la faible audience de ce blog. Plutôt des écolos de la région. Mais ce n'est que temporaire. Comme l'entreprise est déjà dans l'actu, ça va forcément déborder."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Mais... d'où sortent ces infos ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "L'open data."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Pardon ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Depuis quelque temps, les administrations mettent en ligne différents jeux de données considérés comme utiles pour les citoyens. La région Rhône-Alpes a mis en ligne une série d'archives sur les seuils d'alerte de différents polluants recherchés dans les cours d'eau. Et les hôpitaux font pareil avec certains chiffres, comme le nombre de cas sur certaines grandes pathologies."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Mais peu importe d'où ils tiennent ça, l'important c'est d'anticiper la sortie de cette info. Il faut contre-attaquer, et rapidement."
+        },
+        {
+            "type": "notification",
+            "sound": "/medias/sounddesign/notif-1.mp3",
+            "header": null,
+            "body": "Vous avez reçu un mail libellé \"urgent\" de la part de Martin Jarendeau. Souhaitez-vous le lire ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Lire le mail de Martin Jarendeau ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "4.22",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "4.23",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

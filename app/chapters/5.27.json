@@ -1,0 +1,24 @@
+{
+    "next_scene" : "5.29",
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-09.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+           "type": "dialogue",
+           "character": "Louis",
+           "header": null,
+           "body": "C'est hors de question. Tout cela est un tissu de mensonges."
+        },
+        {
+           "type": "dialogue",
+           "character": "Patrick Luaud",
+           "header": null,
+           "body": "Vous faites une erreur Louis. Sans victoire sur le plan médiatique, votre vérité n'aura aucun poids. Mais c'est vous qui choisissez."
+        }
+    ]
+}

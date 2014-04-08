@@ -100,6 +100,29 @@
                 width:150px;
                 margin:0 10px 15px;
             }
+
+            &__timeout {
+                position:absolute;
+                left:50%;
+                bottom:100%;
+                margin-bottom:70px;
+                width:50px;
+                height:50px;
+                .translate(-50%, 0);
+
+                &:before {
+                    z-index:-1;
+                    content:"";
+                    background:fade(#000, 75);
+                    border-radius: 50%;
+                    height:40px;
+                    width:40px;
+                    .translate(-50%, -50%);
+                    position:absolute;
+                    left:50%;
+                    top:50%;
+                }
+            }
         }
 
         // Notification box, a the top right corner of the screen
@@ -133,11 +156,38 @@
             padding:20px;
             .translate(-50%, 0);
 
+            &__head {
+                position:absolute;
+                top:20px;
+                right: 100%;
+                margin-right:-15px;
+                background:black;
+                border:2px solid black;
+                width:50px;
+
+                img {
+                    width:100%;
+                }
+
+                &:before {                    
+                    content:"";
+                    position:absolute;
+                    top:100%;
+                    background:no-repeat 0 0 url("/img/ui/triangle_head.png");
+                    height:10px;                    
+                    width:35px;                   
+                    left:0;
+                    margin-top:2px;
+                    margin-left:-2px;
+                }
+            }
+
             &__character {
                 color:@brand-secondary;
                 text-transform: uppercase;
                 margin-bottom:5px;                    
             }
+
 
             &__play {        
                 .btn();
@@ -158,32 +208,43 @@
                     background-image:url("/img/ui/btn_pause.png");
                 }
 
-
             }
 
-            &__head {
+            &__progression {
+                border:2px solid @text-color;                
+                height:24px;
                 position:absolute;
-                top:20px;
-                right: 100%;
-                margin-right: 7px;
-                background:black;
-                border:2px solid black;
-                width:50px;
+                left:50px;
+                right:20px;
+                bottom:20px;
+                background:fade(#000, 75);
+                .box-shadow(~"0 0 3px 0 black, 0 0 3px 0 black inset");
 
-                img {
-                    width:100%;
+                &__timestamp {
+                    position:absolute;
+                    right:0;
+                    bottom:100%;
+                    color:white;
+                    font-family: @font-family-serif;
+                    font-style: italic;
+                    margin-bottom:5px;
                 }
 
-                &:before {                    
-                    content:"";
+                .progress {
                     position:absolute;
-                    top:100%;
-                    background:no-repeat 0 0 url("/img/ui/triangle_head.png");
-                    height:10px;                    
-                    width:35px;                   
-                    left:0;
-                    margin-top:2px;
-                    margin-left:-2px;
+                    top:7px;
+                    left:7px;
+                    right:7px;
+                    height:6px;
+
+                    .progress-bar, & {
+                        border-radius:3px;
+                    }
+
+                    .progress-bar {
+                        .transition(0.4s);
+                        background: @brand-secondary;
+                    }
                 }
             }
         }
@@ -260,6 +321,7 @@
                 display:block;
                 padding:0;
                 background:url("/img/ui/btn_next.png") no-repeat center center #000;
+                .animation(0.3s move-next linear alternate infinite);
 
                 &:before {                    
                     content:"";

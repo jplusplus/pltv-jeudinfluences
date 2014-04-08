@@ -1,0 +1,66 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-10.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"hesitation_charger_interimaires": false},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Vous avez raison. De toute façon, cette \"story\" a deux inconvénients majeurs. D'une part, vous reconnaissez indirectement qu'Habinat est responsable de la pollution, or rien n'est encore prouvé sur le plan judiciaire. Et deuxièmement, si les intérimaires commettent des erreurs, c'est aussi de la faute de votre management, donc de l'entreprise. Il y a une autre option plus culottée mais plus cohérente."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Il se trouve qu'Alain Gravielle, le Ministre de la Santé, a fait ses études avec Bernard Rouvroy, actuel PDG de l'usine Rouvroy. Vous savez, cette usine concurrente dont le rapport d'inspection était plutôt mauvais..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "De là à penser que les propos d'Alain Gravielle ce matin permettent de couvrir son copain de lycée, il n'y a qu'un tout petit pas. La rumeur va vite faire le tour. Plus c'est gros, plus ça passe. Croyez-moi."
+        },
+        {
+            "type" : "choice",
+            "body": "Accepter cette seconde option de communication ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.40",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "charger_ministresante": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.35",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+<div class="game-over" ng-controller="GameOverCtrl" ng-show="user.isGameOver">
+    <div class="game-over__message">
+        <h1>GAME OVER</h1>
+        <p class="game-over__message__description">
+            You lose, it's kinda bad yah know. Authentic tattooed mlkshk, hella Truffaut trust fund chillwave Wes Anderson brunch pickled Echo Park put a bird on it Neutra. Photo booth Brooklyn mustache sriracha McSweeney's umami tofu leggings sustainable, organic Neutra squid blog.
+        <p>
+    </div>
+
+    <button ng-click="user.newUser(); user.inGame = false; user.isGameOver = false" 
+        class="game-over__restart btn btn-default btn-lg">
+        Recommencer
+    </div>
+</div>

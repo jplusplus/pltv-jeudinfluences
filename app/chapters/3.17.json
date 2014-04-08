@@ -1,0 +1,23 @@
+{
+    "next_scene" : "3.18",
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-08.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Tant mieux. Encore une fois, je comprends que cela soit une décision difficile à prendre mais c'est un mal pour un bien. Pour Nadia c'est un mauvais moment à passer, mais il faut que vous pensiez à la pérennité de votre entreprise. Elle comprendra."
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap3/voix-off/louis-ch3-08.mp3"
+        }
+    ]
+}

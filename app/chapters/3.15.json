@@ -1,0 +1,132 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-07.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Bonjour Nadia..."
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap3/voix-off/louis-ch3-07.mp3"
+        },
+        {
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/chap3/illustrations/illustr-ch3-08.jpg"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Un soucis ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "C'était Nadia, elle est harcelée par les journalistes qui cherchent des détails sur sa relation avec Mika."
+        },
+        {
+            "condition":{"trashing_nadia":true},
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Je vous avais pourtant demandé de ne pas lancer cette rumeur. On était d'accord."
+        },
+        {
+            "condition":{"trashing_nadia":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Et je ne l'ai pas fait. Les médias n'ont pas besoin de moi pour fouiller tous azimuts. Dans un cas de suicide, le schéma est souvent le même : problème personnel ou professionnel. Comme le professionnel ne donne rien pour l'instant, notamment grâce au communiqué, ils fouillent le personnel. Je n'y peux rien et vous non plus."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Que veut-elle ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Que je fasse une déclaration publique pour les calmer."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Ce serait une mauvaise idée. Pour les journalistes, une rumeur est une information, un démenti est une seconde info. Je comprends que cela vous touche, mais faire cette déclaration, c'est retourner les projecteurs vers vous et l'entreprise. L'exacte opposé de ce que l'on cherche à faire."
+        },
+        {
+            "condition":{"trashing_nadia":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Vous avez choisi de lancer cette rumeur et vous avez eu raison. Si vous cédez, on revient au point de départ."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Je vais vous sembler cynique mais c'est une bonne chose qu'ils creusent cette piste. Nadia est une bonne communicante. Elle s'en sortira."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Louis, nous sommes d'accord ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Suivre l'avis de Patrick Luaud ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "3.17",
+                    "outro": "Nadia s'en souviendra...",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "3.16",
+                    "outro": "Nadia s'en souviendra...",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "backing_nadia": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

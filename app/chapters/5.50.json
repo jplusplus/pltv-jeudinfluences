@@ -1,0 +1,117 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-15.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"soixantemille":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": "Vendredi 1er juin, 08h55.",
+            "body": "Vous avez eu raison de suivre mon conseil. Je sais que cette somme peu sembler faible, mais c'est tout l'intérêt. Aujourd'hui, la moitié des éditorialistes et de l'opinon, trouvera que c'est peu. Demain, nous annoncerons 100.000 euros d'indemnités par victime, les protestations s'éteindront et vous passerez pour un patron généreux."
+        },
+        {
+            "condition": {"soixantemille":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Croyez-moi, ça fonctionne. Vous voulez un exemple concret ?"
+        },
+        {
+            "condition": {"centmille":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": "Vendredi 1er juin, 08h55.",
+            "body": "Vous avez eu tort de ne pas suivre mon conseil. 100.000 euros par victime, vous ne pouvez pas vous permettre d'aller au-delà. Ou alors les autres industriels ne vous suivront pas. C'est le chiffre que nous aurions annoncé demain et vous auriez eu le beau rôle, celui du patron qui ne compte pas."
+        },
+        {
+            "condition": {"centmille":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Dommage, ça aurait fonctionné. Vous voulez un exemple concret ?"
+        },
+        {
+            "condition": {"zero_indemn":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": "Vendredi 1er juin, 08h55.",
+            "body": "Vous avez eu tort de ne pas suivre mon conseil. D'abord, couper court à l'interview vous fait passer pour un homme aux abois. Et puis, finalement, cette indemnité nous aurait bien aidé. Il ne tenait qu'à vous d'en faire un atout."
+        },
+        {
+            "condition": {"zero_indemn":true},
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Mais enfin, Habinat n'est pour rien dans tout cela. Accepter de payer c'est reconnaitre que je suis est coupable."
+        },
+        {
+            "condition": {"zero_indemn":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Ne soyez pas idiot Louis. Si vous aviez lancé cet appel aux autres entreprises suspectées pour créer une caisse commune, vous seriez passé d'un coup du patron isolé et sur la défensive à un Robin des Bois."
+        },
+        {
+            "condition": {"zero_indemn":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Le journaliste vous aurait demandé \"combien par victime ?\". Raisonnablement vous savez qu'on ne pourrait pas aller au-delà de 100.000 euros, alors on aurait proposé 60.000 euros."
+        },
+        {
+            "condition": {"zero_indemn":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Les éditorialistes y seraient tous allés de leur petite remarque et le demain on annonçait qu'on montait à 100.000 euros. Vous seriez alors passé pour le généreux patron, soucieux de ses concitoyens."
+        },
+        {
+            "condition": {"zero_indemn":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Croyez-moi, ça fonctionne. Vous voulez un exemple concret ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Découvrir l'exemple de Patrick Luaud ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.51",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "video_costa": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.51",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

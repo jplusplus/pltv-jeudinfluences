@@ -1,0 +1,18 @@
+{
+    "next_scene" : "6.38",
+    "decor": [
+        {
+            "background": "/medias/chap6/illustrations/illustr-ch6-6.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "header": "Lundi 24 septembre, 8h58",
+            "body": "/medias/chap6/voix-off/louis-ch6-08.mp3"
+        }
+    ]
+}

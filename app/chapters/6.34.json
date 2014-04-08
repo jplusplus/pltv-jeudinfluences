@@ -1,0 +1,30 @@
+{
+    "next_scene" : "6.40",
+    "decor": [
+        {
+            "background": "/medias/chap6/illustrations/illustr-ch6-5.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Martin Jarendeau",
+            "header": null,
+            "body": "Formidable ! Je suis ravi. Cela devrait aller assez vite. Nous allons faire une annonce commune à tous les Ministères en début de semaine prochaine."
+        },
+        {
+            "type": "dialogue",
+            "character": "Martin Jarendeau",
+            "header": null,
+            "body": "Rentrez tranquillement chez vous, profitez des paysages lyonnais. D'ici 10 jours vous serez avec nous, dans la fournaise parisienne. On va s'occuper de vous trouver un logement, quelqu'un du cabinet vous appellera demain."
+        },
+        {
+            "type": "dialogue",
+            "character": "Martin Jarendeau",
+            "header": null,
+            "body": "Bienvenu à bord, Louis."
+        }
+    ]
+}

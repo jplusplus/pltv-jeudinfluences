@@ -1,0 +1,24 @@
+{
+    "next_scene" : "3.10",
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-03.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": "26 mai, 18h11.",
+            "body": "On va voir comment gérer cet ouvrier mais avant ça regardez plutôt cet extrait du 13h, c'était ce midi. Comme disait Chirac, les merdes..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "...volent toujours en escadrille. Je sais..."
+        }
+    ]
+}

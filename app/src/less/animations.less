@@ -1,4 +1,4 @@
-.chapter-entrance {    
+.chapter-entrance() {    
     0%, 50% {
         opacity: 0;
     }
@@ -12,3 +12,18 @@
 @-ms-keyframes chapter-entrance { .chapter-entrance() }
 @-o-keyframes chapter-entrance { .chapter-entrance() }
 @keyframes chapter-entrance { .chapter-entrance() }
+
+.move-next() {    
+    0% {
+        background-position: 60% center;
+    }
+    100% {
+        background-position: 80% center;
+    }    
+}
+
+@-webkit-keyframes move-next { .move-next() }
+@-moz-keyframes move-next { .move-next() }
+@-ms-keyframes move-next { .move-next() }
+@-o-keyframes move-next { .move-next() }
+@keyframes move-next { .move-next() }

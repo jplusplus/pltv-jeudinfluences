@@ -1,0 +1,32 @@
+{
+    "next_scene" : "6.33",
+    "decor": [
+        {
+            "background": "/medias/chap6/illustrations/illustr-ch6-3.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "condition":{"demission":false},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": "Lundi 10 septembre, 19h51.",
+            "body": "/medias/chap6/voix-off/louis-ch6-05-cond1.mp3"
+        },
+        {
+            "condition":{"demission":true},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": "Lundi 10 septembre, 19h51.",
+            "body": "/medias/chap6/voix-off/louis-ch6-05-cond2.mp3"
+        },
+        {
+            "type":"notification",
+            "sound":"/medias/sounddesign/notif-1.mp3",
+            "header":"Nouveau message de Martin Jarendeau",
+            "body": "Voyons-nous demain au ministère. J'ai une proposition à vous faire."
+        }
+    ]
+}

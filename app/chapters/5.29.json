@@ -1,0 +1,79 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-10.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"fermer_usine": true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": "Jeudi 31 mai, 12h48.",
+            "body": "Le choix de la fermeture était le bon. Le Ministre de la Santé n'a rien ajouté depuis ce matin et les commentaires des éditorialistes s'apaisent. Mais un autre front s'ouvre, au sein même d'Habinat."
+        },
+        {
+            "condition": {"fermer_usine": false},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": "Jeudi 31 mai, 12h48.",
+            "body": "On a vraiment raté une belle occasion. Cette décision du juge d'instruction était prévisible. Imposer une fermeture administrative de l'usine, ce n'est que l'application du principe de précaution."
+        },
+        {
+            "condition": {"fermer_usine": false},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "On se retrouve avec le même résultat que si vous aviez annoncé vous-même la fermeture de l'usine mais sans le bénéfice d'une belle séquence de com'. Bref. Pas le temps de s'apitoyer car un autre front s'ouvre, au sein même d'Habinat."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Selon des infos que l'on m'a remonté, la CGT s'apprêterait à sortir un communiqué dans lequel les employés vous demandent des explications. C'est potentiellement explosif. J'imagine que dans ces syndiqués, il y a des ouvriers qui ont fait partie des équipes de Mickael Saulat et qui qui, potentiellement, ont travaillé sur la fabrication du béton."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Il y a un côté provoc' médiatique dans leur démarche, faire un communiqué plutôt que de vous appeler directement. Les syndicats n'échappent pas au jeux de pouvoir, ils marquent leur territoire. Mais peu importe, pour l'instant, ils réclament simplement de pouvoir discuter, à mon avis, il faut accepter sans hésiter."
+        },
+        {
+            "type" : "choice",
+            "body": "Suivre l'avis de Patrick Luaud et aller rencontrer les syndicats de l'entreprise ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.32",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.30",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

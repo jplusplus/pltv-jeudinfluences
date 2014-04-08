@@ -1,0 +1,112 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-01.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"circulaire":true},
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": "28 mai, 13h44.",
+            "body": "On ne peut pas fonctionner comme ça. Vous auriez dû m'en parler. Vous êtes au coeur d'une crise médiatique. Elle peut tout aussi bien s'éteindre que vous consumer. Alors tout élément de communication, qu'il soit interne ou externe, doit impérativement passer par moi. Sinon, je ne peux pas correctement faire mon travail.\nVous comprenez ?"
+        },
+        {
+            "condition": {"circulaire":true},
+            "type": "dialogue",
+            "character" : "Louis",
+            "header": null,
+            "body": "..."
+        },
+        {
+            "condition": {"circulaire":true},
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Cette note interne pour interdire aux employés de parler à la presse, c'est une erreur de débutant. C'était évident que sur tous vos collaborateurs, il y en aurait au moins un qui ferait fuiter ce mail. Et maintenant il tourne dans tous les médias, tout le monde en parle !"
+        },
+        {
+            "condition": {"circulaire":true},
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "En un message, vous sapez tout le travail que l'on a fait jusqu'ici et vous passez pour celui qui a quelque chose à cacher.\n\nBref. Essayons de tourner ça à notre avantage."
+        },
+        {
+            "condition": {"circulaire":false},
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Vous n'auriez pas pu empêcher ça Louis. Qu'un employé parle à la presse, c'est normal. Vos équipes sont secouées par le suicide de Mickael, surtout celles qui travaillaient en direct avec lui. Les journalistes vont à la pêche aux infos et ils trouvent toujours quelqu'un pour leur parler."
+        },
+        {
+            "condition": {"circulaire":false},
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Cet article n'est pas à charge contre vous. Il est pas mal repris par les autres médias mais il n'y a rien d'essentiel dans ce que dit cet ouvrier. Il raconte juste ses conditions de travail. C'est le geste de Mickael, le contexte, qui rend ce récit digne d'intérêt pour un journal."
+        },
+        {
+            "condition": {"circulaire":false},
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Le seul impact c'est que vous restez encore sous les projecteurs. Il faut donc l'assumer."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "On est obligés d'utiliser les obsèques de Mickael comme un outil de communication. Vous savez comme moi que les médias seront là, au moins quelques uns. Ne cherchons pas à les éviter et profitons plutôt de leur présence.\n\nLa vraie question c'est : quel type de communication ?"
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Vos équipes ont besoin de sentir que vous êtes présent. Rassembler les collaborateurs proches de Mickael, faire une minute de silence dans l'usine, un arrêt symbolique des machines, c'est un minimum..."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Mais quitte à ce que les journalistes soient là, autant les canaliser. On peut prendre les devant et annoncer une conférence officielle. Organiser une vraie prise de parole pour faire front dans la douleur. Affirmer l'image d'une entreprise unie et solidaire derrière son dirigeant. Vous.\n\nVous seriez prêt à assumer ça Louis ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Organiser une conférence de presse à la sortie des obsèques de Mika ?",
+            "default_option" : null,
+            "delay": null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "4.6",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "conf_obseques": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "4.2",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

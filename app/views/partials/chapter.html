@@ -1,11 +1,11 @@
-<div class="chapter chapter-entrance-animation ng-hide" ng-controller="ChapterCtrl" ng-show="shouldShowChapter(chapter) && user.inGame" ng-class="chapterClasses(chapter)">    
+<div class="chapter chapter-entrance-animation" ng-show="shouldShowChapter()" ng-class="chapterClasses()">    
 
-    <div class="chapter__intro" ng-show="user.isStartingChapter()">
+    <div class="chapter__intro" ng-show="user.isStartingChapter() && !user.isGameOver">
         <div class="chapter__intro__id">Chapitre [[chapter.id]]</div>
         <h2 class="chapter__intro__title">[[chapter.title]]</h2>  
     </div>
 
-    <div class="chapter__track" ng-hide="user.isStartingChapter()">
+    <div class="chapter__track" ng-hide="user.isStartingChapter() || user.isGameOver">
         <div class="chapter__track__id">Chapitre <b>[[chapter.id]]</b> / 4</div>
         <div class="chapter__track__bullets">
             <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 4" ng-class="{ active: i <= chapter.id - 1 }"></i>
@@ -17,15 +17,15 @@
     </div>
     
     
-    <ul class="chapter__cmd list-unstyled" ng-hide="user.isStartingChapter()">
+    <ul class="chapter__cmd list-unstyled" ng-hide="user.isStartingChapter() || user.isGameOver">
         <li class="chapter__cmd__indicator chapter__cmd__indicator--ubm">
             <abbr class="chapter__cmd__indicator__help">
                 ?<span class="chapter__cmd__indicator__help__definition">Unité de Bruit Médiatique : présence de votre crise dans les médias</span>
             </abbr>
             <span class="chapter__cmd__indicator__label">UBM</span>
-            <span class="chapter__cmd__indicator__value">[[user.ubm]]%</span>
+            <span class="chapter__cmd__indicator__value">[[user.indicators.ubm]]%</span>
             <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar progress-bar-danger" ng-style="{ width: user.ubm + '%' }">
+                <span class="progress-bar progress-bar-danger" ng-style="{ width: user.indicators.ubm + '%' }">
                 </span>                
             </span>
         </li>
@@ -35,9 +35,9 @@
             </abbr>
             <span class="chapter__cmd__indicator__label">Confiance</span>
 
-            <span class="chapter__cmd__indicator__value">[[user.trust]]%</span>
+            <span class="chapter__cmd__indicator__value">[[user.indicators.trust]]%</span>
             <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar progress-bar-info" ng-style="{ width: user.trust + '%' }">
+                <span class="progress-bar progress-bar-info" ng-style="{ width: user.indicators.trust + '%' }">
                 </span>                
             </span>
         </li>
@@ -46,14 +46,14 @@
                 ?<span class="chapter__cmd__indicator__help__definition">État émotionnel de Louis</span>
             </abbr>
             <span class="chapter__cmd__indicator__label">Stress</span>
-            <span class="chapter__cmd__indicator__value">[[user.stress]]%</span>
+            <span class="chapter__cmd__indicator__value">[[user.indicators.stress]]%</span>
             <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar progress-bar-success" ng-style="{ width: user.stress + '%' }">
+                <span class="progress-bar progress-bar-success" ng-style="{ width: user.indicators.stress + '%' }">
                 </span>                
             </span>
         </li>
     </ul>
 
-    <div ng-repeat="scene in chapter.scenes" ng-include="'partials/scene.html'"></div>
+    <scene ng-repeat="scene in chapter.scenes" src="scene" chapter="chapter"></scene>    
 
 </div>

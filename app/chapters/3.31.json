@@ -1,0 +1,45 @@
+{
+    "next_scene" :
+        {
+            "positif_karma": "3.32",
+            "negatif_karma": "3.30"
+        },
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-09.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type":"dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Je suis d'accord pour l'allocution, mais je voudrais lui accorder le bénéfice du doute.  Ces derniers jours ont été suffisamment rudes, je n'arriverai pas à assumer un tel discours."
+        },
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Parfait, je vois. Merci pour votre franchise. Laissons donc le doute, mais encadrons-le.\n\nVoilà ce que je vous propose : vous êtes surpris par ces révélations, Mika ne vous avait jamais fait part de ces questionnements et vous êtes prêt à lancer une enquête interne au sein d'Habinat."
+        },
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Je vais préparer ça et je préviens quelques journalistes bien ciblés. On se retrouve à l'usine dans deux heures."
+        },
+        {
+            "type": "new_background",
+            "timeout": 0.5,
+            "transition": "fade",
+            "body": "/medias/chap3/illustrations/illustr-ch3-11.jpg"
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap3/voix-off/louis-ch3-11.mp3"
+        }
+    ]
+}

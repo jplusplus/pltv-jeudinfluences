@@ -1,0 +1,60 @@
+{
+    "next_scene" : "the_end",
+    "decor": [
+        {
+            "background": "/medias/illustrations/ecrannoir.jpg",
+            "background_transition": "fade",
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "new_background",
+            "transition": "fade",
+            "body": "/medias/chap6/illustrations/fin.jpg",
+            "timeout": 10
+        },
+        {
+            "condition": {"lache_jarendeau":true, "marches_bidons":false, "mika_au_courant":false},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": null,
+            "body": "/medias/chap6/voix-off/louis-ch6-final-1-cond1_a.mp3"
+        },
+        {
+            "condition": {"marche_bidon":true, "mika_au_courant":false},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": null,
+            "body": "/medias/chap6/voix-off/louis-ch6-final-1-cond2_a.mp3"
+        },
+        {
+            "condition": {"lache_jarendeau":false, "mika_au_courant":false},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": null,
+            "body": "/medias/chap6/voix-off/louis-ch6-final-1-cond3_a.mp3"
+        },
+        {
+            "condition": {"lache_jarendeau":true, "marches_bidons":false, "mika_au_courant":true},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": null,
+            "body": "/medias/chap6/voix-off/louis-ch6-final-1-cond1_b.mp3"
+        },
+        {
+            "condition": {"marche_bidon":true, "mika_au_courant":true},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": null,
+            "body": "/medias/chap6/voix-off/louis-ch6-final-1-cond2_b.mp3"
+        },
+        {
+            "condition": {"lache_jarendeau":false, "mika_au_courant":true},
+            "type": "voixoff",
+            "character": "Louis",
+            "header": null,
+            "body": "/medias/chap6/voix-off/louis-ch6-final-1-cond3_b.mp3"
+        }
+    ]
+}

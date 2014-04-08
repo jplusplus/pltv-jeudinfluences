@@ -1,0 +1,21 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-10.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Je ne sais pas ce que vous avez à cacher pour être si obtus mais, dans ces conditions, je refuse d'aller plus loin. Vous allez me faire passer pour un incompétent, et il est hors de question que je perde d'autres clients à cause de vos choix absurdes.\n\nBon courage Louis."
+        },
+        {
+            "type": "gameover"
+        }
+    ]
+}

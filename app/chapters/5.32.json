@@ -1,0 +1,64 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-10.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Bon. La première option serait de vous dédouaner sur la cellule \"Canopée\", les équipes de Mickael Saulat qui ont conçu le béton. Ça pourrait expliquer que vous n'étiez pas au courant. D'autant qu'il me semble qu'à l'époque où la pollution a commencé, vous aviez embauché des intérimaires non ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Oui, en effet."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Cela mériterait que l'on creuse, mais les intérimaires sont un maillon faible assez courant. Ils n'ont pas vraiment le temps d'assimiler les procédures internes des entreprises dans lesquelles ils font leur missions. Alors... une erreur est vite arrivée."
+        },
+        {
+            "type" : "choice",
+            "body": "Accepter cette première option de communication ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.33",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.34",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

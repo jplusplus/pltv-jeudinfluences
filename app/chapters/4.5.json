@@ -1,0 +1,24 @@
+{
+    "next_scene" : "4.7",
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-01.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Parfait, nous ferons donc le strict minimum. Je ne préviens personne. Contentez-vous d'évoquer la minute de silence et l'arrêt des machines en une phrase."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Vous pourrez esquiver la presse en insistant sur le caractère indécent de leur présence dans ce moment de deuil.\n\nOn se revoit après les obsèques. Bon courage."
+        }
+    ]
+}
