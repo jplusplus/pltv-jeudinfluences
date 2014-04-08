@@ -2,7 +2,7 @@ angular.module('spin.directive').directive "circle", [() ->
     restrict: "A"
     replace: false
     scope:
-        percentage: "@"
+        percentage: "="
     link: (scope, element, attrs) ->        
         # Get the current id or create one
         id = attrs.id or "dk-circles-id-" + scope.$id        
@@ -12,7 +12,7 @@ angular.module('spin.directive').directive "circle", [() ->
         create = ->
             options =
                 id: id
-                percentage: parseFloat(attrs.percentage).toFixed(2)
+                percentage: parseFloat(scope.percentage).toFixed(2)
                 # Optional
                 radius: parseInt(attrs.radius, 10) or 50
                 # Optional
@@ -32,5 +32,5 @@ angular.module('spin.directive').directive "circle", [() ->
         if scope.percentage
             do create
         else
-            scope.$watch (->scope.percentage), (-> do circleIt)
+            scope.$watch (->scope.percentage), (-> do create)
 ]

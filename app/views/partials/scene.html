@@ -62,9 +62,9 @@
                     ng-click="selectOption(option, $index)">
                 [[option.header]]
             </button>
-            <div class="scene__sequence--choice__timeout">
+            <div ng-if="sequence.delay" class="scene__sequence--choice__timeout">
                 <div circle 
-                     percentage="40"
+                     percentage="timeout.remainingTime"
                      colors="transparent,#FF7F00"
                      width="5"
                      number=""

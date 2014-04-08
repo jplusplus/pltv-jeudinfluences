@@ -1,9 +1,10 @@
 class SceneCtrl
-    @$inject: ['$scope', 'Plot', 'User', 'Sound', 'constant.characters', 'constant.settings']
-    constructor: (@scope, @Plot, @User, @Sound, characters, settings) ->                           
+    @$inject: ['$scope', 'Plot', 'User', 'Sound', 'Timeout', 'constant.characters', 'constant.settings']
+    constructor: (@scope, @Plot, @User, @Sound, @Timeout, characters, settings) ->
         @scope.plot  = @Plot
         @scope.user  = @User         
         @scope.sound = @Sound
+        @scope.timeout = @Timeout
         # Establishes a bound between "src" and "chapter" arguments
         # provided by the scene directive and the Countroller
         @scene = @scope.scene = @scope.src              

@@ -9,3 +9,5 @@ angular.module('spin.constant').constant 'constant.settings',
     sequence_blocking : ["dialogue", "narrative", "voixoff", "video", "notification", "choice"]
     sequence_dialog   : ["dialogue", "narrative"]
     sequence_skip     : ["new_background"]
+    # Refreshing rate for timeouts
+    timeoutRefRate : 100
