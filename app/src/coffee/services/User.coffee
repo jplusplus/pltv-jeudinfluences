@@ -16,7 +16,7 @@ angular.module("spin.service").factory("User", [
                 # This user is saved into local storage
                 master    = localStorageService.get("user") or {}
                 # False until the player starts the game
-                @inGame     = yes
+                @inGame     = no
                 @isGameOver = no
                 @isGameDone = no
                 # User authentication
@@ -46,7 +46,7 @@ angular.module("spin.service").factory("User", [
             pos: ()=> @chapter + "." + @scene
 
             newUser: ()=>
-                # Reset identication tokens
+     git            # Reset identication tokens
                 [@token, @email] = [null, null] 
                 # Reset progression
                 [@chapter, @scene, @sequence] = ["1", "1", 0]
