@@ -1,0 +1,32 @@
+{
+    "next_scene" : "5.10",
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-04.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"accepter_itw":false},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Ils tapent fort. Nous allons changer d'option et répondre à l'interview. Ça évitera que votre silence soit interprété comme un aveu. Après tout, vous n'avez rien à cacher..."
+        },
+        {
+            "condition": {"accepter_itw":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Ils tapent fort. Finalement, vous avez raison, répondre à cette interview peut nous être utile. \"Qui ne dit mot consent\"... Ça pourrait vous être reproché.\n\nAprès tout, vous n'avez rien à cacher."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Je passe un coup de fil au journaliste pour lui proposer que l'on se voit à 14 heures, dans un lieu neutre, un café que je connais, proche d'ici."
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-10.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Il vous faut un bouc émissaire pour détourner la charge médiatique et je ne vois pas d'autre option. Vous avez une idée ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "L'erreur de base est celle du contrôle des eaux du Nizerand, non ? Donc celle de l'administration de l'époque, qui a choisi sans raison de relever ces seuils d'alerte."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Vous avez déjà un membre du gouvernement contre vous, Alain Gravielle à la Santé, ça ne vous suffit pas ? Vous voulez en plus pointer Martin Jarendeau, le Ministre de l'Industrie ? Car c'est lui qui était président de région à l'époque de la hausse des seuils."
+        },
+        {
+            "type" : "choice",
+            "body": "Pointer Martin Jarendeau et l'erreur de l'administration de l'époque ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.37",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.38",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

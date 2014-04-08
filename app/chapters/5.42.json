@@ -1,0 +1,68 @@
+{
+    "next_scene" : "5.43",
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-13.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": "Vendredi 1er juin, 08h05.",
+            "body": "Rappelez-vous bien ce que l'on s'est dit Louis."
+        },
+        {
+            "condition": {"charger_ministresante":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Cette action des syndicats en votre faveur est providentielle. Il faut enfoncer le clou. Une telle interview radio dans une matinale nationale sera parfaite. Je connais bien ce journaliste, je l'ai embauché il y a quinze ans quand j'étais encore dans la profession. Ses questions seront bienveillantes, faites-moi confiance."
+        },
+        {
+            "condition": {"charger_interimaires":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Après la défiance affichée des syndicats envers vous, cette interview radio dans une matinale nationale est vitale. Heureusement, je connais bien ce journaliste, je l'ai embauché il y a quinze ans quand j'étais encore dans la profession. J'ai discuté avec lui, ses questions ne devraient pas poser de problème. Faites-moi confiance."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Et surtout, tenez bien la ligne que l'on s'est fixée. S'il évoque les malades liés à la pollution du Nizerand : le médecin, auteur du rapport, n'est pas fiable. Il a été muté il y a trois ans pour une sombre histoire d'euthanasie maquillée en mort naturelle."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Sans compter que les chiffres qu'il présente n'est qu'une tendance statistique calculée avec pour seules données de base deux petits mois de relevés, ça ne tient pas la route."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Quand à la question de l'indemnisation des victimes, qui revient beaucoup sur Twitter : lancez un appel aux autres industriels implantés sur le Nizerand pour ouvrir une caisse commune."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Après tout, personne n'a prouvé qu'Habinat était responsable de cette pollution, aucune raison que vous soyez seul à payer."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Vous donnerez l'impression d'être responsable dans le sens positif du terme : vigilant et à l'écoute des citoyens. Et surtout : vous resterez dans l'action."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Ça va bien se passer. Si vous avez un doute, regardez-moi."
+        }
+    ]
+}

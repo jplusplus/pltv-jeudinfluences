@@ -1,0 +1,39 @@
+{
+    "next_scene": "4.38",
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-chap4-flashback-a.jpg",
+            "background_transition": "fade",
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "new_background",
+            "transition": "fade",
+            "timeout": 15,
+            "body": "/medias/chap4/illustrations/illustr-chap4-flashback-b.jpg"
+        },
+        {
+            "type": "new_background",
+            "transition": "fade",
+            "timeout": 15,
+            "body": "/medias/chap4/illustrations/illustr-chap4-flashback-c.jpg"
+        },
+        {
+            "type": "new_background",
+            "transition": "fade",
+            "timeout": 25,
+            "body": "/medias/chap4/illustrations/illustr-chap4-flashback-d.jpg"
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap4/musiques/louis-ch4-flashback-03_b.mp3",
+            "result": {
+                "pression_jarendeau": true,
+                "forcer_nadia": true
+            }
+        }
+    ]
+}

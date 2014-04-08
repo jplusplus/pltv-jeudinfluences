@@ -1,0 +1,50 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-01.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": "Patrick Luaud esquisse alors un sourire.",
+            "body": "Je m'en occupe. Je savais que ça vous parlerait ! Je commence à vous cerner. La rumeur est souvent une bonne arme pour contre-attaquer. Vous devriez jeter un oeil là-dessus..."
+        },
+        {
+            "type" : "choice",
+            "body": "Regarder la vidéo ?",
+            "default_option" : null,
+            "delay": null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.7",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.8",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": null,
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "video",
+            "body": "/medias/chap6/videos/video-ch6-scene6.6.mov"
+        },
+        {
+            "type" : "choice",
+            "body": "Avez-vous une idée des raisons de ce comportement ?",
+            "delay" : 5,
+            "default_option" : 1,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "6.7",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "marches_bidons": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "6.8",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

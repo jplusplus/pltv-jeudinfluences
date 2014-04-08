@@ -1,0 +1,24 @@
+{
+    "next_scene" : "3.15",
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-06.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Bon... Comme vous voulez.\n\nRevenons à notre ouvrier."
+        },
+        {
+            "type": "notification",
+            "sound": "/medias/sounddesign/sonnerie-tel.mp3",
+            "header": null,
+            "body": "Nadia tente de vous joindre..."
+        }
+    ]
+}

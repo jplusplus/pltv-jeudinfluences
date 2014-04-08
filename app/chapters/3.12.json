@@ -1,0 +1,52 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-06.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Sincèrement, ce rapport, c'est du pain béni. Quand bien même la pollution ne proviendrait pas de cette usine, ça occuperait les médias, et ça nous donnerait du temps pour penser à la suite.\n\nVous êtes sûr de préférer ne pas utiliser ce document ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Ne pas utiliser le document ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "3.13",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "3.14",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

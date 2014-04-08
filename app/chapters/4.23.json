@@ -1,0 +1,58 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-11.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Comment peut-on faire disparaître ce texte ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Il y a l'option \"porter plainte pour diffamation\" et demander le retrait de l'article du site."
+        },
+        {
+            "type" : "choice",
+            "body": "Porter plainte pour diffamation ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "4.24",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "4.25",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

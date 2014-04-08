@@ -1,0 +1,16 @@
+{
+    "next_scene" : "6.14",
+    "decor": [
+        {
+            "background": null,
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "video",
+            "body": "/medias/chap6/videos/video-ch6-scene6.12.mov"
+        }
+    ]
+}

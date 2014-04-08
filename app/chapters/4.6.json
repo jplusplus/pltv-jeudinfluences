@@ -1,0 +1,39 @@
+{
+    "next_scene" : "4.7",
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-01.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Je m'en doutais. Vous ferez ça très bien. Je sens que vous avez repris le dessus ces derniers jours. Vous repartez de l'avant. C'est important."
+        },
+        {
+            "condition": {"conf_osbesques":true},
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Nous allons faire passer un courrier interne aux équipes qui étaient les plus proches de Mika pour les inviter aux obsèques."
+        },
+        {
+            "condition": {"conf_osbesques":true},
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Je vais aussi m'arranger pour canaliser les journalistes. Votre prise de parole aura lieu à la fin des obsèques, devant l'église. Il faudra qu'elle soit rapide pour ne pas donner la sensation que vous profitez de l'occasion."
+        },
+        {
+            "condition": {"conf_osbesques":true},
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Je m'occupe d'organiser tout ça."
+        }
+    ]
+}

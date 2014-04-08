@@ -1,0 +1,36 @@
+{
+    "next_scene" : "4.34",
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-12.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "De mon côté, j'ai rapidement prévenu le président de région de l'époque, avec qui j'étais en contact : Martin Jarendeau. C'est lui qui m'a proposé de relever les seuils d'alerte temporairement, le temps que l'on trouve une solution en interne."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Merci pour votre franchise Louis, mais elle arrive un peu tard. L'omission est un art, et ici, vous auriez mieux fait de mentir par omission."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Je connais Martin Jarendeau, je travaille également pour lui sur d'autres dossiers. En fonction de vos choix de communication, le risque de confrontation entre vous deux est trop important pour moi."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Vous auriez dû me prévenir plus tôt."
+        }
+    ]
+}

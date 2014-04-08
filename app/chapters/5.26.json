@@ -1,0 +1,98 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-09.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+           "type": "dialogue",
+           "character": "Patrick Luaud",
+           "header": "Jeudi 31 mai, 06h22.",
+           "body": "Bon, je ne vais pas vous mentir. Ça commence à se fissurer. Le volet de l'enquête sur les cancers potentiellement liés à la pollution crée des remous."
+        },
+        {
+           "condition": {"rumeur_journaliste": true},
+           "type": "dialogue",
+           "character": "Patrick Luaud",
+           "header": null,
+           "body": "L'info sur le grand-père du journaliste circule mais ça ne va pas forcément faire le poids face à une potentielle affaire de santé publique. Je ne sais pas comment les choses vont tourner, mais en attendant, il faut vous préparer à encaisser les coups."
+        },
+        {
+           "type": "dialogue",
+           "character": "Patrick Luaud",
+           "header": null,
+           "body": "Le Ministre de la Santé est déjà monté au créneau. À peine sorti du conseil des ministres, il vous a directement ciblé : \"la confiance est rompue. Louis Esmond doit répondre aux juges\". Une enquête devrait être ouverte dans les heures à venir et les malades vont forcément se porter partie civile."
+        },
+        {
+           "condition": {"pression_jarendeau": true},
+           "type": "dialogue",
+           "character": "Patrick Luaud",
+           "header": null,
+           "body": "Heureusement, le Ministre de l'Industrie a rapidement sorti un communiqué vous assurant tout son soutien. Il a mis la présomption d'innocence en avant. Jarendeau a du poids au gouvernement et il est plutôt populaire.\n\nJe ne sais pas pourquoi il s'est mouillé comme ça pour vous, politiquement c'est risqué... Mais peu importe : ça nous donne un peu de répit."
+        },
+        {
+           "condition": {"pression_jarendeau": true},
+           "type": "notification",
+           "header": "Nouveau message reçu de Martin Jarendeau",
+           "body": "C'est la dernière fois. Prochain coup, vous chutez seul.",
+           "result": {"soutien_jarendeau":true}
+        },
+        {
+           "condition": {"pression_jarendeau": false},
+           "type": "dialogue",
+           "character": "Patrick Luaud",
+           "header": null,
+           "body": "Malheureusement, vous n'avez reçu aucun soutien. Celui du ministre de l'Industrie, Martin Jarendeau, n'aurait pas été de trop mais il reste silencieux. Cela peut se comprendre, il y a encore beaucoup de flou autour des preuves, ce serait risqué pour lui de prendre position."
+        },
+        {
+           "type": "dialogue",
+           "character": "Patrick Luaud",
+           "header": null,
+           "body": "Quoi qu'il en soit, il faut donner un signe fort, et vite. Face à de telles accusations, la meilleure communication, c'est l'action. Il faut montrer que vous cherchez une solution."
+        },
+        {
+           "type": "dialogue",
+           "character": "Patrick Luaud",
+           "header": null,
+           "body": "Que diriez-vous de fermer temporairement l'usine ? Cela permettrait une com' axée sur un patron qui s'inquiète des risques sanitaires, tout comme ses concitoyens et qui ne reste pas les bras croisés. Tout cela en rappelant la présomption d'innocence bien entendu.\n\nQu'en dites-vous ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Fermer l'usine ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.28",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.27",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

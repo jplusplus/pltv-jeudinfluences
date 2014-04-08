@@ -1,0 +1,24 @@
+{
+    "next_scene" : "3.28",
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-09.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "En effet, c'est une mauvaise option. Vous sembleriez agressif et insensible à la douleur de cet ouvrier. Je comprends que vous ayez peur d'ouvrir la boîte de Pandore en prenant la parole. Mais vous n'avez pas vraiment d'autre choix."
+        },
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Vous ne pouvez pas communiquer que par Twitter, vous l'avez déjà fait plusieurs fois. Il faut commencer à donner un peu de chair à vos propos. Et encore une fois l'attaque est frontale. Il faut répondre, d'une manière ou d'une autre.\n\nFaites-moi confiance. On va préparer cette prise de parole."
+        }
+    ]
+}

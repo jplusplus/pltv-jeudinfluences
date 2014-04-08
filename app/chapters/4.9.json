@@ -1,0 +1,84 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-03.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Oui. Je n'avais pas le choix. Tu sais que les journalistes seraient venus quoi que l'on fasse..."
+        },
+        {
+            "condition": {"backing_nadia":true},
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "..."
+        },
+        {
+            "condition": {"backing_nadia":false},
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "Je le sais, Louis. Ils me harcèlent jour et nuit, tu as oublié ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Nous allons aussi faire une minute de silence dans l'usine, arrêter les machines..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Comprends-moi, je dois penser à l'entreprise. C'est aussi une manière de préserver le travail de Mika, sa mémoire, et..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "Ne te fatigue pas, Louis. Je comprends ce que tu fais. Même si je trouve ça déplacé. J'imagine que toi aussi tu le comprends ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Acquiescer ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "4.11",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "4.10",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

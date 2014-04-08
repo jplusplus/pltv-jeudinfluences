@@ -1,0 +1,50 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": null,
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "video",
+            "body": "/medias/chap6/videos/video-ch6-scene6.10.mov"
+        },
+        {
+            "type" : "choice",
+            "body": "Est-ce vous qui avez demandé à Jean Durollier de reprendre l'entreprise ?",
+            "delay" : 5,
+            "default_option" : 1,
+            "options": [
+                {
+                    "header": "Oui [mentir]",
+                    "next_scene": "6.12",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "6.13",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

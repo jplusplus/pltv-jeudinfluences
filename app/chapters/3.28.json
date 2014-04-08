@@ -1,0 +1,97 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-09.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Il ne faut pas attaquer frontalement Lionnel Gianno, tentons d'être plus fins que lui. Si son état physique joue pour lui, les circonstances jouent pour nous. Paralysie contre suicide. Ça peut sembler cynique, mais c'est la réalité et c'est sur elle que l'on doit s'appuyer."
+        },
+        {
+            "condition": {"stalk_ouvrier":true},
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Notre petite enquête en sous-main a porté ses fruits. J'ai pas mal de choses à vous apprendre sur lui."
+        },
+        {
+            "condition": {"stalk_ouvrier":false},
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "L'autre avantage, c'est le contenu de l'interview : dans sa volonté de faire pleurer la ménagère, le journaliste nous en dit beaucoup sur la situation actuelle de cet ouvrier."
+        },
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Depuis l'accident, Lionel Gianno n'a pas vraiment eu de bonne étoile. Sa femme l'a quitté, il a perdu la garde de ses enfants et il vit désormais dans un petit studio en périphérie de Lyon, avec pour seuls revenus le RSA et une maigre pension d'invalidité.\n\nLe cliché parfait, avec tous les ingrédients pour une bonne histoire."
+        },
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Ré-ouvrir le procès avec un soutien médiatique, c'est, pour lui, s'offrir la possibilité de revoir à la hausse ses indemnités. Il en fait un combat personnel pour améliorer sa situation présente désastreuse."
+        },
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Mais même avec cet angle d'attaque, il ne faut pas tenter de l'affaiblir directement. Voilà les axes qui vont me servir pour écrire votre discours \"improvisé\" :"
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap3/voix-off/louis-ch3-09.mp3"
+        },
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Alors, convaincu ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Accepter la piste de Patrick Luaud ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "3.29",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "shoot_ouvrier": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "3.31",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "enquete_interne": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "next_scene" : "3.11",
+    "decor": [
+        {
+            "background": "/medias/illustrations/tablette.jpg",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "video",
+            "body": "/medias/chap3/video/video-ch3-scene3.10.mov"
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "next_scene" : "3.18",
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-08.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Je comprends vos arguments mais je l'ai vraiment sentie à bout. Je ne peux pas la laisser comme ça."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Comme vous voulez. Laissez juste un tweet, ça limitera la casse. Quelque chose comme :\n\n\"Mes pensées vont vers Nadia. Placer le couple à l'origine du suicide de Mika c'est faire fausse route. Il tenait profondément à elle.\" Vous restez vague mais vous invalidez cette piste. Par contre, ça risque d'entrainer des demandes d'interviews. Il faudra les refuser. Et je suis ferme là dessus."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Vous restez vague mais vous invalidez cette piste. Par contre, ça risque d'entrainer des demandes d'interviews. Il faudra les refuser. Et je suis ferme là dessus."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Pourquoi ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Parce que l'on ouvrirait une séquence médiatique qui ne serait pas à notre avantage. Il faut garder la main sur le tempo médiatique et le silence est un excellent moyen. Et je vous rappelle que l'on a le cas de l'ouvrier paralysé à gérer, Lionel Gianno."
+        },
+        {
+            "type": "notification",
+            "sound": null,
+            "header": null,
+            "body": "Votre tweet : \"Mes pensées vont vers Nadia. Placer le couple à l'origine du suicide de Mika c'est faire fausse route. Il tenait profondément à elle.\" a bien été envoyé avec le compte @l_esmond."
+        }
+    ]
+}

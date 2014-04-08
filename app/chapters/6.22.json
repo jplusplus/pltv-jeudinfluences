@@ -1,0 +1,51 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": null,
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "video",
+            "body": "/medias/chap6/videos/video-ch6-scene6.22.mov"
+        },
+        {
+            "type" : "choice",
+            "body": "Vous sentez-vous responsable de ce qui s'est passé au sein de votre entreprise ?",
+            "delay" : 5,
+            "default_option" : 2,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "6.25",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "demission": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "6.24",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

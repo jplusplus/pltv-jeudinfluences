@@ -1,0 +1,31 @@
+{
+    "next_scene" : "4.21",
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-09b.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap4/voix-off/louis-ch4-08.mp3"
+        },
+        {
+            "condition": {"backing_nadia":true},
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "Merci d'être venu, Louis, mais va-t-en maintenant. Vite et loin. Je ne veux plus être mêlée à toute cette histoire."
+        },
+        {
+            "condition": {"backing_nadia":false},
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "J'imagine que tu es content de ta petite opération de com' ? Va-t-en maintenant. Vite et loin. Je ne veux plus être mêlée à toute cette histoire."
+        }
+    ]
+}

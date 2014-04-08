@@ -1,0 +1,58 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-09.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Pour commencer, il a un avantage sur vous : sa paraplégie. Par défaut, sa parole aura médiatiquement plus de poids car il va susciter de la compassion. Vous représentez l'entreprise, vous êtes plutôt jeune et en pleine forme. Si je simplifie, vous êtes le méchant qui peut faire pression."
+        },
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Il faut donc tenter de rééquilibrer la balance. Je vous propose de faire une mini-conférence de presse, devant l'usine, ce midi. On va définir les éléments de langage ensemble.\n\nQu'en dites-vous ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Accepter la conférence de presse devant l'usine ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "3.28",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "3.24",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

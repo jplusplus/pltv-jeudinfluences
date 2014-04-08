@@ -1,0 +1,55 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": null,
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "narrative",
+            "body": "Vendredi 1er juin, 20h00."
+        },
+        {
+            "type": "video",
+            "body": "/medias/chap6/videos/video-ch6-scene6.3.mov"
+        },
+        {
+            "type" : "choice",
+            "body": "Mickael Saulat était-il au courant ?",
+            "delay" : 5,
+            "default_option" : 1,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "6.4",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "mika_au_courant": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "6.5",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

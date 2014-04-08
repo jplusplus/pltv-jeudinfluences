@@ -1,0 +1,17 @@
+{
+    "next_scene" : "5.12",
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-05.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "notification",
+            "header": "Le message suivant a bien été envoyé à Martin Jarendeau :",
+            "body": "Une grosse enquête va sortir. Besoin de votre soutien. Comme vous de mon silence."
+        }
+    ]
+}

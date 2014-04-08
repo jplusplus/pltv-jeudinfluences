@@ -1,0 +1,89 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-06.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "voixoff",
+            "character": null,
+            "header": null,
+            "body": "/medias/chap5/voix-off/louis-ch5-08_journaliste.mp3"
+        },
+        {
+            "condition":{"itw_connaissance_pollution":true, "itw_jarendeau_seuils":true},
+            "type" : "choice",
+            "body": "Mickael Saulat vous avait-t-il informé d'un ajout d'éléments chimiques dans la fabrication du béton ?",
+            "delay" : 5,
+            "default_option" : 1,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.21.over",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "itw_mika_beton": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.22",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type" : "choice",
+            "body": "Mickael Saulat vous avait-t-il informé d'un ajout d'éléments chimiques dans la fabrication du béton ?",
+            "delay" : 5,
+            "default_option" : 1,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.21",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "itw_mika_beton": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.22",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

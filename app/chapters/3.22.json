@@ -1,0 +1,18 @@
+{
+    "next_scene" : "3.23",
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-09.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Parfait, je mets mes équipes sur le coup. Occupons-nous maintenant de Lionel Gianno, l'ouvrier."
+        }
+    ]
+}

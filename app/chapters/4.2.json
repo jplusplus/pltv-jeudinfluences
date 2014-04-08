@@ -1,0 +1,56 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-01.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Je comprends. C'est sans doute encore trop frais. Dans ce cas, contentons-nous de quelques mots aux journalistes présents spontanément à l'issue des obsèques. Quelque chose qui pourrait sembler informel, improvisé."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Vous en profiterez pour annoncer qu'une minute de silence sera observée à midi, et que les machines seront symboliquement arrêtées pour saluer la mémoire de Mickael.\n\nCela vous convient ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Accepter la proposition de Patrick Luaud ?",
+            "default_option" : null,
+            "delay": null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "4.6",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "4.3",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

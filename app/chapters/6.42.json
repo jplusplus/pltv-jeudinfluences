@@ -1,0 +1,24 @@
+{
+    "next_scene": "the_end",
+    "decor": [
+        {
+            "background": "/medias/illustrations/ecrannoir.jpg",
+            "background_transition": "fade",
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "new_background",
+            "transition": "fade",
+            "body": "/medias/chap6/illustrations/fin.jpg",
+            "timeout": 7
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "header": "Quelques mois plus tard...",
+            "body": "/medias/chap6/voix-off/louis-ch6-final-2.mp3"
+        }
+    ]
+}

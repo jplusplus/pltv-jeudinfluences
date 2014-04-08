@@ -1,0 +1,52 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-04.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "header": "29 mai, 9h21.",
+            "body": "/medias/chap4/voixoff/louis-ch4-02.mp3"
+        },
+        {
+            "type" : "choice",
+            "body": "Aller saluer Nadia ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "4.14",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "4.15",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

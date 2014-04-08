@@ -1,0 +1,70 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-09.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Pourquoi ne voulez-vous pas ?"
+        },
+        {
+            "type":"dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Je ne sais pas... Qu'est-ce que j'irais dire ? Je ne me sens pas à l'aise sur ces prises de paroles publiques. Mes propos pourraient être interprétés, détournés. Ça pourrait avoir l'effet opposé."
+        },
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "On pourrait limiter les risques en définissant des éléments de langage précis. Mais on ne va pas prendre ce risque si vous ne vous sentez pas prêt."
+        },
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "L'interview de Gianno est clairement à charge contre Habinat. Selon lui, il faut rouvrir l'enquête. Mickael, celui qui est à l'origine du béton mis en cause n'étant plus là, c'est vous qui êtes directement visé.\n\nQue voulez-vous faire ? Porter plainte pour diffamation ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Porter plainte pour diffamation ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "3.25",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "3.27",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

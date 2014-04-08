@@ -1,0 +1,78 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-11.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "charcter": "Patrick Luaud",
+            "header": "Patrick Luaud laisse échapper un éclat de rire.",
+            "body": "Vous tombez vraiment dans tous les panneaux ! Il y a toutes les chances que cela accentue la pression médiatique. Les médias vont interpréter ça comme un geste défensif pour cacher quelque chose."
+        },
+        {
+            "type": "dialogue",
+            "charcter": "Louis",
+            "header": null,
+            "body": "Mais je n'ai rien à cacher ! Ces informations sont tout simplement fausses et diffamatoires !"
+        },
+        {
+            "type": "dialogue",
+            "charcter": "Patrick Luaud",
+            "header": null,
+            "body": "La question n'est pas le bien fondé de votre éventuelle action en justice, mais la façon dont elle sera perçue médiatiquement. Et dans le contexte - suicide de Mika puis affaire Lionel Gianno - ce ne sera pas à votre avantage."
+        },
+        {
+            "type": "dialogue",
+            "charcter": "Louis",
+            "header": null,
+            "body": "..."
+        },
+        {
+            "type": "dialogue",
+            "charcter": "Patrick Luaud",
+            "header": null,
+            "body": "Ne me dites pas que vous avez réellement l'intention de déposer plainte ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Porter plainte pour diffamation ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "4.28",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "plainte_bloggers": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "4.25",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "hesitation_plainte_bloggers": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

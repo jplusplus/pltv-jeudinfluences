@@ -1,0 +1,99 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-01.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Parfait. L'enquête va sortir demain, et ça risque de cogner fort. À nous de circonscrire l'incendie. L'info ne doit pas sortir de ce journal. Nous devons faire en sorte que, pour tous les autres, elle sonne faux."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Et pour ça, j'ai une piste : le grand-père de ce journaliste travaillait dans l'usine historique d'Habinat. Et devinez ce qui l'a tué, il y a 40 ans ?"
+        },
+        {
+            "type": "dialogue",
+            "character" : "Louis",
+            "header": null,
+            "body": "Aucune idée."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Les émanations toxiques de l'usine."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Ce n'est pas le seul. À l'époque, Habinat s'appelait encore Durollier Bétons. C'était une entreprise de matériaux de construction florissante dans la France des trente glorieuses. Évidemment, les réglementations n'étaient pas aussi strictes qu'aujourd'hui et les ouvriers portaient rarement des équipements de protection."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Ceux qui travaillaient à proximité d'éléments dangereux, comme les cuves de mélange par exemple, ont souvent développé des pathologies liées aux vapeurs qu'ils respiraient. Le grand-père du journaliste était de ceux-là."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Il y a eu un procès. Des familles d'ouvriers de plusieurs usines s'étaient rassemblées pour demander réparation. Mais les entreprises s'en sont sorties en jouant la carte de l'ignorance naïve. Y compris Durollier Bétons."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Aujourd'hui, ce journaliste cherche à vous faire payer le décès de son grand-père. Le succès d'Habinat lui est insupportable. Il veut un coupable à tout prix. Et il veut que ce soit vous."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "En quelques coups de fils, cette rumeur peut vite circuler dans les rédactions. En attaquant ses motivations, on affaiblit son enquête avant même qu'elle ne sorte. On en fait quelque chose de personnel.\n\nQu'en dites vous ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Accepter de lancer la rumeur ?",
+            "default_option" : null,
+            "delay": null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.6",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "rumeur_journaliste": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.5",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

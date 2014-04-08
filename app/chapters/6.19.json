@@ -1,0 +1,51 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": null,
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "video",
+            "body": "/medias/chap6/videos/video-ch6-scene6.19.mov"
+        },
+        {
+            "type" : "choice",
+            "body": "Comptez-vous porter plainte contre Nadia Saulat ?",
+            "delay" : 5,
+            "default_option" : 1,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "6.22",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "plainte_nadia": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "6.22",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

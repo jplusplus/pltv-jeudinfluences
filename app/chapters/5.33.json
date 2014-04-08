@@ -1,0 +1,66 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-10.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Attendez. Cette \"story\" a deux inconvénients majeurs : d'une part, vous reconnaissez indirectement qu'Habinat est responsable de la pollution, or rien n'est encore prouvé sur le plan judiciaire."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Deuxièmement, si les intérimaires commettent des erreurs, c'est aussi de la faute de votre management, donc de l'entreprise. Avec ce choix de com', vous vous tirez une balle dans le pied. Voire deux."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "J'ai une autre option, plus culottée, à vous proposer. Ça vous intéresse ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Écouter la seconde option de Patrick Luaud ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.34",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "hesitation_charger_interimaires": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.39",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "charger_interimaires": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

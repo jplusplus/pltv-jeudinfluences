@@ -1,0 +1,57 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-01.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Vous m'étonnez, Louis. Accepter de le rencontrer, cela revient à valider son enquête. Vous êtes la cerise sur son gâteau."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "J'ai une piste pour tenter de le déstabiliser, à condition de refuser l'interview. Je vous raconte ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Écouter Luaud et refuser l'interview ?",
+            "default_option" : null,
+            "delay": null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.4",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.3",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "accepter_itw": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

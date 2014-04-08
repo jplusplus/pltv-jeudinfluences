@@ -1,0 +1,74 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-01.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": "Mercredi 30 mai, 08h02.",
+            "body": "Son article est déjà écrit, Louis. C'est une demande de pure forme. Il veut juste son \"contradictoire\"."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Louis",
+            "header": null,
+            "body": "Il veut quoi ?"
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Je connais ce genre de journaliste. Pour lui, ses preuves sont irréfutables. Habinat est le seul responsable de la pollution. C'est un gros scoop et il le sortira quelles que soient vos réponses. C'est une attitude typique des journaux comme Mediapart."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Il veut vous poser ces trois questions pour entendre votre démenti - ou mieux, vos aveux - de vive voix, et le mentionner dans l'article. Juste pour se couvrir. Ainsi, personne ne pourra lui reprocher de ne pas vous avoir demandé."
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "header": null,
+            "body": "Sincèrement, je vous déconseille de faire cette interview. On est d'accord ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Suivre le conseil de Patrick Luaud et refuser l'interview ?",
+            "default_option" : null,
+            "delay": null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "5.4",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "5.2",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

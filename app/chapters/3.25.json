@@ -1,0 +1,59 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-09.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Sincèrement c'est une très mauvaise option. Vu le contexte c'est peut-être même la pire. Vous allez passer pour un personnage distant et méprisant, sans aucune compassion. C'est une situation où il vaut mieux éviter de refuser le dialogue. Même par voie presse."
+        },
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Oublions cette plainte pour diffamation et définissons ensemble des éléments de langage. Ok ?"
+        },
+        {
+            "type" : "choice",
+            "body": "Ok, travailler sur des éléments de langage ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "3.28",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "diffamation_ouvrier": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "3.26",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

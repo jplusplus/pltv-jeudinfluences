@@ -1,0 +1,52 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-12.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Il y a un an environ, j'ai eu vent d'une possible pollution chimique dans le Nizerand. C'étatUne brève dans un journal local l'évoquait. Rien de plus. Nadia aussi l'a vu passer. On a choisi de ne rien dire à Mika. Il se serait affolé pour rien."
+        },
+        {
+            "type" : "choice",
+            "body": "Souhaitez-vous aller jusqu'à évoquer vos liens avec le Ministre Martin Jarendeau ?",
+            "delay" : null,
+            "default_option" : null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "4.33",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non [mentir]",
+                    "next_scene": "4.34",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

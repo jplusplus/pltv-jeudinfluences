@@ -1,0 +1,22 @@
+{
+    "next_scene" : "6.28",
+    "decor": [
+        {
+            "background": null,
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "condition": {"plainte_nadia": false},
+            "type": "video",
+            "body": "/medias/chap6/videos/video-ch6-scene6.24_cond1.mov"
+        },
+        {
+            "condition": {"plainte_nadia": true},
+            "type": "video",
+            "body": "/medias/chap6/videos/video-ch6-scene6.24_cond2.mov"
+        }
+    ]
+}

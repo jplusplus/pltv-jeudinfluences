@@ -1,0 +1,19 @@
+{
+    "next_scene" : "5.54",
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-flashback_b.jpg",
+            "background_transition": "fade",
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "result": { "meurtre": true },
+            "type": "voixoff",
+            "character": "Louis",
+            "header": null,
+            "body": "/medias/chap5/voix-off/louis-ch5-flashback-04_b.mp3"
+        }
+    ]
+}

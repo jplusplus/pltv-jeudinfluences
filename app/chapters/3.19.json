@@ -1,0 +1,16 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/illustrations/tablette.jpg",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type":"video",
+            "body": "http://www.dailymotion.com/video/xs7kd_surf_sport"
+        }
+    ]
+}

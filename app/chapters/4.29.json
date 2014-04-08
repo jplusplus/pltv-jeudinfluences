@@ -1,0 +1,18 @@
+{
+    "next_scene" : "4.31",
+    "decor": [
+        {
+            "background": "/medias/chap4/illustrations/illustr-ch4-11.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "charcter": "Patrick Luaud",
+            "header": null,
+            "body": "Je m'en charge. Vous verrez, ça passera comme une lettre à la poste. Les journalistes ont une défiance naturelle envers les bloggueurs. Ils les voient comme un danger pour leur profession. Tant pis pour eux. Tant mieux pour nous."
+        }
+    ]
+}

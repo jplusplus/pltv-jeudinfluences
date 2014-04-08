@@ -1,0 +1,34 @@
+{
+    //bascule vers flashback en fonction de l'état de la variable karma
+    "next_scene" :
+        {
+            "positif_karma": "3.32",
+            "negatif_karma": "3.30"
+        },
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-09.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type":"dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Parfait, je file rédiger ça et prévenir quelques journalistes bien ciblés. On se retrouve à l'usine dans deux heures."
+        },
+        {
+            "type": "new_background",
+            "timeout": 0.5,
+            "transition": "fade",
+            "body": "/medias/chap3/illustrations/illustr-ch3-11.jpg"
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap3/voix-off/louis-ch3-10.mp3"
+        }
+    ]
+}

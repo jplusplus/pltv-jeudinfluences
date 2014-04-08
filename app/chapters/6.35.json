@@ -1,0 +1,24 @@
+{
+    "next_scene" : "6.36",
+    "decor": [
+        {
+            "background": "/medias/chap6/illustrations/illustr-ch6-5b.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Martin Jarendeau",
+            "header": null,
+            "body": "Vous avez tort Louis. Vous ne devriez pas avoir de regrets, ni de doutes. Je vous ai proposé ce poste parce que, grâce à vos choix, vous le méritiez."
+        },
+        {
+            "type": "dialogue",
+            "character": "Martin Jarendeau",
+            "header": null,
+            "body": "Je respecte votre décision mais je suis sûr que l'on aurait fait du bon travail ensemble. Dommage.\n\nBonne route, Louis."
+        }
+    ]
+}

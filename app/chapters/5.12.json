@@ -1,0 +1,79 @@
+{
+    "next_scene" : "5.13",
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-04.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "C'est calé. Il nous reste peu de temps. Faisons un tour des éléments de langage que vous allez utiliser sur chacune des trois questions."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Question 1 :\nÉtiez-vous au courant de cette pollution avant qu'elle ne soit révélée dans les médias ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Ne vous fatiguez pas à argumenter. Votre réponse doit être courte et ferme : \"Non, je l'ai apprise par la presse, comme tout le monde.\""
+        },
+        {
+            "condition": {"prevenir_luaud_pollution":true},
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Et en soi, c'est vrai. C'est bien par une brève dans la presse que vous avez entendu parler de cette pollution, non ? Certes, c'était il y a un an, mais comme il ne vous pose pas la question, vous n'avez aucune raison de le préciser."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Question 2 :\nMartin Jarendeau a-t-il évoqué avec vous le relèvement des seuils d'alerte ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Là encore, la seule vérité suffira, ne vous étendez pas : \"Non.\""
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "S'il insiste, minimisez la question : \"Il est évident qu'un industriel et un président de région se croisent souvent et parlent. Ce n'est pas un crime. Mais il ne m'a jamais parlé des seuils d'alerte.\""
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Question 3 :\nMickael Saulat vous a-t-il informé d'un ajout d'éléments chimiques dans la fabrication du béton ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Celle-ci est plus piégeuse. À vous de voir. Mais là encore, je vous conseillerais d'éviter de vous étendre. Vous auriez toutes les chances de trébucher."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "À la limite, vous pouvez prendre vos distances : \"Non. Mais je ne suivais pas les recherches de Mickael dans le détail. Je lui faisais confiance.\" Ça pourrait nous être utile par la suite."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Surtout, ne répondez à aucune autre question, même si elle vous semble anodine. Il saura parfaitement vous emmener où il veut. Tentez d'être le plus détendu possible.\nFaites simple, court et direct."
+        }
+    ]
+}

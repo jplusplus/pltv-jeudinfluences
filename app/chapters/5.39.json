@@ -1,0 +1,18 @@
+{
+    "next_scene" : "5.41",
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-10.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Comme vous voulez. Les représentants de la CGT vous attendent à l'usine."
+        }
+    ]
+}

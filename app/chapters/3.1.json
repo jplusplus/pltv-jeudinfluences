@@ -1,0 +1,96 @@
+{
+    "next_scene" : null,
+    "decor": [
+        {
+            "background": "/medias/chap3/illustrations/illustr-ch3-01.jpg",
+            "background_transition": "fade",
+            "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "narrative",
+            "body": "26 mai, 17h47."
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap3/voix-off/louis-ch3-01.mp3"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Bonjour Patrick. Je sors de la PJ de Lyon et on risque d'avoir un nouveau souci à gérer."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Expliquez-moi."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "D'après les policiers, Mika était en contact avec un ancien ouvrier, Lionel Gianno. Il est aujourd'hui paralysé des deux jambes suite à un accident sur l'un de nos chantiers, l'année dernière. À l'époque, l'enquête avait conclu à la responsabilité du maître d'oeuvre. Habinat était hors de cause."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Mais apparemment, ces derniers temps, Mika aurait eu des doutes sur la fiabilité de notre béton dans cette histoire. C'est lui qui aurait repris contact avec ce ouvrier."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Et il pourrait maintenant se retourner contre vous ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Je n'en sais rien, c'est possible."
+        },
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Ok. Envoyez-moi son nom et la date de l'accident par sms, je vais mener ma petite enquête. Via les réseaux sociaux, on devrait pouvoir trouver quelques pistes intéressantes sur lui. Il faut que l'on aie de quoi affaiblir sa parole dès qu'elle passera dans les médias."
+        },
+        {
+            "type" : "choice",
+            "body": "Enquêter en sous-main sur Lionel Gianno ?",
+            "default_option" : null,
+            "delay": null,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "3.3",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0,
+                            "stalk_ouvrier": true
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "3.2",
+                    "result": [
+                        {
+                            "karma": 0,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

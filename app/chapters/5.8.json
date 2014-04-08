@@ -1,0 +1,27 @@
+{
+    "next_scene" : "5.9",
+    "decor": [
+        {
+            "background": "/medias/chap5/illustrations/illustr-ch5-01.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-a.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": "Mercredi 30 mai, 09h00.",
+            "body": "Merde ! Regardez cette annonce de Mediapart..."
+        },
+        {
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/chap5/illustrations/illustr-ch5-03.jpg"
+        },
+        {
+            "type": "narrative",
+            "body": "..."
+        }
+    ]
+}
