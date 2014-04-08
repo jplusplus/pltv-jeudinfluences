@@ -32,13 +32,13 @@ angular.module("spin.service").factory("User", [
                 @sequence = master.sequence or 0
                 @indicators =
                     # Visible indicators
-                    @stress : master.stress  or 0    
-                    @trust  : master.trust   or 100
-                    @ubm    : master.ubm     or 0
+                    stress : master.stress  or 0    
+                    trust  : master.trust   or 100
+                    ubm    : master.ubm     or 0
                     # Hidden indicators
-                    @guilt  : master.guilt   or 0 
-                    @honesty: master.honesty or 100 
-                    @karma  : master.karma   or 0 
+                    guilt  : master.guilt   or 0 
+                    honesty: master.honesty or 100 
+                    karma  : master.karma   or 0 
                 # Load career data from the API
                 do @loadCareer
                 return @
