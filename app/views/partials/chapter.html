@@ -18,6 +18,32 @@
     
     
     <ul class="chapter__cmd list-unstyled" ng-hide="user.isStartingChapter() || user.isGameOver">
+
+        <li class="chapter__cmd__indicator">
+            <span class="chapter__cmd__indicator__label">Guilt</span>
+            <span class="chapter__cmd__indicator__value">[[user.indicators.guilt]]%</span>
+            <span class="chapter__cmd__indicator__progress progress">
+                <span class="progress-bar" ng-style="{ width: user.indicators.guilt + '%' }">
+                </span>                
+            </span>
+        </li>
+        <li class="chapter__cmd__indicator">
+            <span class="chapter__cmd__indicator__label">Honesty</span>
+            <span class="chapter__cmd__indicator__value">[[user.indicators.honesty]]%</span>
+            <span class="chapter__cmd__indicator__progress progress">
+                <span class="progress-bar" ng-style="{ width: user.indicators.honesty + '%' }">
+                </span>                
+            </span>
+        </li>
+        <li class="chapter__cmd__indicator">
+            <span class="chapter__cmd__indicator__label">Karma</span>
+            <span class="chapter__cmd__indicator__value">[[user.indicators.karma]]%</span>
+            <span class="chapter__cmd__indicator__progress progress">
+                <span class="progress-bar" ng-style="{ width: user.indicators.karma + '%' }">
+                </span>                
+            </span>
+        </li>
+
         <li class="chapter__cmd__indicator chapter__cmd__indicator--ubm">
             <abbr class="chapter__cmd__indicator__help">
                 ?<span class="chapter__cmd__indicator__help__definition">Unité de Bruit Médiatique : présence de votre crise dans les médias</span>
