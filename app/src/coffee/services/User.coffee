@@ -17,7 +17,7 @@ angular.module("spin.service").factory("User", [
                 master    = localStorageService.get("user") or {}
                 indicators_settings = settings.user_indicators
                 # False until the player starts the game
-                @inGame     = yes
+                @inGame     = no
                 @isGameOver = no
                 @isGameDone = no
                 # User authentication
