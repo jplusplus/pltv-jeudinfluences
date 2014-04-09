@@ -27,15 +27,19 @@ class SceneCtrl
         @isChoice = @scope.isChoice = (sequence)=> sequence.type.toLowerCase() is "choice"                
         # True if the sequence is a voixoff
         @isPlayer = @scope.isPlayer = (sequence)=> sequence.type.toLowerCase() is "voixoff"             
-         # True if the sequence is a new_background
-        @isNewBg  = @scope.isNewBg  = (sequence)=> sequence.type.toLowerCase() is "new_background"        
+        # True if the sequence is a new_background
+        @isNewBg  = @scope.isNewBg  = (sequence)=> sequence.type.toLowerCase() is "new_background"
+        # True if the sequence is a gameover
+        @isGameOver = @scope.isGameOver = (sequence) => sequence.type.toLowerCase() is "gameover"
         # True if the sequence is a notification
         @isNotification = @scope.isNotification = (sequence)=> sequence.type.toLowerCase() is "notification"  
         # True if the given sequence can be exited
         @hasExit = @scope.hasExit = (sequence)=> @isPlayer(sequence) or @isDialog(sequence) or @isChoice(sequence)      
         # Just wraps the function from the user service
         @scope.goToNextSequence = =>
-            sequence = do @User.nextSequence       
+            sequence = do @User.nextSequence
+            @User.isGameOver = @isGameOver(sequence)
+
             # Should we skip this new sequence?
             do @scope.goToNextSequence if sequence and settings.sequence_skip.indexOf( sequence.type.toLowerCase() ) > -1
         # Select an option within a sequence by wrappeing the User's method       
@@ -72,14 +76,14 @@ class SceneCtrl
             bg.sequence is 0 or (bg.sequence is higherId and @User.scene is @scene.id)
         # Play of pause the soundtrack
         @scope.toggleVoicetrack = @Sound.toggleSequence
-        # Last dialog box that we seen
+        # Last dialog box that we see
         @getLastDialogIdx = @scope.getLastDialogIdx = =>                    
             # Get current indexes
             chapterIdx  = @User.chapter
             sceneIdx    = @User.scene
             sequenceIdx = @User.sequence
             while yes
-                sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                                  
+                sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                              
                 break if sequenceIdx <= 0 or not sequence? or @hasExit(sequence)
                 sequenceIdx--            
             sequenceIdx
