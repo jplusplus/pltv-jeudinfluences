@@ -14,7 +14,7 @@ angular.module("spin.service").factory("User", [
             # ──────────────────────────────────────────────────────────────────────────
             constructor: ->
                 # This user is saved into local storage
-                master    = localStorageService.get("user") or {}
+                master = localStorageService.get("user") or {}
                 indicators_settings = settings.user_indicators
                 # False until the player starts the game
                 @inGame     = no
@@ -41,7 +41,7 @@ angular.module("spin.service").factory("User", [
                     honesty: master.honesty or 100 
                     karma  : master.karma   or 0 
                 # Load career data from the API
-                do @loadCareer
+                # do @loadCareer
                 return @
 
             pos: ()=> @chapter + "." + @scene
@@ -127,7 +127,7 @@ angular.module("spin.service").factory("User", [
                             # And call this function again
                             do @loadCareer   
 
-            propagateChoice: (option)=>                                
+            propagateChoice: (option)=>                                           
                 for key, indicator of option.result[0] 
                     @indicators[key] += parseInt(indicator)
                 do @updateLocalStorage
@@ -141,7 +141,10 @@ angular.module("spin.service").factory("User", [
                     # Get the current sequence to  update the indicators
                     sequence = Plot.sequence(chapterIdx, sceneIdx, @sequence)
                     # Propagate the choices only if this sequence has options
-                    @propagateChoice(sequence.options[choice.choice]) if sequence.options?
+                    if sequence.options?
+                        option = sequence.options[choice.choice]
+                        # Same choice variables
+                        @propagateChoice(option)                        
                 else
                     state = reached_scene: @pos()
                 # Get value using the token
