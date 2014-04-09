@@ -15,8 +15,9 @@ angular.module("spin.service").factory("User", [
             constructor: ->
                 # This user is saved into local storage
                 master    = localStorageService.get("user") or {}
+                indicators_settings = settings.user_indicators
                 # False until the player starts the game
-                @inGame     = no
+                @inGame     = yes
                 @isGameOver = no
                 @isGameDone = no
                 # User authentication
@@ -32,9 +33,9 @@ angular.module("spin.service").factory("User", [
                 @sequence = master.sequence or 0
                 @indicators =
                     # Visible indicators
-                    stress : master.stress  or 0    
-                    trust  : master.trust   or 100
-                    ubm    : master.ubm     or 0
+                    stress : master.stress  or indicators_settings.stress.start
+                    trust  : master.trust   or indicators_settings.trust.start
+                    ubm    : master.ubm     or indicators_settings.ubm.start
                     # Hidden indicators
                     guilt  : master.guilt   or 0 
                     honesty: master.honesty or 100 
@@ -67,6 +68,22 @@ angular.module("spin.service").factory("User", [
                     @indicators.ubm    = career.context.ubm
                     # Start to the first sequence
                     @sequence = 0
+                do @checkProgression
+
+            checkProgression: => 
+                is_gameover = no 
+                breakme     = no 
+                # while a game over has not been detected or "break" like 
+                # instruction is set we loop (I dont like break) 
+                while (is_gameover is no) and (breakme is no)
+                    for key, value of @indicators
+                        indicator_settings = settings.user_indicators[key]
+                        if indicator_settings
+                            is_gameover = indicator_settings.isgameover(value)
+                    breakme = yes
+
+                @isGameOver = is_gameover
+                is_gameover
 
             isStartingChapter: =>                 
                 # Chapter is considered as starting during {settings.chapterStarting} millisecond
@@ -146,10 +163,17 @@ angular.module("spin.service").factory("User", [
                     # Return the new sequence
                     Plot.sequence(@chapter, @scene, @sequence)
 
-            goToScene: (str, shouldUpdateCareer=yes)=>
-                [chapter, scene] = str.split "."              
+            goToScene: (next_scene, shouldUpdateCareer=yes)=>
+                if typeof(next_scene) is typeof("")
+                    next_scene_str = next_scene
+                else
+                    karma_key = if @indicators.karma >= 0 then 'positif' else 'negatif'
+                    next_scene_str = next_scene["#{karma_key}_karma"]
+
+                [chapter, scene] = next_scene_str.split "."
+
                 # Check that the next step exists
-                warn = (m)-> console.warn "#{m} doesn't exist (#{str})."
+                warn = (m)-> console.warn "#{m} doesn't exist (#{next_scene_str})."
                 # Chapter exits?
                 return warn('Chapter') unless Plot.chapter(chapter)?           
                 # Scene exits?
