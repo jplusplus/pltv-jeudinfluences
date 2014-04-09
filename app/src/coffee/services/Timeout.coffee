@@ -27,10 +27,11 @@ angular.module("spin.service").factory "Timeout", [
                 if @remainingTime < 100
                     $timeout @timeStep, settings.timeoutRefRate
                 else
-                    option = @sequence.options[@sequence.default_option]
+                    _default = @sequence.default_option or 0
+                    option = @sequence.options[_default]
                     @remainingTime = 0
                     @_step = 0
-                    User.updateCareer choice: @sequence.default_option, scene: User.pos()
+                    User.updateCareer choice: _default, scene: User.pos()
                     User.goToScene option.next_scene
 
 ]
