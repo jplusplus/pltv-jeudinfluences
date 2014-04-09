@@ -38,7 +38,7 @@ class SceneCtrl
         # Just wraps the function from the user service
         @scope.goToNextSequence = =>
             sequence = do @User.nextSequence
-            @User.isGameOver = @isGameOver(sequence)
+            @User.isGameOver = @isGameOver(sequence) if sequence?
 
             # Should we skip this new sequence?
             do @scope.goToNextSequence if sequence and settings.sequence_skip.indexOf( sequence.type.toLowerCase() ) > -1
