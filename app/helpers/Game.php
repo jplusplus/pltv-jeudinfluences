@@ -40,10 +40,14 @@ class Game {
 		* Compute the context from the given career based on the initial context.
 		*/
 		$context = array( // initial context
-			"trust"  => 0,
-			"stress" => 0, 
-			"karma"  => 100
+			"trust"       => 100,
+			"stress"      => 0, 
+			"karma"       => 0,
+			"UBM"         => 0,
+			"honnetete"   => 100,
+			"culpabilite" => 0
 		);
+
 		$plot           = Game::getPlot();
 		$reached_scenes = json_decode($career["scenes"], true);
 		$reached_scenes = array_splice($reached_scenes, 0, -1); //  remove last scene because we will do it again
@@ -93,10 +97,14 @@ class Game {
 		* Respect the range of the given field. See $rules.
 		*/
 		$rules = array(
-			"karma"  => array(0, 100),
-			"trust"  => array(0, NULL),
-			"stress" => array(NULL, 100)
+			"karma"       => array(-50, 50),
+			"trust"       => array(0, 100),
+			"stress"      => array(0, 100),
+			"UBM"         => array(0, 100),
+			"honnetete"   => array(0, 100),
+			"culpabilite" => array(0, 100)
 		);
+
 		foreach ($update_to as $key => $value) {
 			if (isset($context[$key]) && is_int($value)) {
 					if (isset($rules[$key])) {
