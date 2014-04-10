@@ -177,10 +177,17 @@ angular.module("spin.service").factory("User", [
                 if Plot.sequence(@chapter, @scene, @sequence + 1)?                
                     # Go simply to the next sequence
                     ++@sequence 
+                    # Retrieve the new sequence and check conditions
+                    sequence = Plot.sequence(@chapter, @scene, @sequence)
+                    if sequence.condition?
+                        for key, value of sequence.condition
+                            if @indicators[key] isnt value
+                                return do @nextSequence
                     # Return the new sequence
-                    Plot.sequence(@chapter, @scene, @sequence)
+                    sequence
                 # Go the next scene
                 else if scene and scene.next_scene?
+                    # Shouldn't we reset to first sequence here?
                     @goToScene scene.next_scene   
                     # Return the new sequence
                     Plot.sequence(@chapter, @scene, @sequence)
@@ -193,7 +200,6 @@ angular.module("spin.service").factory("User", [
                     data :
                         email : @email
                 ).success (data) =>
-                    console.debug data
 
             goToScene: (next_scene, shouldUpdateCareer=yes)=>
                 if typeof(next_scene) is typeof("")

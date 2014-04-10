@@ -22,6 +22,8 @@ $app->configureMode('development', function () use ($app) {
 		'mailchimp_id'         => '',
 		'mailchimp_datacenter' => '', # ex: us8
 		'mailchimp_apikey'     => '',
+		// Mail settings
+		'email_saving_subject' => "Jeu d'influences : Votre partie est sauveardée",
 		// Opening dates of each chapter
 		'opening_dates'        => array(
 			'1'                => "2014-03-19T16:00:00",

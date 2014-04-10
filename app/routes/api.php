@@ -106,7 +106,7 @@ $app->post('/api/career', function() use ($app) {
 	return ok(array('status' => 'done', 'token' => $token));
 });
 
-$app->put('/api/career/associate_email', function() use ($app) {
+$app->post('/api/career/associate_email', function() use ($app) {
 	/**
 	* Associate an email to a token
 	* expected body : `{"email" : "example@wanadoo.fr"}`
@@ -121,6 +121,11 @@ $app->put('/api/career/associate_email', function() use ($app) {
 	if(isset($data->email) && filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
 		$career->email = $data->email;
 		R::store($career);
+		// send email
+		$app->view->appendData(array('token' => $token, 'host' => 'localhost:8080'));
+		$message = $app->view->fetch('emails/saved_and_send_token.twig');
+		$headers = "Content-Type: text/plain; charset=UTF-8";
+		mail($data->email, $app->config("email_saving_subject"), $message, $headers);
 		return ok(array('status' => 'done'));
 	}
 	return wrong(array('error' => 'email required'));
