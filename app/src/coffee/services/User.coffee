@@ -218,5 +218,5 @@ angular.module("spin.service").factory("User", [
                     # Next sequence exits?
                     return warn('Next sequence') unless Plot.sequence(chapter, scene, @sequence+1)?  
                     # Just go further
-                    @sequence++   
+                    do @nextSequence
 ])
