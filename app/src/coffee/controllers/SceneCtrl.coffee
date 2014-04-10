@@ -77,6 +77,7 @@ class SceneCtrl
         @scope.getSceneBgs = =>
             # Cache bgs to avoid infinite digest iteration
             return @bgs if @bgs?
+            return [] if (not @scene? or not @scene.decor)
             # First background is the one from the scene      
             @bgs = [src: @scene.decor[0].background, sequence: -1]
             # Look into each scene's sequence to find the new background

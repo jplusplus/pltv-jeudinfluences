@@ -9,6 +9,10 @@ class NavCtrl
         # Udate the User volume according the scope attribute
         @scope.$watch "volume", (v)=> @User.volume = v/100 if v?    
 
+        @scope.save = @save
+
+    save: =>
+        do @User.associate
 
 angular.module('spin.controller').controller("NavCtrl", NavCtrl)
 # EOF

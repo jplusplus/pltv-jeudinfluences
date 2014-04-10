@@ -40,8 +40,15 @@ angular.module("spin.service").factory("User", [
                     guilt  : master.guilt   or 0 
                     honesty: master.honesty or 100 
                     karma  : master.karma   or 0 
-                # Load career data from the API
-                # do @loadCareer
+
+                # Load career data from the API when the player enters the game
+                $rootScope.$watch =>
+                    @inGame
+                , (newValue, oldValue) =>
+                    if newValue and not oldValue
+                        do @loadCareer
+                , yes
+
                 return @
 
             pos: ()=> @chapter + "." + @scene
@@ -116,16 +123,29 @@ angular.module("spin.service").factory("User", [
                         .success( (data)=> @updateProgression(data) )
                         # Something wrong happends, restores the User model
                         .error( (data)=> do @newUser if @token? or @email? )
+                else if @email?
+                    $http.get("#{api.career}?email=#{@email}")
+                        # Update chapter, scene and sequence according
+                        # the last scene given by the career
+                        .success( (data)=> @updateProgression(data) )
+                        # The mail isn't associated to a career
+                        # We create a new one and associate the email
+                        .error (data) =>
+                            @createNewCareer yes
                 # Or create a new one
-                else                    
-                    # Get value using the token
-                    $http.post("#{api.career}", reached_scene: "1.1")
+                else
+                    do @createNewCareer
+
+            createNewCareer: (associate=no) =>
+                # Get value using the token
+                $http.post("#{api.career}", reached_scene: "1.1")
+                    # Save the token
+                    .success (data)=>
                         # Save the token
-                        .success (data)=>                                   
-                            # Save the token
-                            @token = data.token
-                            # And call this function again
-                            do @loadCareer   
+                        @token = data.token
+                        (do @associate) if associate
+                        # And call this function again
+                        do @loadCareer
 
             propagateChoice: (option)=>                                           
                 for key, indicator of option.result[0] 
@@ -165,6 +185,16 @@ angular.module("spin.service").factory("User", [
                     @goToScene scene.next_scene   
                     # Return the new sequence
                     Plot.sequence(@chapter, @scene, @sequence)
+
+            associate: =>
+                return if (not @email?) or @email is ""
+                ($http
+                    url : "#{api.associate}?token=#{@token}"
+                    method : 'PUT'
+                    data :
+                        email : @email
+                ).success (data) =>
+                    console.debug data
 
             goToScene: (next_scene, shouldUpdateCareer=yes)=>
                 if typeof(next_scene) is typeof("")
