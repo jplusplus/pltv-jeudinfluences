@@ -87,10 +87,11 @@ $app->post('/api/career', function() use ($app) {
 	// update the career (json syntax)
 	$data = json_decode($app->request()->getBody(), true);
 	if (is_null($data)) return wrong(array("error" => "body invalid. Need json."));
+	$scenes  = json_decode($career->scenes, true);
+	$choices = json_decode($career->choices);
 	// update field
 	if (isset($data["reached_scene"])) {
 		// TODO: check if already exists
-		$scenes = json_decode($career->scenes, true);
 		if (!in_array((string)$data["reached_scene"], $scenes)) {
 			$scenes[] = (string)$data["reached_scene"];
 			$career->scenes = json_encode($scenes);
@@ -103,7 +104,15 @@ $app->post('/api/career', function() use ($app) {
 	}
 	// save
 	R::store($career);
-	return ok(array('status' => 'done', 'token' => $token));
+	$response = array(
+		"status"        => 'done',
+		"token"         => $token,
+		"reached_scene" => end($scenes),
+		"context"       => \app\helpers\Game::computeContext($career->export()),
+		"scenes"        => $scenes,
+		"choices"       => $choices
+	);
+	return ok($response);
 });
 
 $app->post('/api/career/associate_email', function() use ($app) {

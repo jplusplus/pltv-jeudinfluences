@@ -33,9 +33,9 @@ angular.module("spin.service").factory("User", [
                 @sequence = master.sequence or 0
                 @indicators =
                     # Visible indicators
-                    stress : master.stress  or UserIndicators.stress.start
-                    trust  : master.trust   or UserIndicators.trust.start
-                    ubm    : master.ubm     or UserIndicators.ubm.start
+                    stress : master.stress  or UserIndicators.stress.meta.start
+                    trust  : master.trust   or UserIndicators.trust.meta.start
+                    ubm    : master.ubm     or UserIndicators.ubm.meta.start
                     # Hidden indicators
                     culpabilite: master.culpabilite or 0 
                     honnetete  : master.honnetete   or 100 
@@ -132,7 +132,7 @@ angular.module("spin.service").factory("User", [
                     $http.get("#{api.career}?token=#{@token}")
                         # Update chapter, scene and sequence according 
                         # the last scene given by the career
-                        .success( (data)=> @updateProgression(data) )
+                        .success(@updateProgression)
                         # Something wrong happends, restores the User model
                         .error( (data)=> do @newUser if @token? or @email? )
                 else if @email?
@@ -173,9 +173,7 @@ angular.module("spin.service").factory("User", [
                 else
                     state = reached_scene: @pos()
                 # Get value using the token
-                $http.post "#{api.career}?token=#{@token}", state
-                # And load the refresfed data
-                do @loadCareer
+                $http.post("#{api.career}?token=#{@token}", state).success @updateProgression                
 
             nextSequence: =>   
                 scene = Plot.scene(@chapter, @scene)
@@ -202,7 +200,7 @@ angular.module("spin.service").factory("User", [
                     for key, value of seq.condition
                         if @indicators[key] isnt value
                             return no
-                if (settings.sequence_skip.indexOf seq.type) >= 0
+                if (settings.sequenceSkip.indexOf seq.type) >= 0
                     return no
                 yes
 
