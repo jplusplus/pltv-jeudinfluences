@@ -116,16 +116,29 @@ angular.module("spin.service").factory("User", [
                         .success( (data)=> @updateProgression(data) )
                         # Something wrong happends, restores the User model
                         .error( (data)=> do @newUser if @token? or @email? )
+                else if @email?
+                    $http.get("#{api.career}?email=#{@email}")
+                        # Update chapter, scene and sequence according
+                        # the last scene given by the career
+                        .success( (data)=> @updateProgression(data) )
+                        # The mail isn't associated to a career
+                        # We create a new one and associate the email
+                        .error (data) =>
+                            @createNewCareer yes
                 # Or create a new one
-                else                    
-                    # Get value using the token
-                    $http.post("#{api.career}", reached_scene: "1.1")
+                else
+                    do @createNewCareer
+
+            createNewCareer: (associate=no) =>
+                # Get value using the token
+                $http.post("#{api.career}", reached_scene: "1.1")
+                    # Save the token
+                    .success (data)=>
                         # Save the token
-                        .success (data)=>                                   
-                            # Save the token
-                            @token = data.token
-                            # And call this function again
-                            do @loadCareer   
+                        @token = data.token
+                        (do @associate) if associate
+                        # And call this function again
+                        do @loadCareer
 
             propagateChoice: (option)=>                                           
                 for key, indicator of option.result[0] 
