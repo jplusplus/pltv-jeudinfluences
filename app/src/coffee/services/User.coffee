@@ -166,6 +166,16 @@ angular.module("spin.service").factory("User", [
                     # Return the new sequence
                     Plot.sequence(@chapter, @scene, @sequence)
 
+            associate: =>
+                return if (not @email?) or @email is ""
+                ($http
+                    url : "#{api.associate}?token=#{@token}"
+                    method : 'PUT'
+                    data :
+                        email : @email
+                ).success (data) =>
+                    console.debug data
+
             goToScene: (next_scene, shouldUpdateCareer=yes)=>
                 if typeof(next_scene) is typeof("")
                     next_scene_str = next_scene
