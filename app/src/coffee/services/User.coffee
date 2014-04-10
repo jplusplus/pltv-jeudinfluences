@@ -40,8 +40,15 @@ angular.module("spin.service").factory("User", [
                     guilt  : master.guilt   or 0 
                     honesty: master.honesty or 100 
                     karma  : master.karma   or 0 
-                # Load career data from the API
-                # do @loadCareer
+
+                # Load career data from the API when the player enters the game
+                $rootScope.$watch =>
+                    @inGame
+                , (newValue, oldValue) =>
+                    if newValue and not oldValue
+                        do @loadCareer
+                , yes
+
                 return @
 
             pos: ()=> @chapter + "." + @scene
