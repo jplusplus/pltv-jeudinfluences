@@ -7,17 +7,15 @@
     right:0;
     z-index:@scene-zindex;
 
-    .fade(@chapter-starting-duration-2);
-
     &__bg {
         .covering();
-        .fade(@chapter-starting-duration-2);
+        .fade > .repeat(@chapter-starting-duration-2);
         z-index:-1;   
     }
     
     &__sequence {    
 
-        .fade(@chapter-starting-duration-2);
+        .fade > .show(@chapter-starting-duration-2);
                     
         // Choice box, a the middle of the screen
         &--choice {
