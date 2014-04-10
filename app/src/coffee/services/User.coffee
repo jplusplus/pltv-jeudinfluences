@@ -15,7 +15,7 @@ angular.module("spin.service").factory("User", [
             # ──────────────────────────────────────────────────────────────────────────
             constructor: ->
                 # This user is saved into local storage
-                master     = localStorageService.get("user") or {}
+                master = localStorageService.get("user") or {}
                 # False until the player starts the game
                 @inGame     = no
                 @isGameOver = no
@@ -37,14 +37,27 @@ angular.module("spin.service").factory("User", [
                     trust  : master.trust   or UserIndicators.trust.start
                     ubm    : master.ubm     or UserIndicators.ubm.start
                     # Hidden indicators
-                    guilt  : master.guilt   or 0 
-                    honesty: master.honesty or 100 
-                    karma  : master.karma   or 0 
-                # Load career data from the API
-                do @loadCareer
+                    culpabilite: master.culpabilite or 0 
+                    honnetete  : master.honnetete   or 100 
+                    karma      : master.karma       or 0 
+                # Scenes the user passed
+                @scenes = []
+
+                # Load career data from the API when the player enters the game
+                $rootScope.$watch =>
+                    @inGame
+                , (newValue, oldValue) =>
+                    if newValue and not oldValue
+                        do @loadCareer
+                , yes
+
                 return @
 
             pos: ()=> @chapter + "." + @scene
+
+            chapterProgression: ()=>
+                inter =_.intersection settings.mainScenes[@chapter], @scenes                
+                Math.round( Math.min(inter.length, 3)/3 * 100)
 
             newUser: ()=>
                # Reset identication tokens
@@ -59,15 +72,21 @@ angular.module("spin.service").factory("User", [
 
             updateProgression: (career)=>
                 # Do we start acting?
-                if career.reached_scene? and typeof(career.reached_scene) is String
+                if career.reached_scene? and typeof(career.reached_scene) is "string"                        
                     [@chapter, @scene] = career.reached_scene.split "."
-                    # Save indicators                        
-                    @indicators.karma  = career.context.karma
-                    @indicators.stress = career.context.stress
-                    @indicators.trust  = career.context.trust
-                    @indicators.ubm    = career.context.ubm
+                    # Saved passed scenes
+                    @scenes = career.scenes
+                    # Save indicators                     
+                    for own key, value of career.context                        
+                        @indicators[key]  = value
+
                     # Start to the first sequence
                     @sequence = 0
+
+                    # Check that the sequence's condition is OK
+                    if not do @isSequenceConditionOk
+                        # If not, go to the next sequence
+                        do @nextSequence
                 do @checkProgression
 
             checkProgression: => 
@@ -116,21 +135,29 @@ angular.module("spin.service").factory("User", [
                         .success( (data)=> @updateProgression(data) )
                         # Something wrong happends, restores the User model
                         .error( (data)=> do @newUser if @token? or @email? )
+                else if @email?
+                    $http.get("#{api.career}?email=#{@email}")
+                        # Update chapter, scene and sequence according
+                        # the last scene given by the career
+                        .success( (data)=> @updateProgression(data) )
+                        # The mail isn't associated to a career
+                        # We create a new one and associate the email
+                        .error (data) =>
+                            @createNewCareer yes
                 # Or create a new one
-                else                    
-                    # Get value using the token
-                    $http.post("#{api.career}", reached_scene: "1.1")
-                        # Save the token
-                        .success (data)=>                                   
-                            # Save the token
-                            @token = data.token
-                            # And call this function again
-                            do @loadCareer   
+                else
+                    do @createNewCareer
 
-            propagateChoice: (option)=>                                
-                for key, indicator of option.result[0] 
-                    @indicators[key] += parseInt(indicator)
-                do @updateLocalStorage
+            createNewCareer: (associate=no) =>
+                # Get value using the token
+                $http.post("#{api.career}", reached_scene: "1.1")
+                    # Save the token
+                    .success (data)=>
+                        # Save the token
+                        @token = data.token
+                        (do @associate) if associate
+                        # And call this function again
+                        do @loadCareer
 
             updateCareer: (choice)=>
                 return no unless @token
@@ -141,7 +168,8 @@ angular.module("spin.service").factory("User", [
                     # Get the current sequence to  update the indicators
                     sequence = Plot.sequence(chapterIdx, sceneIdx, @sequence)
                     # Propagate the choices only if this sequence has options
-                    @propagateChoice(sequence.options[choice.choice]) if sequence.options?
+                    if sequence.options?
+                        option = sequence.options[choice.choice]                    
                 else
                     state = reached_scene: @pos()
                 # Get value using the token
@@ -155,13 +183,37 @@ angular.module("spin.service").factory("User", [
                 if Plot.sequence(@chapter, @scene, @sequence + 1)?                
                     # Go simply to the next sequence
                     ++@sequence 
+                    # Retrieve the new sequence and check conditions
+                    sequence = Plot.sequence(@chapter, @scene, @sequence)
+                    if not @isSequenceConditionOk sequence
+                        sequence = do @nextSequence
                     # Return the new sequence
-                    Plot.sequence(@chapter, @scene, @sequence)
+                    sequence
                 # Go the next scene
                 else if scene and scene.next_scene?
+                    # Shouldn't we reset to first sequence here?
                     @goToScene scene.next_scene   
                     # Return the new sequence
                     Plot.sequence(@chapter, @scene, @sequence)
+
+            isSequenceConditionOk: (seq) =>
+                seq = seq || Plot.sequence @chapter, @scene, @sequence
+                if seq.condition
+                    for key, value of seq.condition
+                        if @indicators[key] isnt value
+                            return no
+                if (settings.sequence_skip.indexOf seq.type) >= 0
+                    return no
+                yes
+
+            associate: =>
+                return if (not @email?) or @email is ""
+                ($http
+                    url : "#{api.associate}?token=#{@token}"
+                    method : 'POST'
+                    data :
+                        email : @email
+                ).success (data) =>
 
             goToScene: (next_scene, shouldUpdateCareer=yes)=>
                 if typeof(next_scene) is typeof("")
@@ -182,11 +234,17 @@ angular.module("spin.service").factory("User", [
                 if @chapter isnt chapter or @scene isnt scene
                     # Update values
                     [@chapter, @scene, @sequence] = [chapter, scene, 0]
+
+                    # Check that the sequence's condition is OK
+                    if not do @isSequenceConditionOk
+                        # If not, go to the next sequence
+                        do @nextSequence
+
                     # Save the career
                     do @updateCareer if shouldUpdateCareer
                 else
                     # Next sequence exits?
                     return warn('Next sequence') unless Plot.sequence(chapter, scene, @sequence+1)?  
                     # Just go further
-                    @sequence++   
+                    do @nextSequence
 ])

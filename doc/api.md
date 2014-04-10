@@ -12,14 +12,26 @@ response:
 
 ```
 {
-    "context": {
-        "karma": 5,
-        "stress": 2,
-        "trust": 2,
-        "ubm": 10
+    "choices": {
+        "2.11": 1,
+        "2.12": 0
     },
-    "reached_scene": "2.2",
-    "token": "5334508f65d76011359246"
+    "context": {
+        "UBM": 0,
+        "culpabilite": 0,
+        "honnetete": 100,
+        "karma": 0,
+        "stress": 0,
+        "trust": 100,
+        "tweet": true,
+        "ubm": 0
+    },
+    "reached_scene": "2.14",
+    "scenes": [
+        "2.12",
+        "2.14"
+    ],
+    "token": "53458de7bedc8952803462"
 }
 ```
 
@@ -38,7 +50,7 @@ or   {"scene" : "2.1", "choice": 2}  // `choice` is the index of the selected op
 
 If token isn't given, it creates one and returns it. You should save it in order to update later the career.
 
-### PUT
+### POST
 
 	/api/career/associate_email?token=
 

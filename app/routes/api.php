@@ -48,12 +48,15 @@ $app->get("/api/career", function() use ($app) {
 	if (empty($career)) return wrong(array('error' => 'empty'));
 	$export = $career->export();
 	if (empty($export["scenes"])) return wrong(array('error' => 'undefined'));
-	$last_scene = json_decode($career->scenes, true);
-	$last_scene = end($last_scene);
+	$scenes     = json_decode($career->scenes, true);
+	$choices    = json_decode($career->choices, true);
+	$last_scene = end($scenes);
 	$response = array(
 		"token"         => $career->token,
 		"reached_scene" => $last_scene,
-		"context"       => \app\helpers\Game::computeContext($export)
+		"context"       => \app\helpers\Game::computeContext($export),
+		"scenes"        => $scenes,
+		"choices"       => $choices
 	);
 	return ok($response);
 });
@@ -94,8 +97,8 @@ $app->post('/api/career', function() use ($app) {
 		}
 	}
 	if (isset($data["scene"]) && isset($data["choice"])){
-		$choices                 = json_decode($career->choices, true);
-		$choices[$data["scene"]] = $data["choice"];
+		$choices                 = json_decode($career->choices);
+		$choices->$data["scene"] = $data["choice"];
 		$career->choices         = json_encode($choices);
 	}
 	// save
@@ -103,7 +106,7 @@ $app->post('/api/career', function() use ($app) {
 	return ok(array('status' => 'done', 'token' => $token));
 });
 
-$app->put('/api/career/associate_email', function() use ($app) {
+$app->post('/api/career/associate_email', function() use ($app) {
 	/**
 	* Associate an email to a token
 	* expected body : `{"email" : "example@wanadoo.fr"}`
@@ -118,6 +121,11 @@ $app->put('/api/career/associate_email', function() use ($app) {
 	if(isset($data->email) && filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
 		$career->email = $data->email;
 		R::store($career);
+		// send email
+		$app->view->appendData(array('token' => $token, 'host' => 'localhost:8080'));
+		$message = $app->view->fetch('emails/saved_and_send_token.twig');
+		$headers = "Content-Type: text/plain; charset=UTF-8";
+		mail($data->email, $app->config("email_saving_subject"), $message, $headers);
 		return ok(array('status' => 'done'));
 	}
 	return wrong(array('error' => 'email required'));

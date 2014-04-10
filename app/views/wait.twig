@@ -1,5 +1,13 @@
 {% extends 'layouts/master.twig' %}
 
+{% block meta %}
+    <meta charset="utf-8">
+    <meta name="description" content="Une fiction documentaire jouable au coeur de la communication de crise.">
+    <meta name="viewport" content="initial-scale=1, width=600">
+    <meta name="archimade_idsite" content="{{ ARCHIMADE_IDSITE }}">
+    <meta name="archimade_token"  content="page-attente">
+{% endblock %}
+
 {% block head %}
     {% if MODE == "development" %}
         <link rel="stylesheet" href="{{STATIC_URL}}dev/css/wait.css" />
@@ -26,7 +34,7 @@
             <p class="wait__intro__lead">
                 Jusqu'où suivrez-vous votre Spin Doctor ?
             </p>
-            <iframe frameborder="0" width="100%" height="250" src="http://www.dailymotion.com/embed/video/x1k8v0m?logo=0&info=0" allowfullscreen></iframe>
+            <iframe frameborder="0" width="100%" height="315" src="http://www.dailymotion.com/embed/video/x1k8v0m?logo=0&info=0" allowfullscreen></iframe>
             <p>
                 Une fiction documentaire jouable au coeur de la communication de crise.
             </p>

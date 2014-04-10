@@ -15,14 +15,14 @@ class SceneCtrl
         @scope.shouldShowSequence = (idx)=> 
             # Hide the sequence is the user in one of this states
             not @User.isStartingChapter() and 
-            not @User.isGameOver and
-            not @User.isGameDone and
+            not @User.isGameOver          and
+            not @User.isGameDone          and
             # And show the sequence if it is the last one with a next button
             [ @getLastDialogIdx(), @User.sequence ].indexOf(idx) > -1
         # True if the sequence's button should be shown
-        @scope.shouldShowNext = (sequence)=> settings.sequence_with_next.indexOf( sequence.type.toLowerCase() ) > -1
+        @scope.shouldShowNext = (sequence)=> settings.sequenceWithNext.indexOf( sequence.type.toLowerCase() ) > -1
         # True if the sequence is visible into the dialog box
-        @isDialog = @scope.isDialog = (sequence)=> settings.sequence_dialog.indexOf( sequence.type.toLowerCase() ) > -1
+        @isDialog = @scope.isDialog = (sequence)=> settings.sequenceDialog.indexOf( sequence.type.toLowerCase() ) > -1
         # True if the sequence is a choice
         @isChoice = @scope.isChoice = (sequence)=> sequence.type.toLowerCase() is "choice"                
         # True if the sequence is a voixoff
@@ -33,21 +33,40 @@ class SceneCtrl
         @isGameOver = @scope.isGameOver = (sequence) => sequence.type.toLowerCase() is "gameover"
         # True if the sequence is a notification
         @isNotification = @scope.isNotification = (sequence)=> sequence.type.toLowerCase() is "notification"  
+        # True if the sequence is a flashback
+        @isFeedback = @scope.isFeedback = (sequence)=> sequence.type.toLowerCase() is "feedback"  
         # True if the given sequence can be exited
-        @hasExit = @scope.hasExit = (sequence)=> @isPlayer(sequence) or @isDialog(sequence) or @isChoice(sequence)      
+        @hasExit = @scope.hasExit = (sequence)=> 
+            @isPlayer(sequence) or 
+            @isDialog(sequence) or 
+            @isChoice(sequence) or 
+            @isFeedback(sequence)
         # Just wraps the function from the user service
         @scope.goToNextSequence = =>
             sequence = do @User.nextSequence
-            @User.isGameOver = @isGameOver(sequence)
-
+            @User.isGameOver = @isGameOver(sequence) if sequence?
             # Should we skip this new sequence?
-            do @scope.goToNextSequence if sequence and settings.sequence_skip.indexOf( sequence.type.toLowerCase() ) > -1
+            do @scope.goToNextSequence if sequence and settings.sequenceSkip.indexOf( sequence.type.toLowerCase() ) > -1
+
         # Select an option within a sequence by wrappeing the User's method       
         @scope.selectOption = (option, idx)=>      
             # Save choice for this scene
             @User.updateCareer choice: idx, scene: @User.pos()
-            # Go to the next scene
-            @User.goToScene option.next_scene
+            # Some choice may have an outro feedback
+            if option.outro?
+                # Find the current scene
+                scene = @Plot.scene @User.chapter, @User.scene                
+                # Create a "virtual sequence" at the end of the scene
+                # (becasue every choice is at the end of a scene)
+                scene.sequence.push
+                    type      : "feedback"
+                    body      : option.outro
+                    next_scene: option.next_scene
+                # Then go the next sequence
+                @scope.goToNextSequence()
+            else
+                # Go to the next scene
+                @User.goToScene option.next_scene
         # Get the head of this character
         @scope.getHeadSrc = (sequence)=>            
             if sequence.character?                
@@ -59,6 +78,7 @@ class SceneCtrl
         @scope.getSceneBgs = =>
             # Cache bgs to avoid infinite digest iteration
             return @bgs if @bgs?
+            return [] if (not @scene? or not @scene.decor)
             # First background is the one from the scene      
             @bgs = [src: @scene.decor[0].background, sequence: -1]
             # Look into each scene's sequence to find the new background

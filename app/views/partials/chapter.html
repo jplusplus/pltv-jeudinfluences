@@ -6,9 +6,9 @@
     </div>
 
     <div class="chapter__track" ng-hide="user.isStartingChapter() || user.isGameOver">
-        <div class="chapter__track__id">Chapitre <b>[[chapter.id]]</b> / 4</div>
+        <div class="chapter__track__id">Chapitre <b>[[chapter.id]]</b> / 6</div>
         <div class="chapter__track__bullets">
-            <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 4" ng-class="{ active: i <= chapter.id - 1 }"></i>
+            <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 6" ng-class="{ active: i <= chapter.id - 1 }"></i>
         </div>
         <div class="chapter__track__progression">
             [[(chapter.id-1)/4*100]]<small>%</small>
@@ -20,18 +20,18 @@
     <ul class="chapter__cmd list-unstyled" ng-hide="user.isStartingChapter() || user.isGameOver">
 
         <li class="chapter__cmd__indicator">
-            <span class="chapter__cmd__indicator__label">Guilt</span>
-            <span class="chapter__cmd__indicator__value">[[user.indicators.guilt]]%</span>
+            <span class="chapter__cmd__indicator__label">Culpabilite</span>
+            <span class="chapter__cmd__indicator__value">[[user.indicators.culpabilite]]%</span>
             <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar" ng-style="{ width: user.indicators.guilt + '%' }">
+                <span class="progress-bar" ng-style="{ width: user.indicators.culpabilite + '%' }">
                 </span>                
             </span>
         </li>
         <li class="chapter__cmd__indicator">
-            <span class="chapter__cmd__indicator__label">Honesty</span>
-            <span class="chapter__cmd__indicator__value">[[user.indicators.honesty]]%</span>
+            <span class="chapter__cmd__indicator__label">Honnetete</span>
+            <span class="chapter__cmd__indicator__value">[[user.indicators.honnetete]]%</span>
             <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar" ng-style="{ width: user.indicators.honesty + '%' }">
+                <span class="progress-bar" ng-style="{ width: user.indicators.honnetete + '%' }">
                 </span>                
             </span>
         </li>

@@ -10,5 +10,4 @@ angular.module('spin.constant').constant 'constant.settings',
     sequence_dialog   : ["dialogue", "narrative"]
     sequence_skip     : ["new_background"]
     # Refreshing rate for timeouts
-    timeoutRefRate : 100
-    
+    timeoutRefRate  : 100

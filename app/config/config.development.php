@@ -17,11 +17,13 @@ $app->configureMode('development', function () use ($app) {
 		// for video, sounds and large files
 		'media_url'            => "http://jacob.jplusplus.org/~pirhoo/pltv-spin",
 		// after this date, switch to the game home page
-		'launching_date'       => "2015-01-01T10:00:00", 
+		'launching_date'       => "2010-01-01T10:00:00", 
 		// Mailchimp configuration
 		'mailchimp_id'         => '',
 		'mailchimp_datacenter' => '', # ex: us8
 		'mailchimp_apikey'     => '',
+		// Mail settings
+		'email_saving_subject' => "Jeu d'influences : Votre partie est sauveardée",
 		// Opening dates of each chapter
 		'opening_dates'        => array(
 			'1'                => "2014-03-19T16:00:00",
