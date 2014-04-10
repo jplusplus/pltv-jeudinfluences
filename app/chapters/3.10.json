@@ -9,6 +9,7 @@
     ],
     "sequence": [
         {
+            "result": {"ubm":32, "stress":2},
             "type": "video",
             "body": "/medias/chap3/video/video-ch3-scene3.10.mov"
         }

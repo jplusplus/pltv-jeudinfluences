@@ -35,9 +35,9 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "karma": 2,
+                            "stress": -4,
+                            "ubm": 4,
                             "trust": 0,
                             "itw_mika_beton": true
                         }
@@ -49,9 +49,10 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "karma": -2,
+                            "stress": 2,
+                            "ubm": -4,
+                            "honesty": -2,
                             "trust": 0
                         }
                     ]
@@ -70,9 +71,9 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "karma": 2,
+                            "stress": -4,
+                            "ubm": 4,
                             "trust": 0,
                             "itw_mika_beton": true
                         }
@@ -84,9 +85,10 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "karma": -2,
+                            "stress": 2,
+                            "ubm": -4,
+                            "honesty": -2,
                             "trust": 0
                         }
                     ]

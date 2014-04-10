@@ -9,6 +9,7 @@
     ],
     "sequence": [
         {
+            "result": {"guilt": 0,"honesty": 100,"stress":2},
             "type": "dialogue",
             "character": "Louis",
             "header": "Mercredi 23 mai, 21h57.",
@@ -37,7 +38,7 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
+                            "stress": 1,
                             "ubm": 0
                         }
                     ]

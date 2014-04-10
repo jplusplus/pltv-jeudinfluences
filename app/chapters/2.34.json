@@ -18,6 +18,7 @@
             "body": "J'aimerais que l'on parle aussi de l'entreprise, de sa stabilité. C'est important que l'on sente que le geste de Mika ne nous déstabilise pas."
         },
         {
+            "result": {"ubm": -2},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,

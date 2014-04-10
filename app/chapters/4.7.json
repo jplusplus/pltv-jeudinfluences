@@ -25,8 +25,8 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": 2,
+                            "stress": 4,
                             "ubm": 0,
                             "trust": 0
                         }
@@ -38,9 +38,10 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": -2,
+                            "stress": -4,
                             "ubm": 0,
+                            "honesty": -2,
                             "trust": 0
                         }
                     ]

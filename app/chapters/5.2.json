@@ -34,7 +34,7 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0
+                            "trust": 2
                         }
                     ]
                 },
@@ -43,10 +43,10 @@
                     "next_scene": "5.3",
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": 1,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0,
+                            "trust": -16,
                             "accepter_itw": true
                         }
                     ]

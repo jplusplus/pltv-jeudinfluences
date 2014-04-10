@@ -43,6 +43,7 @@
             "transition": null
         },
         {
+           "result": {"trust": 100},
             "type": "dialogue",
             "character": "Nadia",
             "header": null,
@@ -60,7 +61,7 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
+                            "stress": 4,
                             "ubm": 0
                         }
                     ]
@@ -71,7 +72,7 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
+                            "stress": 1,
                             "ubm": 0
                         }
                     ]

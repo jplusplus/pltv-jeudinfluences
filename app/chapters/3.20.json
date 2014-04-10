@@ -27,9 +27,9 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
-                            "trust": 0
+                            "stress": 2,
+                            "ubm": -4,
+                            "trust": 4
                         }
                     ]
                 },
@@ -42,7 +42,7 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0
+                            "trust": -8
                         }
                     ]
                 }

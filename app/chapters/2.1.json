@@ -34,8 +34,8 @@
                     "next_scene": "2.3",
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": 1,
+                            "stress": 1,
                             "ubm": 0,
                             "trust": 0
                         }

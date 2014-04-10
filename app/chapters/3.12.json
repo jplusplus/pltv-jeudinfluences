@@ -16,17 +16,17 @@
         },
         {
             "type" : "choice",
-            "body": "Ne pas utiliser le document ?",
+            "body": "Utiliser le document ?",
             "delay" : null,
             "default_option" : null,
             "options": [
                 {
-                    "header": "Oui",
+                    "header": "Non",
                     "next_scene": "3.13",
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": 2,
                             "stress": 0,
                             "ubm": 0,
                             "trust": 0
@@ -34,14 +34,15 @@
                     ]
                 },
                 {
-                    "header": "Non",
+                    "header": "Oui",
                     "next_scene": "3.14",
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": -1,
                             "stress": 0,
                             "ubm": 0,
+                            "honesty": -4,
                             "trust": 0
                         }
                     ]

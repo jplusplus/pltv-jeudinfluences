@@ -35,9 +35,10 @@
                     "next_scene": "2.13",
                     "result": [
                         {
-                            "karma": 0,
+                            "honesty": -2,
+                            "karma": -1,
                             "stress": 0,
-                            "ubm": 0,
+                            "ubm": 8,
                             "trust": 0,
                             "tweet": true
                         }
@@ -51,7 +52,7 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0
+                            "trust": -25
                         }
                     ]
                 }

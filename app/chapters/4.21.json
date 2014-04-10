@@ -36,6 +36,7 @@
             "body": "/medias/chap4/illustrations/illustr-ch4-11.jpg"
         },
         {
+            "result": {"ubm": 4},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
@@ -90,7 +91,7 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
+                            "stress": 8,
                             "ubm": 0,
                             "trust": 0
                         }

@@ -27,6 +27,7 @@
             "body": "Tu sais que je pourrai t'épauler. Tu me connais, je tiendrai le choc. Tu pourras t'appuyer sur moi. Y compris financièrement... Mais j'ai besoin de toi.\n\nFais-le pour Mika."
         },
         {
+            "result": {"karma": -1},
             "type": "dialogue",
             "character": "Nadia",
             "header": "En une seconde son regard à changé.",
