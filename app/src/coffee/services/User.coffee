@@ -3,11 +3,12 @@ angular.module("spin.service").factory("User", [
     '$timeout'
     'constant.api'
     'constant.settings'
+    'UserIndicators'
     'Plot'
     'localStorageService'
     '$location'
     '$rootScope'
-    ($http, $timeout, api, settings, Plot, localStorageService, $location, $rootScope)->
+    ($http, $timeout, api, settings, UserIndicators, Plot, localStorageService, $location, $rootScope)->
         new class User
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
@@ -15,7 +16,6 @@ angular.module("spin.service").factory("User", [
             constructor: ->
                 # This user is saved into local storage
                 master = localStorageService.get("user") or {}
-                indicators_settings = settings.user_indicators
                 # False until the player starts the game
                 @inGame     = no
                 @isGameOver = no
@@ -33,9 +33,9 @@ angular.module("spin.service").factory("User", [
                 @sequence = master.sequence or 0
                 @indicators =
                     # Visible indicators
-                    stress : master.stress  or indicators_settings.stress.start
-                    trust  : master.trust   or indicators_settings.trust.start
-                    ubm    : master.ubm     or indicators_settings.ubm.start
+                    stress : master.stress  or UserIndicators.stress.start
+                    trust  : master.trust   or UserIndicators.trust.start
+                    ubm    : master.ubm     or UserIndicators.ubm.start
                     # Hidden indicators
                     culpabilite: master.culpabilite or 0 
                     honnetete  : master.honnetete   or 100 
@@ -96,9 +96,9 @@ angular.module("spin.service").factory("User", [
                 # instruction is set we loop (I dont like break) 
                 while (is_gameover is no) and (breakme is no)
                     for key, value of @indicators
-                        indicator_settings = settings.user_indicators[key]
-                        if indicator_settings
-                            is_gameover = indicator_settings.isgameover(value)
+                        indicator_rule = UserIndicators[key]
+                        if indicator_rule
+                            is_gameover = indicator_rule.isGameOver(value)
                     breakme = yes
 
                 @isGameOver = is_gameover
