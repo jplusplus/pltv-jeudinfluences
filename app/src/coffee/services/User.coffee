@@ -132,7 +132,7 @@ angular.module("spin.service").factory("User", [
                     $http.get("#{api.career}?token=#{@token}")
                         # Update chapter, scene and sequence according 
                         # the last scene given by the career
-                        .success( (data)=> @updateProgression(data) )
+                        .success(@updateProgression)
                         # Something wrong happends, restores the User model
                         .error( (data)=> do @newUser if @token? or @email? )
                 else if @email?
@@ -173,9 +173,7 @@ angular.module("spin.service").factory("User", [
                 else
                     state = reached_scene: @pos()
                 # Get value using the token
-                $http.post "#{api.career}?token=#{@token}", state
-                # And load the refresfed data
-                do @loadCareer
+                $http.post("#{api.career}?token=#{@token}", state).success @updateProgression                
 
             nextSequence: =>   
                 scene = Plot.scene(@chapter, @scene)

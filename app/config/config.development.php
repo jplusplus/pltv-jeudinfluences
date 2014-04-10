@@ -11,11 +11,11 @@ $app->configureMode('development', function () use ($app) {
 		'log.enabled'          => true,
 		'debug'                => true,
 		'cache'                => false,
-		'archimade_idsite'     => 2439,
+		'archimade_idsite'     => NULL,
 		// assets
 		'static_url'           => "/",
 		// for video, sounds and large files
-		'media_url'            => "http://jacob.jplusplus.org/~pirhoo/pltv-spin",
+		'media_url'            => "http://pirhoo.dev/J++/Projects/pltv-spin-media",
 		// after this date, switch to the game home page
 		'launching_date'       => "2010-01-01T10:00:00", 
 		// Mailchimp configuration
