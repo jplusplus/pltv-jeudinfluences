@@ -100,7 +100,7 @@ $app->post('/api/career', function() use ($app) {
 		$options    = \app\helpers\Game::getOptionsFromScene($scene);
 		// Get the next_scene from the selected option.
 		// We save it into data to save the scene reached
-		$data["reached_scene"] = $options[$data["choice"]]["next_scene"];		;
+		$data["reached_scene"] = $options[$data["choice"]]["next_scene"];
 	}
 
 	// Recording progression...
