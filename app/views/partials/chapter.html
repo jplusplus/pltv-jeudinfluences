@@ -6,12 +6,12 @@
     </div>
 
     <div class="chapter__track" ng-hide="user.isStartingChapter() || user.isGameOver">
-        <div class="chapter__track__id">Chapitre <b>[[chapter.id]]</b> / 4</div>
+        <div class="chapter__track__id">Chapitre <b>[[chapter.id]]</b> / 6</div>
         <div class="chapter__track__bullets">
-            <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 4" ng-class="{ active: i <= chapter.id - 1 }"></i>
+            <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 6" ng-class="{ active: i <= chapter.id - 1 }"></i>
         </div>
         <div class="chapter__track__progression">
-            [[user.chapterProgression()]]<small>%</small>
+            [[(chapter.id-1)/4*100]]<small>%</small>
         </div>
         <h2 class="chapter__track__title">[[chapter.title]]</h2>  
     </div>
