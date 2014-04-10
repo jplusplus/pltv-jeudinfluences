@@ -11,7 +11,7 @@
             <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 4" ng-class="{ active: i <= chapter.id - 1 }"></i>
         </div>
         <div class="chapter__track__progression">
-            [[(chapter.id-1)/4*100]]<small>%</small>
+            [[user.chapterProgression()]]<small>%</small>
         </div>
         <h2 class="chapter__track__title">[[chapter.title]]</h2>  
     </div>

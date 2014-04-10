@@ -40,6 +40,8 @@ angular.module("spin.service").factory("User", [
                     culpabilite: master.culpabilite or 0 
                     honnetete  : master.honnetete   or 100 
                     karma      : master.karma       or 0 
+                # Scenes the user passed
+                @scenes = []
 
                 # Load career data from the API when the player enters the game
                 $rootScope.$watch =>
@@ -52,6 +54,10 @@ angular.module("spin.service").factory("User", [
                 return @
 
             pos: ()=> @chapter + "." + @scene
+
+            chapterProgression: ()=>
+                inter =_.intersection settings.mainScenes[@chapter], @scenes                
+                Math.round( Math.min(inter.length, 3)/3 * 100)
 
             newUser: ()=>
                # Reset identication tokens
@@ -66,8 +72,10 @@ angular.module("spin.service").factory("User", [
 
             updateProgression: (career)=>
                 # Do we start acting?
-                if career.reached_scene? and typeof(career.reached_scene) is "string"
+                if career.reached_scene? and typeof(career.reached_scene) is "string"                        
                     [@chapter, @scene] = career.reached_scene.split "."
+                    # Saved passed scenes
+                    @scenes = career.scenes
                     # Save indicators                     
                     for own key, value of career.context                        
                         @indicators[key]  = value
@@ -144,7 +152,7 @@ angular.module("spin.service").factory("User", [
                         (do @associate) if associate
                         # And call this function again
                         do @loadCareer
-                        
+
             updateCareer: (choice)=>
                 return no unless @token
                 # Add reached scene parameter
