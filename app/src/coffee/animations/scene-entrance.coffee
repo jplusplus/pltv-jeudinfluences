@@ -5,9 +5,9 @@ angular.module("spin.animation").animation '.scene-entrance-animation', ["$timeo
             element.animate opacity: 1, settings.sceneEntrance, done
         else
             done()
-        return
+        return        
     addClass: (element, className, done) ->    
-        if className is "ng-hide"     
+        if className is "ng-hide"    
             element.stop().css("opacity", 1)
             element.animate opacity: 0, settings.sceneEntrance, done
         else
