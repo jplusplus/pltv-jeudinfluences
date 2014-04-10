@@ -50,7 +50,7 @@ or   {"scene" : "2.1", "choice": 2}  // `choice` is the index of the selected op
 
 If token isn't given, it creates one and returns it. You should save it in order to update later the career.
 
-### PUT
+### POST
 
 	/api/career/associate_email?token=
 
