@@ -202,7 +202,7 @@ angular.module("spin.service").factory("User", [
                 return if (not @email?) or @email is ""
                 ($http
                     url : "#{api.associate}?token=#{@token}"
-                    method : 'PUT'
+                    method : 'POST'
                     data :
                         email : @email
                 ).success (data) =>
