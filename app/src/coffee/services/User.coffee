@@ -185,7 +185,6 @@ angular.module("spin.service").factory("User", [
                     data :
                         email : @email
                 ).success (data) =>
-                    console.debug data
 
             goToScene: (next_scene, shouldUpdateCareer=yes)=>
                 if typeof(next_scene) is typeof("")
