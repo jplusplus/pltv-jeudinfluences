@@ -43,7 +43,7 @@
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": 0,
+                            "ubm": 2,
                             "trust": 0
                         }
                     ]
@@ -56,7 +56,9 @@
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": 0,
+                            "ubm": -1,
+                            "guilt": 3,
+                            "honesty": -4,
                             "trust": 0
                         }
                     ]

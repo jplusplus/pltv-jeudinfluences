@@ -70,10 +70,12 @@
                     "next_scene": "3.3",
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": -1,
+                            "stress": 2,
                             "ubm": 0,
-                            "trust": 0,
+                            "trust": 2,
+                            "guilt": 3,
+                            "honesty": -2,
                             "stalk_ouvrier": true
                         }
                     ]
@@ -83,10 +85,10 @@
                     "next_scene": "3.2",
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": 1,
+                            "stress": -2,
                             "ubm": 0,
-                            "trust": 0
+                            "trust": -2
                         }
                     ]
                 }

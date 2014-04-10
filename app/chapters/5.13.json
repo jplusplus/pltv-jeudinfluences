@@ -27,9 +27,9 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "karma": 2,
+                            "stress": -2,
+                            "ubm": 2,
                             "trust": 0,
                             "itw_connaissance_pollution": true
                         }
@@ -41,9 +41,10 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "karma": -1,
+                            "stress": 2,
+                            "ubm": -1,
+                            "honesty": -2,
                             "trust": 0
                         }
                     ]
@@ -63,9 +64,9 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "karma": 2,
+                            "stress": -2,
+                            "ubm": 2,
                             "trust": 0,
                             "itw_connaissance_pollution": true
                         }
@@ -77,9 +78,10 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "karma": -1,
+                            "stress": 2,
+                            "ubm": -1,
+                            "honesty": -2,
                             "trust": 0
                         }
                     ]

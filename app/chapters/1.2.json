@@ -12,7 +12,7 @@
             "type": "voixoff",
             "character": "Siri",
             "header": null,
-            "body": "/medias/chap1/voix-off/siri-ch1-01.mp3"
+            "body": "/medias/chap1/voix-off/siri-ch1-02.mp3"
         },
         {
             "type": "choice",
@@ -26,7 +26,7 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
+                            "stress": 2,
                             "ubm": 0,
                             "trust": 0
                         }

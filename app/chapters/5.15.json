@@ -26,6 +26,7 @@
             "body": "Vous vous foutez de moi Louis ?"
         },
         {
+            "result": {"trust": -100},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,

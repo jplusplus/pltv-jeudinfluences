@@ -9,6 +9,7 @@
     ],
     "sequence": [
         {
+            "result": {"ubm": 16, "stress":4},
             "condition": {"circulaire":true},
             "type": "dialogue",
             "character" : "Patrick Luaud",
@@ -37,6 +38,7 @@
             "body": "En un message, vous sapez tout le travail que l'on a fait jusqu'ici et vous passez pour celui qui a quelque chose à cacher.\n\nBref. Essayons de tourner ça à notre avantage."
         },
         {
+            "result": {"ubm": 16, "stress":4},
             "condition": {"circulaire":false},
             "type": "dialogue",
             "character" : "Patrick Luaud",
@@ -86,10 +88,11 @@
                     "next_scene": "4.6",
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": -2,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0,
+                            "trust": 8,
+                            "guilt": 3,
                             "conf_obseques": true
                         }
                     ]
@@ -99,10 +102,10 @@
                     "next_scene": "4.2",
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": 2,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0
+                            "trust": -8
                         }
                     ]
                 }

@@ -23,6 +23,7 @@
             "body": "/medias/chap2/illustrations/illustr-ch2-18.jpg"
         },
         {
+            "result": {"ubm": -4},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,

@@ -55,7 +55,8 @@
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": 0,
+                            "ubm": -6,
+                            "honesty": -2,
                             "trust": 0
                         }
                     ]
@@ -67,8 +68,8 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "stress": -2,
+                            "ubm": -2,
                             "trust": 0
                         }
                     ]
@@ -90,7 +91,8 @@
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": 0,
+                            "ubm": -6,
+                            "honesty": -2,
                             "trust": 0
                         }
                     ]
@@ -102,8 +104,8 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "stress": -2,
+                            "ubm": -2,
                             "trust": 0
                         }
                     ]

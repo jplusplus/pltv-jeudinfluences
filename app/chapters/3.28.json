@@ -69,10 +69,11 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "karma": -2,
+                            "stress": -4,
+                            "ubm": -4,
                             "trust": 0,
+                            "honesty": -2,
                             "shoot_ouvrier": true
                         }
                     ]
@@ -83,8 +84,8 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": 1,
+                            "stress": 2,
                             "ubm": 0,
                             "trust": 0,
                             "enquete_interne": true

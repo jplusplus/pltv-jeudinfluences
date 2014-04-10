@@ -7,17 +7,22 @@
     right:0;
     z-index:@scene-zindex;
 
-    .fade(@chapter-starting-duration-2);
+    &.ng-hide-add, &.ng-hide-remove, &.ng-animate {
+        /* this needs to be here to make it visible during the animation
+         since the .ng-hide class is already on the element rendering
+         it as hidden. */
+        display:block!important;
+    }
 
     &__bg {
         .covering();
-        .fade(@chapter-starting-duration-2);
+        .fade > .repeat(@chapter-starting-duration-2);
         z-index:-1;   
     }
     
     &__sequence {    
 
-        .fade(@chapter-starting-duration-2);
+        .fade > .show(@chapter-starting-duration-2);
                     
         // Choice box, a the middle of the screen
         &--choice {

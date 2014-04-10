@@ -38,13 +38,13 @@
             "default_option": 2,
             "options": [
                 {
-                    "header": "Oui",
+                    "header": "Si",
                     "next_scene": "2.33",
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": 2,
+                            "stress": 2,
                             "ubm": 0,
                             "trust": 0
                         }
@@ -57,8 +57,10 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
+                            "stress": -4,
                             "ubm": 0,
+                            "guilt": 3,
+                            "honesty": -4,
                             "trust": 0
                         }
                     ]

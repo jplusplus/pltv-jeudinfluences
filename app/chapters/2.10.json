@@ -9,6 +9,7 @@
     ],
     "sequence": [
         {
+            "result": {"stress": -2},
             "type": "voixoff",
             "character": "Louis",
             "body": "/medias/chap2/voix-off/louis-ch2-04.mp3"

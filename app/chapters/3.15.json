@@ -105,9 +105,10 @@
                     "outro": "Nadia s'en souviendra...",
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": -2,
+                            "stress": -2,
                             "ubm": 0,
+                            "guilt": 3,
                             "trust": 0
                         }
                     ]
@@ -118,8 +119,8 @@
                     "outro": "Nadia s'en souviendra...",
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": 2,
+                            "stress": 2,
                             "ubm": 0,
                             "trust": 0,
                             "backing_nadia": true

@@ -23,8 +23,8 @@ angular.module("spin.service").factory("User", [
                 # User authentication
                 @token    = $location.search().token or master.token or null
                 @email    = master.email or null
-                # User progression
-                @career   = master.career or []            
+                # Scenes the user passed
+                @scenes   = master.scenes or []       
                 # Sound control
                 @volume   = if isNaN(master.volume) then 0.5 else master.volume         
                 # Position
@@ -33,16 +33,13 @@ angular.module("spin.service").factory("User", [
                 @sequence = master.sequence or 0
                 @indicators =
                     # Visible indicators
-                    stress : master.stress  or UserIndicators.stress.meta.start
-                    trust  : master.trust   or UserIndicators.trust.meta.start
-                    ubm    : master.ubm     or UserIndicators.ubm.meta.start
+                    stress     : master.indicators.stress or UserIndicators.stress.meta.start
+                    trust      : master.indicators.trust  or UserIndicators.trust.meta.start
+                    ubm        : master.indicators.ubm    or UserIndicators.ubm.meta.start
                     # Hidden indicators
-                    culpabilite: master.culpabilite or 0 
-                    honnetete  : master.honnetete   or 100 
-                    karma      : master.karma       or 0 
-                # Scenes the user passed
-                @scenes = []
-
+                    culpabilite: master.indicators.culpabilite or 0 
+                    honnetete  : master.indicators.honnetete   or 100 
+                    karma      : master.indicators.karma       or 0 
                 # Load career data from the API when the player enters the game
                 $rootScope.$watch =>
                     @inGame
@@ -105,8 +102,8 @@ angular.module("spin.service").factory("User", [
                 is_gameover
 
             isStartingChapter: =>                 
-                # Chapter is considered as starting during {settings.chapterStarting} millisecond
-                Date.now() - @lastChapterChanging < settings.chapterStarting
+                # Chapter is considered as starting during {settings.chapterEntrance} millisecond
+                Date.now() - @lastChapterChanging < settings.chapterEntrance
 
             saveChapterChanging: (chapter)=>      
                 # Stop here until a chapter id is set
@@ -117,7 +114,7 @@ angular.module("spin.service").factory("User", [
                 # Start the tracking loop
                 do @chapterTrackingLoop
             
-            chapterTrackingLoop: =>           
+            chapterTrackingLoop: =>      
                 if not @isStartingChapter() and @trackChapterChanging?
                     # Stop until chapter is effectively not starting
                     $timeout.cancel(@trackChapterChanging) 
@@ -134,19 +131,17 @@ angular.module("spin.service").factory("User", [
                         # the last scene given by the career
                         .success(@updateProgression)
                         # Something wrong happends, restores the User model
-                        .error( (data)=> do @newUser if @token? or @email? )
+                        .error (data)=> do @newUser if @token? or @email?
                 else if @email?
                     $http.get("#{api.career}?email=#{@email}")
                         # Update chapter, scene and sequence according
                         # the last scene given by the career
-                        .success( (data)=> @updateProgression(data) )
+                        .success(@updateProgression)
                         # The mail isn't associated to a career
                         # We create a new one and associate the email
-                        .error (data) =>
-                            @createNewCareer yes
+                        .error (data) => @createNewCareer yes
                 # Or create a new one
-                else
-                    do @createNewCareer
+                else do @createNewCareer
 
             createNewCareer: (associate=no) =>
                 # Get value using the token
@@ -195,7 +190,7 @@ angular.module("spin.service").factory("User", [
                     Plot.sequence(@chapter, @scene, @sequence)
 
             isSequenceConditionOk: (seq) =>
-                seq = seq || Plot.sequence @chapter, @scene, @sequence
+                seq = seq or Plot.sequence @chapter, @scene, @sequence
                 if seq.condition
                     for key, value of seq.condition
                         if @indicators[key] isnt value

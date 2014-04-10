@@ -54,10 +54,12 @@
                     "outro": "Vous venez de modifer le passé...",
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": -2,
+                            "stress": -2,
                             "ubm": 0,
-                            "trust": 0,
+                            "trust": 8,
+                            "guilt": 6,
+                            "honesty": -4,
                             "trashing_nadia": true
                         }
                     ]
@@ -68,10 +70,10 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": 2,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0
+                            "trust": -4
                         }
                     ]
                 }

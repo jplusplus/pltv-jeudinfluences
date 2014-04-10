@@ -47,7 +47,8 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0
+                            "honesty": -1,
+                            "trust": 4
                         }
                     ]
                 },
@@ -60,7 +61,7 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0
+                            "trust": -4
                         }
                     ]
                 }

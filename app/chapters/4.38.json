@@ -13,6 +13,7 @@
             "body": "Mardi 29 mai, 23h04."
         },
         {
+            "result": {"stress": 2},
             "type": "notification",
             "header": "Vous avez reçu nouveau message de Patrick Luaud :",
             "body": "À propos de Nadia, il va falloir trouver un moyen de la neutraliser. Trop de risques. On en reparle."

@@ -52,8 +52,8 @@
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": 0,
-                            "trust": 0,
+                            "ubm": 4,
+                            "trust": -8,
                             "plainte_bloggers": true
                         }
                     ]
@@ -66,8 +66,8 @@
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": 0,
-                            "trust": 0,
+                            "ubm": -2,
+                            "trust": 4,
                             "hesitation_plainte_bloggers": true
                         }
                     ]

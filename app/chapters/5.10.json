@@ -47,8 +47,9 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
+                            "stress": 2,
                             "ubm": 0,
+                            "honesty": -1,
                             "trust": 0
                         }
                     ]

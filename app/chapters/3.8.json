@@ -9,6 +9,7 @@
     ],
     "sequence": [
         {
+            "result": {"stress":1},
             "type": "voixoff",
             "character": "Louis",
             "body": "/medias/chap3/voixoff/louis-ch3-06.mp3"
