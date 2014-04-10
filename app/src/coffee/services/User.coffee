@@ -66,13 +66,11 @@ angular.module("spin.service").factory("User", [
 
             updateProgression: (career)=>
                 # Do we start acting?
-                if career.reached_scene? and typeof(career.reached_scene) is String
+                if career.reached_scene? and typeof(career.reached_scene) is "string"
                     [@chapter, @scene] = career.reached_scene.split "."
-                    # Save indicators                        
-                    @indicators.karma  = career.context.karma
-                    @indicators.stress = career.context.stress
-                    @indicators.trust  = career.context.trust
-                    @indicators.ubm    = career.context.ubm
+                    # Save indicators                     
+                    for own key, value of career.context                        
+                        @indicators[key]  = value
                     # Start to the first sequence
                     @sequence = 0
                 do @checkProgression
@@ -164,7 +162,7 @@ angular.module("spin.service").factory("User", [
                     if sequence.options?
                         option = sequence.options[choice.choice]
                         # Same choice variables
-                        @propagateChoice(option)                        
+                        # @propagateChoice(option)                        
                 else
                     state = reached_scene: @pos()
                 # Get value using the token
