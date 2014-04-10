@@ -102,8 +102,8 @@ angular.module("spin.service").factory("User", [
                 is_gameover
 
             isStartingChapter: =>                 
-                # Chapter is considered as starting during {settings.chapterStarting} millisecond
-                Date.now() - @lastChapterChanging < settings.chapterStarting
+                # Chapter is considered as starting during {settings.chapterEntrance} millisecond
+                Date.now() - @lastChapterChanging < settings.chapterEntrance
 
             saveChapterChanging: (chapter)=>      
                 # Stop here until a chapter id is set
