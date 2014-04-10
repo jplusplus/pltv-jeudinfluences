@@ -11,7 +11,7 @@ $app->configureMode('development', function () use ($app) {
 		'log.enabled'          => true,
 		'debug'                => true,
 		'cache'                => false,
-		'archimade_idsite'     => NULL,
+		'archimade_idsite'     => 2439,
 		// assets
 		'static_url'           => "/",
 		// for video, sounds and large files
