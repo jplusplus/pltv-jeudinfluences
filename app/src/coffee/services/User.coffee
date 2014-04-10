@@ -37,9 +37,11 @@ angular.module("spin.service").factory("User", [
                     trust  : master.trust   or indicators_settings.trust.start
                     ubm    : master.ubm     or indicators_settings.ubm.start
                     # Hidden indicators
-                    guilt  : master.guilt   or 0 
-                    honesty: master.honesty or 100 
-                    karma  : master.karma   or 0 
+                    culpabilite: master.culpabilite or 0 
+                    honnetete  : master.honnetete   or 100 
+                    karma      : master.karma       or 0 
+                # Scenes the user passed
+                @scenes = []
 
                 # Load career data from the API when the player enters the game
                 $rootScope.$watch =>
@@ -52,6 +54,10 @@ angular.module("spin.service").factory("User", [
                 return @
 
             pos: ()=> @chapter + "." + @scene
+
+            chapterProgression: ()=>
+                inter =_.intersection settings.mainScenes[@chapter], @scenes                
+                Math.round( Math.min(inter.length, 3)/3 * 100)
 
             newUser: ()=>
                # Reset identication tokens
@@ -66,15 +72,21 @@ angular.module("spin.service").factory("User", [
 
             updateProgression: (career)=>
                 # Do we start acting?
-                if career.reached_scene? and typeof(career.reached_scene) is String
+                if career.reached_scene? and typeof(career.reached_scene) is "string"                        
                     [@chapter, @scene] = career.reached_scene.split "."
-                    # Save indicators                        
-                    @indicators.karma  = career.context.karma
-                    @indicators.stress = career.context.stress
-                    @indicators.trust  = career.context.trust
-                    @indicators.ubm    = career.context.ubm
+                    # Saved passed scenes
+                    @scenes = career.scenes
+                    # Save indicators                     
+                    for own key, value of career.context                        
+                        @indicators[key]  = value
+
                     # Start to the first sequence
                     @sequence = 0
+
+                    # Check that the sequence's condition is OK
+                    if not do @isSequenceConditionOk
+                        # If not, go to the next sequence
+                        do @nextSequence
                 do @checkProgression
 
             checkProgression: => 
@@ -147,11 +159,6 @@ angular.module("spin.service").factory("User", [
                         # And call this function again
                         do @loadCareer
 
-            propagateChoice: (option)=>                                           
-                for key, indicator of option.result[0] 
-                    @indicators[key] += parseInt(indicator)
-                do @updateLocalStorage
-
             updateCareer: (choice)=>
                 return no unless @token
                 # Add reached scene parameter
@@ -162,9 +169,7 @@ angular.module("spin.service").factory("User", [
                     sequence = Plot.sequence(chapterIdx, sceneIdx, @sequence)
                     # Propagate the choices only if this sequence has options
                     if sequence.options?
-                        option = sequence.options[choice.choice]
-                        # Same choice variables
-                        @propagateChoice(option)                        
+                        option = sequence.options[choice.choice]                    
                 else
                     state = reached_scene: @pos()
                 # Get value using the token
@@ -178,23 +183,37 @@ angular.module("spin.service").factory("User", [
                 if Plot.sequence(@chapter, @scene, @sequence + 1)?                
                     # Go simply to the next sequence
                     ++@sequence 
+                    # Retrieve the new sequence and check conditions
+                    sequence = Plot.sequence(@chapter, @scene, @sequence)
+                    if not @isSequenceConditionOk sequence
+                        sequence = do @nextSequence
                     # Return the new sequence
-                    Plot.sequence(@chapter, @scene, @sequence)
+                    sequence
                 # Go the next scene
                 else if scene and scene.next_scene?
+                    # Shouldn't we reset to first sequence here?
                     @goToScene scene.next_scene   
                     # Return the new sequence
                     Plot.sequence(@chapter, @scene, @sequence)
+
+            isSequenceConditionOk: (seq) =>
+                seq = seq || Plot.sequence @chapter, @scene, @sequence
+                if seq.condition
+                    for key, value of seq.condition
+                        if @indicators[key] isnt value
+                            return no
+                if (settings.sequence_skip.indexOf seq.type) >= 0
+                    return no
+                yes
 
             associate: =>
                 return if (not @email?) or @email is ""
                 ($http
                     url : "#{api.associate}?token=#{@token}"
-                    method : 'PUT'
+                    method : 'POST'
                     data :
                         email : @email
                 ).success (data) =>
-                    console.debug data
 
             goToScene: (next_scene, shouldUpdateCareer=yes)=>
                 if typeof(next_scene) is typeof("")
@@ -215,11 +234,17 @@ angular.module("spin.service").factory("User", [
                 if @chapter isnt chapter or @scene isnt scene
                     # Update values
                     [@chapter, @scene, @sequence] = [chapter, scene, 0]
+
+                    # Check that the sequence's condition is OK
+                    if not do @isSequenceConditionOk
+                        # If not, go to the next sequence
+                        do @nextSequence
+
                     # Save the career
                     do @updateCareer if shouldUpdateCareer
                 else
                     # Next sequence exits?
                     return warn('Next sequence') unless Plot.sequence(chapter, scene, @sequence+1)?  
                     # Just go further
-                    @sequence++   
+                    do @nextSequence
 ])

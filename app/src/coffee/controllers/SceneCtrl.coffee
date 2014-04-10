@@ -20,9 +20,9 @@ class SceneCtrl
             # And show the sequence if it is the last one with a next button
             [ @getLastDialogIdx(), @User.sequence ].indexOf(idx) > -1
         # True if the sequence's button should be shown
-        @scope.shouldShowNext = (sequence)=> settings.sequence_with_next.indexOf( sequence.type.toLowerCase() ) > -1
+        @scope.shouldShowNext = (sequence)=> settings.sequenceWithNext.indexOf( sequence.type.toLowerCase() ) > -1
         # True if the sequence is visible into the dialog box
-        @isDialog = @scope.isDialog = (sequence)=> settings.sequence_dialog.indexOf( sequence.type.toLowerCase() ) > -1
+        @isDialog = @scope.isDialog = (sequence)=> settings.sequenceDialog.indexOf( sequence.type.toLowerCase() ) > -1
         # True if the sequence is a choice
         @isChoice = @scope.isChoice = (sequence)=> sequence.type.toLowerCase() is "choice"                
         # True if the sequence is a voixoff
@@ -46,7 +46,8 @@ class SceneCtrl
             sequence = do @User.nextSequence
             @User.isGameOver = @isGameOver(sequence) if sequence?
             # Should we skip this new sequence?
-            do @scope.goToNextSequence if sequence and settings.sequence_skip.indexOf( sequence.type.toLowerCase() ) > -1
+            do @scope.goToNextSequence if sequence and settings.sequenceSkip.indexOf( sequence.type.toLowerCase() ) > -1
+
         # Select an option within a sequence by wrappeing the User's method       
         @scope.selectOption = (option, idx)=>      
             # Save choice for this scene
