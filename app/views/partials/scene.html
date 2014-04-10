@@ -78,5 +78,11 @@
             <div class="scene__sequence--notification__body" btf-markdown="sequence.body"></div>            
         </div>
 
+
+        <!-- Feedback, in the middle of the screen -->
+        <div ng-if="isFeedback(sequence)">
+            <div class="scene__sequence--feedback__body" btf-markdown="sequence.body"></div>            
+        </div>
+
     </div>   
 </div>

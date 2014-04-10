@@ -48,12 +48,15 @@ $app->get("/api/career", function() use ($app) {
 	if (empty($career)) return wrong(array('error' => 'empty'));
 	$export = $career->export();
 	if (empty($export["scenes"])) return wrong(array('error' => 'undefined'));
-	$last_scene = json_decode($career->scenes, true);
-	$last_scene = end($last_scene);
+	$scenes     = json_decode($career->scenes, true);
+	$choices    = json_decode($career->choices, true);
+	$last_scene = end($scenes);
 	$response = array(
 		"token"         => $career->token,
 		"reached_scene" => $last_scene,
-		"context"       => \app\helpers\Game::computeContext($export)
+		"context"       => \app\helpers\Game::computeContext($export),
+		"scenes"        => $scenes,
+		"choices"       => $choices
 	);
 	return ok($response);
 });
@@ -94,8 +97,8 @@ $app->post('/api/career', function() use ($app) {
 		}
 	}
 	if (isset($data["scene"]) && isset($data["choice"])){
-		$choices                 = json_decode($career->choices, true);
-		$choices[$data["scene"]] = $data["choice"];
+		$choices                 = json_decode($career->choices);
+		$choices->$data["scene"] = $data["choice"];
 		$career->choices         = json_encode($choices);
 	}
 	// save

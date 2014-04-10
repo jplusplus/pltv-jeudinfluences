@@ -14,7 +14,8 @@ angular.module("spin.service").factory("User", [
             # ──────────────────────────────────────────────────────────────────────────
             constructor: ->
                 # This user is saved into local storage
-                master    = localStorageService.get("user") or {}
+                master = localStorageService.get("user") or {}
+                indicators_settings = settings.user_indicators
                 # False until the player starts the game
                 @inGame     = no
                 @isGameOver = no
@@ -32,15 +33,22 @@ angular.module("spin.service").factory("User", [
                 @sequence = master.sequence or 0
                 @indicators =
                     # Visible indicators
-                    stress : master.stress  or 0    
-                    trust  : master.trust   or 100
-                    ubm    : master.ubm     or 0
+                    stress : master.stress  or indicators_settings.stress.start
+                    trust  : master.trust   or indicators_settings.trust.start
+                    ubm    : master.ubm     or indicators_settings.ubm.start
                     # Hidden indicators
                     guilt  : master.guilt   or 0 
                     honesty: master.honesty or 100 
                     karma  : master.karma   or 0 
-                # Load career data from the API
-                do @loadCareer
+
+                # Load career data from the API when the player enters the game
+                $rootScope.$watch =>
+                    @inGame
+                , (newValue, oldValue) =>
+                    if newValue and not oldValue
+                        do @loadCareer
+                , yes
+
                 return @
 
             pos: ()=> @chapter + "." + @scene
@@ -67,6 +75,22 @@ angular.module("spin.service").factory("User", [
                     @indicators.ubm    = career.context.ubm
                     # Start to the first sequence
                     @sequence = 0
+                do @checkProgression
+
+            checkProgression: => 
+                is_gameover = no 
+                breakme     = no 
+                # while a game over has not been detected or "break" like 
+                # instruction is set we loop (I dont like break) 
+                while (is_gameover is no) and (breakme is no)
+                    for key, value of @indicators
+                        indicator_settings = settings.user_indicators[key]
+                        if indicator_settings
+                            is_gameover = indicator_settings.isgameover(value)
+                    breakme = yes
+
+                @isGameOver = is_gameover
+                is_gameover
 
             isStartingChapter: =>                 
                 # Chapter is considered as starting during {settings.chapterStarting} millisecond
@@ -99,18 +123,31 @@ angular.module("spin.service").factory("User", [
                         .success( (data)=> @updateProgression(data) )
                         # Something wrong happends, restores the User model
                         .error( (data)=> do @newUser if @token? or @email? )
+                else if @email?
+                    $http.get("#{api.career}?email=#{@email}")
+                        # Update chapter, scene and sequence according
+                        # the last scene given by the career
+                        .success( (data)=> @updateProgression(data) )
+                        # The mail isn't associated to a career
+                        # We create a new one and associate the email
+                        .error (data) =>
+                            @createNewCareer yes
                 # Or create a new one
-                else                    
-                    # Get value using the token
-                    $http.post("#{api.career}", reached_scene: "1.1")
-                        # Save the token
-                        .success (data)=>                                   
-                            # Save the token
-                            @token = data.token
-                            # And call this function again
-                            do @loadCareer   
+                else
+                    do @createNewCareer
 
-            propagateChoice: (option)=>                                
+            createNewCareer: (associate=no) =>
+                # Get value using the token
+                $http.post("#{api.career}", reached_scene: "1.1")
+                    # Save the token
+                    .success (data)=>
+                        # Save the token
+                        @token = data.token
+                        (do @associate) if associate
+                        # And call this function again
+                        do @loadCareer
+
+            propagateChoice: (option)=>                                           
                 for key, indicator of option.result[0] 
                     @indicators[key] += parseInt(indicator)
                 do @updateLocalStorage
@@ -124,7 +161,10 @@ angular.module("spin.service").factory("User", [
                     # Get the current sequence to  update the indicators
                     sequence = Plot.sequence(chapterIdx, sceneIdx, @sequence)
                     # Propagate the choices only if this sequence has options
-                    @propagateChoice(sequence.options[choice.choice]) if sequence.options?
+                    if sequence.options?
+                        option = sequence.options[choice.choice]
+                        # Same choice variables
+                        @propagateChoice(option)                        
                 else
                     state = reached_scene: @pos()
                 # Get value using the token
@@ -146,10 +186,27 @@ angular.module("spin.service").factory("User", [
                     # Return the new sequence
                     Plot.sequence(@chapter, @scene, @sequence)
 
-            goToScene: (str, shouldUpdateCareer=yes)=>
-                [chapter, scene] = str.split "."              
+            associate: =>
+                return if (not @email?) or @email is ""
+                ($http
+                    url : "#{api.associate}?token=#{@token}"
+                    method : 'PUT'
+                    data :
+                        email : @email
+                ).success (data) =>
+                    console.debug data
+
+            goToScene: (next_scene, shouldUpdateCareer=yes)=>
+                if typeof(next_scene) is typeof("")
+                    next_scene_str = next_scene
+                else
+                    karma_key = if @indicators.karma >= 0 then 'positif' else 'negatif'
+                    next_scene_str = next_scene["#{karma_key}_karma"]
+
+                [chapter, scene] = next_scene_str.split "."
+
                 # Check that the next step exists
-                warn = (m)-> console.warn "#{m} doesn't exist (#{str})."
+                warn = (m)-> console.warn "#{m} doesn't exist (#{next_scene_str})."
                 # Chapter exits?
                 return warn('Chapter') unless Plot.chapter(chapter)?           
                 # Scene exits?
