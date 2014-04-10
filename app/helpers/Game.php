@@ -130,7 +130,7 @@ class Game {
 		}
 	}
 
-	private static function getChapter($chapter_id) {
+	public static function getChapter($chapter_id) {
 		/**
 		* Return the chapter for the given id (ex: "4")
 		*/
@@ -140,7 +140,7 @@ class Game {
 		}
 	}
 
-	private static function getScene($full_scene_id) {
+	public static function getScene($full_scene_id) {
 		/**
 		* Return the scene for the given id (ex: "4.scene_name")
 		*/
@@ -153,7 +153,7 @@ class Game {
 		}
 	}
 
-	private static function getOptionsFromScene($scene) {
+	public static function getOptionsFromScene($scene) {
 		/**
 		* Return the list of option given a $scene object
 		*/

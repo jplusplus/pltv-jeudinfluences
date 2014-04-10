@@ -89,7 +89,21 @@ $app->post('/api/career', function() use ($app) {
 	if (is_null($data)) return wrong(array("error" => "body invalid. Need json."));
 	$scenes  = json_decode($career->scenes, true);
 	$choices = json_decode($career->choices);
-	// update field
+
+	// Recording choice...
+	if (isset($data["scene"]) && isset($data["choice"])){
+		$choices                 = json_decode($career->choices);
+		$choices->$data["scene"] = $data["choice"];
+		$career->choices         = json_encode($choices);
+		// Get the scene to retreive available options
+		$scene      = \app\helpers\Game::getScene($data["scene"]);		
+		$options    = \app\helpers\Game::getOptionsFromScene($scene);
+		// Get the next_scene from the selected option.
+		// We save it into data to save the scene reached
+		$data["reached_scene"] = $options[$data["choice"]]["next_scene"];		;
+	}
+
+	// Recording progression...
 	if (isset($data["reached_scene"])) {
 		// TODO: check if already exists
 		if (!in_array((string)$data["reached_scene"], $scenes)) {
@@ -97,11 +111,7 @@ $app->post('/api/career', function() use ($app) {
 			$career->scenes = json_encode($scenes);
 		}
 	}
-	if (isset($data["scene"]) && isset($data["choice"])){
-		$choices                 = json_decode($career->choices);
-		$choices->$data["scene"] = $data["choice"];
-		$career->choices         = json_encode($choices);
-	}
+
 	// save
 	R::store($career);
 	$response = array(

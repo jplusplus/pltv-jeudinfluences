@@ -64,9 +64,7 @@ class SceneCtrl
                     next_scene: option.next_scene
                 # Then go the next sequence
                 @scope.goToNextSequence()
-            else
-                # Go to the next scene
-                @User.goToScene option.next_scene
+                
         # Get the head of this character
         @scope.getHeadSrc = (sequence)=>            
             if sequence.character?                
