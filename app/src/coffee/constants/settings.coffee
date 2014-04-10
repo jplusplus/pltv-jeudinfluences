@@ -11,16 +11,4 @@ angular.module('spin.constant').constant 'constant.settings',
     sequence_skip     : ["new_background"]
     # Refreshing rate for timeouts
     timeoutRefRate : 100
-    user_indicators:
-        karma:
-            start: 0
-            isgameover: (val)-> val <= -50
-        ubm:
-            start: 0
-            isgameover: (val)-> val >= 100 
-        trust:
-            start: 100
-            isgameover: (val)-> val <= 0  
-        stress:
-            start: 0
-            isgameover: (val)-> val >= 100
+    
