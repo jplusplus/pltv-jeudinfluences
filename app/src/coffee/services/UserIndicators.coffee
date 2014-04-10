@@ -25,8 +25,8 @@ angular.module("spin.service").factory "UserIndicators", [
                     game_over_value  = indicator[indicator.gameOver.on]
                     generic_function = @genericFunctions[game_over_rule]
 
-                    @[indicator_key] =
-                        _meta: indicator
+                    @[indicator_key] = 
+                        meta: indicator
                         gameOverFunction: generic_function
                         gameOverValue: game_over_value
                         isGameOver: (val)-> this.gameOverFunction(val, this.gameOverValue)

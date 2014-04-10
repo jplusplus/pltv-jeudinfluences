@@ -33,9 +33,9 @@ angular.module("spin.service").factory("User", [
                 @sequence = master.sequence or 0
                 @indicators =
                     # Visible indicators
-                    stress : master.stress  or UserIndicators.stress.start
-                    trust  : master.trust   or UserIndicators.trust.start
-                    ubm    : master.ubm     or UserIndicators.ubm.start
+                    stress : master.stress  or UserIndicators.stress.meta.start
+                    trust  : master.trust   or UserIndicators.trust.meta.start
+                    ubm    : master.ubm     or UserIndicators.ubm.meta.start
                     # Hidden indicators
                     culpabilite: master.culpabilite or 0 
                     honnetete  : master.honnetete   or 100 
@@ -202,7 +202,7 @@ angular.module("spin.service").factory("User", [
                     for key, value of seq.condition
                         if @indicators[key] isnt value
                             return no
-                if (settings.sequence_skip.indexOf seq.type) >= 0
+                if (settings.sequenceSkip.indexOf seq.type) >= 0
                     return no
                 yes
 
