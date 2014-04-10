@@ -10,9 +10,10 @@ class SceneCtrl
         @scene = @scope.scene = @scope.src              
         @chapter = @scope.chapter
         # True if the given scene is visible
-        @scope.shouldShowScene = => @scene.id is @User.scene   
+        @shouldShowScene = @scope.shouldShowScene = => @scene.id is @User.scene   
         # True if the given sequence is visible
         @scope.shouldShowSequence = (idx)=> 
+            @shouldShowScene()            and
             # Hide the sequence is the user in one of this states
             not @User.isStartingChapter() and 
             not @User.isGameOver          and
