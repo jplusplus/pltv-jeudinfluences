@@ -144,12 +144,7 @@ angular.module("spin.service").factory("User", [
                         (do @associate) if associate
                         # And call this function again
                         do @loadCareer
-
-            propagateChoice: (option)=>                                           
-                for key, indicator of option.result[0] 
-                    @indicators[key] += parseInt(indicator)
-                do @updateLocalStorage
-
+                        
             updateCareer: (choice)=>
                 return no unless @token
                 # Add reached scene parameter
@@ -160,9 +155,7 @@ angular.module("spin.service").factory("User", [
                     sequence = Plot.sequence(chapterIdx, sceneIdx, @sequence)
                     # Propagate the choices only if this sequence has options
                     if sequence.options?
-                        option = sequence.options[choice.choice]
-                        # Same choice variables
-                        # @propagateChoice(option)                        
+                        option = sequence.options[choice.choice]                    
                 else
                     state = reached_scene: @pos()
                 # Get value using the token
