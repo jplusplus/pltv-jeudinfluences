@@ -37,9 +37,9 @@ angular.module("spin.service").factory("User", [
                     trust  : master.trust   or indicators_settings.trust.start
                     ubm    : master.ubm     or indicators_settings.ubm.start
                     # Hidden indicators
-                    guilt  : master.guilt   or 0 
-                    honesty: master.honesty or 100 
-                    karma  : master.karma   or 0 
+                    culpabilite: master.culpabilite or 0 
+                    honnetete  : master.honnetete   or 100 
+                    karma      : master.karma       or 0 
 
                 # Load career data from the API when the player enters the game
                 $rootScope.$watch =>
