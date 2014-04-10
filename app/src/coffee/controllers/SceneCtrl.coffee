@@ -45,8 +45,6 @@ class SceneCtrl
         @scope.goToNextSequence = =>
             sequence = do @User.nextSequence
             @User.isGameOver = @isGameOver(sequence) if sequence?
-            # Should we skip this new sequence?
-            do @scope.goToNextSequence if sequence and settings.sequence_skip.indexOf( sequence.type.toLowerCase() ) > -1
         # Select an option within a sequence by wrappeing the User's method       
         @scope.selectOption = (option, idx)=>      
             # Save choice for this scene

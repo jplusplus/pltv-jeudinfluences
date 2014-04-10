@@ -71,8 +71,14 @@ angular.module("spin.service").factory("User", [
                     # Save indicators                     
                     for own key, value of career.context                        
                         @indicators[key]  = value
+
                     # Start to the first sequence
                     @sequence = 0
+
+                    # Check that the sequence's condition is OK
+                    if not do @isSequenceConditionOk
+                        # If not, go to the next sequence
+                        do @nextSequence
                 do @checkProgression
 
             checkProgression: => 
@@ -171,10 +177,8 @@ angular.module("spin.service").factory("User", [
                     ++@sequence 
                     # Retrieve the new sequence and check conditions
                     sequence = Plot.sequence(@chapter, @scene, @sequence)
-                    if sequence.condition?
-                        for key, value of sequence.condition
-                            if @indicators[key] isnt value
-                                return do @nextSequence
+                    if not @isSequenceConditionOk sequence
+                        sequence = do @nextSequence
                     # Return the new sequence
                     sequence
                 # Go the next scene
@@ -183,6 +187,16 @@ angular.module("spin.service").factory("User", [
                     @goToScene scene.next_scene   
                     # Return the new sequence
                     Plot.sequence(@chapter, @scene, @sequence)
+
+            isSequenceConditionOk: (seq) =>
+                seq = seq || Plot.sequence @chapter, @scene, @sequence
+                if seq.condition
+                    for key, value of seq.condition
+                        if @indicators[key] isnt value
+                            return no
+                if (settings.sequence_skip.indexOf seq.type) >= 0
+                    return no
+                yes
 
             associate: =>
                 return if (not @email?) or @email is ""
@@ -212,6 +226,12 @@ angular.module("spin.service").factory("User", [
                 if @chapter isnt chapter or @scene isnt scene
                     # Update values
                     [@chapter, @scene, @sequence] = [chapter, scene, 0]
+
+                    # Check that the sequence's condition is OK
+                    if not do @isSequenceConditionOk
+                        # If not, go to the next sequence
+                        do @nextSequence
+
                     # Save the career
                     do @updateCareer if shouldUpdateCareer
                 else
