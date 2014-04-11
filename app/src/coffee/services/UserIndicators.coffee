@@ -4,9 +4,9 @@ angular.module("spin.service").factory "UserIndicators", [
     'constant.indicators',
     (INDICATORS)->
         new class UserIndicators
-            # ──────────────────────────────────────────────────────────────────────────
+            # ─────────────────────────────────────────────────────────────────
             # Public method
-            # ──────────────────────────────────────────────────────────────────────────
+            # ─────────────────────────────────────────────────────────────────
             constructor: ->
                 @bindRules      INDICATORS.meta.rules
                 @bindIndicators INDICATORS.all
