@@ -133,16 +133,9 @@ angular.module("spin.service").factory("User", [
                         .success(@updateProgression)
                         # Something wrong happends, restores the User model
                         .error (data)=> do @newUser if @token? or @email?
-                else if @email?
-                    $http.get("#{api.career}?email=#{@email}")
-                        # Update chapter, scene and sequence according
-                        # the last scene given by the career
-                        .success(@updateProgression)
-                        # The mail isn't associated to a career
-                        # We create a new one and associate the email
-                        .error (data) => @createNewCareer yes
                 # Or create a new one
-                else do @createNewCareer
+                else
+                    do @createNewCareer (@email?)
 
             createNewCareer: (associate=no) =>
                 # Get value using the token
