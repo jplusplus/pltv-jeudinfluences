@@ -81,7 +81,8 @@
         <form class="nav__save__form form-horizontal" ng-submit="save()">
             <input class="form-control" placeholder="email@exemple.org" ng-model="email" required type="email" class="form-control" /> 
             <button type="submit" class="nav__save__form__submit btn btn-default" ng-disabled="form.$invalid">OK</button>
-            <p class="nav__save__form__indication">Pour retrouver votre partie en cours entrez votre adresse. Vous recevrez alors par mail un code d'accès privé.</p>
+            <p ng-hide="user.email != null" class="nav__save__form__indication">Pour retrouver votre partie en cours entrez votre adresse. Vous recevrez alors par mail un code d'accès privé.</p>
+            <p ng-show="user.email != null" class="nav__save__form__indication">Merci ! Un e-mail vous a été envoyé.</p>
         </form>
     </div>
 </header>
