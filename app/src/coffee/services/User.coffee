@@ -33,13 +33,13 @@ angular.module("spin.service").factory("User", [
                 @sequence = master.sequence or 0
                 @indicators =
                     # Visible indicators
-                    stress     : master.indicators.stress or UserIndicators.stress.meta.start
-                    trust      : master.indicators.trust  or UserIndicators.trust.meta.start
-                    ubm        : master.indicators.ubm    or UserIndicators.ubm.meta.start
+                    stress     : UserIndicators.stress.meta.start
+                    trust      : UserIndicators.trust.meta.start
+                    ubm        : UserIndicators.ubm.meta.start
                     # Hidden indicators
-                    culpabilite: master.indicators.culpabilite or 0 
-                    honnetete  : master.indicators.honnetete   or 100 
-                    karma      : master.indicators.karma       or 0 
+                    culpabilite: 0 
+                    honnetete  : 100 
+                    karma      : 0 
                 # Load career data from the API when the player enters the game
                 $rootScope.$watch =>
                     @inGame
@@ -133,16 +133,9 @@ angular.module("spin.service").factory("User", [
                         .success(@updateProgression)
                         # Something wrong happends, restores the User model
                         .error (data)=> do @newUser if @token? or @email?
-                else if @email?
-                    $http.get("#{api.career}?email=#{@email}")
-                        # Update chapter, scene and sequence according
-                        # the last scene given by the career
-                        .success(@updateProgression)
-                        # The mail isn't associated to a career
-                        # We create a new one and associate the email
-                        .error (data) => @createNewCareer yes
                 # Or create a new one
-                else do @createNewCareer
+                else
+                    @createNewCareer (@email?)
 
             createNewCareer: (associate=no) =>
                 # Get value using the token
@@ -204,14 +197,13 @@ angular.module("spin.service").factory("User", [
                     return no
                 yes
 
-            associate: =>
-                return if (not @email?) or @email is ""
-                ($http
+            associate: (email) =>
+                return if (not email?) or email is ""
+                $http
                     url : "#{api.associate}?token=#{@token}"
                     method : 'POST'
                     data :
-                        email : @email
-                ).success (data) =>
+                        email : email
 
             goToScene: (next_scene, shouldUpdateCareer=yes)=>
                 if typeof(next_scene) is typeof("")

@@ -39,11 +39,7 @@ $app->get("/api/career", function() use ($app) {
 	if (isset($params['token'])) {
 		$career = R::findOne('career', 'token=?', array($params['token']));
 	} else {
-		if (isset($params['email'])) {
-			$career  = R::findOne('career', 'email=?', array($params['email']));
-		} else {
-			return wrong(array('error' => 'token or email needed'));
-		}
+		return wrong(array('error' => 'token needed'));
 	}
 	if (empty($career)) return wrong(array('error' => 'empty'));
 	$export = $career->export();
@@ -232,7 +228,8 @@ $app->get('/api/summary', function() use ($app) {
 
 	// We inject the percentages in the returned object
 	$returned_summary = $summary[$asked_chapter];
-	$chapter_choices = json_decode($summary_in_db['choices'], true)[$asked_chapter];
+	$chapter_choices  = json_decode($summary_in_db['choices'], true);
+	$chapter_choices  = $chapter_choices[$asked_chapter];
 	foreach ($returned_summary as $choice_key => &$choice) {
 		foreach ($choice['options'] as $key => &$option) {
 			$option = array(

@@ -9,10 +9,25 @@ class NavCtrl
         # Udate the User volume according the scope attribute
         @scope.$watch "volume", (v)=> @User.volume = v/100 if v?    
 
+        @scope.shouldShowSaveButton = @shouldShowSaveButton
         @scope.save = @save
 
+        @_shouldShowSaveButton = not @User.email?
+
+        @scope.$watch 'shouldShowSaveForm', (newValue, oldValue) =>
+            if @User.email? and oldValue and not newValue
+                @_shouldShowSaveButton = false
+
+    shouldShowSaveButton: =>
+        return @User.inGame && @_shouldShowSaveButton
+
     save: =>
-        do @User.associate
+        email = @scope.email
+        (@User.associate email)
+            .success =>
+                @User.email = email
+            .error =>
+                return
 
 angular.module('spin.controller').controller("NavCtrl", NavCtrl)
 # EOF
