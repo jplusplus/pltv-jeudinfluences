@@ -65,3 +65,35 @@ expected body : `{"email" : "example@wanadoo.fr"}`
 
 Retrieve the list of opened chapters and their scenes from the `chapters` folder.
 See [app/chapters/README.md](../app/chapters/README.md)
+
+## Summary
+
+### GET
+
+    /api/summary?chapter=(&token=)
+
+Retrieve the summary for a chapter.  
+If a token is specified, it also returns what choice the user has made.
+
+response:
+
+```json
+{
+    "1.1": {
+        "share_sentence": "Jusqu'ici j'ai fait les bons choix, je gère la crise. Et vous, quels seraient les vôtres ?",
+        "title": "Appeler Nadia ?",
+        "options": [
+            {
+                "title": "Vous avez choisi de rappeler Nadia",
+                "percentage": 50
+            },
+            {
+                "title": "Vous avez choisi de ne pas rappeler Nadia",
+                "percentage": 50
+            }
+        ],
+        "you" : 1
+    },
+    "1.4": { ... }
+}
+```

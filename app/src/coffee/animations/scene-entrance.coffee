@@ -1,17 +1,15 @@
 angular.module("spin.animation").animation '.scene-entrance-animation', ["$timeout", "constant.settings", ($timeout, settings)->    
-    removeClass: (element, className, done) ->    
-        if className is "ng-hide"      
-            element.stop().css("opacity", 0)
-            element.animate opacity: 1, settings.sceneEntrance, done
-        else
-            done()
-        return        
-    addClass: (element, className, done) ->    
-        if className is "ng-hide"    
-            element.stop().css("opacity", 1)
-            element.animate opacity: 0, settings.sceneEntrance, done
-        else
-            done()
-        return
+
+    enter: (element, done) ->   
+        element.css("opacity", 0)
+        element.animate opacity: 1, settings.sceneEntrance, done
+        # Catch canceling
+        (isCanceled)-> (jQuery(element).stop() if isCanceled)
+
+    leave: (element, done) ->     
+        element.css("opacity", 1)
+        element.animate opacity: 0, settings.sceneEntrance, done
+        # Catch canceling
+        (isCanceled)-> (jQuery(element).stop() if isCanceled)
 ]
 # EOF
