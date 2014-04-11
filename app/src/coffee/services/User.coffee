@@ -173,6 +173,10 @@ angular.module("spin.service").factory("User", [
 
             nextSequence: =>   
                 scene = Plot.scene(@chapter, @scene)
+                sequence = Plot.sequence(@chapter, @scene, @sequence)
+                if sequence.result
+                    for key, value of sequence.result
+                        @indicators[key] += value
                 # Go to the next sequence within the current scene
                 if Plot.sequence(@chapter, @scene, @sequence + 1)?                
                     # Go simply to the next sequence
