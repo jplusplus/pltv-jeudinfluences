@@ -17,17 +17,17 @@ angular.module("spin.service").factory("Results", [
 
             get: (chapter_id)=> @list[chapter_id]
 
-            resultsForChapter: (chapter_id)=>
-                return @list[chapter_id] if @list[chapter_id]
+            resultsForChapter: (chapter)=>
+                return @list[chapter.id] if @list[chapter.id]
                 url  = api.results
                 conf =
                     params:
-                        chapter: chapter_id
+                        chapter: chapter.id
                         token: User.token
 
                 http_promise = $http.get(url, conf)
                 http_promise.success (data)=>
-                    @list[chapter_id] = @wrapResults data
+                    @list[chapter.id] = @wrapResults data, chapter
                 http_promise.error (err)=>
                     err_msg = [
                         "An error occured while getting results of chapter"
@@ -41,11 +41,14 @@ angular.module("spin.service").factory("Results", [
                     str  = str.replace str[0], str[0].toLowerCase()
                 str
         
-            wrapResults: (results)=>
+            wrapResults: (results, chapter)=>
+                results_obj =
+                    chatper:  chapter
+                    list: {}
                 # wrap a set of results by calling @wrapResult on every result
                 for res_key, result of results
-                    results[res_key] = @wrapResult(result)
-                results
+                    results_obj.list[res_key] = @wrapResult(result)
+                results_obj
 
             wrapResult: (result)=>
                 user_choice_idx = result.you if result.you?
@@ -53,7 +56,8 @@ angular.module("spin.service").factory("Results", [
                 if choice?
                     percentage = choice.percentage
                     title      = @unsentenceIt(choice.title)
-                    resultWrapingObject = 
+                    resultWrapingObject =
+                        userChoice: choice
                         percentage:
                             sentence: "Comme <b>#{percentage}%</b> des utilisateurs, #{title}"
                             raw: percentage
@@ -71,7 +75,7 @@ angular.module("spin.service").factory("Results", [
                 index = 0
                 while index < last_chapter_idx + 1
                     chapter = Plot.chapters[index]
-                    @resultsForChapter chapter.id 
+                    @resultsForChapter chapter
                     index++
 
 ])

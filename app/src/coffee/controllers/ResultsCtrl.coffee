@@ -1,8 +1,6 @@
 class ResultsCtrl
     @$inject: ['$scope', '$sce', 'Progression', 'User', 'Plot', 'Results']
 
-    
-
     constructor: (@scope, @sce, @Progression, @User,  @Plot,  @Results)->
         # scope variable binding
         @scope.plot    = @Plot
@@ -21,17 +19,21 @@ class ResultsCtrl
             , (results_count)=>
                 if results_count > 0 then @onChapterIndexChanged(@scope.chapter)
 
-    hasMoreResults: => @getAt(@scope.chapter + 1)?
+    hasMoreResults: => _.isEmpty @getAt(@scope.chapter + 1)
+
+    idAt: (index)=> _.keys(@Results.list)[index]
 
     getAt: (index)=>
         return unless index?
-        chapter_id = _.keys(@Results.list)[index]
-        @Results.get(chapter_id) or {}
+        @Results.get(@idAt index) or {}
+
+    otherResults: => _.omit(@Results.list, @idAt @scope.chapter)
 
     onChapterIndexChanged: (newIndex)=>
         chapter = @getAt newIndex
         @scope.safeApply =>
-            @scope.results = chapter
+            @scope.currentResults = chapter
+            @scope.allOtherResults = @otherResults()
 
 
 angular.module('spin.controller').controller("ResultsCtrl", ResultsCtrl)    
