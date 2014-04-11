@@ -1,7 +1,7 @@
 angular.module('spin.constant',  [])
 angular.module('spin.animation', ['ngAnimate', 'spin.constant'])
 angular.module('spin.config',    ['ngRoute',    'spin.constant'])
-angular.module('spin.controller',['ngResource', 'spin.constant'])
+angular.module('spin.controller',['ngResource', 'spin.constant', 'spin.filter'])
 angular.module('spin.directive', ['ngResource', 'spin.constant'])
 angular.module('spin.filter',    ['ngResource', 'spin.constant'])
 angular.module('spin.template',  ['ngRoute'])

@@ -1,5 +1,7 @@
 <div class="chapter chapter-entrance-animation" ng-show="shouldShowChapter()" ng-class="chapterClasses()">    
 
+    <preload images="getBackgrounds()" ng-if="shouldShowChapter()" />
+
     <div class="chapter__intro" ng-show="user.isStartingChapter() && !user.isGameOver">
         <div class="chapter__intro__id">Chapitre [[chapter.id]]</div>
         <h2 class="chapter__intro__title">[[chapter.title]]</h2>  
