@@ -225,6 +225,11 @@ $app->get('/api/summary', function() use ($app) {
 		R::store($summary_in_db);
 	}
 
+	if (isset($params['token'])) {
+		$token_career = R::findOne('career', 'token=?', array($params['token']));
+		$token_career['choices'] = json_decode($token_career['choices'], true);
+	}
+
 	// We inject the percentages in the returned object
 	$returned_summary = $summary[$asked_chapter];
 	$chapter_choices = json_decode($summary_in_db['choices'], true)[$asked_chapter];
@@ -234,6 +239,9 @@ $app->get('/api/summary', function() use ($app) {
 				"title" => $option,
 				"percentage" => $chapter_choices[$choice_key][$key]
 			);
+		}
+		if (isset($token_career) && isset($token_career['choices'][$choice_key])) {
+			$choice['you'] = $token_career['choices'][$choice_key];
 		}
 	}
 

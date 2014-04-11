@@ -47,13 +47,6 @@ class SceneCtrl
                 # Then go the next sequence
                 @scope.goToNextSequence()
                 
-        # Get the head of this character
-        @scope.getHeadSrc = (sequence)=>            
-            if sequence.character?                
-                # slugify the character name (to avoir error)
-                character = sequence.character.toLowerCase().replace(/[^\w-]+/g,'')                
-                # Just returns the URL
-                characters[character]     
         # Get the list of the background for the given scene
         @scope.getSceneBgs = =>
             # Cache bgs to avoid infinite digest iteration
@@ -83,7 +76,7 @@ class SceneCtrl
             sceneIdx    = @User.scene
             sequenceIdx = @User.sequence
             while yes
-                sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                       
+                sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)
                 break if sequenceIdx <= 0 or not sequence? or sequence.hasExit()
                 sequenceIdx--            
             sequenceIdx
