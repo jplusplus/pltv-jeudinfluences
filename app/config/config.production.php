@@ -27,7 +27,9 @@ $app->configureMode('production', function () use ($app) {
 			'2'                => "2014-03-10T16:00:00",
 			'3'                => "2014-03-10T16:00:00",
 			'4'                => "2014-03-10T16:00:00"
-		)
+		),
+		// Time after which we should re-aggregate summary (in hours)
+		'summary_aggregation_expired' => 6
 	));
 
 	// TODO

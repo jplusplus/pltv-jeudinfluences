@@ -86,7 +86,8 @@ angular.module("spin.service").factory("User", [
                         do @nextSequence
                 do @checkProgression
 
-            checkProgression: => 
+            checkProgression: =>
+                # will check if user progression lead him to a game over.
                 is_gameover = no 
                 breakme     = no 
                 # while a game over has not been detected or "break" like 

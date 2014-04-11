@@ -90,6 +90,20 @@ class Game {
 		return $context;
 	}
 
+	public static function getSummary() {
+		/**
+		* Return the summary for all chapters
+		*/
+		$summary = array();
+		$summaries = glob('summaries/[0-9*].json', GLOB_BRACE);
+		foreach ($summaries as $summary_filename) {
+			$chapter = basename($summary_filename, '.json');
+			$summary_content = json_decode(file_get_contents($summary_filename), true);
+			$summary[$chapter] = $summary_content;
+		}
+		return $summary;
+	}
+
 	private static function updateContext(&$context, $update_to){
 		/**
 		* Update the $context with the given array $update_to.

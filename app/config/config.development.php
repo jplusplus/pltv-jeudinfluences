@@ -28,7 +28,9 @@ $app->configureMode('development', function () use ($app) {
 		'opening_dates'        => array(
 			'1'                => "2014-03-19T16:00:00",
 			'4'                => "2014-03-19T16:00:00"
-		)
+		),
+		// Time after which we should re-aggregate summary (in hours)
+		'summary_aggregation_expired' => 0.2
 	));
 });
 
