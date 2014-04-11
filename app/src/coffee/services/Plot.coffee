@@ -12,7 +12,7 @@ angular.module("spin.service").factory "Plot", ['$http', 'constant.api', 'consta
             isPlayer: ->
                 this.lowerType() is types.sequence.player
             isNewBg: ->
-                this.lowerType() is types.sequence.new_background
+                this.lowerType() is types.sequence.newBackground
             isGameOver: ->
                 this.lowerType() is types.sequence.game_over
             isNotification: ->
