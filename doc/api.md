@@ -70,9 +70,10 @@ See [app/chapters/README.md](../app/chapters/README.md)
 
 ### GET
 
-    /api/summary?chapter=
+    /api/summary?chapter=(&token=)
 
-Retrieve the summary for a chapter
+Retrieve the summary for a chapter.  
+If a token is specified, it also returns what choice the user has made.
 
 response:
 
@@ -90,7 +91,8 @@ response:
                 "title": "Vous avez choisi de ne pas rappeler Nadia",
                 "percentage": 50
             }
-        ]
+        ],
+        "you" : 1
     },
     "1.4": { ... }
 }
