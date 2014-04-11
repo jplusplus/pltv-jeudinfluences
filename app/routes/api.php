@@ -232,7 +232,8 @@ $app->get('/api/summary', function() use ($app) {
 
 	// We inject the percentages in the returned object
 	$returned_summary = $summary[$asked_chapter];
-	$chapter_choices = json_decode($summary_in_db['choices'], true)[$asked_chapter];
+	$chapter_choices  = json_decode($summary_in_db['choices'], true)
+	$chapter_choices  = $chapter_choices[$asked_chapter];
 	foreach ($returned_summary as $choice_key => &$choice) {
 		foreach ($choice['options'] as $key => &$option) {
 			$option = array(
