@@ -18,8 +18,8 @@
                     [[sequence.character]]&nbsp;:
                 </p>
                 <div class="scene__sequence--[[sequence.type]]__frame__body" btf-markdown="sequence.body"></div>
-                <div class="scene__sequence--[[sequence.type]]__frame__head" ng-if="getHeadSrc(sequence)">
-                    <img ng-src="[[getHeadSrc(sequence)]]" />
+                <div class="scene__sequence--[[sequence.type]]__frame__head" ng-if="sequence.getHeadSrc()">
+                    <img ng-src="[[sequence.getHeadSrc()]]" />
                 </div>
             </div>
             <a class="scene__sequence--dialogue__next btn btn-default" ng-show="$parent.sequence.hasNext()" ng-click="goToNextSequence()">
@@ -44,8 +44,8 @@
                     [[sound.voicetrack._position|minutes]] / [[sound.voicetrack._duration|minutes]]
                 </span>
             </div>
-            <div class="scene__sequence--voixoff__head" ng-if="getHeadSrc(sequence)">
-                <img ng-src="[[getHeadSrc(sequence)]]" />
+            <div class="scene__sequence--voixoff__head" ng-if="sequence.getHeadSrc()">
+                <img ng-src="[[sequence.getHeadSrc()]]" />
             </div> 
             <a class="scene__sequence--dialogue__next btn btn-default" ng-show="$parent.sequence.hasNext()" ng-click="goToNextSequence()">
                 <span class="sr-only">Continuer</span>
