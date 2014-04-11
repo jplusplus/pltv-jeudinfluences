@@ -11,13 +11,12 @@
             </button>
         </div>
         
-        <div ng-repeat="(key, feedback) in results" class="results__feedbacks__sample" 
-             ng-init="user_choice=userChoice(feedback)">
+        <div ng-repeat="(key, feedback) in results" class="results__feedbacks__sample">
             <h3 ng-bind="feedback.title"></h3>
-            <p ng-bind-html="user_choice.sentence"></p>
+            <p ng-bind-html="feedback.percentage.sentence"></p>
             <div class="progress results__feedbacks__sample__progress">
-                <div class="progress-bar" ng-style="user_choice.percentage_style">
-                    [[  user_choice.percentage ]]
+                <div class="progress-bar" ng-style="feedback.percentage.style">
+                    [[ feedback.percentage.raw ]]
                 </div>
             </div>
         </div>
