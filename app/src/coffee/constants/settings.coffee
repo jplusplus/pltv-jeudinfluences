@@ -13,7 +13,7 @@ angular.module('spin.constant').constant 'constant.settings',
     # Refreshing rate for timeouts
     timeoutRefRate    : 100
     # Some scenes affect the progression
-    mainScenes :
+    mainScenes        :
         "1": ["1.1", "1.4", "1.6"]
         "2": ["2.6", "2.16", "2.27"]
         "3": ["3.10", "3.18", "3.26", "3.28"]
