@@ -135,7 +135,7 @@ angular.module("spin.service").factory("User", [
                         .error (data)=> do @newUser if @token? or @email?
                 # Or create a new one
                 else
-                    do @createNewCareer (@email?)
+                    @createNewCareer (@email?)
 
             createNewCareer: (associate=no) =>
                 # Get value using the token
@@ -197,14 +197,13 @@ angular.module("spin.service").factory("User", [
                     return no
                 yes
 
-            associate: =>
-                return if (not @email?) or @email is ""
-                ($http
+            associate: (email) =>
+                return if (not email?) or email is ""
+                $http
                     url : "#{api.associate}?token=#{@token}"
                     method : 'POST'
                     data :
-                        email : @email
-                ).success (data) =>
+                        email : email
 
             goToScene: (next_scene, shouldUpdateCareer=yes)=>
                 if typeof(next_scene) is typeof("")
