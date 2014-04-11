@@ -39,11 +39,7 @@ $app->get("/api/career", function() use ($app) {
 	if (isset($params['token'])) {
 		$career = R::findOne('career', 'token=?', array($params['token']));
 	} else {
-		if (isset($params['email'])) {
-			$career  = R::findOne('career', 'email=?', array($params['email']));
-		} else {
-			return wrong(array('error' => 'token or email needed'));
-		}
+		return wrong(array('error' => 'token needed'));
 	}
 	if (empty($career)) return wrong(array('error' => 'empty'));
 	$export = $career->export();
