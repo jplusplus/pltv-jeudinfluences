@@ -144,7 +144,7 @@ angular.module("spin.service").factory("User", [
                     .success (data)=>
                         # Save the token
                         @token = data.token
-                        (do @associate) if associate
+                        (@associate @email) if associate
                         # And call this function again
                         do @loadCareer
 

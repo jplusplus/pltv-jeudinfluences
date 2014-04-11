@@ -12,7 +12,13 @@ class NavCtrl
         @scope.shouldShowSaveButton = @shouldShowSaveButton
         @scope.save = @save
 
-        @_shouldShowSaveButton = not @User.email?
+        @_shouldShowSaveButton = yes
+
+        @scope.$watch =>
+            User.inGame
+        , (newValue, oldValue) =>
+            if @User.email? and newValue and not oldValue
+                @_shouldShowSaveButton = false
 
         @scope.$watch 'shouldShowSaveForm', (newValue, oldValue) =>
             if @User.email? and oldValue and not newValue
