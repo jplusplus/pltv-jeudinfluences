@@ -14,7 +14,7 @@ angular.module("spin.service").factory "Plot", ['$http', 'constant.api', 'consta
             isNewBg: ->
                 this.lowerType() is types.sequence.newBackground
             isGameOver: ->
-                this.lowerType() is types.sequence.game_over
+                this.lowerType() is types.sequence.gameOver
             isNotification: ->
                 this.lowerType() is types.sequence.notification
             isFeedback: ->

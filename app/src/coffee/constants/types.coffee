@@ -5,4 +5,5 @@ angular.module('spin.constant').constant 'constant.types',
         newBackground:   "new_background"
         feedback:        "feedback"
         notification:    "notification"
+        gameOver:        "gameover"
 
