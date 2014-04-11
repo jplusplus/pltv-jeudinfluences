@@ -182,7 +182,8 @@ $app->get('/api/summary', function() use ($app) {
 	$summary = \app\helpers\Game::getSummary();
 
 	// We check if the summary store in database is not too old
-	if (empty($summary_in_db) or time() - $summary_in_db['time'] > 1 * 60 * 60) {
+	$expired_limit = $app->config("summary_aggregation_expired") * 60 * 60;
+	if (empty($summary_in_db) or time() - $summary_in_db['time'] > $expired_limit) {
 		if (empty($summary_in_db)) {
 			$summary_in_db = R::dispense('summary');
 		}
