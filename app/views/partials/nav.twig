@@ -16,11 +16,6 @@
             </a>
         </li>
         <li>
-            <a class="nav__partners__logo" href="http://www.franceinter.fr/" target="_blank">
-                <img src="/img/ui/inter.png" alt="France Inter" />
-            </a>
-        </li>
-        <li>
             <a class="nav__partners__logo" href="http://www.telerama.fr/" target="_blank">
                 <img src="/img/ui/telerama.png" alt="Télérama" />
             </a>
@@ -28,6 +23,11 @@
         <li>
             <a class="nav__partners__logo" href="http://www.strategies.fr/" target="_blank">
                 <img src="/img/ui/strategies.png" alt="Strategies" />
+            </a>
+        </li>
+        <li>
+            <a class="nav__partners__logo" href="http://www.franceinter.fr/" target="_blank">
+                <img src="/img/ui/inter.png" alt="France Inter" />
             </a>
         </li>
 	</ul>
@@ -62,7 +62,7 @@
         <li class="nav__cmd__part btn-group" ng-show="user.inGame">
             <a class="btn btn-sm btn-default" ng-click="user.newUser(); user.inGame = false">Restart</a>
         </li>
-        <li class="nav__cmd__part" ng-show="user.inGame">
+        <li class="nav__cmd__part" ng-show="shouldShowSaveButton()">
             <button class="nav__cmd__save btn btn-sm btn-default" ng-click="shouldShowSaveForm = !shouldShowSaveForm" ng-class="{ 'nav__cmd__save--on': shouldShowSaveForm && user.inGame  }">
                 Sauvegarder
             </button>
@@ -79,9 +79,10 @@
 
     <div class="nav__save" ng-class="{ 'nav__save--visible': shouldShowSaveForm && user.inGame  }">
         <form class="nav__save__form form-horizontal" ng-submit="save()">
-            <input class="form-control" placeholder="email@exemple.org" ng-model="user.email" required type="email" class="form-control" /> 
+            <input class="form-control" placeholder="email@exemple.org" ng-model="email" required type="email" class="form-control" /> 
             <button type="submit" class="nav__save__form__submit btn btn-default" ng-disabled="form.$invalid">OK</button>
-            <p class="nav__save__form__indication">Sauvegardez votre progression</p>
+            <p ng-hide="user.email != null" class="nav__save__form__indication">Pour retrouver votre partie en cours entrez votre adresse. Vous recevrez alors par mail un code d'accès privé.</p>
+            <p ng-show="user.email != null" class="nav__save__form__indication">Merci ! Un e-mail vous a été envoyé.</p>
         </form>
     </div>
 </header>

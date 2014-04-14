@@ -133,16 +133,9 @@ angular.module("spin.service").factory("User", [
                         .success(@updateProgression)
                         # Something wrong happends, restores the User model
                         .error (data)=> do @newUser if @token? or @email?
-                else if @email?
-                    $http.get("#{api.career}?email=#{@email}")
-                        # Update chapter, scene and sequence according
-                        # the last scene given by the career
-                        .success(@updateProgression)
-                        # The mail isn't associated to a career
-                        # We create a new one and associate the email
-                        .error (data) => @createNewCareer yes
                 # Or create a new one
-                else do @createNewCareer
+                else
+                    @createNewCareer (@email?)
 
             createNewCareer: (associate=no) =>
                 # Get value using the token
@@ -151,7 +144,7 @@ angular.module("spin.service").factory("User", [
                     .success (data)=>
                         # Save the token
                         @token = data.token
-                        (do @associate) if associate
+                        (@associate @email) if associate
                         # And call this function again
                         do @loadCareer
 
@@ -204,14 +197,13 @@ angular.module("spin.service").factory("User", [
                     return no
                 yes
 
-            associate: =>
-                return if (not @email?) or @email is ""
-                ($http
+            associate: (email) =>
+                return if (not email?) or email is ""
+                $http
                     url : "#{api.associate}?token=#{@token}"
                     method : 'POST'
                     data :
-                        email : @email
-                ).success (data) =>
+                        email : email
 
             goToScene: (next_scene, shouldUpdateCareer=yes)=>
                 if typeof(next_scene) is typeof("")
