@@ -6,7 +6,7 @@ angular.module('spin.directive').directive "debugToolbar", [
         replace: true
         templateUrl: "partials/debug-toolbar.html"
         scope: false
-        controller: ($scope)->
+        controller: ['$scope', ($scope)->
             $scope.setChapter = (val)->
                 console.log 'setChapter called'
                 $scope.safeApply ->
@@ -37,7 +37,7 @@ angular.module('spin.directive').directive "debugToolbar", [
                     User.scene = 1
                     User.sequence = 0
 
-
+        ]
         link: (scope, elem, attrs)->
             scope.$watch ->
                     User.chapter
