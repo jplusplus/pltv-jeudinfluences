@@ -17,6 +17,7 @@ angular.module("spin.service").factory "Timeout", [
             toggleSequence: (chapterIdx=User.chapter, sceneIdx=User.scene, sequenceIdx=User.sequence) =>
                 if sequenceIdx?
                     if @_timeout?
+                        @remainingTime = 0
                         $timeout.cancel @_timeout
                         @_timeout = undefined
                     @sequence = Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)
@@ -24,7 +25,6 @@ angular.module("spin.service").factory "Timeout", [
                     # Some choices have a delay
                     if @sequence.type is 'choice' and @sequence.delay?
                         @remainingTime = 0
-                        @_step = settings.timeoutRefRate * 100 / (@sequence.delay * 1000)
                         @_timeout = $timeout @timeStep, settings.timeoutRefRate
                         @_lastStep = do Date.now
                     # Some sequence are feedbacks that disapear after a short delay
