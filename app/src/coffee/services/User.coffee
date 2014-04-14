@@ -23,6 +23,7 @@ angular.module("spin.service").factory("User", [
                 # User authentication
                 @token    = $location.search().token or master.token or null
                 @email    = master.email or null
+                $location.search 'token', null
                 # Scenes the user passed
                 @scenes   = master.scenes or []       
                 # Sound control
