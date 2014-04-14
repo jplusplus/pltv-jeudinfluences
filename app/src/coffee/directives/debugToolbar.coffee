@@ -8,34 +8,30 @@ angular.module('spin.directive').directive "debugToolbar", [
         scope: false
         controller: ($scope)->
             $scope.setChapter = (val)->
-                console.log 'setChapter called'
-                $scope.safeApply ->
-                    User.chapter = val
+                User.chapter = val
 
 
             $scope.setScene = (val)->
-                $scope.safeApply ->
-                    User.scene = val
+                User.scene = val
 
 
             $scope.setSequence = (val)->
-                $scope.safeApply ->
-                    User.sequence = val
+                User.sequence = val
 
             $scope.restartCurrentChapter = ->
-                console.log 'restartCurrentChapter called'
-                $scope.safeApply ->
-                    User.lastChapterChanging = Date.now()
-                    User.scene   = 1
-                    User.sequence = 0
+                User.scene    = 1
+                User.sequence = 0
+                User.saveChapterChanging()
 
             $scope.restartGame = ->
-                $scope.safeApply ->
-                    User.newUser()
-                    User.inGame = no
-                    User.chapter = 1
-                    User.scene = 1
-                    User.sequence = 0
+                User.newUser()
+                User.inGame = no
+                User.chapter = 1
+                User.scene = 1
+                User.sequence = 0
+
+            $scope.gameOver = -> 
+                User.isGameOver = true
 
 
         link: (scope, elem, attrs)->
