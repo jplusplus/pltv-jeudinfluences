@@ -1,15 +1,15 @@
-angular.module("spin.animation").animation '.scene-entrance-animation', ["$timeout", "constant.settings", ($timeout, settings)->    
+angular.module("spin.animation").animation '.scene-entrance-animation', ["constant.settings", (settings)->    
 
-    enter: (element, done) ->   
+    enter: (element, done) ->       
         element.css("opacity", 0)
-        element.animate opacity: 1, settings.sceneEntrance, done
+        jQuery(element[0]).animate opacity: 1, settings.sceneEntrance, done
         # Catch canceling
-        (isCanceled)-> (jQuery(element).stop() if isCanceled)
+        (isCanceled)-> (jQuery(element[0]).stop() if isCanceled)
 
     leave: (element, done) ->     
         element.css("opacity", 1)
-        element.animate opacity: 0, settings.sceneEntrance, done
+        jQuery(element[0]).animate opacity: 0, settings.sceneEntrance, done
         # Catch canceling
-        (isCanceled)-> (jQuery(element).stop() if isCanceled)
+        (isCanceled)-> (jQuery(element[0]).stop() if isCanceled)
 ]
 # EOF
