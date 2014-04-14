@@ -31,7 +31,7 @@ angular.module('spin.directive').directive "debugToolbar", [
                 User.sequence = 0
 
             $scope.gameOver = -> 
-                User.isGameOver = true
+                User.isGameOver = !User.isGameOver
 
         ]
         link: (scope, elem, attrs)->
