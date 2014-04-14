@@ -49,7 +49,7 @@ angular.module("spin.service").factory "Timeout", [
                     @_timeout = undefined
                     _default = 0
                     if @sequence.default_option?
-                        _default = @sequence.default_option
+                        _default = @sequence.default_option - 1
                     option = @sequence.options[_default]
                     @remainingTime = 0
                     @_lastStep = null
