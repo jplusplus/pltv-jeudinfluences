@@ -5,7 +5,7 @@ angular.module('spin.config').config ['$routeProvider', '$locationProvider', ($r
 
     $routeProvider.when("/",
         templateUrl: "partials/main.html"
-        controller: "MainCtrl"
+        controller : "MainCtrl"
     ).otherwise redirectTo : "/"    
 
 ]

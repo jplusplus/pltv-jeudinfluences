@@ -44,12 +44,13 @@ angular.module("spin.service").factory("User", [
                     culpabilite: 0 
                     honnetete  : 100 
                     karma      : 0 
+
                 # Load career data from the API when the player enters the game
                 $rootScope.$watch =>
                     @inGame
                 , (newValue, oldValue) =>
                     if newValue and not oldValue
-                        do @loadCareer
+                        do @loadCareer                           
                 , yes
 
                 return @
@@ -82,6 +83,8 @@ angular.module("spin.service").factory("User", [
                 [@token, @email] = [null, null] 
                 # Reset progression
                 [@chapter, @scene, @sequence] = ["1", "1", 0]
+                # Remove value in localStorage
+                do localStorageService.clearAll
                 # And create a new session
                 @loadCareer()
 
@@ -233,7 +236,7 @@ angular.module("spin.service").factory("User", [
                     karma_key = if @indicators.karma >= 0 then 'positif' else 'negatif'
                     next_scene_str = next_scene["#{karma_key}_karma"]
 
-                [chapter, scene] = next_scene_str.split "."
+                [chapter, scene] = next_scene_str.split "."  
 
                 # Check that the next step exists
                 warn = (m)-> console.warn "#{m} doesn't exist (#{next_scene_str})."

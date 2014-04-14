@@ -6,7 +6,7 @@ angular.module('spin.directive').directive "debugToolbar", [
         replace: true
         templateUrl: "partials/debug-toolbar.html"
         scope: false
-        controller: ($scope)->
+        controller: ['$scope', ($scope)->
             $scope.setChapter = (val)->
                 User.chapter = val
 
@@ -33,7 +33,7 @@ angular.module('spin.directive').directive "debugToolbar", [
             $scope.gameOver = -> 
                 User.isGameOver = true
 
-
+        ]
         link: (scope, elem, attrs)->
             scope.$watch ->
                     User.chapter
