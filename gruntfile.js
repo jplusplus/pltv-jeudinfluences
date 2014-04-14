@@ -151,7 +151,7 @@ module.exports = function(grunt) {
     },
     open : {
       server : {
-        path: 'http://0.0.0.0:8080'
+        path: 'http://0.0.0.0:3333'
       },
     },
     assemble: {
@@ -201,7 +201,7 @@ module.exports = function(grunt) {
     php: {
       server: {
         options: {
-          port: 8080,
+          port: 3333,
           keepalive: true,
           open: false,
           base: 'public',

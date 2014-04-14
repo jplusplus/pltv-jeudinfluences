@@ -1,8 +1,9 @@
 angular.module('spin.constant').constant 'constant.states',
     user:
-        iddle:    "iddle"
-        gaming:   "gaming"
-        summary:  "summary"
-        gameover: "gameover"
+        iddle:           "iddle"
+        inGame:          "gaming"
+        startingChatper: "startingChatper"
+        summary:         "summary"
+        gameOver:        "gameover"
 
 
