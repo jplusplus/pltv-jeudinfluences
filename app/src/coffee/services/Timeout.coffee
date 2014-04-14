@@ -20,6 +20,7 @@ angular.module("spin.service").factory "Timeout", [
                         @remainingTime = 0
                         $timeout.cancel @_timeout
                         @_timeout = undefined
+                        @_lastStep = null
                     @sequence = Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)
                     return if not @sequence?
                     # Some choices have a delay
