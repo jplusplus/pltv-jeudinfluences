@@ -1,34 +1,41 @@
 .debug-toolbar { 
     z-index: @debug-toolbar-zindex;
     position: absolute;
-    top:    10px;
-    right:  10px;
+    top:    0px;
+    right:   30px;
     padding: 10px;
     background: black;
-    .transition( top 0.25s );
+
+    .transition(0.25s );
+    .translate(0, 0);
+
     &--hidden {
-        top: -220px;
+        .translate(0, -100%);
     }
-    .input-group {
-        height: 20px;
-        border-bottom: 1px solid #DDD;
+    
+    h3 {
+        margin-top:0;
+    }
+    
+
+    .form-group {
         margin-bottom: 5px;
-        span.input-group-addon {
-            border: none;
-            background: black;
-            width: 200px;
-            height: inherit;
-        }
+
         input {
             margin-left: 10px;
             height: inherit;
         }
-        span.input-group-addon-btn { 
-            height: inherit;
-        }
     }
+
     &__controls { 
-        border-bottom: 1px solid #DDD;
-        margin-bottom: 5px;
+        border-bottom: 1px solid @text-color;
+        margin-bottom:5px;
+        padding:10px 0;
+    }
+
+    &__toggler {
+        position:absolute;
+        top:100%;
+        left:10px;
     }
 }

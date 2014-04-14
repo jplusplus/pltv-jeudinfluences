@@ -1,5 +1,5 @@
 <div class="debug-toolbar" ng-init="hidden = true" ng-class="{'debug-toolbar--hidden': hidden}">
-    <h3>debug toolbar</h3>
+    <h3>Debug toolbar</h3>
     <div class="debug-toolbar__controls">
         <button class="btn btn-default" ng-click="restartCurrentChapter()">
             Restart current chapter
@@ -8,30 +8,24 @@
             Restart the game
         </button>
     </div>
-    <div class="debug-toolbar__summary">
-        <div class="input-group">
-            <span class="input-group-addon">Current Chapter:</span>
-            <input ng-model="currentChapter" type="text" class="debug-toolbar__summary__info"/>
-            <span class="input-group-addon-btn">
-                <button class="btn btn-default" ng-click="setChapter(currentChapter)">change</button>
-            <span>
+    <div class="debug-toolbar__summary text-right">
+        <div class="form-inline form-group">
+            <label>Current Chapter&nbsp;:</label>
+            <input ng-model="currentChapter" type="text" class="debug-toolbar__summary__info form-control"/>
+            <button class="btn btn-default btn-xs" ng-click="setChapter(currentChapter)">change</button>            
         </div>
-        <div class="input-group">
-            <span class="input-group-addon">Current Scene:</span>
-            <input ng-model="currentScene" type="text" class="debug-toolbar__summary__info"/>
-            <span class="input-group-addon-btn">
-                <button class="btn btn-default" ng-click="setScene(currentScene)">change</button>
-            </span>
+        <div class="form-inline form-group">
+            <label>Current Scene&nbsp;:</label>
+            <input ng-model="currentScene" type="text" class="debug-toolbar__summary__info form-control"/>
+            <button class="btn btn-default btn-xs" ng-click="setScene(currentScene)">change</button>            
         </div>
-        <div class="input-group">
-            <span class="input-group-addon">Current Sequence:</span>
-            <input ng-model="currentSequence" type="text" class="debug-toolbar__summary__info"/>
-            <span class="input-group-addon-btn">
-                <button class="btn btn-default" ng-click="setSequence(currentSequence)">change</button>
-            </span>
+        <div class="form-inline form-group">
+            <label>Current Sequence&nbsp;:</label>
+            <input ng-model="currentSequence" type="text" class="debug-toolbar__summary__info form-control"/>
+            <button class="btn btn-default btn-xs" ng-click="setSequence(currentSequence)">change</button>            
         </div>
     </div>
-    <button ng-click="hidden=!hidden">
-        <span ng-class="{ 'caret': hidden, 'caret caret-reversed': !hidden }"></span>
+    <button ng-click="hidden = !hidden"  class="btn btn-default debug-toolbar__toggler">
+        <span class="caret" ng-class="{ 'caret-reversed': !hidden }"></span>
     </button>
 </div>
