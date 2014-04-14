@@ -33,6 +33,9 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
 
         toggleSequence: (chapterIdx=User.chapter, sceneIdx=User.scene, sequenceIdx=User.sequence)=>            
             if sequenceIdx?
+                if @soundtrack?
+                    if (do @soundtrack.volume) < User.volume
+                        @soundtrack.fade( (do @soundtrack.volume), User.volume, 500 )
                 # Get sequence object
                 sequence = Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                     
                 # Sequence is a voicetrack
@@ -50,7 +53,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                             # Default states
                             onplay  : =>
                                 $rootScope.safeApply => 
-                                    @soundtrack.fade( @soundtrack.volume(), User.volume/2 ) if @soundtrack?
+                                    @soundtrack.fade( @soundtrack.volume(), User.volume/4, 500 ) if @soundtrack?
                                     # Duration only on starting
                                     duration = if @soundtrack.pos() is 0 then 1000 else 0
                                     @voicetrack.fade(0, User.volume, duration)                                     
@@ -67,7 +70,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                                     @voicetrack.isPlaying = no
                             onend   : => 
                                 $rootScope.safeApply => 
-                                    @soundtrack.fade( @soundtrack.volume(), User.volume ) if @soundtrack?                                    
+                                    @soundtrack.fade( @soundtrack.volume(), User.volume, 500 ) if @soundtrack?
                                     $rootScope.safeApply => @voicetrack._position = @voicetrack._duration
                                     @voicetrack.pos(0)
                                     @voicetrack.isPlaying = no
@@ -106,7 +109,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                 switch yes
                     when @voicetrack? and @soundtrack?                            
                         @voicetrack.volume(volume)        
-                        @soundtrack.volume(volume/2)                           
+                        @soundtrack.volume(volume/4)
                     when @voicetrack?                           
                         @voicetrack.volume(volume)        
                     when @soundtrack?                           
