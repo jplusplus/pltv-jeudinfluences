@@ -31,7 +31,7 @@ angular.module("spin.service").factory("Results", [
                 http_promise.error (err)=>
                     err_msg = [
                         "An error occured while getting results of chapter"
-                        " #{chapter_id}:"
+                        " #{chapter.id}:"
                     ]
                     console.warn err_msg.join(''), err
 

@@ -3,21 +3,21 @@
 @import 'bootstrap.fix.less';
 @import 'bootstrap.forms.less';
 
-@scene-zindex     : 1000;
-@scenebg-zindex   : @scene-zindex   - 100;
-@chapter-zindex   : @scene-zindex   + 1000;
-@welcome-zindex   : @chapter-zindex + 1000;
-@results-zindex   : @welcome-zindex + 1000;
-@game-over-zindex : @chapter-zindex + 1000;
-@nav-zindex       : @results-zindex + 1000;
-@metanav-zindex   : @nav-zindex + 1000;
+@scene-zindex         : 1000;
+@scenebg-zindex       : @scene-zindex   - 100;
+@chapter-zindex       : @scene-zindex   + 1000;
+@welcome-zindex       : @chapter-zindex + 1000;
+@results-zindex       : @welcome-zindex + 1000;
+@game-over-zindex     : @chapter-zindex + 1000;
+@nav-zindex           : @results-zindex + 1000;
+@metanav-zindex       : @nav-zindex + 1000;
+@debug-toolbar-zindex : @metanav-zindex + 1000;
 
 @chapter-starting-duration-1: 6s;
 @chapter-starting-duration-2: 1s;
 
 @import 'mixins.less';
 @import 'animations.less';
-
 @import 'metanav.less';
 
 .site_content {
@@ -30,5 +30,6 @@
     @import 'welcome.less';
     @import 'game-over.less';
     @import 'nouislider.less';
+    @import 'debug-toolbar.less';
 }
 
