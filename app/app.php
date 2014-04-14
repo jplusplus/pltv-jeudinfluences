@@ -42,7 +42,8 @@ $app->view->setData(
 		'MODE'             => $app->getMode(),
 		'ARCHIMADE_IDSITE' => $app->config("archimade_idsite"),
 		'MEDIA_URL'        => $app->config("media_url"),
-		'STATIC_URL'       => $app->config("static_url")
+		'STATIC_URL'       => $app->config("static_url"),
+		'ROOT_URI'		   => "http://{$_SERVER['HTTP_HOST']}" 
 	)
 );
 
