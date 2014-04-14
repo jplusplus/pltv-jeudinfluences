@@ -1,14 +1,15 @@
 angular.module("spin.service").factory("User", [
-    '$http'
-    '$timeout'
     'constant.api'
     'constant.settings'
+    'constant.states'
     'UserIndicators'
     'Plot'
     'localStorageService'
+    '$http'
+    '$timeout'
     '$location'
     '$rootScope'
-    ($http, $timeout, api, settings, UserIndicators, Plot, localStorageService, $location, $rootScope)->
+    (api, settings, appStates, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
         new class User
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
@@ -16,6 +17,8 @@ angular.module("spin.service").factory("User", [
             constructor: ->
                 # This user is saved into local storage
                 master = localStorageService.get("user") or {}
+
+                @states = @buildStates()
                 # False until the player starts the game
                 @inGame     = no
                 @isGameOver = no
@@ -50,6 +53,23 @@ angular.module("spin.service").factory("User", [
                 , yes
 
                 return @
+
+
+            buildStates: =>
+                # for every states contained in appStates.user we build 2 methods:
+                #    - one test method is<state name> to see if current is <state name>
+                #    - one setter method to set current state to <state name>
+                # 
+                # by adding these 2 methods we will be able to stuff like so:
+                # user.states.isGameOver()  => true if game over or not. 
+                # user.states.setGameOver() => will cause end of the game
+                for state_key, state_value  in appStates.user
+                    state_name = state_key.replace(state_key[0], state_key[0].toUpperCase())
+                    test_method_name   = "is#{state_name}"
+                    setter_method_name = "set#{state_name}"
+                    @states[test_method_name  ] = => @states.currentState == state_value 
+                    @states[setter_method_name] = => @states.currentState =  state_value
+
 
             pos: ()=> @chapter + "." + @scene
 
