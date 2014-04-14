@@ -4,10 +4,7 @@ class MainCtrl
     constructor: (@scope, @Progression, @Plot, @User, @Sound)->                             
         @scope.plot  = @Plot
         @scope.user  = @User 
-        @scope.sound = @Sound 
-    
-    @resolve: plot: (Plot)-> Plot.chapters
-
+        @scope.sound = @Sound     
 
 angular.module('spin.controller').controller("MainCtrl", MainCtrl)    
 # EOF
