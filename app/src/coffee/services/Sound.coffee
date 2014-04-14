@@ -4,6 +4,9 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
         # Public method
         # ──────────────────────────────────────────────────────────────────────────        
         startSoundTrack: (tracks) =>
+            if @soundtrack?
+                do @soundtrack.stop
+                @soundtrack = undefined
             # Create the new sound
             @soundtrack = new Howl
                 urls : tracks
