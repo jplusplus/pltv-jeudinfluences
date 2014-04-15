@@ -1,0 +1,21 @@
+{
+    "2" : {
+        "share_sentence" : "Jusqu'ici j'ai fait les bons choix, je gère la crise. Et vous, quels seraient les vôtres ?",
+        "scenes" : {
+            "2.1" : {
+                "title" : "Prendre l'appel ?",
+                "options" : [
+                    "Vous avez choisi de prendre l'appel de Nadia",
+                    "Vous avez choisi de ne pas prendre l'appel de Nadia"
+                ]
+            },
+            "2.6" : {
+                "title" : "Prendre la carte ?",
+                "options" : [
+                    "Vous avez choisi de prendre la carte",
+                    "Vous avez choisi de ne pas prendre la carte"
+                ]
+            }
+        }
+    }
+}
