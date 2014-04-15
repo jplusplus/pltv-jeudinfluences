@@ -179,8 +179,9 @@ module.exports = function(grunt) {
     },
     watch: {
       options: {
-        nospawn: true,
-        livereload: true
+        spawn: false,
+        livereload: true,
+        livereloadOnError: false
       },
       coffee: {
         files: ['**/*.coffee','**/*.twig'],
@@ -188,7 +189,14 @@ module.exports = function(grunt) {
       },
       less: {
         files: ['**/*.less','**/*.twig'],
-        tasks: ['less']
+        tasks: ['less'],
+        options: {
+          livereload: false
+        }
+      },
+      css: {
+        files: ['public/css/*.css'],
+        tasks: []
       },
       twig: {
         files: ['**/*.twig'],
