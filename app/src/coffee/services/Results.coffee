@@ -2,38 +2,52 @@ angular.module("spin.service").factory("Results", [
     'User'
     'Plot'
     'constant.api' 
+    '$q'
     '$rootScope'
     '$http'
-    (User, Plot, api, $rootScope, $http)->
+    (User, Plot, api, $q, $rootScope, $http)->
         new class Results
+            API_URL: api.results
             STARTS_WITH_CAPITAL: /^[A-Z]/
             constructor: ->
                 @list = @list or {}
-                $rootScope.$watch =>
-                        @chapters().length
-                    , @onChaptersLoaded
+                # if we have a chapter > 1 on init it means its a returning user
+                # and therefore we should check for all previous saw chapter 
+                $rootScope.$watch (=> Plot.chapters.length), =>
+                    if parseInt(User.chapter) > 1
+                        @getPreviousResults()
 
-            chapters: => if Plot.chapters? then Plot.chapters else []
+            getPreviousResults: =>
+                candidates  = _.filter Plot.chapters, (el)->
+                    parseInt(el.id) < parseInt(User.chapter)
+                # will load every candidate
+                _.map candidates, @get
 
-            get: (chapter_id)=> @list[chapter_id]
 
-            resultsForChapter: (chapter)=>
-                return @list[chapter.id] if @list[chapter.id]
-                url  = api.results
-                conf =
-                    params:
-                        chapter: chapter.id
-                        token: User.token
-
-                http_promise = $http.get(url, conf)
-                http_promise.success (data)=>
-                    @list[chapter.id] = @wrapResults data, chapter
-                http_promise.error (err)=>
-                    err_msg = [
-                        "An error occured while getting results of chapter"
-                        " #{chapter.id}:"
-                    ]
-                    console.warn err_msg.join(''), err
+            get: (chapter)=>
+                def = $q.defer()
+                loaded = @list[chapter.id]
+                if loaded?
+                    # this defer & promise usage exists to keep consistency 
+                    # with the result of this method (a promise)
+                    def.resolve(loaded)
+                else 
+                    http_promise = $http.get @API_URL, { 
+                        params: 
+                            chapter: chapter.id
+                            token: User.token
+                    }
+                    http_promise.success (data)=>
+                        @list[chapter.id] = res =  @wrapResults data, chapter
+                        def.resolve res
+                    http_promise.error (err)=>
+                        err_msg = [
+                            "An error occured while getting results of chapter"
+                            " #{chapter.id}:"
+                        ]
+                        def.reject err_msg
+                        console.warn err_msg.join(''), err
+                def.promise
 
             unsentenceIt: (str)=>
                 # will remmove first capital letter of passed string if necessary
@@ -43,16 +57,17 @@ angular.module("spin.service").factory("Results", [
         
             wrapResults: (results, chapter)=>
                 results_obj =
-                    chatper:  chapter
+                    share_sentence: results.share_sentence
+                    chapter:  chapter
                     list: {}
                 # wrap a set of results by calling @wrapResult on every result
-                for res_key, result of results
-                    results_obj.list[res_key] = @wrapResult(result)
+                for scene_key, scene of results.scenes
+                    results_obj.list[scene_key] = @wrapSceneResult(scene)
                 results_obj
 
-            wrapResult: (result)=>
-                user_choice_idx = result.you if result.you?
-                choice     = result.options[user_choice_idx]
+            wrapSceneResult: (sceneOptions)=>
+                user_choice_idx = sceneOptions.you if sceneOptions.you?
+                choice     = sceneOptions.options[user_choice_idx]
                 if choice?
                     percentage = choice.percentage
                     title      = @unsentenceIt(choice.title)
@@ -63,19 +78,10 @@ angular.module("spin.service").factory("Results", [
                             raw: percentage
                             style: 
                                 width: "#{percentage}%"
-                    result = _.extend result, resultWrapingObject
+                    result = _.extend sceneOptions, resultWrapingObject
+                else
+                    result = sceneOptions
                 result
 
-            onChaptersLoaded: (chapter_count)=>
-                return unless chapter_count and chapter_count > 0
-                # if chapters are available we will load results for every 
-                # saw chapter
-                last_chapter     = Plot.chapter(User.chapter)
-                last_chapter_idx = Plot.chapters.indexOf last_chapter
-                index = 0
-                while index < last_chapter_idx + 1
-                    chapter = Plot.chapters[index]
-                    @resultsForChapter chapter
-                    index++
 
 ])
