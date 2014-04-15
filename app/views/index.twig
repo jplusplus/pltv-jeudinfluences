@@ -1,7 +1,9 @@
 {% extends 'layouts/master.twig' %}
 
 {% block content %}
-    <debug-toolbar></debug-toolbar>    
+    {% if MODE == "development" %}
+        <debug-toolbar></debug-toolbar>
+    {% endif %}
 	<div ng-view></div>
 	{% include 'partials/nav.twig' %}
 {% endblock content %}
