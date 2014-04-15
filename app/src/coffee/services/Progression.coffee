@@ -4,6 +4,7 @@ angular.module("spin.service").factory "Progression", [
     'User'
     'Sound'
     'Timeout'
+    'Xiti'
     ($rootScope, Plot, User, Sound, Timeout)->
         new class Progression    
             # ──────────────────────────────────────────────────────────────────────────
@@ -11,8 +12,7 @@ angular.module("spin.service").factory "Progression", [
             # ──────────────────────────────────────────────────────────────────────────
             constructor: ->
                 # Record begining date of a chapter
-                $rootScope.$watch (=>User.inGame), User.saveChapterChanging, yes
-
+                $rootScope.$watch (=>User.inGame), User.saveChapterChanging, yes                
                 $rootScope.$watch (=>User.chapter), @onChapterChanged, yes
                 # Update local storage
                 $rootScope.$watch (=>User), User.updateLocalStorage, yes                    
