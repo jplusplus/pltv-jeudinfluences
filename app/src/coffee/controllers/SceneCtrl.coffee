@@ -10,14 +10,15 @@ class SceneCtrl
         @scene = @scope.scene = @scope.src              
         @chapter = @scope.chapter
         # True if the given scene is visible
-        @shouldShowScene = @scope.shouldShowScene = => @scene.id is @User.scene   
+        @shouldShowScene = @scope.shouldShowScene = => @scene.id is @User.scene
         # True if the given sequence is visible
         @scope.shouldShowSequence = (idx)=> 
             @shouldShowScene()            and
             # Hide the sequence is the user in one of this states
-            not @User.isStartingChapter() and 
+            not @User.isStartingChapter() and
             not @User.isGameOver          and
             not @User.isGameDone          and
+            not @User.isSummary           and
             # And show the sequence if it is the last one with a next button
             [ @getLastDialogIdx(), @User.sequence ].indexOf(idx) > -1
 
