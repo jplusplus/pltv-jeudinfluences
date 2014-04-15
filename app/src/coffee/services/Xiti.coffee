@@ -1,31 +1,24 @@
-angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', ($rootScope, User, Plot)->
+angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'constant.xiti', ($rootScope, User, Plot, xiti)->
     new class Xiti
-        config:
-            xtsd  : "http://logc238"
-            xtsite: "475907"
-            xtn2  : "65"
-            prefix: ""
-
-
         constructor:->     
             do @updateConfig
             # Record homepage (default page for everyone)
             @loadPage "home"
-            # Wait for game to start
-            @start = no
-            # Chapter change
+            # Chapter change in game
             @watchInGame (->[User.inGame, User.chapter]), => @loadPage @chapter()
-            # Scene change
+            # Scene change in game
             @watchInGame (->[User.inGame, User.scene]), => @loadPage @chapter()
-            # Sequence change
+            # Sequence change in game
             @watchInGame (->[User.inGame, User.sequence]), => @loadPage @chapter(), @scene(), @sequence()
             # Game states
-            $rootScope.$watch (->User.isGameOver), ( (s)=> @loadPage "game-over"                        if s ), yes
-            $rootScope.$watch (->User.isGameDone), ( (s)=> @loadPage "bilan-fin-jeu"                    if s ), yes
-            $rootScope.$watch (->User.isSummary) , ( (s)=> @loadPage @chapter(), "bilan-fin-chapitre-n" if s ), yes
+            @watchIf (->User.isGameOver), ((v)->v), => @loadPage "game-over"                     
+            @watchIf (->User.isGameDone), ((v)->v), => @loadPage "bilan-fin-jeu"                 
+            @watchIf (->User.isSummary) , ((v)->v), => @loadPage @chapter(), "bilan-fin-chapitre"
 
-        # Watcher only "ingame"
-        watchInGame: (ev, fn)-> $rootScope.$watch ev, (=> fn() if User.inGame), yes
+        # Watch "ev" and trigger "fn" only if the assert() is true
+        watchIf    : (ev, assert, fn)=> $rootScope.$watch ev, ((v)=> fn() if assert(v) ), yes 
+        # Watch "ev" and trigger "fn" only if User.ingame is true
+        watchInGame: (ev, fn)=> @watchIf ev, (->User.inGame), fn
         # Token getter for user position
         chapter    : -> "chapter-n#{User.chapter}"
         scene      : -> "scene-n#{User.scene}"
@@ -38,17 +31,11 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', ($
 
         updateConfig: =>
             # Xiti's core variables
-            window.xtsd     = @config.xtsd
-            window.xtsite   = @config.xtsite # site number
-            window.xtn2     = @config.xtn2   # level 2 site            
-            window.xtpage   = "default"      # page name (with the use of :: to create chapters)
-            window.xtdi     = ""             # implication degree
-            window.xt_multc = ""             # customized indicators
-            window.xt_an    = ""             # numeric identifier
-            window.xt_ac    = ""             # category
-
-            window.xtparam = "" unless window.xtparam?
-            window.xtparam += "&ac=" + xt_ac + "&an=" + xt_an + xt_multc            
+            window.xtsd   ?= xiti.xtsd
+            window.xtsite ?= xiti.xtsite # site number
+            window.xtn2   ?= xiti.xtn2   # level 2 site            
+            window.xtpage ?= "default"      # page name (with the use of :: to create chapters)
+            window.xtdi   ?= ""             # implication degree        
 
         loadPage: =>  
             # Convert arguments object to an array
@@ -57,10 +44,8 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', ($
             if @currentPage isnt args.join("::")
                 # Record the current page slug to avoid declare the page twice
                 @currentPage = args.join("::")
-                console.log @currentPage
-                return
                 # Create xtpage slug
-                xtpage       = @config.prefix + @currentPage
+                xtpage       = xiti.prefix + @currentPage
                 # Destroy existing image
                 angular.element( @img ).remove() if @img?
                 # Create the new image
