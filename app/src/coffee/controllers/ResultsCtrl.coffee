@@ -17,7 +17,7 @@ class ResultsCtrl
     goNextChapter: =>
         @scope.safeApply =>
             @User.isSummary = no
-            @User.saveChapterChanging true 
+            @User.saveChapterChanging true
 
     shouldShowResults: => @User.isSummary and @User.inGame
 
@@ -33,8 +33,13 @@ class ResultsCtrl
         if chapter and chapter.bilan
             @scope.safeApply =>
                 @scope.currentChapter  = chapter
-                @Results.get(chapter).then (data)=>
-                    @scope.currentResults = data
+                @Results.get(chapter).then(
+                        # success callback
+                        (data)=> @scope.currentResults = data
+                    ,   ()=>
+                            @User.isSummary = false
+                            @scope.currentResults = undefined
+                )
 
 
 
