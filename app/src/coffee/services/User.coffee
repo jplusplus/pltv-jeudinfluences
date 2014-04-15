@@ -215,14 +215,20 @@ angular.module("spin.service").factory("User", [
                     Plot.sequence(@chapter, @scene, @sequence)
 
             isSequenceConditionOk: (seq) =>
+                is_ok = yes
                 seq = seq or Plot.sequence @chapter, @scene, @sequence
                 if seq.condition
                     for key, value of seq.condition
-                        if @indicators[key] isnt value
-                            return no
-                if (settings.sequenceSkip.indexOf seq.type) >= 0
-                    return no
-                yes
+                        user_variable_value = @indicators[key]
+                        unless user_variable_value?
+                            user_variable_value = false
+                        is_ok =  user_variable_value is value
+                if seq.isSkipped()
+                    is_ok = no
+                if seq.isGameOver()
+                    $rootScope.safeApply =>
+                        @isGameOver = true
+                is_ok
 
             associate: (email) =>
                 return if (not email?) or email is ""
