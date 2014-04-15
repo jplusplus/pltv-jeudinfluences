@@ -1,5 +1,4 @@
-<div class="results" ng-controller="ResultsCtrl" ng-if="shouldShowResults()">
-
+<div class="results" ng-controller="ResultsCtrl" ng-show="shouldShowResults()">
     <div class="results__feedbacks">
         <p>Ne rester pas seul(e) dans cette crise,<br /> partagez votre expérience.</p>
         <div class="results__feedbacks__share">
@@ -20,20 +19,19 @@
                 </div>
             </div>
         </div>
-        <div class="results__feedbacks__nav" ng-show="hasMoreResults()">
+        <div class="results__feedbacks__nav">
             <button ng-click="goNextChapter()" class="btn btn-default results__feedbacks__nav__continue">
                 Continuer
             </button>
         </div>
-
     </div>
 
-    <div class="results__choices" ng-class="{ 'results__choices--on': shouldShowChoices }">
+    <div class="results__choices" ng-class="{ 'results__choices--on': shouldShowChoices }" ng-if="hasPreviousResults()">
         <button class="results__choices__toggler btn btn-default" ng-click="shouldShowChoices = !shouldShowChoices">
             Vos choix précédents
         </button>
         <div class="results__choices__panel">
-            <div class="results__choices__panel__chapter" ng-repeat="(chapter_key, otherResults) in allOtherResults">
+            <div class="results__choices__panel__chapter" ng-repeat="(chapter_key, otherResults) in previousResults()">
                 <h4 class="results__choices__panel__chapter__title">Chapter [[otherResults.chapter.id]]</h4>
                 <div class="results__choices__panel__chapter__percentage" ng-repeat="otherResult in otherResults.list">
                     [[ otherResult.userChoice.title ]]
