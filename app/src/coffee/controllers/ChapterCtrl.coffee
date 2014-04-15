@@ -7,7 +7,8 @@ class ChapterCtrl
         # provided by the chapter directive and the Countroller
         @chapter = @scope.chapter = @scope.src     
         # True if the given chapter is visible
-        @scope.shouldShowChapter = => @chapter.id is @User.chapter and @User.inGame
+        @scope.shouldShowChapter = @shouldShowChapter
+
         # Returns the class to apply to the Chapter
         @scope.chapterClasses = =>
             "chapter--starting": User.isStartingChapter()
@@ -26,6 +27,14 @@ class ChapterCtrl
                         # Add the bg to bg list
                         @bgs.push media(sequence.body)
             @bgs
+
+    shouldShowChapter: =>
+        unless @User.isSummary
+            should_show = @chapter.id is @User.chapter
+        else
+            should_show = @chapter.id is @User.lastChapter
+        should_show and @User.inGame
+
 
 angular.module('spin.controller').controller("ChapterCtrl", ChapterCtrl)
 # EOF
