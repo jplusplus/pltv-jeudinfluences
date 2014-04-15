@@ -215,6 +215,7 @@ angular.module("spin.service").factory("User", [
                     Plot.sequence(@chapter, @scene, @sequence)
 
             isSequenceConditionOk: (seq) =>
+                is_ok = yes
                 seq = seq or Plot.sequence @chapter, @scene, @sequence
                 if seq.condition
                     for key, value of seq.condition
@@ -224,6 +225,9 @@ angular.module("spin.service").factory("User", [
                         is_ok =  user_variable_value is value
                 if seq.isSkipped()
                     is_ok = no
+                if seq.isGameOver()
+                    $rootScope.safeApply =>
+                        @isGameOver = true
                 is_ok
 
             associate: (email) =>
