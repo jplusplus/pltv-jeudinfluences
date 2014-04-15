@@ -25,6 +25,9 @@ class SceneCtrl
         # Just wraps the function from the user service
         @scope.goToNextSequence = =>
             sequence = do @User.nextSequence
+            unless sequence?
+                sequence = @Plot.sequence @User.chapter, @User.scene, @User.sequence
+
             @User.isGameOver = sequence.isGameOver() if sequence?
             # Should we skip this new sequence?
             do @scope.goToNextSequence if sequence and sequence.isSkipped()
