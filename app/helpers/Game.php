@@ -99,7 +99,7 @@ class Game {
 		foreach ($summaries as $summary_filename) {
 			$chapter = basename($summary_filename, '.json');
 			$summary_content = json_decode(file_get_contents($summary_filename), true);
-			$summary[$chapter] = $summary_content;
+			$summary[$chapter] = $summary_content[$chapter];
 		}
 		return $summary;
 	}
