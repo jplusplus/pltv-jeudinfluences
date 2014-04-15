@@ -36,6 +36,9 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
 
         toggleSequence: (chapterIdx=User.chapter, sceneIdx=User.scene, sequenceIdx=User.sequence)=>            
             if sequenceIdx?
+                if @notificationtrack?
+                    do @notificationtrack.stop
+                    @notificationtrack = null
                 if @soundtrack?
                     if (do @soundtrack.volume) < User.volume
                         @soundtrack.fade( (do @soundtrack.volume), User.volume, 500 )
