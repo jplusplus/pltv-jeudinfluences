@@ -57,7 +57,7 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'c
                 @img.src   += "&s2=#{xtn2}"
                 @img.src   += "&p=#{xtpage}"
                 @img.src   += "&di=#{window.xtdi}"
-                @img.src   += "&na=#{(new Date).getTime()}"
+                @img.src   += "&na=#{(new Date).getTime()}"            
                 # Appends the image to the body
                 angular.element("body").append @img
 
