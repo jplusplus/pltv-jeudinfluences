@@ -23,6 +23,7 @@ angular.module("spin.service").factory("User", [
                 @inGame     = no
                 @isGameOver = no
                 @isGameDone = no
+                @isSummary  = no
                 # User authentication
                 @token    = $location.search().token or master.token or null
                 @email    = master.email or null
@@ -263,4 +264,8 @@ angular.module("spin.service").factory("User", [
                     return warn('Next sequence') unless Plot.sequence(chapter, scene, @sequence+1)?  
                     # Just go further
                     do @nextSequence
+
+            restart: =>
+                @inGame = @isSummary = @isGameDone = @isGameOver = no
+                @newUser()
 ])
