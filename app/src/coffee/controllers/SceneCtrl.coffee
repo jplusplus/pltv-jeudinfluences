@@ -22,15 +22,9 @@ class SceneCtrl
             # And show the sequence if it is the last one with a next button
             [ @getLastDialogIdx(), @User.sequence ].indexOf(idx) > -1
 
-        # Just wraps the function from the user service
-        @scope.goToNextSequence = =>
-            sequence = do @User.nextSequence
-            unless sequence?
-                sequence = @Plot.sequence @User.chapter, @User.scene, @User.sequence
 
-            @User.isGameOver = sequence.isGameOver() if sequence?
-            # Should we skip this new sequence?
-            do @scope.goToNextSequence if sequence and sequence.isSkipped()
+        # Just wraps the function from the user service
+        @scope.goToNextSequence = => do @User.nextSequence 
 
         # Select an option within a sequence by wrappeing the User's method       
         @scope.selectOption = (option, idx)=>      
@@ -61,7 +55,7 @@ class SceneCtrl
             # Look into each scene's sequence to find the new background
             for sequence, idx  in @scene.sequence                                
                 # Add the bg to bg list
-                @bgs.push src: sequence.body, sequence: idx if sequence.isNewBg()            
+                @bgs.push src: sequence.body, sequence: idx if sequence.isNewBg()
             @bgs
         # True if we should display the given bg
         @scope.shouldDisplayBg = (bg)=>
