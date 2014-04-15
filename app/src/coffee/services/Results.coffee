@@ -19,7 +19,7 @@ angular.module("spin.service").factory("Results", [
 
             getPreviousResults: =>
                 candidates  = _.filter Plot.chapters, (el)->
-                    parseInt(el.id) < parseInt(User.chapter)
+                    parseInt(el.id) < parseInt(User.chapter) and el.bilan
                 # will load every candidate
                 _.map candidates, @get
 
