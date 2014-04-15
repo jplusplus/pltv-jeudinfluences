@@ -1,39 +1,41 @@
 class ResultsCtrl
-    @$inject: ['$scope', '$sce', 'Progression', 'User', 'Plot', 'Results']
+    @$inject: ['$scope', 'Progression', 'User', 'Plot', 'Results']
 
-    constructor: (@scope, @sce, @Progression, @User,  @Plot,  @Results)->
+    constructor: (@scope, @Progression, @User,  @Plot,  @Results)->
         # scope variable binding
         @scope.plot    = @Plot
         @scope.user    = @User
-        @scope.chapter = 0
-        
         # scope function binding
-        @scope.shouldShowResults = => @User.isGameDone
-        @scope.goNextChapter     = => @scope.chapter += 1
-        @scope.hasMoreResults    = @hasMoreResults
+        @scope.shouldShowResults  = @shouldShowResults 
+        @scope.goNextChapter      = @goNextChapter
+        @scope.hasPreviousResults = @hasPreviousResults
+        @scope.previousResults    = @previousResults
 
         # scope watches
-        @scope.$watch 'chapter', @onChapterIndexChanged
-        @scope.$watch =>
-                _.keys(@Results.list).length
-            , (results_count)=>
-                if results_count > 0 then @onChapterIndexChanged(@scope.chapter)
+        @scope.$watch 'user.chapter', @onChapterChanged, yes
 
-    hasMoreResults: => _.isEmpty @getAt(@scope.chapter + 1)
-
-    idAt: (index)=> _.keys(@Results.list)[index]
-
-    getAt: (index)=>
-        return unless index?
-        @Results.get(@idAt index) or {}
-
-    otherResults: => _.omit(@Results.list, @idAt @scope.chapter)
-
-    onChapterIndexChanged: (newIndex)=>
-        chapter = @getAt newIndex
+    goNextChapter: =>
         @scope.safeApply =>
-            @scope.currentResults = chapter
-            @scope.allOtherResults = @otherResults()
+            @User.isSummary = no
+            @User.saveChapterChanging true 
+
+    shouldShowResults: => @User.isSummary and @User.inGame
+
+    hasPreviousResults: => _.keys(@previousResults()).length > 0
+
+    previousResults: => 
+        # it will look in the already loaded result list to see if there are 
+        # some previous results or not
+        _.omit @Results.list, @scope.currentChapter.id
+
+    onChapterChanged: (newId, oldId)=>
+        chapter = @Plot.chapter oldId
+        if chapter and chapter.bilan
+            @scope.safeApply =>
+                @scope.currentChapter  = chapter
+                @Results.get(chapter).then (data)=>
+                    @scope.currentResults = data
+
 
 
 angular.module('spin.controller').controller("ResultsCtrl", ResultsCtrl)    
