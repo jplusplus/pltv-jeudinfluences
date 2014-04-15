@@ -188,7 +188,7 @@ $app->get('/api/summary', function() use ($app) {
 		$all_choices = array();
 		foreach ($summary as $chapter => $choicesgroup) {
 			$all_choices[$chapter] = array();
-			foreach ($choicesgroup as $key => $value) {
+			foreach ($choicesgroup['scenes'] as $key => $value) {
 				$all_choices[$chapter][$key] = array(0, 0);
 			}
 		}
@@ -230,7 +230,7 @@ $app->get('/api/summary', function() use ($app) {
 	$returned_summary = $summary[$asked_chapter];
 	$chapter_choices  = json_decode($summary_in_db['choices'], true);
 	$chapter_choices  = $chapter_choices[$asked_chapter];
-	foreach ($returned_summary as $choice_key => &$choice) {
+	foreach ($returned_summary['scenes'] as $choice_key => &$choice) {
 		foreach ($choice['options'] as $key => &$option) {
 			$option = array(
 				"title" => $option,
