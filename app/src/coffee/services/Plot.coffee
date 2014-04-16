@@ -24,6 +24,9 @@ angular.module("spin.service").factory "Plot", [
                     isPlayer: ->
                         this.lowerType() is types.sequence.player
 
+                    isVideo: ->
+                        this.lowerType() is types.sequence.video
+
                     isNewBg: ->
                         this.lowerType() is types.sequence.newBackground
 
