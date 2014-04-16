@@ -137,7 +137,7 @@ $app->post('/api/career/associate_email', function() use ($app) {
 		$career->email = $data->email;
 		R::store($career);
 		// send email
-		$app->view->appendData(array('token' => $token, 'host' => 'localhost:8080'));
+		$app->view->appendData(array('token' => $token, 'host' => $_SERVER['HTTP_HOST']));
 		$message = $app->view->fetch('emails/saved_and_send_token.twig');
 		$headers = "Content-Type: text/plain; charset=UTF-8";
 		mail($data->email, $app->config("email_saving_subject"), $message, $headers);
