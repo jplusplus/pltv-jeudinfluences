@@ -24,14 +24,23 @@
             </p>
         </div>
 
-        <div class="welcome__user">
-            <p>Renseignez votre e-mail pour sauvegarder votre progression</p>       
-            <form class="form-horizontal welcome__user__form" role="signin" ng-submit="submit()" name="form">                     
-                <input class="form-control" placeholder="email@exemple.org" ng-model="email" required type="email" class="form-control" /> 
-                <button type="submit" class="welcome__user__form__submit btn btn-default" ng-disabled="form.$invalid">OK</button>
-            </form>
+        <div ng-show="isNewUser()">
+            <div class="welcome__user">
+                <p>Renseignez votre e-mail pour sauvegarder votre progression</p>       
+                <form class="form-horizontal welcome__user__form" role="signin" ng-submit="submit()" name="form">                     
+                    <input class="form-control" placeholder="email@exemple.org" ng-model="email" required type="email" class="form-control" /> 
+                    <button type="submit" class="welcome__user__form__submit btn btn-default" ng-disabled="form.$invalid">OK</button>
+                </form>
+            </div>
+        
+            <div class="welcome__start">
+                <button class="welcome__start__btn btn btn-default btn-lg" ng-click="startGame()">Commencer</button>            
+            </div>
         </div>
 
-        <button class="welcome__start btn btn-default btn-lg" ng-click="user.inGame = true">Commencer</button>
+        <div class="welcome__start" ng-hide="isNewUser()">
+            <button class="welcome__start__btn btn btn-default btn-lg" ng-click="newGame()">Recommencer</button>
+            <button class="welcome__start__btn btn btn-default btn-lg" ng-click="startGame()">Repprendre la partie</button>
+        </div>
     </div>
 </div>
