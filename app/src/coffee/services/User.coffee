@@ -82,14 +82,14 @@ angular.module("spin.service").factory("User", [
                 Math.round( Math.min(inter.length, 3)/3 * 100)
 
             newUser: ()=>
-               # Reset identication tokens
+                # Reset identication tokens
                 [@token, @email] = [null, null] 
+                # Reset user states 
+                @inGame = @isGameOver = @isGameDone = @isSummary  = no
                 # Reset progression
                 [@chapter, @scene, @sequence] = ["1", "1", 0]
                 # Remove value in localStorage
                 do localStorageService.clearAll
-                # And create a new session
-                @loadCareer()
 
             updateLocalStorage: (user=@)=>
                 localStorageService.set("user", user) if user?
