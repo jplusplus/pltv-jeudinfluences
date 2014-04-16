@@ -11,7 +11,7 @@
         {
             "type": "voixoff",
             "character": "Louis",
-            "body": "/medias/chap3/voixoff/louis-ch3-02.mp3"
+            "body": "/medias/chap3/voix-off/louis-ch3-02.mp3"
         },
         {
             "type" : "choice",
