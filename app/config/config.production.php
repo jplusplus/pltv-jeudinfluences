@@ -10,6 +10,7 @@ $app->configureMode('production', function () use ($app) {
 	$app->config(array(
 		'log.enabled'          => true,
 		'debug'                => false,
+		'display_debug_toolbar'=> false,
 		'cache'                => realpath('../tmp/cache'),
 		'archimade_idsite'     => 2439,
 		// assets

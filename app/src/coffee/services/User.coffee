@@ -1,8 +1,7 @@
 angular.module("spin.service").factory("User", [
     'constant.api'
     'constant.settings'
-    'constant.states'
-    'TimeoutStates'
+	'TimeoutStates'
     'UserIndicators'
     'Plot'
     'localStorageService'
@@ -10,7 +9,7 @@ angular.module("spin.service").factory("User", [
     '$timeout'
     '$location'
     '$rootScope'
-    (api, settings, appStates, TimeoutStates, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
+    (api, settings, TimeoutStates, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
         new class User
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
@@ -18,26 +17,36 @@ angular.module("spin.service").factory("User", [
             constructor: ->
                 # This user is saved into local storage
                 master = localStorageService.get("user") or {}
-
-                # False until the player starts the game
-                @inGame     = no
-                @isGameOver = no
-                @isGameDone = no
-                @isSummary  = no
+                # Set initial value according to the localStorage                
+                @setInitialValues master
                 # User authentication
                 @token    = $location.search().token or master.token or null
                 @email    = master.email or null
                 if (do $location.search).token?
                     @email = yes if @email is null
                     $location.search 'token', null
+                # Load career data from the API when the player enters the game
+                $rootScope.$watch =>
+                    @inGame
+                , (newValue, oldValue) =>
+                    if newValue and not oldValue
+                        do @loadCareer                           
+                , yes
+
+                return @            
+
+            setInitialValues: (master={})=>                
                 # Scenes the user passed
                 @scenes   = master.scenes or []       
                 # Sound control
                 @volume   = if isNaN(master.volume) then 0.5 else master.volume         
-                # Position
-                @chapter  = master.chapter  or "1"
-                @scene    = master.scene    or "1"
-                @sequence = master.sequence or 0
+                # Reset identication tokens
+                [@token, @email] = [null, null] 
+                # Reset user states 
+                @inGame = @isGameOver = @isGameDone = @isSummary  = no
+                # Reset progression
+                [@chapter, @scene, @sequence] = ["1", "1", 0]
+                # User progression indiciators
                 @indicators =
                     # Visible indicators
                     stress     : UserIndicators.stress.meta.start
@@ -59,6 +68,22 @@ angular.module("spin.service").factory("User", [
                 return @
 
 
+            buildStates: =>
+                # for every states contained in appStates.user we build 2 methods:
+                #    - one test method is<state name> to see if current is <state name>
+                #    - one setter method to set current state to <state name>
+                # 
+                # by adding these 2 methods we will be able to stuff like so:
+                # user.states.isGameOver()  => true if game over or not. 
+                # user.states.setGameOver() => will cause end of the game
+                for state_key, state_value  in appStates.user
+                    state_name = state_key.replace(state_key[0], state_key[0].toUpperCase())
+                    test_method_name   = "is#{state_name}"
+                    setter_method_name = "set#{state_name}"
+                    @states[test_method_name  ] = => @states.currentState == state_value 
+                    @states[setter_method_name] = => @states.currentState =  state_value
+
+
             pos: ()=> @chapter + "." + @scene
 
             chapterProgression: ()=>
@@ -66,14 +91,9 @@ angular.module("spin.service").factory("User", [
                 Math.round( Math.min(inter.length, 3)/3 * 100)
 
             newUser: ()=>
-                # Reset identication tokens
-                [@token, @email] = [null, null] 
-                # Reset user states 
-                @inGame = @isGameOver = @isGameDone = @isSummary  = no
-                # Reset progression
-                [@chapter, @scene, @sequence] = ["1", "1", 0]
                 # Remove value in localStorage
                 do localStorageService.clearAll
+                do @setInitialValues
 
             updateLocalStorage: (user=@)=>
                 localStorageService.set("user", user) if user?
@@ -233,6 +253,7 @@ angular.module("spin.service").factory("User", [
                 else
                     karma_key = if @indicators.karma >= 0 then 'positif' else 'negatif'
                     next_scene_str = next_scene["#{karma_key}_karma"]
+
                 [chapter, scene] = next_scene_str.split "."  
 
                 # Check that the next step exists

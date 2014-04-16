@@ -15,7 +15,7 @@
         {
             "type": "voixoff",
             "character": "Louis",
-            "sound": "/medias/chap2/voixoff/louis-ch2-02.mp3"
+            "sound": "/medias/chap2/voix-off/louis-ch2-02.mp3"
         },
         {
             "type": "new_background",
@@ -25,7 +25,7 @@
         {
             "type": "voixoff",
             "character": "Journaliste",
-            "sound": "/medias/chap2/voixoff/journaliste-ch2-01.mp3"
+            "sound": "/medias/chap2/voix-off/journaliste-ch2-01.mp3"
         },
         {
             "type": "new_background",
@@ -35,7 +35,7 @@
         {
             "type": "voixoff",
             "character": "Louis",
-            "sound": "/medias/chap2/voixoff/louis-ch2-03.mp3"
+            "sound": "/medias/chap2/voix-off/louis-ch2-03.mp3"
         },
         {
             "type": "new_background",

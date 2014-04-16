@@ -2,32 +2,30 @@
     <h3>Debug toolbar</h3>
     <div class="debug-toolbar__controls">
         <button class="btn btn-default" ng-click="restartCurrentChapter()">
-            Restart current chapter
+            Début du chapitre
         </button>
         <button class="btn btn-default" ng-click="restartGame()">
-            Restart the game
+            Recommencer
         </button>
         <button class="btn btn-default" ng-click="gameOver()">
             Game over
         </button>
     </div>
-    <div class="debug-toolbar__summary text-right">
+    <form class="debug-toolbar__summary text-right" ng-submit="update()">
         <div class="form-inline form-group">
-            <label>Current Chapter&nbsp;:</label>
-            <input ng-model="currentChapter" type="text" class="debug-toolbar__summary__info form-control"/>
-            <button class="btn btn-default btn-xs" ng-click="setChapter(currentChapter)">change</button>            
+            <label>Chapitre&nbsp;:</label>
+            <input ng-model="inputChapter" type="text" required class="debug-toolbar__summary__info form-control"/>
         </div>
         <div class="form-inline form-group">
-            <label>Current Scene&nbsp;:</label>
-            <input ng-model="currentScene" type="text" class="debug-toolbar__summary__info form-control"/>
-            <button class="btn btn-default btn-xs" ng-click="setScene(currentScene)">change</button>            
+            <label>Scène&nbsp;:</label>
+            <input ng-model="inputScene" type="text" required class="debug-toolbar__summary__info form-control"/>
         </div>
         <div class="form-inline form-group">
-            <label>Current Sequence&nbsp;:</label>
-            <input ng-model="currentSequence" type="text" class="debug-toolbar__summary__info form-control"/>
-            <button class="btn btn-default btn-xs" ng-click="setSequence(currentSequence)">change</button>            
+            <label>Séquence&nbsp;:</label>
+            <input ng-model="inputSequence" type="number" required class="debug-toolbar__summary__info form-control"/>       
         </div>
-    </div>
+        <button type="submit" class="btn btn-default btn-xs">OK</button>            
+    </form>
     <button ng-click="hidden = !hidden"  class="btn btn-default debug-toolbar__toggler">
         <span class="caret" ng-class="{ 'caret-reversed': !hidden }"></span>
     </button>
