@@ -19,9 +19,9 @@ angular.module("spin.service").factory "Progression", [
                 # Scene is changing
                 $rootScope.$watch (=> [Plot.chapters, User.scene] ), (-> do Sound.startScene), yes
                 # Sequence is changing
-                $rootScope.$watch (=>User.sequence), ->                                    
-                    do Sound.toggleSequence
-                    do Timeout.toggleSequence
+                $rootScope.$watch (=>User.sequence), ->
+                    do Timeout.toggleSequence 
+                    do Sound.toggleSequence   
                 # Update the volume
                 $rootScope.$watch (=>User.volume), Sound.updateVolume
 
