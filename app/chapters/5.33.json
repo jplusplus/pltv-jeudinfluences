@@ -41,7 +41,7 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0,
+                            "trust": 4,
                             "hesitation_charger_interimaires": true
                         }
                     ]
@@ -55,7 +55,7 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0,
+                            "trust": -4,
                             "charger_interimaires": true
                         }
                     ]

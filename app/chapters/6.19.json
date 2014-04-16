@@ -24,9 +24,9 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
-                            "ubm": 0,
+                            "karma": -4,
+                            "stress": -2,
+                            "ubm": -2,
                             "trust": 0,
                             "plainte_nadia": true
                         }
@@ -38,7 +38,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": 2,
                             "stress": 0,
                             "ubm": 0,
                             "trust": 0

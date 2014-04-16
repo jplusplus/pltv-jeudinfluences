@@ -33,6 +33,7 @@
             "body": "Vous m'avez menti et je ne peux travailler sans confiance. C'est trop risqué. La dernière chose que je puisse faire, c'est vous donner un conseil : faites un \"20 heures\". Révélez tout ce que vous venez de me dire et annoncez votre démission. Dès ce soir."
         },
         {
+            "result": {"ubm": 8, "stress": 4},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,

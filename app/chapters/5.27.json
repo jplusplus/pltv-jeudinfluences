@@ -15,6 +15,7 @@
            "body": "C'est hors de question. Tout cela est un tissu de mensonges."
         },
         {
+           "result": {"ubm": 2},
            "type": "dialogue",
            "character": "Patrick Luaud",
            "header": null,

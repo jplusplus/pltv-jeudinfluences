@@ -9,6 +9,7 @@
     ],
     "sequence": [
         {
+           "result": {"ubm": 16},
            "type": "dialogue",
            "character": "Patrick Luaud",
            "header": "Jeudi 31 mai, 06h22.",
@@ -73,9 +74,9 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
+                            "stress": 4,
                             "ubm": 0,
-                            "trust": 0
+                            "trust": 8
                         }
                     ]
                 },
@@ -86,9 +87,10 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
+                            "stress": -2,
                             "ubm": 0,
-                            "trust": 0
+                            "guilt": 3,
+                            "trust": -8
                         }
                     ]
                 }

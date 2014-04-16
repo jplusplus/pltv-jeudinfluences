@@ -39,11 +39,12 @@ $app->notFound(function () use ($app) {
 
 $app->view->setData(
 	array(
-		'MODE'             => $app->getMode(),
-		'ARCHIMADE_IDSITE' => $app->config("archimade_idsite"),
-		'MEDIA_URL'        => $app->config("media_url"),
-		'STATIC_URL'       => $app->config("static_url"),
-		'ROOT_URI'		   => "http://{$_SERVER['HTTP_HOST']}" 
+		'MODE'                  => $app->getMode(),
+		'ARCHIMADE_IDSITE'      => $app->config("archimade_idsite"),
+		'MEDIA_URL'             => $app->config("media_url"),
+		'STATIC_URL'            => $app->config("static_url"),
+		'ROOT_URI'		        => "http://{$_SERVER['HTTP_HOST']}",
+		'DISPLAY_DEBUG_TOOLBAR' => $app->config("display_debug_toolbar") or $app->config("debug")
 	)
 );
 

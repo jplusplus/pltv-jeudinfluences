@@ -9,6 +9,7 @@
     ],
     "sequence": [
         {
+            "result": {"stress": 64, "ubm": 2},
             "type": "dialogue",
             "character": "Louis",
             "header": null,
@@ -21,7 +22,6 @@
             "body": "Mika s'est suicidé.\n\n<em>Un long silence. Assourdissant.</em>\n\nViens."
         },
         {
-            "result": {"stress": 64, "ubm": 2},
             "type": "dialogue",
             "character": "Louis",
             "header": null,

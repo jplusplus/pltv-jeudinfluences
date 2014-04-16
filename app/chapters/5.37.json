@@ -9,6 +9,7 @@
     ],
     "sequence": [
         {
+            "result": {"trust": -100},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,

@@ -30,8 +30,8 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": 2,
+                            "stress": -2,
                             "ubm": 0,
                             "trust": 0,
                             "lache_jarendeau": true
@@ -44,8 +44,9 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": -4,
+                            "stress": 1,
+                            "guilt": 3,
                             "ubm": 0,
                             "trust": 0
                         }

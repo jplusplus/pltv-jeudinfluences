@@ -17,7 +17,7 @@
         },
         {
             "type": "new_background",
-            "body": "/medias/chap1/illustrations/illustr-ch1-02.gif",
+            "body": "/medias/chap1/illustrations/illustr-ch1-02.jpg",
             "transition": null
         },
         {
@@ -39,7 +39,8 @@
                         {
                             "karma": 0,
                             "stress": 1,
-                            "ubm": 0
+                            "ubm": 0,
+                            "trust": 0
                         }
                     ]
                 },
@@ -50,7 +51,8 @@
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": 0
+                            "ubm": 0,
+                            "trust": 0
                         }
                     ]
                 }
