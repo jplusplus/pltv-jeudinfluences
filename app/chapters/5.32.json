@@ -38,10 +38,11 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": -2,
                             "stress": 0,
-                            "ubm": 0,
-                            "trust": 0
+                            "ubm": -2,
+                            "guilt": 3,
+                            "trust": 2
                         }
                     ]
                 },
@@ -51,10 +52,10 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": 2,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0
+                            "trust": -4
                         }
                     ]
                 }

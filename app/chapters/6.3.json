@@ -28,10 +28,11 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": -4,
                             "stress": 0,
                             "ubm": 0,
                             "trust": 0,
+                            "honesty": -4,
                             "mika_au_courant": true
                         }
                     ]
@@ -42,7 +43,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": 2,
                             "stress": 0,
                             "ubm": 0,
                             "trust": 0

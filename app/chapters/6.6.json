@@ -25,7 +25,7 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 0,
+                            "stress": -2,
                             "ubm": 0,
                             "trust": 0,
                             "marches_bidons": true
@@ -41,6 +41,7 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
+                            "honesty": -2,
                             "trust": 0
                         }
                     ]

@@ -42,7 +42,8 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0,
+                            "trust": 8,
+                            "honesty": -4,
                             "charger_ministresante": true
                         }
                     ]
@@ -56,7 +57,7 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0
+                            "trust": -8
                         }
                     ]
                 }

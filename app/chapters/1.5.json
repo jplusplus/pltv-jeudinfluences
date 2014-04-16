@@ -15,12 +15,12 @@
             "body": "Rien de bien passionnant depuis mon départ : quelques annonces politiques saupoudrées de faits divers, le tout clôturé par de mornes résultats sportifs. Le Brésil était plus vivifiant."
         },
         {
+            "result": { "stress": -2},
             "type": "new_background",
             "body": "/medias/chap1/illustrations/illustr-ch1-05_b.jpg",
             "transition": "fade"
         },
         {
-            "result": { "stress": -2},
             "type": "dialogue",
             "character": "Louis",
             "header": null,

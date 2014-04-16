@@ -12,7 +12,7 @@
             "condition": {
                 "tweet": false
             },
-            "result": {"ubm": 16},
+            "result": {"ubm": 64},
             "type": "voixoff",
             "character": "Radio",
             "body": "/medias/chap2/voix-off/flash-ch2-01-cond-1.mp3"
@@ -21,7 +21,7 @@
             "condition": {
                 "tweet": true
             },
-            "result": {"ubm": 16},
+            "result": {"ubm": 64},
             "type": "voixoff",
             "character": "Radio",
             "body": "/medias/chap2/voix-off/flash-ch2-01-cond-2.mp3"

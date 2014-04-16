@@ -9,7 +9,7 @@
     ],
     "sequence": [
         {
-            "result": { "meurtre": true },
+            "result": {"guilt": 12, "meurtre": true },
             "type": "voixoff",
             "character": "Louis",
             "header": null,

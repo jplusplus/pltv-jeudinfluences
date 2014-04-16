@@ -32,6 +32,7 @@
             "timeout": 25
         },
         {
+            "result": {"guilt": 24},
             "type": "voixoff",
             "character": "Louis",
             "header": null,

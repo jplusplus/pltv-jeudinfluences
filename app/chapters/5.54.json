@@ -9,6 +9,7 @@
     ],
     "sequence": [
         {
+            "result": {"stress": 4},
             "type": "notification",
             "sound": "/medias/sounddesign/notif-1.mp3",
             "header": "Message reçu de \"Nadia, dir' com'\"",

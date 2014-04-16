@@ -59,6 +59,7 @@
             "body": "Vous donnerez l'impression d'être responsable dans le sens positif du terme : vigilant et à l'écoute des citoyens. Et surtout : vous resterez dans l'action."
         },
         {
+            "result": {"stress": -4},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,

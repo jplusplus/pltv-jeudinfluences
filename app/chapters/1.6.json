@@ -15,12 +15,12 @@
             "body": "Tiens..."
         },
         {
+            "result": { "stress": -2},
             "type": "new_background",
             "body": "/medias/chap1/illustrations/illustr-ch1-06_b.jpg",
             "transition": "fade"
         },
         {
-            "result": { "stress": -2},
             "type": "dialogue",
             "character": "Louis",
             "header": null,

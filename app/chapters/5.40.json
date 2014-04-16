@@ -9,6 +9,7 @@
     ],
     "sequence": [
         {
+            "result": {"ubm": -4},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,

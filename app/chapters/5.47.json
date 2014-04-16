@@ -9,6 +9,7 @@
     ],
     "sequence": [
         {
+            "result": {"karma": 2, "ubm": -2, "stress":2, "trust": -8},
             "type": "voixoff",
             "character": "Louis",
             "body": "/medias/chap5/voix-off/louis-ch5-24.mp3"
