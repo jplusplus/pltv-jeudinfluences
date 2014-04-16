@@ -7,43 +7,25 @@ angular.module('spin.directive').directive "debugToolbar", [
         templateUrl: "partials/debug-toolbar.html"
         scope: false
         controller: ['$scope', ($scope)->
-            $scope.setChapter = (val)->
-                User.chapter = val
-
-
-            $scope.setScene = (val)->
-                User.scene = val
-
-
-            $scope.setSequence = (val)->
-                User.sequence = val
-
+            # Update user progression
+            $scope.update = ->
+                # Collect input values
+                values = [$scope.inputChapter, $scope.inputScene, $scope.inputSequence]
+                # Update user object
+                [User.chapter, User.scene, User.sequence] = values
+            # Action on the game state
+            $scope.gameOver              = -> User.isGameOver = !User.isGameOver
+            $scope.restartGame           = -> User.newUser()
             $scope.restartCurrentChapter = ->
-                User.scene    = 1
+                User.scene    = "1"
                 User.sequence = 0
                 User.saveChapterChanging()
 
-            $scope.restartGame = -> User.newUser()
-
-            $scope.gameOver = -> 
-                User.isGameOver = !User.isGameOver
-
         ]
         link: (scope, elem, attrs)->
-            scope.$watch ->
-                    User.chapter
-                , (val)->
-                    scope.currentChapter  = val
-
-            scope.$watch ->
-                    User.scene
-                , (val)->
-                    scope.currentScene    = val
-
-            scope.$watch ->
-                    User.sequence
-                , (val)->
-                    scope.currentSequence = val
+            scope.$watch (->User.chapter),  (val)-> scope.inputChapter = val
+            scope.$watch (->User.scene),    (val)-> scope.inputScene = val
+            scope.$watch (->User.sequence), (val)-> scope.inputSequence = val
 
             scope.hidden = yes
 
