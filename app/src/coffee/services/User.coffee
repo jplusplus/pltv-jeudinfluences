@@ -1,6 +1,7 @@
 angular.module("spin.service").factory("User", [
     'constant.api'
     'constant.settings'
+	'TimeoutStates'
     'UserIndicators'
     'Plot'
     'localStorageService'
@@ -8,7 +9,7 @@ angular.module("spin.service").factory("User", [
     '$timeout'
     '$location'
     '$rootScope'
-    (api, settings, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
+    (api, settings, TimeoutStates, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
         new class User
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
@@ -56,6 +57,32 @@ angular.module("spin.service").factory("User", [
                     honnetete  : 100 
                     karma      : 0 
 
+                # Load career data from the API when the player enters the game
+                $rootScope.$watch =>
+                    @inGame
+                , (newValue, oldValue) =>
+                    if newValue and not oldValue
+                        do @loadCareer                           
+                , yes
+
+                return @
+
+
+            buildStates: =>
+                # for every states contained in appStates.user we build 2 methods:
+                #    - one test method is<state name> to see if current is <state name>
+                #    - one setter method to set current state to <state name>
+                # 
+                # by adding these 2 methods we will be able to stuff like so:
+                # user.states.isGameOver()  => true if game over or not. 
+                # user.states.setGameOver() => will cause end of the game
+                for state_key, state_value  in appStates.user
+                    state_name = state_key.replace(state_key[0], state_key[0].toUpperCase())
+                    test_method_name   = "is#{state_name}"
+                    setter_method_name = "set#{state_name}"
+                    @states[test_method_name  ] = => @states.currentState == state_value 
+                    @states[setter_method_name] = => @states.currentState =  state_value
+
 
             pos: ()=> @chapter + "." + @scene
 
@@ -74,20 +101,20 @@ angular.module("spin.service").factory("User", [
             updateProgression: (career)=>
                 # Do we start acting?
                 if career.reached_scene? and typeof(career.reached_scene) is "string"                        
-                    [@chapter, @scene] = career.reached_scene.split "."
-                    # Saved passed scenes
-                    @scenes = career.scenes
-                    # Save indicators                     
-                    for own key, value of career.context                        
-                        @indicators[key]  = value
+                    unless TimeoutStates.feedback isnt undefined
+                        [@chapter, @scene] = career.reached_scene.split "."
+                        # Saved passed scenes
+                        @scenes = career.scenes
+                        # Save indicators                     
+                        for own key, value of career.context                        
+                            @indicators[key]  = value
+                        # Start to the first sequence
+                        @sequence = 0
+                        # Check that the sequence's condition is OK
+                        if not do @isSequenceConditionOk
+                            # If not, go to the next sequence
+                            do @nextSequence
 
-                    # Start to the first sequence
-                    @sequence = 0
-
-                    # Check that the sequence's condition is OK
-                    if not do @isSequenceConditionOk
-                        # If not, go to the next sequence
-                        do @nextSequence
                 do @checkProgression
 
             checkProgression: =>
@@ -168,14 +195,14 @@ angular.module("spin.service").factory("User", [
                 # Get value using the token
                 $http.post("#{api.career}?token=#{@token}", state).success @updateProgression                
 
-            nextSequence: =>   
+            nextSequence: =>
                 scene = Plot.scene(@chapter, @scene)
                 sequence = Plot.sequence(@chapter, @scene, @sequence)
                 if sequence.result
                     for key, value of sequence.result
                         @indicators[key] += value
                 # Go to the next sequence within the current scene
-                if Plot.sequence(@chapter, @scene, @sequence + 1)?                
+                if Plot.sequence(@chapter, @scene, @sequence + 1)? 
                     # Go simply to the next sequence
                     ++@sequence 
                     # Retrieve the new sequence and check conditions
@@ -216,6 +243,11 @@ angular.module("spin.service").factory("User", [
                         email : email
 
             goToScene: (next_scene, shouldUpdateCareer=yes)=>
+                if TimeoutStates.feedback 
+                    # if a previous timeout was set for a previous feedback
+                    # we delete it
+                    TimeoutStates.feedback = undefined 
+
                 if typeof(next_scene) is typeof("")
                     next_scene_str = next_scene
                 else

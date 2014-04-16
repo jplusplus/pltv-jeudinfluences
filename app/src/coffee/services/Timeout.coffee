@@ -2,14 +2,16 @@ angular.module("spin.service").factory "Timeout", [
     '$rootScope'
     'User'
     'Plot'
+    'TimeoutStates'
     'constant.settings'
     '$timeout'
-    ($rootScope, User, Plot, settings, $timeout)->
+    ($rootScope, User, Plot, TimeoutStates, settings, $timeout)->
         new class Timeout
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
             # ──────────────────────────────────────────────────────────────────────────
             constructor: ->
+                @states = TimeoutStates
                 @remainingTime = 0
                 @_lastStep = null
                 @_timeout = undefined
@@ -24,14 +26,17 @@ angular.module("spin.service").factory "Timeout", [
                     @sequence = Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)
                     return if not @sequence?
                     # Some choices have a delay
-                    if @sequence.type is 'choice' and @sequence.delay?
+                    if @sequence.isChoice() and @sequence.delay?
                         @remainingTime = 0
                         @_timeout = $timeout @timeStep, settings.timeoutRefRate
                         @_lastStep = do Date.now
                     # Some sequence are feedbacks that disapear after a short delay
-                    else if @sequence.type is 'feedback'
+                    else if @sequence.isFeedback()
+                        if TimeoutStates.feedback isnt undefined
+                            $timeout.cancel TimeoutStates.feedback
+                            TimeoutStates.feedback = undefined
                         # Simply go to the next sequence after a short delay
-                        $timeout(
+                        TimeoutStates.feedback = $timeout(
                             # Closure to pass the current sequence object
                             do (sequence=@sequence)->
                                 # Simply go to the next scene

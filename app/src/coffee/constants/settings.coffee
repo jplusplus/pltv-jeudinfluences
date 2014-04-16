@@ -5,6 +5,7 @@ angular.module('spin.constant').constant 'constant.settings',
     # Animations
     chapterEntrance   : 6*1000
     sceneEntrance     : 1*1000
+    feedbackDuration  : 2*1000
     # Some types of sequence have differents behavior
     sequenceWithNext  : ["dialogue", "narrative", "video", "notification", "voixoff"]
     sequenceBlocking  : ["dialogue", "narrative", "voixoff", "video", "notification", "choice"]
