@@ -15,7 +15,7 @@
             <p ng-bind-html="feedback.percentage.sentence"></p>
             <div class="progress results__feedbacks__sample__progress">
                 <div class="progress-bar" ng-style="feedback.percentage.style">
-                    [[ feedback.percentage.raw ]]%
+                    [[ feedback.percentage.raw | number:0 ]]%
                 </div>
             </div>
         </div>

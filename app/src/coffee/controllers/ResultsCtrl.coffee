@@ -24,9 +24,10 @@ class ResultsCtrl
     hasPreviousResults: => _.keys(@previousResults()).length > 0
 
     previousResults: => 
-        # it will look in the already loaded result list to see if there are 
-        # some previous results or not
-        _.omit @Results.list, @scope.currentChapter.id
+        if @scope.currentChapter?
+            # it will look in the already loaded result list to see if there are 
+            # some previous results or not
+            _.omit @Results.list, @scope.currentChapter.id
 
     onChapterChanged: (newId, oldId)=>
         chapter = @Plot.chapter oldId
