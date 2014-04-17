@@ -13,4 +13,4 @@ npm-debug.log
 .env
 fabfile.py
 *.pyc
-.sqlite
+*.sqlite
