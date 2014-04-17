@@ -7,7 +7,7 @@
     bottom:0;
     z-index:@welcome-zindex;
 
-    .fade > .repeat(@chapter-starting-duration-2);
+    .fade > .show(@chapter-starting-duration-2);
 
 
     &__bg {       
@@ -22,19 +22,6 @@
         left:50%;
         .translate(-50%, -50%);
     }
-
-    h1 {
-        margin:0;
-        padding:0;
-        text-transform: uppercase;
-        text-shadow:0 0 10px @brand-primary;
-        text-align: center;
-        font-size: 82px;
-        height:80px;
-        white-space: nowrap;
-        font-family: @font-family-sans-serif;
-    }
-
 
     &__intro,    
     &__user {
