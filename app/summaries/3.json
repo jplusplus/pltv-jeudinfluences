@@ -1,0 +1,28 @@
+{
+    "3" : {
+        "share_sentence" : "Jusqu'ici j'ai fait les bons choix, je gère la crise. Et vous, quels seraient les vôtres ?",
+        "scenes" : {
+            "3.28" : {
+                "title" : "Discréditer l'ouvrier ?",
+                "options" : [
+                    "vous avez choisi de discréditer l'ouvrier.",
+                    "vous avez choisi de ne pas discréditer l'ouvrier."
+                ]
+            },
+            "3.15" : {
+                "title" : "Soutenir Nadia publiquement ?",
+                "options" : [
+                    "vous avez choisi de ne pas soutenir Nadia publiquement.",
+                    "vous avez choisi de soutenir Nadia publiquement."
+                ]
+            },
+            "3.11" : {
+                "title" : "Fuiter le document sur l'usine Rouvroy ?",
+                "options" : [
+                    "vous avez choisi de fuiter le document sur l'usine Rouvroy.",
+                    "vous avez choisi de ne pas fuiter le document sur l'usine Rouvroy."
+                ]
+            }
+        }
+    }
+}
