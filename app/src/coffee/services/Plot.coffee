@@ -48,6 +48,9 @@ angular.module("spin.service").factory "Plot", [
                         this.isChoice() or 
                         this.isFeedback()
 
+                    getEmbedSrc: ->
+                        this.body.replace("dailymotion.com/video/", "dailymotion.com/embed/video/")
+
                     getHeadSrc: ->
                         if this.character?
                             # slugify the character name (to avoir error)

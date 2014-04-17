@@ -81,7 +81,9 @@
 
         <!-- Video, in the middle of the screen -->
         <div ng-if="sequence.isVideo()">
-            <div class="scene__sequence--video__body">1</div>            
+            <div class="scene__sequence--video__body">
+                <iframe frameborder="0" width="100%" height="100%" ng-src="[[sequence.getEmbedSrc()]]" allowfullscreen ng-if="shouldShowSequence($index)"></iframe>
+            </div>            
         </div>
 
 
