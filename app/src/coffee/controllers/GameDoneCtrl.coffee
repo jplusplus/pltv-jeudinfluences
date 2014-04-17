@@ -3,6 +3,8 @@ class GameDoneCtrl
     @$inject: ['$scope', 'User']
 
     constructor: (@scope, @User)->
-        _.extend @scope, @
+        @scope.user = @User
 
-    shouldShowTheEnd: => @User.isGameDone 
+        @scope.shouldShowTheEnd = @shouldShowTheEnd
+
+    shouldShowTheEnd: => @User.isGameDone
