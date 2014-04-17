@@ -13,6 +13,7 @@ angular.module('spin.directive').directive "debugToolbar", [
                 values = [$scope.inputChapter, $scope.inputScene, $scope.inputSequence]
                 # Update user object
                 [User.chapter, User.scene, User.sequence] = values
+                do User.eraseCareerSinceNow
             # Action on the game state
             $scope.gameOver              = -> User.isGameOver = !User.isGameOver
             $scope.restartGame           = -> User.newUser()
@@ -20,6 +21,7 @@ angular.module('spin.directive').directive "debugToolbar", [
                 User.scene    = "1"
                 User.sequence = 0
                 User.saveChapterChanging()
+                do User.eraseCareerSinceNow
 
         ]
         link: (scope, elem, attrs)->

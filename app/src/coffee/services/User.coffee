@@ -283,4 +283,11 @@ angular.module("spin.service").factory("User", [
             restart: =>
                 @inGame = @isSummary = @isGameDone = @isGameOver = no
                 @newUser()
+
+            eraseCareerSinceNow: =>
+                $http
+                    url : "#{api.erase}?token=#{@token}"
+                    method : 'POST'
+                    data :
+                        since : @chapter + '.' + @sequence
 ])
