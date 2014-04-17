@@ -79,6 +79,9 @@ $app->post('/api/career', function() use ($app) {
 		$career->choices = "{}";
 		$career->scenes  = "[]";
 		$career->created = R::isoDateTime();
+		$career->finished = false;
+		$career->culpabilite = 0;
+		$career->honnetete = 0;
 	}
 	// update the career (json syntax)
 	$data = json_decode($app->request()->getBody(), true);
@@ -92,7 +95,7 @@ $app->post('/api/career', function() use ($app) {
 		$choices->$data["scene"] = $data["choice"];
 		$career->choices         = json_encode($choices);
 		// Get the scene to retreive available options
-		$scene      = \app\helpers\Game::getScene($data["scene"]);		
+		$scene      = \app\helpers\Game::getScene($data["scene"]);
 		$options    = \app\helpers\Game::getOptionsFromScene($scene);
 		// Get the next_scene from the selected option.
 		// We save it into data to save the scene reached
@@ -106,6 +109,14 @@ $app->post('/api/career', function() use ($app) {
 			$scenes[] = (string)$data["reached_scene"];
 			$career->scenes = json_encode($scenes);
 		}
+	}
+
+	if (isset($data["is_game_done"]) && $data["is_game_done"]) {
+		$context = \app\helpers\Game::computeContext($career);
+
+		$career->finished = true;
+		$career->culpabilite = $context['culpabilite'];
+		$career->honnetete = $context['honnetete'];
 	}
 
 	// save
@@ -244,6 +255,12 @@ $app->get('/api/summary', function() use ($app) {
 
 	// Finally, we set the results in the $summary object and send it back
 	return ok($returned_summary);
+});
+
+$app->get('/api/summary/final', function() use ($app) {
+	// $careers = R::find('career', 'finished=?', array(true));
+
+	return ok(R::getAll("SELECT culpabilite, honnetete FROM career WHERE finished = 1;"));
 });
 
 $app->post('/api/erase', function() use ($app) {
