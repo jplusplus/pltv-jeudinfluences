@@ -57,6 +57,19 @@ If token isn't given, it creates one and returns it. You should save it in order
 Associate an email to a token.  
 expected body : `{"email" : "example@wanadoo.fr"}`
 
+### POST
+
+    /api/erase?token=
+
+Erase a part of the career.
+Expected body :
+```json
+    {"chapter":"2"}
+or  {"since":"2.1"}
+```
+
+It'll erase all of the career, starting from `since` or the first scene of `chapter` (inclusive).
+
 ## Story Plot
 
 ### GET
