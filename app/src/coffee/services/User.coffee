@@ -297,4 +297,11 @@ angular.module("spin.service").factory("User", [
             singMeTheEnd: =>
                 console.log "This is the end"
                 console.log "My only friend, the end"
+
+            eraseCareerSinceNow: =>
+                $http
+                    url : "#{api.erase}?token=#{@token}"
+                    method : 'POST'
+                    data :
+                        since : @chapter + '.' + @sequence
 ])

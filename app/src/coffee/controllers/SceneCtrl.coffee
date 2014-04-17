@@ -1,6 +1,6 @@
 class SceneCtrl
-    @$inject: ['$scope', 'Plot', 'User', 'Sound', 'Timeout', 'constant.characters', 'constant.settings']
-    constructor: (@scope, @Plot, @User, @Sound, @Timeout, characters, settings) ->
+    @$inject: ['$scope', 'Plot', 'User', 'Sound', 'Timeout', 'constant.characters']
+    constructor: (@scope, @Plot, @User, @Sound, @Timeout, characters) ->
         @scope.plot  = @Plot
         @scope.user  = @User         
         @scope.sound = @Sound

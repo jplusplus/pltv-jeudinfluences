@@ -1,0 +1,28 @@
+{
+    "5" : {
+        "share_sentence" : "Jusqu'ici j'ai fait les bons choix, je gère la crise. Et vous, quels seraient les vôtres ?",
+        "scenes" : {
+            "5.46" : {
+                "title" : "Volontairement sous-estimer l'indemnisation des victimes ?",
+                "options" : [
+                    "vous avez choisi de volontairement sous-estimer l'indemnisation des victimes.",
+                    "vous avez choisi de ne pas volontairement sous-estimer l'indemnisation des victimes."
+                ]
+            },
+            "5.26" : {
+                "title" : "Fermer l'usine ?",
+                "options" : [
+                    "vous avez choisi d'ordonner vous-même la fermeture de l'usine.",
+                    "vous avez choisi de ne pas ordonner la fermeture de l'usine."
+                ]
+            },
+            "5.34" : {
+                "title" : "Rester fidèle à la théorie du complot et pointer Rouvroy Industries ?",
+                "options" : [
+                    "vous avez choisi de pointer les relations entre le ministre de la Santé et Rouvroy Industries.",
+                    "vous avez choisi de ne pas pointer les relations entre le ministre de la Santé et Rouvroy Industries."
+                ]
+            }
+        }
+    }
+}
