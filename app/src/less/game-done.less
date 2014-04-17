@@ -1,0 +1,43 @@
+.game-done {
+    @left-col-width: 350px;
+    z-index:     @game-done-zindex;
+    font-family: @font-family-base;
+
+    .fade > .show(@chapter-starting-duration-2);
+
+    &__bg {
+        .covering();
+        background-image:url("/img/bg/wait.jpg");   
+    }
+
+    &__title {
+        width: @left-col-width - 50px;
+        position: absolute;
+        text-align: right;
+        top: 100px;
+        &__topping {
+            background-color: #171717;
+            height: 30px;
+            border: 5px solid black;
+            border-left-width: 100px;
+            // width: 100%;
+        }
+    }
+    &__summary {
+        position: absolute;
+        background: fade(black, 25);
+        top: 300px;
+        width: @left-col-width;
+        padding: 30px;
+        padding-top: 10px;
+        &__title, &__description {
+            font-size: @font-size-base;
+            font-weight: bold;
+            color: white;
+        }
+
+         &__title { 
+            text-transform: uppercase;
+         }
+    }
+}
