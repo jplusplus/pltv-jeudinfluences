@@ -10,3 +10,5 @@ npm-debug.log
 fabfile.py
 *.pyc
 public/dev
+*.sqlite
+

@@ -241,6 +241,21 @@
             }
         }
 
+        // Feedback, in the middle of the screen 
+        &--video {
+
+            &__body {                
+                .translate(-50%, -50%);
+                position:absolute;
+                top:40%;
+                left:50%;
+                background:fade(#fff, 75);  
+                padding:5px;          
+                width:490px;
+                height:280px;
+            }
+        }
+
         // Dialog box, a the bottom of the screen
         &--dialogue,
         &--narrative {

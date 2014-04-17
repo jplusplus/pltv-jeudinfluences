@@ -24,6 +24,9 @@ angular.module("spin.service").factory "Plot", [
                     isPlayer: ->
                         this.lowerType() is types.sequence.player
 
+                    isVideo: ->
+                        this.lowerType() is types.sequence.video
+
                     isNewBg: ->
                         this.lowerType() is types.sequence.newBackground
 
@@ -44,6 +47,9 @@ angular.module("spin.service").factory "Plot", [
                         this.isDialog() or 
                         this.isChoice() or 
                         this.isFeedback()
+
+                    getEmbedSrc: ->
+                        this.body.replace("dailymotion.com/video/", "dailymotion.com/embed/video/")
 
                     getHeadSrc: ->
                         if this.character?
