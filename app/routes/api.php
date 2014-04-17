@@ -258,8 +258,6 @@ $app->get('/api/summary', function() use ($app) {
 });
 
 $app->get('/api/summary/final', function() use ($app) {
-	// $careers = R::find('career', 'finished=?', array(true));
-
 	return ok(R::getAll("SELECT culpabilite, honnetete FROM career WHERE finished = 1;"));
 });
 
