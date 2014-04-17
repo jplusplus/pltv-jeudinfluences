@@ -40,4 +40,33 @@
             text-transform: uppercase;
          }
     }
+    &__results {
+        z-index: @game-done-zindex;
+        position: absolute;
+        top: 25px;
+        left: 450px;
+        right: 50px;
+        bottom: 50px;
+
+        background: fade(black, 25);
+
+        &__restart-button {
+            position: absolute;
+            right: -13px;
+            bottom: 20px;
+
+        }
+        &:after {
+            content:"";
+            position:absolute;
+            bottom: 12px;
+            right:-12px;                    
+            background:no-repeat right top url("/img/ui/question_right.png");
+            width:14px;                   
+            height:7px;                    
+            margin-right:-2px;
+            margin-top:2px;
+            z-index:-1;
+        }
+    }
 }
