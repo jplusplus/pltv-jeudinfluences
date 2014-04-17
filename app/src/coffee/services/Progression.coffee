@@ -12,7 +12,7 @@ angular.module("spin.service").factory "Progression", [
             # ──────────────────────────────────────────────────────────────────────────
             constructor: ->
                 # Record begining date of a chapter
-                $rootScope.$watch (=>User.inGame), User.saveChapterChanging, yes                
+                $rootScope.$watch (=>User.inGame),  @onInGameChanged, yes                
                 $rootScope.$watch (=>User.chapter), @onChapterChanged, yes
                 # Update local storage
                 $rootScope.$watch (=>User), User.updateLocalStorage, yes                    
@@ -21,7 +21,8 @@ angular.module("spin.service").factory "Progression", [
                 # Sequence is changing
                 $rootScope.$watch (=>User.sequence), ->
                     do Timeout.toggleSequence 
-                    do Sound.toggleSequence   
+                    do Sound.toggleSequence
+
                 # Update the volume
                 $rootScope.$watch (=>User.volume), Sound.updateVolume
 
@@ -34,6 +35,12 @@ angular.module("spin.service").factory "Progression", [
                 else 
                     User.saveChapterChanging newId
                 User.lastChapter = oldId
+
+            onInGameChanged: =>
+                if User.isGameDone
+                    Sound.stopTracks yes, no
+                else
+                    User.saveChapterChanging true 
 
 
 ]
