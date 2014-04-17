@@ -12,6 +12,20 @@
         </p>
     </div>
 
-    <div class="game-done__summary-viewer">
+    <div class="game-done__results">
+        <!-- TODO: the summary viewer visualization -->
+        <div class="results__feedbacks__share">
+            <button class="btn btn-default results__feedbacks__share__facebook">
+                <span class="sr-only">Facebook</span>
+            </button>
+            <button class="btn btn-default results__feedbacks__share__twitter">
+                <span class="sr-only">Twitter</span>
+            </button>
+        </div>
+
+        <button ng-click="user.newUser()" 
+                class="game-done__results__restart-button btn btn-default btn-lg">
+            Recommencer
+        </button>
     </div>
 </div>
