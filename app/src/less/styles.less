@@ -9,6 +9,7 @@
 @welcome-zindex       : @chapter-zindex + 1000;
 @results-zindex       : @welcome-zindex + 1000;
 @game-over-zindex     : @chapter-zindex + 1000;
+@game-done-zindex     : @chapter-zindex + 1000;
 @nav-zindex           : @results-zindex + 1000;
 @metanav-zindex       : @nav-zindex + 1000;
 @debug-toolbar-zindex : @metanav-zindex + 1000;
@@ -29,7 +30,9 @@
     @import 'results.less';
     @import 'welcome.less';
     @import 'game-over.less';
+    @import 'game-done.less';
     @import 'nouislider.less';
     @import 'debug-toolbar.less';
+    @import 'global.less';
 }
 
