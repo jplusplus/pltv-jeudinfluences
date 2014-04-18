@@ -15,7 +15,7 @@ $app->configureMode('development', function () use ($app) {
 		// assets
 		'static_url'           => "/",
 		// for video, sounds and large files
-		'media_url'            => "http://jacob.jplusplus.org/~pirhoo/pltv-spin",
+		'media_url'            => "http://d328jlweo9aqvq.cloudfront.net",
 		// after this date, switch to the game home page
 		'launching_date'       => "2010-01-01T10:00:00", 
 		// Mailchimp configuration
@@ -31,6 +31,7 @@ $app->configureMode('development', function () use ($app) {
 		),
 		// Time after which we should re-aggregate summary (in hours)
 		'summary_aggregation_expired' => 0.2,
+		// Configure mandrill mailler here
 		'mandrill_api_key'     => '',
 		'mandrill_from'        => 'info@jeudinfluences.fr'
 	));
