@@ -2,8 +2,6 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'c
     new class Xiti
         constructor:->     
             do @updateConfig
-            # Record homepage (default page for everyone)
-            @loadPage "home"
             # Chapter change in game
             @watchInGame (->[User.inGame, User.chapter]), => @loadPage @chapter()
             # Scene change in game
@@ -34,8 +32,8 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'c
             window.xtsd   ?= xiti.xtsd
             window.xtsite ?= xiti.xtsite # site number
             window.xtn2   ?= xiti.xtn2   # level 2 site            
-            window.xtpage ?= "default"      # page name (with the use of :: to create chapters)
-            window.xtdi   ?= ""             # implication degree        
+            window.xtpage ?= "home"      # page name (with the use of :: to create chapters)
+            window.xtdi   ?= ""          # implication degree        
 
         loadPage: =>  
             # Convert arguments object to an array
