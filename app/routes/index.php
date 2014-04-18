@@ -18,7 +18,7 @@ $app->get('/', function() use ($app) {
     // As Archimade is a private submodule, we made not mandatory
     if( file_exists($archimade) and is_integer($app->config("archimade_idsite")) ) {        
         require_once $archimade;
-        $token = $mode == "wait" ? 'page-attente' : 'default';
+        $token = $mode == "wait" ? 'page-attente' : 'home';
         $arche = \ArcheHtml::getArche( $app->config("archimade_idsite"), $token);
         
         $locales["archimade"] = array(

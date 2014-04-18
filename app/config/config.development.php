@@ -15,7 +15,7 @@ $app->configureMode('development', function () use ($app) {
 		// assets
 		'static_url'           => "/",
 		// for video, sounds and large files
-		'media_url'            => "http://jacob.jplusplus.org/~pirhoo/pltv-spin",
+		'media_url'            => "http://d328jlweo9aqvq.cloudfront.net",
 		// after this date, switch to the game home page
 		'launching_date'       => "2010-01-01T10:00:00", 
 		// Mailchimp configuration
@@ -23,7 +23,7 @@ $app->configureMode('development', function () use ($app) {
 		'mailchimp_datacenter' => '', # ex: us8
 		'mailchimp_apikey'     => '',
 		// Mail settings
-		'email_saving_subject' => "Jeu d'influences : Votre partie est sauveardée",
+		'email_saving_subject' => "Jeu d'influences : Votre partie est sauvegardée",
 		// Opening dates of each chapter
 		'opening_dates'        => array(
 			'1'                => "2014-03-19T16:00:00",
@@ -31,8 +31,9 @@ $app->configureMode('development', function () use ($app) {
 		),
 		// Time after which we should re-aggregate summary (in hours)
 		'summary_aggregation_expired' => 0.2,
-		'mandrill_api_key' => 'eyLX84Tq9HKZ7HP5ReBb-Q',
-		'mandrill_from' => 'info@jeudinfluences.fr'
+		// Configure mandrill mailler here
+		'mandrill_api_key'     => '',
+		'mandrill_from'        => 'info@jeudinfluences.fr'
 	));
 });
 
