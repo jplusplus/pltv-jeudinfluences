@@ -309,12 +309,16 @@ $app->post('/api/erase', function() use ($app) {
 	$career->scenes = json_decode($career->scenes, true);
 	$career->choices = json_decode($career->choices, true);
 
-	$chapter = intval(split('\.', $since)[0]);
-	$scene = intval(split('\.', $since)[1]);
+	$chapter = split('\.', $since);
+	$chapter = intval($chapter[0]);
+	$scene   = split('\.', $since)[1];
+	$scene   = intval($since[1]);
 
 	$filter_iter = function($var) use ($chapter, $scene){
-		$_chapter = intval(split('\.', $var)[0]);
-		$_scene = intval(split('\.', $var)[1]);
+		$_chapter = split('\.', $var);
+		$_chapter = intval($var[0]);
+		$_scene = split('\.', $var);
+		$_scene = intval($var[1]);
 		if ($_chapter > $chapter) { return false; }
 		else if ($_chapter == $chapter && $_scene > $scene) { return false; }
 		return true;
