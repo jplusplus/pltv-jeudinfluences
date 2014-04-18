@@ -1,5 +1,4 @@
 {
-    //bascule vers flashback en fonction de l'état de la variable karma
     "next_scene" :
         {
             "positif_karma": "3.32",
