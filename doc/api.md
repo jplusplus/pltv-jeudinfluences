@@ -122,12 +122,12 @@ response:
 ```json
 [
     {
-        culpabilite : 100,
-        honnetete : 57
+        "culpabilite" : 100,
+        "honnetete" : 57
     },
     {
-        culpabilite : 28,
-        honnetete : 44
+        "culpabilite" : 28,
+        "honnetete" : 44
     },
 ]
 ```

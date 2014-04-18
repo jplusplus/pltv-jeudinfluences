@@ -30,7 +30,9 @@ $app->configureMode('production', function () use ($app) {
 			'4'                => "2014-03-10T16:00:00"
 		),
 		// Time after which we should re-aggregate summary (in hours)
-		'summary_aggregation_expired' => 6
+		'summary_aggregation_expired' => 6,
+		'mandrill_api_key' => '',
+		'mandrill_from' => ''
 	));
 
 	// TODO

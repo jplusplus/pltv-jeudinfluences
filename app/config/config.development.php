@@ -30,7 +30,9 @@ $app->configureMode('development', function () use ($app) {
 			'4'                => "2014-03-19T16:00:00"
 		),
 		// Time after which we should re-aggregate summary (in hours)
-		'summary_aggregation_expired' => 0.2
+		'summary_aggregation_expired' => 0.2,
+		'mandrill_api_key' => 'eyLX84Tq9HKZ7HP5ReBb-Q',
+		'mandrill_from' => 'info@jeudinfluences.fr'
 	));
 });
 
