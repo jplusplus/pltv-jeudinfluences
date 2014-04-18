@@ -318,7 +318,8 @@ $app->post('/api/erase', function() use ($app) {
 		if ($_chapter > $chapter) { return false; }
 		else if ($_chapter == $chapter && $_scene > $scene) { return false; }
 		return true;
-	});
+	};
+	
 	$career->scenes = array_values($career->scenes);
 
 	// Clean the choices object
