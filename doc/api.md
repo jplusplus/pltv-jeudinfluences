@@ -59,7 +59,7 @@ expected body : `{"email" : "example@wanadoo.fr"}`
 
 ### POST
 
-    /api/erase?token=
+    /api/career/erase?token=
 
 Erase a part of the career.
 Expected body :
