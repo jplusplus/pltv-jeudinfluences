@@ -4,3 +4,4 @@ angular.module('spin.constant').constant 'constant.api',
     associate : '/api/career/associate_email'
     results: '/api/summary'
     erase: '/api/erase'
+    finalSummary: '/api/summary/final'
