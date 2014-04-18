@@ -26,10 +26,6 @@ function wrong($body, $status=500,  $json_encode=true) {
 	$response->body($body);
 }
 
-function println($msg){
-	print($msg . "\r\n");
-}
-
 # -----------------------------------------------------------------------------
 #
 #    API
@@ -322,10 +318,7 @@ $app->post('/api/erase', function() use ($app) {
 		if ($_chapter > $chapter) { return false; }
 		else if ($_chapter == $chapter && $_scene > $scene) { return false; }
 		return true;
-	};
-
-	// Clean the scenes array
-	$career->scenes = array_filter($career->scenes, $filter_iter); 
+	});
 	$career->scenes = array_values($career->scenes);
 
 	// Clean the choices object
@@ -335,7 +328,7 @@ $app->post('/api/erase', function() use ($app) {
 
 	// Encode the JSON
 	$career->scenes = json_encode($career->scenes);
-	$career->choices = json_encode($career->choices);
+	$career->choices = json_encode((object)$career->choices);
 
 	// Save in database
 	R::store($career);
