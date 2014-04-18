@@ -273,7 +273,11 @@ $app->get('/api/summary', function() use ($app) {
 });
 
 $app->get('/api/summary/final', function() use ($app) {
-	return ok(R::getAll("SELECT culpabilite, honnetete FROM career WHERE finished = 1;"));
+	$tokencondition = "";
+	if (isset($params['token'])) {
+		$tokencondition = " AND token <> " . $params['token'];
+	}
+	return ok(R::getAll("SELECT culpabilite, honnetete FROM career WHERE finished = 1" . $tokencondition));
 });
 
 $app->post('/api/erase', function() use ($app) {
