@@ -2,18 +2,25 @@
     "2" : {
         "share_sentence" : "Jusqu'ici j'ai fait les bons choix, je gère la crise. Et vous, quels seraient les vôtres ?",
         "scenes" : {
-            "2.1" : {
-                "title" : "Prendre l'appel ?",
+            "2.37" : {
+                "title" : "Diriger les médias vers le couple Nadia / Mika ?",
                 "options" : [
-                    "Vous avez choisi de prendre l'appel de Nadia",
-                    "Vous avez choisi de ne pas prendre l'appel de Nadia"
+                    "vous avez choisi de détourner la pression médiatique vers le couple Nadia / Mika.",
+                    "vous avez choisi de ne pas détourner la pression médiatique vers le couple Nadia / Mika."
                 ]
             },
-            "2.6" : {
-                "title" : "Prendre la carte ?",
+            "2.27" : {
+                "title" : "Mentir à Patrick Luaud au sujet des tensions avec Mika dans l'entreprise ?",
                 "options" : [
-                    "Vous avez choisi de prendre la carte",
-                    "Vous avez choisi de ne pas prendre la carte"
+                    "vous avez choisi de ne pas mentir à Patrick Luaud.",
+                    "vous avez choisi de mentir à Patrick Luaud."
+                ]
+            },
+            "2.7" : {
+                "title" : "Être insistant avec Nadia ?",
+                "options" : [
+                    "vous avez choisi de ne pas insister et de respecter le deuil de Nadia.",
+                    "vous avez choisi d'insister pour que Nadia vous aide."
                 ]
             }
         }

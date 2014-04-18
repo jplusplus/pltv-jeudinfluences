@@ -8,3 +8,6 @@ angular.module('spin.constant').constant 'constant.types',
         notification:    "notification"
         gameOver:        "gameover"
 
+    scene:
+        theEnd: "the_end"
+

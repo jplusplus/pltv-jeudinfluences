@@ -1,6 +1,7 @@
 <?php
 namespace app\routes;
 use RedBean_Facade as R;
+use Mandrill;
 
 # -----------------------------------------------------------------------------
 #
@@ -79,6 +80,9 @@ $app->post('/api/career', function() use ($app) {
 		$career->choices = "{}";
 		$career->scenes  = "[]";
 		$career->created = R::isoDateTime();
+		$career->finished = false;
+		$career->culpabilite = 0;
+		$career->honnetete = 0;
 	}
 	// update the career (json syntax)
 	$data = json_decode($app->request()->getBody(), true);
@@ -92,7 +96,7 @@ $app->post('/api/career', function() use ($app) {
 		$choices->$data["scene"] = $data["choice"];
 		$career->choices         = json_encode($choices);
 		// Get the scene to retreive available options
-		$scene      = \app\helpers\Game::getScene($data["scene"]);		
+		$scene      = \app\helpers\Game::getScene($data["scene"]);
 		$options    = \app\helpers\Game::getOptionsFromScene($scene);
 		// Get the next_scene from the selected option.
 		// We save it into data to save the scene reached
@@ -106,6 +110,14 @@ $app->post('/api/career', function() use ($app) {
 			$scenes[] = (string)$data["reached_scene"];
 			$career->scenes = json_encode($scenes);
 		}
+	}
+
+	if (isset($data["is_game_done"]) && $data["is_game_done"]) {
+		$context = \app\helpers\Game::computeContext($career);
+
+		$career->finished = true;
+		$career->culpabilite = $context['culpabilite'];
+		$career->honnetete = $context['honnetete'];
 	}
 
 	// save
@@ -136,12 +148,26 @@ $app->post('/api/career/associate_email', function() use ($app) {
 	if(isset($data->email) && filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
 		$career->email = $data->email;
 		R::store($career);
+
 		// send email
 		$app->view->appendData(array('token' => $token, 'host' => $_SERVER['HTTP_HOST']));
-		$message = $app->view->fetch('emails/saved_and_send_token.twig');
-		$headers = "Content-Type: text/plain; charset=UTF-8";
-		mail($data->email, $app->config("email_saving_subject"), $message, $headers);
-		return ok(array('status' => 'done'));
+		$mandrill = new Mandrill($app->config("mandrill_api_key"));
+		$message = array(
+			"html" => $app->view->fetch('emails/saved_and_send_token.twig'),
+			"subject" =>  $app->config("email_saving_subject"),
+			"from_email" => $app->config("mandrill_from"),
+			"to" => array(
+				array(
+					"email" => $data->email,
+				)
+			),
+			"headers" => array(
+				"Content-Type" => "text/plain; charset=UTF-8"
+			)
+		);
+		$result = $mandrill->messages->send($message);
+
+		return ok(array('status' => 'done', 'result' => $result));
 	}
 	return wrong(array('error' => 'email required'));
 });
@@ -246,6 +272,10 @@ $app->get('/api/summary', function() use ($app) {
 	return ok($returned_summary);
 });
 
+$app->get('/api/summary/final', function() use ($app) {
+	return ok(R::getAll("SELECT culpabilite, honnetete FROM career WHERE finished = 1;"));
+});
+
 $app->post('/api/erase', function() use ($app) {
 	/**
 	* Clear a career from a point in the plot.
@@ -282,30 +312,24 @@ $app->post('/api/erase', function() use ($app) {
 	$chapter = intval(split('\.', $since)[0]);
 	$scene = intval(split('\.', $since)[1]);
 
-	// Clean the scenes array
-	$career->scenes = array_filter($career->scenes, function($var) use ($chapter, $scene) {
+	$filter_iter = function($var) use ($chapter, $scene){
 		$_chapter = intval(split('\.', $var)[0]);
 		$_scene = intval(split('\.', $var)[1]);
 		if ($_chapter > $chapter) { return false; }
-		else if ($_chapter == $chapter & $_scene >= $scene) { return false; }
+		else if ($_chapter == $chapter && $_scene > $scene) { return false; }
 		return true;
-	});
+	};
+	
 	$career->scenes = array_values($career->scenes);
 
 	// Clean the choices object
-	$kept_choices = array_filter(array_keys($career->choices), function($var) use ($chapter, $scene) {
-		$_chapter = intval(split('\.', $var)[0]);
-		$_scene = intval(split('\.', $var)[1]);
-		if ($_chapter > $chapter) { return false; }
-		else if ($_chapter == $chapter & $_scene >= $scene) { return false; }
-		return true;
-	});
+	$kept_choices = array_filter(array_keys($career->choices), $filter_iter);
 	$kept_choices = array_fill_keys($kept_choices, '');
 	$career->choices = array_intersect_key($career->choices, $kept_choices);
 
 	// Encode the JSON
 	$career->scenes = json_encode($career->scenes);
-	$career->choices = json_encode($career->choices);
+	$career->choices = json_encode((object)$career->choices);
 
 	// Save in database
 	R::store($career);

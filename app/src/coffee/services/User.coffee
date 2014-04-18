@@ -1,6 +1,7 @@
 angular.module("spin.service").factory("User", [
     'constant.api'
     'constant.settings'
+    'constant.types'
 	'TimeoutStates'
     'UserIndicators'
     'Plot'
@@ -9,7 +10,7 @@ angular.module("spin.service").factory("User", [
     '$timeout'
     '$location'
     '$rootScope'
-    (api, settings, TimeoutStates, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
+    (api, settings, types, TimeoutStates, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
         new class User
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
@@ -192,11 +193,13 @@ angular.module("spin.service").factory("User", [
                         option = sequence.options[choice.choice]                    
                 else
                     state = reached_scene: @pos()
+
+                state.is_game_done = @isGameDone
                 # Get value using the token
                 $http.post("#{api.career}?token=#{@token}", state).success @updateProgression                
 
             nextSequence: =>
-                scene = Plot.scene(@chapter, @scene)
+                scene    = Plot.scene(@chapter, @scene)
                 sequence = Plot.sequence(@chapter, @scene, @sequence)
                 if sequence.result
                     for key, value of sequence.result
@@ -254,7 +257,14 @@ angular.module("spin.service").factory("User", [
                     karma_key = if @indicators.karma >= 0 then 'positif' else 'negatif'
                     next_scene_str = next_scene["#{karma_key}_karma"]
 
-                [chapter, scene] = next_scene_str.split "."  
+                if next_scene_str is types.scene.theEnd
+                    @isGameDone = true
+                    @inGame = false
+                    @singMeTheEnd()
+                    do @updateCareer if shouldUpdateCareer
+                    return
+
+                [chapter, scene] = next_scene_str.split "."
 
                 # Check that the next step exists
                 warn = (m)-> console.warn "#{m} doesn't exist (#{next_scene_str})."
@@ -284,10 +294,26 @@ angular.module("spin.service").factory("User", [
                 @inGame = @isSummary = @isGameDone = @isGameOver = no
                 @newUser()
 
+            restartChapter: => 
+                # will restart churrent chapter to its first scene.
+                chapter = Plot.chapter @chapter
+                return unless chapter?
+                @scene  = chapter.scenes[0].id
+                @sequence = 0
+                @isGameOver = no
+                @inGame     = yes
+                do @eraseCareerSinceNow
+
+
+            singMeTheEnd: =>
+                console.log "This is the end"
+                console.log "My only friend, the end"
+
             eraseCareerSinceNow: =>
                 $http
                     url : "#{api.erase}?token=#{@token}"
                     method : 'POST'
                     data :
-                        since : @chapter + '.' + @sequence
-])
+                        since : @chapter + '.' + @scene
+                    
+]) 

@@ -86,7 +86,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                     else if @voicetrack? and not @voicetrack.isPlaying 
                         do @voicetrack.play
                     # Pause sound
-                    else if @voicetrack? and @voicetrack.isPlaying?                        
+                    else if @voicetrack? and @voicetrack.isPlaying?
                         do @voicetrack.pause
                 else
                     if @voicetrack?
@@ -110,17 +110,23 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                                 $rootScope.safeApply =>
                                     @notificationtrack.isPlaying = no
 
-        updateVolume: (volume)=>                      
+        stopTracks: (stopVoice=yes, stopSound=yes)=>
+            if stopVoice and @voicetrack?
+                do @voicetrack.stop
+            if stopSound and @soundtrack?
+                do @soundtrack.stop
+
+        updateVolume: (volume)=>
             # New volume set
-            if volume?                    
+            if volume?
                 switch yes
-                    when @voicetrack? and @soundtrack?                            
-                        @voicetrack.volume(volume)        
+                    when @voicetrack? and @soundtrack?
+                        @voicetrack.volume(volume)
                         @soundtrack.volume(volume/4)
-                    when @voicetrack?                           
-                        @voicetrack.volume(volume)        
-                    when @soundtrack?                           
-                        @soundtrack.volume(volume)     
+                    when @voicetrack?
+                        @voicetrack.volume(volume)
+                    when @soundtrack?
+                        @soundtrack.volume(volume)
 
 ]
 # EOF

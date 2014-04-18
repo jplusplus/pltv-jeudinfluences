@@ -23,6 +23,8 @@ class WelcomeCtrl
             # And starts the game!
             @User.inGame = yes
 
+        @scope.shouldShowWelcome = => not @User.inGame and not @User.isGameDone
+
 
 angular.module('spin.controller').controller("WelcomeCtrl", WelcomeCtrl)
 # EOF

@@ -110,3 +110,24 @@ response:
     "1.4": { ... }
 }
 ```
+
+### GET
+
+    /api/summary/final
+
+Retrieve the final summary (guilt and honesty value of everyone).
+
+response:
+
+```json
+[
+    {
+        "culpabilite" : 100,
+        "honnetete" : 57
+    },
+    {
+        "culpabilite" : 28,
+        "honnetete" : 44
+    },
+]
+```
