@@ -113,9 +113,10 @@ response:
 
 ### GET
 
-    /api/summary/final
+    /api/summary/final(?token=)
 
 Retrieve the final summary (guilt and honesty value of everyone).
+If a token is specified, the corresponding career is excluded from the results.
 
 response:
 
