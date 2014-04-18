@@ -31,8 +31,8 @@ $app->configureMode('development', function () use ($app) {
 		),
 		// Time after which we should re-aggregate summary (in hours)
 		'summary_aggregation_expired' => 0.2,
-		'mandrill_api_key' => 'eyLX84Tq9HKZ7HP5ReBb-Q',
-		'mandrill_from' => 'info@jeudinfluences.fr'
+		'mandrill_api_key'     => '',
+		'mandrill_from'        => 'info@jeudinfluences.fr'
 	));
 });
 
