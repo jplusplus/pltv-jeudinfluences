@@ -317,7 +317,7 @@ $app->post('/api/erase', function() use ($app) {
 		$_chapter = intval(split('\.', $var)[0]);
 		$_scene = intval(split('\.', $var)[1]);
 		if ($_chapter > $chapter) { return false; }
-		else if ($_chapter == $chapter & $_scene >= $scene) { return false; }
+		else if ($_chapter == $chapter && $_scene >= $scene) { return false; }
 		return true;
 	});
 	$career->scenes = array_values($career->scenes);
@@ -327,7 +327,7 @@ $app->post('/api/erase', function() use ($app) {
 		$_chapter = intval(split('\.', $var)[0]);
 		$_scene = intval(split('\.', $var)[1]);
 		if ($_chapter > $chapter) { return false; }
-		else if ($_chapter == $chapter & $_scene >= $scene) { return false; }
+		else if ($_chapter == $chapter && $_scene >= $scene) { return false; }
 		return true;
 	});
 	$kept_choices = array_fill_keys($kept_choices, '');
@@ -335,7 +335,7 @@ $app->post('/api/erase', function() use ($app) {
 
 	// Encode the JSON
 	$career->scenes = json_encode($career->scenes);
-	$career->choices = json_encode($career->choices);
+	$career->choices = json_encode((object)$career->choices);
 
 	// Save in database
 	R::store($career);
