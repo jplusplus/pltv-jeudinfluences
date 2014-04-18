@@ -311,14 +311,14 @@ $app->post('/api/erase', function() use ($app) {
 
 	$chapter = split('\.', $since);
 	$chapter = intval($chapter[0]);
-	$scene   = split('\.', $since)[1];
+	$scene   = split('\.', $since);
 	$scene   = intval($since[1]);
 
 	$filter_iter = function($var) use ($chapter, $scene){
 		$_chapter = split('\.', $var);
 		$_chapter = intval($var[0]);
-		$_scene = split('\.', $var);
-		$_scene = intval($var[1]);
+		$_scene   = split('\.', $var);
+		$_scene   = intval($var[1]);
 		if ($_chapter > $chapter) { return false; }
 		else if ($_chapter == $chapter && $_scene > $scene) { return false; }
 		return true;
