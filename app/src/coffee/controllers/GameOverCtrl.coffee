@@ -2,9 +2,7 @@ class GameOverCtrl
     @$inject: ['$scope', 'User']
     constructor: (@scope, @User) ->  
         @scope.user  = @User
-        @scope.email = @User.email
-
-        @scope.gameOverMan = =>
+        @scope.restart = =>
             @User.restartChapter()
 
 
