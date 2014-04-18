@@ -1,0 +1,6 @@
+<div class="scatterplot">
+    <div class="dot"
+         ng-repeat="point in allPoints()" 
+         ng-style="getDotStyle(point)" 
+         ng-class="{ 'dot--user-dot': point.user }"></div>
+</div>
