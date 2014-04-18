@@ -1,16 +1,22 @@
 .dot-mixin(@width){ 
 }
 .scatterplot {
+    .round-dot(@dot-width) { 
+        .translate( -@dot-width / 2, -@dot-width / 2 );
+        width: @dot-width;
+        height: @dot-width;
+        border-radius: @dot-width / 2;
+    }
     position: absolute;
     top: 50px;
     left: 50px;
     right: 200px;
     bottom: 50px;
     .dot {
+        .round-dot(10px);
         border: 1px solid black;
         position: absolute;
         background: #3b3b3b;
-        .round-dot(10px);
         &--user-dot { 
             .round-dot(20px);
             background: white;
