@@ -312,24 +312,18 @@ $app->post('/api/erase', function() use ($app) {
 	$chapter = intval(split('\.', $since)[0]);
 	$scene = intval(split('\.', $since)[1]);
 
-	// Clean the scenes array
-	$career->scenes = array_filter($career->scenes, function($var) use ($chapter, $scene) {
+	$filter_iter = function($var) use ($chapter, $scene){
 		$_chapter = intval(split('\.', $var)[0]);
 		$_scene = intval(split('\.', $var)[1]);
 		if ($_chapter > $chapter) { return false; }
-		else if ($_chapter == $chapter && $_scene >= $scene) { return false; }
+		else if ($_chapter == $chapter && $_scene > $scene) { return false; }
 		return true;
-	});
+	};
+	
 	$career->scenes = array_values($career->scenes);
 
 	// Clean the choices object
-	$kept_choices = array_filter(array_keys($career->choices), function($var) use ($chapter, $scene) {
-		$_chapter = intval(split('\.', $var)[0]);
-		$_scene = intval(split('\.', $var)[1]);
-		if ($_chapter > $chapter) { return false; }
-		else if ($_chapter == $chapter && $_scene >= $scene) { return false; }
-		return true;
-	});
+	$kept_choices = array_filter(array_keys($career->choices), $filter_iter);
 	$kept_choices = array_fill_keys($kept_choices, '');
 	$career->choices = array_intersect_key($career->choices, $kept_choices);
 

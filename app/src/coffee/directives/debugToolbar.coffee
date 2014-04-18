@@ -20,11 +20,7 @@ angular.module('spin.directive').directive "debugToolbar", [
                 User.inGame = no
                 User.isGameDone = yes  
             $scope.restartGame           = -> User.newUser()
-            $scope.restartCurrentChapter = ->
-                User.scene    = "1"
-                User.sequence = 0
-                User.saveChapterChanging()
-                do User.eraseCareerSinceNow
+            $scope.restartCurrentChapter = -> User.restartChapter()
 
         ]
         link: (scope, elem, attrs)->

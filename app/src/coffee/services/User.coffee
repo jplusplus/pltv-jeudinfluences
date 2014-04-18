@@ -294,6 +294,17 @@ angular.module("spin.service").factory("User", [
                 @inGame = @isSummary = @isGameDone = @isGameOver = no
                 @newUser()
 
+            restartChapter: => 
+                # will restart churrent chapter to its first scene.
+                chapter = Plot.chapter @chapter
+                return unless chapter?
+                @scene  = chapter.scenes[0].id
+                @sequence = 0
+                @isGameOver = no
+                @inGame     = yes
+                do @eraseCareerSinceNow
+
+
             singMeTheEnd: =>
                 console.log "This is the end"
                 console.log "My only friend, the end"
@@ -303,5 +314,6 @@ angular.module("spin.service").factory("User", [
                     url : "#{api.erase}?token=#{@token}"
                     method : 'POST'
                     data :
-                        since : @chapter + '.' + @sequence
-])
+                        since : @chapter + '.' + @scene
+                    
+]) 
