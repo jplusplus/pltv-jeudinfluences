@@ -26,14 +26,13 @@ angular.module("spin.service").factory("User", [
                 if (do $location.search).token?
                     @email = yes if @email is null
                     $location.search 'token', null
+                # Load the career if a token is given
+                do @loadCareer if @token isnt null
                 # Load career data from the API when the player enters the game
-                $rootScope.$watch =>
-                    @inGame
-                , (newValue, oldValue) =>
-                    if newValue and not oldValue
+                $rootScope.$watch (=>@inGame), (newValue, oldValue) =>                    
+                    if @token is null and newValue and not oldValue
                         do @loadCareer                           
                 , yes
-
                 return @            
 
             setInitialValues: (master={})=>                
