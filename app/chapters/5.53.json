@@ -2,7 +2,7 @@
     "next_scene" : "5.54",
     "decor": [
         {
-            "background": "/medias/chap5/illustrations/illustr-ch5-flashback_b.jpg",
+            "background": "/medias/chap5/illustrations/illustr-ch5-flashback_b.gif",
             "background_transition": "fade",
             "soundtrack": null
         }

@@ -12,7 +12,7 @@
             "condition": {"conf_obseques":true},
             "type": "new_background",
             "transition": "fade",
-            "body": "/medias/chap4/illustrations/illustr-ch4-08a.jpg"
+            "body": "/medias/chap4/illustrations/illustr-ch4-08a.gif"
         },
         {
             "condition": {"conf_obseques":true},
@@ -55,7 +55,7 @@
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": -6,
+                            "ubm": -8,
                             "honesty": -2,
                             "trust": 0
                         }
@@ -69,7 +69,7 @@
                         {
                             "karma": 0,
                             "stress": -2,
-                            "ubm": -2,
+                            "ubm": -4,
                             "trust": 0
                         }
                     ]

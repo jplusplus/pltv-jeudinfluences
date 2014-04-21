@@ -2,7 +2,7 @@
     "next_scene" : "4.1",
     "decor": [
         {
-            "background": "/medias/chap3/illustrations/illustr-ch3-flashback-02.jpg",
+            "background": "/medias/chap3/illustrations/illustr-ch3-flashback-02.gif",
             "background_transition": null,
             "soundtrack": null
         }

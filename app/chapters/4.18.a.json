@@ -2,7 +2,7 @@
     "next_scene" : "4.19",
     "decor": [
         {
-            "background": "/medias/chap4/illustrations/illustr-ch4-08a.jpg",
+            "background": "/medias/chap4/illustrations/illustr-ch4-08a.gif",
             "background_transition": null,
             "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
         }

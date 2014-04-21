@@ -9,10 +9,12 @@
     ],
     "sequence": [
         {
+            "result": {"ubm": -16},
             "type": "narrative",
             "body": "26 mai, 17h47."
         },
         {
+            "result": {"stress": 8},
             "type": "voixoff",
             "character": "Louis",
             "body": "/medias/chap3/voix-off/louis-ch3-01.mp3"

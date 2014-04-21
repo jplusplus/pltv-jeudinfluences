@@ -2,7 +2,7 @@
     "next_scene": null,
     "decor": [
         {
-            "background": "/medias/chap2/illustrations/illustr-ch2-01.jpg",
+            "background": "/medias/chap2/illustrations/illustr-ch2-01.gif",
             "background_transition": "fade",
             "soundtrack": null
         }
@@ -13,6 +13,7 @@
         "body": "..." 
         },
         {
+            "result": {"stress": 8},
             "type": "notification",
             "sound": "/medias/sounddesign/sonnerie-tel.mp3",
             "header": "4h12",
@@ -20,7 +21,7 @@
         },
         {
             "type": "new_background",
-            "body": "/medias/chap2/illustrations/illustr-ch2-02.jpg",
+            "body": "/medias/chap2/illustrations/illustr-ch2-02.gif",
             "transition": null
         },
         {

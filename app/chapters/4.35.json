@@ -2,7 +2,7 @@
     "next_scene" : "4.38",
     "decor": [
         {
-            "background": "/medias/chap4/illustrations/illustr-chap4-flashback-a.jpg",
+            "background": "/medias/chap4/illustrations/illustr-ch4-flashback-a.gif",
             "background_transition": "fade",
             "soundtrack": null
         }
@@ -12,19 +12,19 @@
             "type": "new_background",
             "transition": "fade",
             "timeout" : 10,
-            "body": "/medias/chap4/illustrations/illustr-chap4-flashback-b.jpg"
+            "body": "/medias/chap4/illustrations/illustr-ch4-flashback-b.jpg"
         },
         {
             "type": "new_background",
             "transition": "fade",
             "timeout" : 20,
-            "body": "/medias/chap4/illustrations/illustr-chap4-flashback-c.jpg"
+            "body": "/medias/chap4/illustrations/illustr-ch4-flashback-c.jpg"
         },
         {
             "type": "new_background",
             "transition": "fade",
             "timeout" : 20,
-            "body": "/medias/chap4/illustrations/illustr-chap4-flashback-d.jpg"
+            "body": "/medias/chap4/illustrations/illustr-ch4-flashback-d.gif"
         },
         {
             "type": "voixoff",

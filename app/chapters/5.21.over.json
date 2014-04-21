@@ -2,7 +2,7 @@
     "next_scene" : null,
     "decor": [
         {
-            "background": "/medias/chap5/illustrations/illustr-ch5-07.jpg",
+            "background": "/medias/chap5/illustrations/illustr-ch5-07.gif",
             "background_transition": null,
             "soundtrack": "/medias/chap5/musiques/soundtrack-ch5-b.mp3"
         }

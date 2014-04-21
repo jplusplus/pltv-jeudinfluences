@@ -1,5 +1,5 @@
 {
-    "next_scene": "6.41",
+    "next_scene" : "6.15",
     "decor": [
         {
             "background": "/medias/illustrations/ecrannoir.jpg",
@@ -9,15 +9,10 @@
     ],
     "sequence": [
         {
-            "type": "narrative",
-            "body": "Mardi 22 mai, 22h31.",
-            "timeout": 9
-        },
-        {
             "type": "new_background",
             "transition": "fade",
             "body": "/medias/chap6/illustrations/illustr-ch6-flashback-a.jpg",
-            "timeout": 10
+            "timeout": 25
         },
         {
             "type": "new_background",
@@ -29,14 +24,13 @@
             "type": "new_background",
             "transition": "fade",
             "body": "/medias/chap6/illustrations/illustr-ch6-flashback-c.gif",
-            "timeout": 25
+            "timeout": 30
         },
         {
-            "result": {"guilt": 24},
             "type": "voixoff",
             "character": "Louis",
             "header": null,
-            "body": "/medias/chap6/voix-off/louis-ch6-flashback-05_b.mp3"
+            "body": "/medias/chap6/voix-off/louis-ch6-flashback-05_d.mp3"
         }
     ]
 }

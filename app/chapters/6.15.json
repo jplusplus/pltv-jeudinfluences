@@ -11,7 +11,7 @@
         {
             "type": "new_background",
             "transition": "fade",
-            "body": "/medias/chap6/illustrations/fin.jpg",
+            "body": "/medias/chap6/illustrations/fin.gif",
             "timeout": 10
         },
         {
