@@ -16,19 +16,19 @@
         {
             "type": "new_background",
             "transition": "fade",
-            "body": "/medias/chap6/illustrations/illustr-ch6-illustr-ch6-flashback-a.jpg",
+            "body": "/medias/chap6/illustrations/illustr-ch6-flashback-a.jpg",
             "timeout": 10
         },
         {
             "type": "new_background",
             "transition": "fade",
-            "body": "/medias/chap6/illustrations/illustr-ch6-illustr-ch6-flashback-b.jpg",
+            "body": "/medias/chap6/illustrations/illustr-ch6-flashback-b.jpg",
             "timeout": 45
         },
         {
             "type": "new_background",
             "transition": "fade",
-            "body": "/medias/chap6/illustrations/illustr-ch6-illustr-ch6-flashback-c2.jpg",
+            "body": "/medias/chap6/illustrations/illustr-ch6-flashback-c2.gif",
             "timeout": 50
         },
         {

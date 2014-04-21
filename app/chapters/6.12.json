@@ -9,9 +9,9 @@
     ],
     "sequence": [
         {
-            "stress": -4,
-            "type": "video",
-            "body": "/medias/chap6/videos/video-ch6-scene6.12.mov"
+            "result": {"stress": -4},
+            "type": "video_background",
+            "body": "http://www.dailymotion.com/video/k7d9t3s3q7rRi770Hf1?autoplay=1&chromeless=1&hideInfos=0"
         }
     ]
 }

@@ -68,7 +68,7 @@
                         {
                             "karma": 0,
                             "stress": -4,
-                            "ubm": -4,
+                            "ubm": -8,
                             "trust": 0
                         }
                     ]
@@ -81,7 +81,7 @@
                         {
                             "karma": 0,
                             "stress": 0,
-                            "ubm": -4,
+                            "ubm": -8,
                             "trust": 0
                         }
                     ]

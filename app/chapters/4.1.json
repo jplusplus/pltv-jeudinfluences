@@ -2,15 +2,15 @@
     "next_scene" : null,
     "decor": [
         {
-            "background": "/medias/chap4/illustrations/illustr-ch4-01.jpg",
+            "background": "/medias/chap4/illustrations/illustr-ch4-01.gif",
             "background_transition": "fade",
             "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-a.mp3"
         }
     ],
     "sequence": [
         {
-            "result": {"ubm": 16, "stress":4},
             "condition": {"circulaire":true},
+            "result": {"ubm": 16, "stress":8},
             "type": "dialogue",
             "character" : "Patrick Luaud",
             "header": "28 mai, 13h44.",
@@ -38,8 +38,8 @@
             "body": "En un message, vous sapez tout le travail que l'on a fait jusqu'ici et vous passez pour celui qui a quelque chose à cacher.\n\nBref. Essayons de tourner ça à notre avantage."
         },
         {
-            "result": {"ubm": 16, "stress":4},
             "condition": {"circulaire":false},
+            "result": {"ubm": 8, "stress":4},
             "type": "dialogue",
             "character" : "Patrick Luaud",
             "header": null,

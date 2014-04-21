@@ -10,8 +10,8 @@
     "sequence": [
         {
             "result": {"honesty": -8, "stress": 4},
-            "type": "video",
-            "body": "/medias/chap6/videos/video-ch6-scene6.29.mov"
+            "type": "video_background",
+            "body": "http://www.dailymotion.com/video/k67rSTC1aDo0Kn70HuD?autoplay=1&chromeless=1&hideInfos=0"
         },
         {
             "type": "gameover"

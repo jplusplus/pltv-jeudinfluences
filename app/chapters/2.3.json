@@ -9,7 +9,7 @@
     ],
     "sequence": [
         {
-            "result": {"stress": 64, "ubm": 2},
+            "result": {"stress": 64},
             "type": "dialogue",
             "character": "Louis",
             "header": null,

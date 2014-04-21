@@ -10,13 +10,13 @@
     "sequence": [
         {
             "condition": {"soutien_jarendeau":true},
-            "type": "video",
-            "body": "/medias/chap6/videos/video-ch6-scene6.26_cond1.mov"
+            "type": "video_background",
+            "body": "http://www.dailymotion.com/video/k3DRP6JTmrTlPb70HoV?autoplay=1&chromeless=1&hideInfos=0"
         },
         {
             "condition": {"soutien_jarendeau":false},
-            "type": "video",
-            "body": "/medias/chap6/videos/video-ch6-scene6.26_cond2.mov"
+            "type": "video_background",
+            "body": "http://www.dailymotion.com/video/k1jrWDu7jXq4f770Hqz?autoplay=1&chromeless=1&hideInfos=0"
         },
         {
             "type" : "choice",

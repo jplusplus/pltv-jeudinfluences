@@ -9,8 +9,8 @@
     ],
     "sequence": [
         {
-            "type": "video",
-            "body": "/medias/chap6/videos/video-ch6-scene6.21.mov"
+            "type": "video_background",
+            "body": "http://www.dailymotion.com/video/koC6RY5jVV1wVJ70HkZ?autoplay=1&chromeless=1&hideInfos=0"
         },
         {
             "type" : "choice",

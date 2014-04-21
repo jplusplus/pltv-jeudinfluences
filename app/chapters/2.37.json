@@ -51,7 +51,6 @@
                 {
                     "header": "Oui",
                     "next_scene": "2.40",
-                    "outro": "Vous venez de modifer le passé...",
                     "result": [
                         {
                             "karma": -2,

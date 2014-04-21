@@ -22,7 +22,7 @@
         },
         {
             "type" : "choice",
-            "body": "Ok, travailler sur des éléments de langage ?",
+            "body": "Abandonner l'idée de porter plainte ?",
             "delay" : null,
             "default_option" : null,
             "options": [
