@@ -88,7 +88,7 @@ angular.module("spin.service").factory("User", [
 
             chapterProgression: ()=>
                 inter =_.intersection settings.mainScenes[@chapter], @scenes                
-                Math.round( Math.min(inter.length, 3)/3 * 100)
+                Math.round( Math.min(inter.length, 4)/4 * 100)
 
             newUser: ()=>
                 # Remove value in localStorage
