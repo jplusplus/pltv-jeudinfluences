@@ -2,16 +2,16 @@
     "next_scene" : "3.11",
     "decor": [
         {
-            "background": "/medias/illustrations/tablette.jpg",
+            "background": null,
             "background_transition": null,
             "soundtrack": null
         }
     ],
     "sequence": [
         {
-            "result": {"ubm":32, "stress":2},
-            "type": "video",
-            "body": "/medias/chap3/video/video-ch3-scene3.10.mov"
+            "result": {"ubm":24, "stress":2},
+            "type": "video_background",
+            "body": "http://www.dailymotion.com/video/k49XuQoDRiE7RH70Gzo?autoplay=1&chromeless=1&hideInfos=0"
         }
     ]
 }

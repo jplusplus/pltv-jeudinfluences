@@ -16,6 +16,8 @@
     &__sequence {    
 
         .fade > .show(@chapter-starting-duration-2);
+
+        z-index:@scene-zindex+20;
                     
         // Choice box, a the middle of the screen
         &--choice {
@@ -255,6 +257,30 @@
                 height:280px;
             }
         }
+
+        // Feedback, in the middle of the screen 
+        &--video_background {
+
+            z-index:@scene-zindex - 10;
+            
+            &__body {                
+                position:absolute;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+
+                &:after {
+                    content:"";
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    right:0;
+                    bottom:0;
+                }
+            }
+        }
+
 
         // Dialog box, a the bottom of the screen
         &--dialogue,

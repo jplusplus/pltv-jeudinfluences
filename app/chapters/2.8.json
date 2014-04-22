@@ -2,7 +2,7 @@
     "next_scene": "2.9",
     "decor": [
         {
-            "background": "/medias/chap2/illustrations/illustr-ch2-09.jpg",
+            "background": "/medias/chap2/illustrations/illustr-ch2-09.gif",
             "background_transition": null,
             "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
         }

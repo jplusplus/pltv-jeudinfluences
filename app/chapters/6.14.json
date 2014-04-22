@@ -1,5 +1,5 @@
 {
-    "next_scene" : "6.14",
+    "next_scene" : "6.15",
     "decor": [
         {
             "background": "/medias/illustrations/ecrannoir.jpg",
@@ -11,19 +11,19 @@
         {
             "type": "new_background",
             "transition": "fade",
-            "body": "/medias/chap6/illustrations/illustr-ch6-illustr-ch6-flashback-a.jpg",
+            "body": "/medias/chap6/illustrations/illustr-ch6-flashback-a.jpg",
             "timeout": 25
         },
         {
             "type": "new_background",
             "transition": "fade",
-            "body": "/medias/chap6/illustrations/illustr-ch6-illustr-ch6-flashback-b.jpg",
+            "body": "/medias/chap6/illustrations/illustr-ch6-flashback-b.jpg",
             "timeout": 45
         },
         {
             "type": "new_background",
             "transition": "fade",
-            "body": "/medias/chap6/illustrations/illustr-ch6-illustr-ch6-flashback-c2.jpg",
+            "body": "/medias/chap6/illustrations/illustr-ch6-flashback-c2.gif",
             "timeout": 30
         },
         {

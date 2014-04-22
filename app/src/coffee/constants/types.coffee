@@ -4,6 +4,7 @@ angular.module('spin.constant').constant 'constant.types',
         video:           "video"
         player:          "voixoff"
         newBackground:   "new_background"
+        videoBackground: "video_background"
         feedback:        "feedback"
         notification:    "notification"
         gameOver:        "gameover"

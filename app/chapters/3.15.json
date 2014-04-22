@@ -28,7 +28,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Un soucis ?"
+            "body": "Un souci ?"
         },
         {
             "type": "dialogue",
@@ -37,14 +37,14 @@
             "body": "C'était Nadia, elle est harcelée par les journalistes qui cherchent des détails sur sa relation avec Mika."
         },
         {
-            "condition":{"trashing_nadia":true},
+            "condition":{"trashing_nadia":false},
             "type": "dialogue",
             "character": "Louis",
             "header": null,
             "body": "Je vous avais pourtant demandé de ne pas lancer cette rumeur. On était d'accord."
         },
         {
-            "condition":{"trashing_nadia":true},
+            "condition":{"trashing_nadia":false},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
@@ -91,7 +91,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Louis, nous sommes d'accord ?"
+            "body": "Louis, nous sommes d'accord ? On la laisse se débrouiller ?"
         },
         {
             "type" : "choice",
@@ -106,7 +106,7 @@
                     "result": [
                         {
                             "karma": -2,
-                            "stress": -2,
+                            "stress": -8,
                             "ubm": 0,
                             "guilt": 3,
                             "trust": 0
@@ -120,7 +120,7 @@
                     "result": [
                         {
                             "karma": 2,
-                            "stress": 2,
+                            "stress": 8,
                             "ubm": 0,
                             "trust": 0,
                             "backing_nadia": true

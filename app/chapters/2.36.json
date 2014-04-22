@@ -9,6 +9,10 @@
     ],
     "sequence": [
         {
+            "type": "narrative",
+            "body": "Trois ans plus tôt..."
+        },
+        {
             "type": "voixoff",
             "character": "Louis",
             "body": "/medias/chap2/voix-off/louis-ch2-flashback-01_a.mp3"

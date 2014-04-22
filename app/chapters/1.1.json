@@ -9,7 +9,7 @@
     ],
     "sequence": [
         {
-            "result": {"guilt": 0,"honesty": 100,"stress":2},
+            "result": {"guilt": 0,"honesty": 100, "stress":2, "trust": -100},
             "type": "dialogue",
             "character": "Louis",
             "header": "Mercredi 23 mai, 21h57.",

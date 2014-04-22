@@ -2,7 +2,7 @@
     "next_scene": null,
     "decor": [
         {
-            "background": "/medias/chap2/illustrations/illustr-ch2-05.jpg",
+            "background": "/medias/chap2/illustrations/illustr-ch2-05.gif",
             "background_transition": "fade",
             "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
         }
@@ -23,13 +23,14 @@
             "transition": null
         },
         {
+            "result": {"ubm": 8},
             "type": "voixoff",
             "character": "Journaliste",
             "sound": "/medias/chap2/voix-off/journaliste-ch2-01.mp3"
         },
         {
             "type": "new_background",
-            "body": "/medias/chap2/illustrations/illustr-ch2-07.jpg",
+            "body": "/medias/chap2/illustrations/illustr-ch2-07.gif",
             "transition": null
         },
         {

@@ -1,5 +1,8 @@
 {
-    "next_scene" : "6.14",
+    "next_scene" : {                                                                         
+        "positif_karma" : "6.14",                                                                         
+        "negatif_karma" : "6.14.b"                                                                         
+    },
     "decor": [
         {
             "background": null,
@@ -9,8 +12,8 @@
     ],
     "sequence": [
         {
-            "type": "video",
-            "body": "/medias/chap6/videos/video-ch6-scene6.13.mov"
+            "type": "video_background",
+            "body": "http://www.dailymotion.com/video/k413F29QZE0l9Q70Hgs?autoplay=1&chromeless=1&hideInfos=0"
         }
     ]
 }

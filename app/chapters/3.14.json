@@ -9,7 +9,7 @@
     ],
     "sequence": [
         {
-            "result": {"trust": 8, "guilt": 3},
+            "result": {"trust": 8, "guilt": 3, "ubm": -8},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
