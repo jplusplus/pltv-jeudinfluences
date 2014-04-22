@@ -11,8 +11,19 @@ angular.module('spin.directive').directive "scatterPlot", [
         templateUrl: "partials/scatter-plot.html"
         link: (scope, elem, attrs)->
             axes =
-                horizontal: 'culpabilite'
-                vertical:   'honnetete'
+                horizontal: 
+                    key: 'culpabilite'
+                    names: 
+                        max: 'non coupable'
+                        min: 'coupable'
+
+                vertical:   
+                    key: 'honnetete'
+                    names: 
+                        max: 'aveux'
+                        min: 'mensonges'
+
+            scope.axes = axes
 
             scope.allPoints = -> 
                 scope.points or []
@@ -43,12 +54,11 @@ angular.module('spin.directive').directive "scatterPlot", [
                         culpabilite: Math.floor(Math.random() * 100)
                         honnetete:   Math.floor(Math.random() * 100)
                     i++
-                console.log res
                 res
 
             update  = (res)->
                 processResults = (results)->
-                    scales = 
+                    scales =
                         culpabilite:
                             # min: get_min(results, 'culpabilite')
                             max: get_max(results, 'culpabilite')
@@ -57,16 +67,14 @@ angular.module('spin.directive').directive "scatterPlot", [
                             # min: get_min(results, 'honnetete')
                             max: get_max(results, 'honnetete')
 
-                    console.log "scales = ", scales
-
                     create_dot = (result)->
-                        h_axe = axes.horizontal
-                        v_axe = axes.vertical
+                        h_axe = axes.horizontal.key
+                        v_axe = axes.vertical.key
                         left_scale = scales[h_axe]
                         top_scale  = scales[v_axe]
 
-                        left_val = 100 * result[h_axe] / left_scale.max
-                        top_val  = 100 * result[v_axe] / top_scale.max
+                        left_val = 100 - (100 * result[h_axe] / left_scale.max )
+                        top_val  = 100 - (100 * result[v_axe] / top_scale.max  )
                         # console.log 'left_val: ', left_val, ' - top_val: ', top_val
                         _.extend result, 
                             left: Math.floor left_val
