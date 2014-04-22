@@ -172,9 +172,11 @@ angular.module("spin.service").factory("User", [
                     sequence = Plot.sequence(chapterIdx, sceneIdx, @sequence)
                     # Propagate the choices only if this sequence has options
                     if sequence.options?
-                        option = sequence.options[choice.choice]                    
+                        option = sequence.options[choice.choice] 
+                        state.reached_scene = option.next_scene
                 else
-                    state = reached_scene: @pos()
+                    state = reached_scene: @pos()                  
+                    
 
                 state.is_game_done = @isGameDone
                 # Get value using the token
