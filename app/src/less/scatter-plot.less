@@ -22,4 +22,27 @@
             background: white;
         }
     }
+
+    &__legend {
+        position: absolute; 
+        width: 100%;
+        &.horizontal-axe {
+            top: 50%;
+            &--max { 
+                text-align: right;
+                // left: 100%; 
+            }
+            &--min { 
+                text-align: left;
+                // left: 0%;   
+            }
+        }
+        &.vertical-axe {
+            // left: 50%;
+            text-align: center;
+            &--max { top: 0%;   }
+            &--min { top: 100%; }
+            
+        }
+    }
 }
