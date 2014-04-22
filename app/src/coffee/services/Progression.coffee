@@ -26,18 +26,15 @@ angular.module("spin.service").factory "Progression", [
                 $rootScope.$watch (=>User.volume), Sound.updateVolume
 
             onChapterChanged: (newId, oldId)->
-                i = (v)-> parseInt v # little alias to parseInt 
+                i = (v)-> parseInt v # little alias to parseInt
                 should_show_summary = false
                 new_chapter = Plot.chapter newId 
                 old_chapter = Plot.chapter oldId
 
-                # NOTE: `_.every` checks that all passed elements returns true
-                should_show_summary = _.every [
-                    # results are show in a single way (when moving forward in
-                    # the story) so we check user is going in the good way
-                    newId > oldId, 
-                    old_chapter and old_chapter.bilan
-                ]
+                # results are show in a single way (when moving forward in
+                # the story) so we check user is going in the good way
+                should_show_summary = newId > oldId and
+                                      old_chapter and old_chapter.bilan
 
                 if should_show_summary
                     # User.isSummary will trigger the chapter results summary 
