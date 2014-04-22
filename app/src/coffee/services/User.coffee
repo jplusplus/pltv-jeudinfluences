@@ -12,13 +12,13 @@ angular.module("spin.service").factory("User", [
     '$rootScope'
     (api, settings, types, TimeoutStates, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
         new class User
-            # ──────────────────────────────────────────────────────────────────────────
+            # ─────────────────────────────────────────────────────────────────
             # Public method
-            # ──────────────────────────────────────────────────────────────────────────
+            # ─────────────────────────────────────────────────────────────────
             constructor: ->
                 # This user is saved into local storage
                 master = localStorageService.get("user") or {}
-                # Set initial value according to the localStorage                
+                # Set initial value according to the localStorage
                 @setInitialValues master
                 # User authentication
                 @token    = $location.search().token or master.token or null
@@ -29,7 +29,7 @@ angular.module("spin.service").factory("User", [
                 # Load the career if a token is given
                 do @loadCareer if @token isnt null
                 # Load career data from the API when the player enters the game
-                $rootScope.$watch (=>@inGame), (newValue, oldValue) =>                    
+                $rootScope.$watch (=>@inGame), (newValue, oldValue) =>
                     if @token is null and newValue and not oldValue
                         do @loadCareer                           
                 , yes
@@ -39,7 +39,7 @@ angular.module("spin.service").factory("User", [
                 # Scenes the user passed
                 @scenes   = master.scenes or []       
                 # Sound control
-                @volume   = if isNaN(master.volume) then 0.5 else master.volume         
+                @volume   = if isNaN(master.volume) then 0.5 else master.volume
                 # Reset identication tokens
                 [@token, @email] = [null, null] 
                 # Reset user states 
@@ -70,7 +70,7 @@ angular.module("spin.service").factory("User", [
             pos: ()=> @chapter + "." + @scene
 
             chapterProgression: ()=>
-                inter =_.intersection settings.mainScenes[@chapter], @scenes                
+                inter =_.intersection settings.mainScenes[@chapter], @scenes
                 Math.round( Math.min(inter.length, 3)/3 * 100)
 
             newUser: ()=>
@@ -83,13 +83,13 @@ angular.module("spin.service").factory("User", [
 
             updateProgression: (career)=>
                 # Do we start acting?
-                if career.reached_scene? and typeof(career.reached_scene) is "string"                        
+                if career.reached_scene? and typeof(career.reached_scene) is "string"
                     unless TimeoutStates.feedback isnt undefined
                         [@chapter, @scene] = career.reached_scene.split "."
                         # Saved passed scenes
                         @scenes = career.scenes
                         # Save indicators                     
-                        for own key, value of career.context                        
+                        for own key, value of career.context
                             @indicators[key]  = value
                         # Start to the first sequence
                         @sequence = 0
@@ -120,7 +120,7 @@ angular.module("spin.service").factory("User", [
                 # Chapter is considered as starting during {settings.chapterEntrance} millisecond
                 Date.now() - @lastChapterChanging < settings.chapterEntrance
 
-            saveChapterChanging: (chapter)=>      
+            saveChapterChanging: (chapter)=>
                 # Stop here until a chapter id is set
                 return unless chapter?
                 @lastChapterChanging = Date.now()            
@@ -178,9 +178,11 @@ angular.module("spin.service").factory("User", [
 
                 state.is_game_done = @isGameDone
                 # Get value using the token
-                $http.post("#{api.career}?token=#{@token}", state).success @updateProgression                
+                $http.post("#{api.career}?token=#{@token}", state).success @updateProgression
 
             nextSequence: =>
+                # will show next sequence or next scene if next sequence in 
+                # current scene doesn't exists
                 scene    = Plot.scene(@chapter, @scene)
                 sequence = Plot.sequence(@chapter, @scene, @sequence)
                 if sequence.result
@@ -204,6 +206,8 @@ angular.module("spin.service").factory("User", [
                     Plot.sequence(@chapter, @scene, @sequence)
 
             isSequenceConditionOk: (seq) =>
+                # check that every sequence condition are met or not. 
+                # condition are set with variables while doing some choices
                 is_ok = yes
                 seq = seq or Plot.sequence @chapter, @scene, @sequence
                 if seq.condition
@@ -251,9 +255,9 @@ angular.module("spin.service").factory("User", [
                 # Check that the next step exists
                 warn = (m)-> console.warn "#{m} doesn't exist (#{next_scene_str})."
                 # Chapter exits?
-                return warn('Chapter') unless Plot.chapter(chapter)?           
+                return warn('Chapter') unless Plot.chapter(chapter)?
                 # Scene exits?
-                return warn('Scene') unless Plot.scene(chapter, scene)?                       
+                return warn('Scene') unless Plot.scene(chapter, scene)?
                 # If we effectively change
                 if @chapter isnt chapter or @scene isnt scene
                     # Update values
