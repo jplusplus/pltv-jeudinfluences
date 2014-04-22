@@ -3,4 +3,18 @@
          ng-repeat="point in allPoints()" 
          ng-style="getDotStyle(point)" 
          ng-class="{ 'dot--user-dot': point.user }"></div>
+
+
+    <span class="scatterplot__legend horizontal-axe horizontal-axe--min">
+        [[axes.horizontal.names.min]]
+    </span>
+    <span class="scatterplot__legend horizontal-axe horizontal-axe--max">
+        [[axes.horizontal.names.max]]
+    </span>
+    <span class="scatterplot__legend vertical-axe vertical-axe--min">
+        [[axes.vertical.names.min]]
+    </span>
+    <span class="scatterplot__legend vertical-axe vertical-axe--max">
+        [[axes.vertical.names.max]]
+    </span>
 </div>

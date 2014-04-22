@@ -2,7 +2,7 @@
     
     .translate3d(0,0,0);
     position:absolute;
-    top:31px;
+    top:0;
     left:0;
     right:0;
     bottom:0;
@@ -11,7 +11,7 @@
     &__intro {
         z-index:@chapter-zindex;
         position:absolute;
-        top:140px;
+        top:140px + @metanav-height;
         left:0;
         width: 327px;
         text-align: right;
@@ -63,7 +63,7 @@
         position:absolute;
         width:270px;
         left:0;
-        top:20px;
+        top:20px + @metanav-height;
         background:fade(black, 75);
         height:25px;
         line-height:25px;

@@ -1,3 +1,25 @@
 .metanav {
     z-index: @metanav-zindex;
+
+    .body--in-game & {
+        .translate(0, -100%);
+        .transition(0.6s transform);
+
+        &:after {
+            content:"";
+            position:absolute;
+            top:100%;
+            left:0;
+            right:0;
+            height:40px;
+            .transition(0.6s height);
+        }
+
+        &:hover {
+            .translate(0, 0%);  
+            &:after {
+                height:0;
+            } 
+        }
+    }
 }

@@ -7,6 +7,9 @@ angular.module("spin.service").factory("Results", [
     '$http'
     (User, Plot, api, $q, $rootScope, $http)->
         new class Results
+            # Results service responsibility is to load some chapter results.
+            # Their purpose is to answer the following question: 
+            # > Did other users answered like me? 
             API_URL: api.results
             STARTS_WITH_CAPITAL: /^[A-Z]/
             constructor: ->

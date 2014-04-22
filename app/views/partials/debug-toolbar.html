@@ -32,4 +32,10 @@
     <button ng-click="hidden = !hidden"  class="btn btn-default debug-toolbar__toggler">
         <span class="caret" ng-class="{ 'caret-reversed': !hidden }"></span>
     </button>
+    <hr />
+    <ul class="list-inline">
+        <li>Guilt : <span class="label">[[user.indicators.guilt]]%</span></li>            
+        <li>Honesty : <span class="label">[[user.indicators.honesty]]%</span></li>
+        <li>Karma : <span class="label">[[user.indicators.karma]]%</span></li>
+    </ul>
 </div>

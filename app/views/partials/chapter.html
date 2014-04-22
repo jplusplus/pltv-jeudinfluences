@@ -10,41 +10,16 @@
     <div class="chapter__track" ng-hide="user.isStartingChapter() || user.isGameOver">
         <div class="chapter__track__id">Chapitre <b>[[chapter.id]]</b> / 6</div>
         <div class="chapter__track__bullets">
-            <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 6" ng-class="{ active: i <= chapter.id - 1 }"></i>
+            <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 5" ng-class="{ active: i*25 <= user.chapterProgression() }"></i>
         </div>
         <div class="chapter__track__progression">
-            [[(chapter.id-1)/4*100]]<small>%</small>
+            [[user.chapterProgression()]]<small>%</small>
         </div>
         <h2 class="chapter__track__title">[[chapter.title]]</h2>  
     </div>
     
     
     <ul class="chapter__cmd list-unstyled" ng-hide="user.isStartingChapter() || user.isGameOver">
-
-        <li class="chapter__cmd__indicator">
-            <span class="chapter__cmd__indicator__label">Guilt</span>
-            <span class="chapter__cmd__indicator__value">[[user.indicators.guilt]]%</span>
-            <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar" ng-style="{ width: user.indicators.guilt + '%' }">
-                </span>                
-            </span>
-        </li>
-        <li class="chapter__cmd__indicator">
-            <span class="chapter__cmd__indicator__label">Honesty</span>
-            <span class="chapter__cmd__indicator__value">[[user.indicators.honesty]]%</span>
-            <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar" ng-style="{ width: user.indicators.honesty + '%' }">
-                </span>                
-            </span>
-        </li>
-        <li class="chapter__cmd__indicator">
-            <span class="chapter__cmd__indicator__label">Karma</span>
-            <span class="chapter__cmd__indicator__value">[[user.indicators.karma]]%</span>
-            <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar" ng-style="{ width: user.indicators.karma + '%' }">
-                </span>                
-            </span>
-        </li>
 
         <li class="chapter__cmd__indicator chapter__cmd__indicator--ubm">
             <abbr class="chapter__cmd__indicator__help">
