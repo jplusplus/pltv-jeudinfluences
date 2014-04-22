@@ -40,6 +40,14 @@
             background:fade(black, 75);
             position:relative;
 
+            html body &--trust .chapter__cmd__indicator__help__definition {
+                margin-bottom:24px*1px + 10px;
+            }
+
+            html body &--stress .chapter__cmd__indicator__help__definition {
+                margin-bottom:24px*2px + 15px;
+            }
+
 
             &__value {
                 position:absolute;
@@ -73,7 +81,8 @@
                 border-radius: 50%;
                 cursor:help;
 
-                &:hover .chapter__cmd__indicator__help__definition {
+                &:hover .chapter__cmd__indicator__help__definition,
+                &:active .chapter__cmd__indicator__help__definition {
                     .translate(0, 0);                
                 }
 
