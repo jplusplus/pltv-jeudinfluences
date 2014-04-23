@@ -66,7 +66,7 @@ class SceneCtrl
             # Return the following assertion                        
             bg.sequence is 0 or (bg.sequence is higherId and @User.scene is @scene.id)
         # Play of pause the soundtrack
-        @scope.toggleVoicetrack = @Sound.toggleSequence
+        @scope.toggleVoicetrack = @Sound.toggleVoicetrack
         # Last dialog box that we see
         @getLastDialogIdx = @scope.getLastDialogIdx = =>                    
             # Get current indexes

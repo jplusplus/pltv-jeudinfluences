@@ -115,6 +115,15 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                                 $rootScope.safeApply =>
                                     @notificationtrack.isPlaying = no
 
+        toggleVoicetrack: =>
+            if @voicetrack?
+                if @voicetrack.isPlaying
+                    do @voicetrack.pause
+                    @voicetrack.isPlaying = no
+                else
+                    do @voicetrack.play
+                    @voicetrack.isPlaying = yes
+
         stopTracks: (stopVoice=yes, stopSound=yes)=>
             if stopVoice and @voicetrack?
                 do @voicetrack.stop

@@ -6,6 +6,7 @@
     <!-- Scene's sequence -->
     <div ng-repeat="sequence in scene.sequence" 
          class="scene__sequence scene__sequence--[[sequence.type]]"
+         ng-class="{ 'scene__sequence scene__sequence--inline-choices': sequence.type == 'choice' && sequence.options.length > 2}"
          ng-show="shouldShowSequence($index)">
 
         <!-- Dialog box, a the bottom of the screen -->
