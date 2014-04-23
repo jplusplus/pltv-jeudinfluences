@@ -2,5 +2,5 @@ angular.module("spin.service").factory "TimeoutStates", [
     ()->
         new class TimeoutStates
             constructor: ->
-                @feedback_timeout
+                @feedback = undefined
 ]
