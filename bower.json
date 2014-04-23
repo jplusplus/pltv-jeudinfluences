@@ -14,5 +14,9 @@
     "bootstrap": "3.1.1",
     "underscore": "1.6.0",
     "circles": "https://raw.githubusercontent.com/lugolabs/circles/827b36f8f3cd47d73adedf5f361c06ce16d1d4ba/circles.js"
+  },
+  "resolutions": {
+    "angular-sanitize": "~1.2.5",
+    "angular": "~1.2.5"
   }
 }
