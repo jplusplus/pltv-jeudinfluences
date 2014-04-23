@@ -9,9 +9,15 @@
     ],
     "sequence": [
         {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Celle-ci..."
+        },
+        {
             "result": {"ubm": 8, "stress":1},
             "type": "narrative",
-            "body": "Dépêche AFP\n\n\"Industrie - Faits divers - Lyon, 24 mai - Décès de Mickael Saulat, le directeur R&D d'Habinat.\nMickael Saulat, directeur de la branche Recherche et Développement de l'entreprise Habinat, est décédé dans la nuit de mercredi, a-t-on appris tôt jeudi matin de source policière. Le corps sans vie de Mickael Saulat a été trouvé à son domicile par sa femme, Nadia Saulat, également directrice de la communication d'Habinat. Selon les premiers éléments de l'enquête, il s'agirait d'un suicide.\nÂgé de 38 ans, Mickael Saulat, était le bras droit de Louis Esmond, actuel directeur d'Habinat. M. Saulat était notamment à l'origine du béton de nouvelle génération ayant permis à l'entreprise, alors proche du dépôt de bilan, de devenir une \"succes story à la française\" comme l'a récemment qualifié Martin Jarendeau, le Ministre de l'Industrie. Habinat est aujourd'hui un des leader nationaux de la construction certifiée écologique.\nJG.FM / AFP.\""
+            "body": "Dépêche AFP\n\n\"Industrie - Faits divers - Lyon, 24 mai - Décès de Mickael Saulat, le directeur R&D d'Habinat.  \nMickael Saulat, directeur de la branche Recherche et Développement de l'entreprise Habinat, est décédé dans la nuit de mercredi, a-t-on appris tôt jeudi matin de source policière. Le corps sans vie de Mickael Saulat a été trouvé à son domicile par sa femme, Nadia Saulat, également directrice de la communication d'Habinat. Selon les premiers éléments de l'enquête, il s'agirait d'un suicide.  \nÂgé de 38 ans, Mickael Saulat, était le bras droit de Louis Esmond, actuel directeur d'Habinat. M. Saulat était notamment à l'origine du béton de nouvelle génération ayant permis à l'entreprise, alors proche du dépôt de bilan, de devenir une \"succes story à la française\" comme l'a récemment qualifié Martin Jarendeau, le Ministre de l'Industrie. Habinat est aujourd'hui un des leader nationaux de la construction certifiée écologique.  \nJG.FM / AFP.\""
         }
     ]
 }

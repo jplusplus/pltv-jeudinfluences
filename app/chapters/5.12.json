@@ -19,7 +19,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Question 1 :\nÉtiez-vous au courant de cette pollution avant qu'elle ne soit révélée dans les médias ?"
+            "body": "Question 1 :  \nÉtiez-vous au courant de cette pollution avant qu'elle ne soit révélée dans les médias ?"
         },
         {
             "type": "dialogue",
@@ -38,7 +38,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Question 2 :\nMartin Jarendeau a-t-il évoqué avec vous le relèvement des seuils d'alerte ?"
+            "body": "Question 2 :  \nMartin Jarendeau a-t-il évoqué avec vous le relèvement des seuils d'alerte ?"
         },
         {
             "type": "dialogue",
@@ -56,7 +56,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Question 3 :\nMickael Saulat vous a-t-il informé d'un ajout d'éléments chimiques dans la fabrication du béton ?"
+            "body": "Question 3 :  \nMickael Saulat vous a-t-il informé d'un ajout d'éléments chimiques dans la fabrication du béton ?"
         },
         {
             "type": "dialogue",
@@ -74,7 +74,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Surtout, ne répondez à aucune autre question, même si elle vous semble anodine. Il saura parfaitement vous emmener où il veut. Tentez d'être le plus détendu possible.\nFaites simple, court et direct."
+            "body": "Surtout, ne répondez à aucune autre question, même si elle vous semble anodine. Il saura parfaitement vous emmener où il veut. Tentez d'être le plus détendu possible.  \nFaites simple, court et direct."
         }
     ]
 }

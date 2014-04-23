@@ -24,7 +24,13 @@
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "Tiens...\nFinalement, côté prospectives, je m'en suis plutôt bien tiré... Habinat ne s'est jamais aussi bien porté que depuis que j'en suis P-DG. J'ai fait ce qu'il fallait pour ça. Tout ce qu'il fallait."
+            "body": "Tiens...  \nFinalement, côté prospectives, je m'en suis plutôt bien tiré..."
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Habinat ne s'est jamais aussi bien porté que depuis que j'en suis P-DG. J'ai fait ce qu'il fallait pour ça.  \nTout ce qu'il fallait."
         }
     ]
 }

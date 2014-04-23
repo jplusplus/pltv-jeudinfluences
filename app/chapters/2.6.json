@@ -15,7 +15,7 @@
         {
             "type": "voixoff",
             "character": "Louis",
-            "sound": "/medias/chap2/voix-off/louis-ch2-02.mp3"
+            "body": "/medias/chap2/voix-off/louis-ch2-02.mp3"
         },
         {
             "type": "new_background",
@@ -23,10 +23,14 @@
             "transition": null
         },
         {
+            "type": "narrative",
+            "body": "&nbsp;"
+        }
+        {
             "result": {"ubm": 8},
             "type": "voixoff",
             "character": "Journaliste",
-            "sound": "/medias/chap2/voix-off/journaliste-ch2-01.mp3"
+            "body": "/medias/chap2/voix-off/journaliste-ch2-01.mp3"
         },
         {
             "type": "new_background",
@@ -36,7 +40,7 @@
         {
             "type": "voixoff",
             "character": "Louis",
-            "sound": "/medias/chap2/voix-off/louis-ch2-03.mp3"
+            "body": "/medias/chap2/voix-off/louis-ch2-03.mp3"
         },
         {
             "type": "new_background",
@@ -48,7 +52,7 @@
             "type": "dialogue",
             "character": "Nadia",
             "header": null,
-            "body": "Je lui ai donné ton numéro. Il s'appelle Patrick Luaud, il pourra t'aider face aux médias. Moi je ne peux plus rien gérer pour toi.\nUne enquête va être lancée et je serai la première interrogée. Ne reste pas ici, ça ne sert à rien.\n\nPrends cette carte."
+            "body": "Je lui ai donné ton numéro. Il s'appelle Patrick Luaud, il pourra t'aider face aux médias. Moi je ne peux plus rien gérer pour toi.  \nUne enquête va être lancée et je serai la première interrogée. Ne reste pas ici, ça ne sert à rien.\n\nPrends cette carte."
         },
         {
             "type": "choice",

@@ -30,7 +30,7 @@
             "type": "dialogue",
             "character": "Martin Jarendeau",
             "header": null,
-            "body": "Et pour ne rien gâcher, j'ai totalement confiance en vous.\nVous feriez un merveilleux secrétaire d'État.\n\nAcceptez ce poste."
+            "body": "Et pour ne rien gâcher, j'ai totalement confiance en vous.  \nVous feriez un merveilleux secrétaire d'État.\n\nAcceptez ce poste."
         },
         {
             "type" : "choice",
