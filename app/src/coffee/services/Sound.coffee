@@ -2,7 +2,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
     new class Sound
         # ──────────────────────────────────────────────────────────────────────────
         # Public method
-        # ──────────────────────────────────────────────────────────────────────────        
+        # ──────────────────────────────────────────────────────────────────────────
         startSoundTrack: (tracks) =>
             if @soundtrack?
                 do @soundtrack.stop
@@ -34,16 +34,19 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                         @soundtrack.fade User.volume, 0, 1000, =>
                             @startSoundTrack tracks
 
-        toggleSequence: (chapterIdx=User.chapter, sceneIdx=User.scene, sequenceIdx=User.sequence)=>            
+        toggleSequence: (chapterIdx=User.chapter, sceneIdx=User.scene, sequenceIdx=User.sequence)=>
             if sequenceIdx?
                 if @notificationtrack?
                     do @notificationtrack.stop
                     @notificationtrack = null
+                if @voicetrack?
+                    do @voicetrack.stop
+                    @voicetrack = null
                 if @soundtrack?
                     if (do @soundtrack.volume) < User.volume
                         @soundtrack.fade( (do @soundtrack.volume), User.volume, 500 )
                 # Get sequence object
-                sequence = Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)                     
+                sequence = Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)
                 # Sequence is a voicetrack
                 if sequence? and sequence.type is "voixoff"
                     tracks = [$filter('media')(sequence.body or sequence.sound)]
@@ -51,19 +54,21 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                     if not @voicetrack? or not angular.equals( @voicetrack.urls(), tracks)
                         # Create the new sound
                         @voicetrack = new Howl
-                            urls    : tracks                    
+                            urls    : tracks
                             loop    : no
                             buffer  : yes
                             volume  : 0
-                            autoplay: yes
+                            autoplay: no
                             # Default states
+                            onload  : =>
+                                do @voicetrack.play
                             onplay  : =>
-                                $rootScope.safeApply => 
+                                $rootScope.safeApply =>
                                     if @soundtrack?
                                         @soundtrack.fade( @soundtrack.volume(), User.volume/4, 500 )
                                         # Duration only on starting
                                         duration = if @soundtrack.pos() is 0 then 1000 else 0
-                                    @voicetrack.fade(0, User.volume, duration)                                     
+                                    @voicetrack.fade(0, User.volume, duration)
                                     @voicetrack.isPlaying = yes
                                     @voicetrack._interval = setInterval ((context) =>
                                         context.voicetrack._position = context.voicetrack.pos() or 0
@@ -72,18 +77,18 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                                                 $rootScope.safeApply =>
                                                     context.voicetrack._position = do context.voicetrack.pos
                                     )(@), 500
-                            onpause : => 
-                                $rootScope.safeApply => 
+                            onpause : =>
+                                $rootScope.safeApply =>
                                     @voicetrack.isPlaying = no
-                            onend   : => 
-                                $rootScope.safeApply => 
+                            onend   : =>
+                                $rootScope.safeApply =>
                                     @soundtrack.fade( @soundtrack.volume(), User.volume, 500 ) if @soundtrack?
                                     $rootScope.safeApply => @voicetrack._position = @voicetrack._duration
                                     @voicetrack.pos(0)
                                     @voicetrack.isPlaying = no
                                     clearInterval @voicetrack._interval
                     # Just play the voice
-                    else if @voicetrack? and not @voicetrack.isPlaying 
+                    else if @voicetrack? and not @voicetrack.isPlaying
                         do @voicetrack.play
                     # Pause sound
                     else if @voicetrack? and @voicetrack.isPlaying?

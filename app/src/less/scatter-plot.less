@@ -1,47 +1,98 @@
-.dot-mixin(@width){ 
+.round-dot(@dot-width) { 
+    .translate( -@dot-width / 2, -@dot-width / 2 );
+    width: @dot-width;
+    height: @dot-width;
+    border-radius: @dot-width / 2;
 }
+
 .scatterplot {
-    .round-dot(@dot-width) { 
-        .translate( -@dot-width / 2, -@dot-width / 2 );
-        width: @dot-width;
-        height: @dot-width;
-        border-radius: @dot-width / 2;
-    }
+    @dot-width: 10px;
+    @legend-font-size: 22px;
+    @left-padding: 80px;
+    @top-padding: 50px;
     position: absolute;
-    top: 50px;
-    left: 50px;
-    right: 200px;
-    bottom: 50px;
-    .dot {
-        .round-dot(10px);
-        border: 1px solid black;
+    width: 540px;
+    height: 540px;
+    top:  @top-padding ;
+    left: @left-padding;
+
+    &:after {
+        // we display the grid above the scatterplot
+        z-index: @scatterplot-grid-zindex;
+        content: "";
+        width: 560px;
+        height: 560px;
+        left: -10px;
+        top: -10px;
+        background-image: url('/img/ui/scatterplot_grid.png');
         position: absolute;
+    }
+    
+    .dot {
+        z-index: @scatterplot-dot-zindex; 
+        position: absolute;
+        .round-dot(@dot-width);
+        
+        border: 1px solid black;
         background: #3b3b3b;
+        
         &--user-dot { 
-            .round-dot(20px);
-            background: white;
+            width: 27px;
+            height: 27px;
+            .translate(-7px, -8px);
+            .box-shadow(0 0 5px 1px rgba(0, 0, 0, 0.8));
+            border-radius: 100%;
+            background: url('/img/ui/scatterplot_user-dot.png') center center no-repeat;
+
+            &:after {
+                // after user dot we need to display its tooltip 
+                .translate(-47px, -27px);
+                position: absolute;
+                content: "";
+                z-index: @scatterplot-user-tooltip-zindex; 
+                height: 40px;
+                width: 60px;
+                background: url('/img/ui/scatterplot_user-tooltip.png') center center no-repeat;
+            }
         }
     }
 
     &__legend {
+        z-index: @scatterplot-legend-zindex;
         position: absolute; 
         width: 100%;
+        margin:0;
+        padding:0;
+        color: white;
+        font-size: @legend-font-size;
+        line-height: @legend-font-size;
+        text-transform: uppercase;
+        text-shadow:0 0 10px @brand-primary;
+        font-family: @font-family-sans-serif;
+
         &.horizontal-axe {
             top: 50%;
+            .translate(0, -@legend-font-size / 2 );
             &--max { 
                 text-align: right;
-                // left: 100%; 
+                right: -100px;
             }
             &--min { 
                 text-align: left;
-                // left: 0%;   
+                left: -70px;
+                
             }
         }
         &.vertical-axe {
-            // left: 50%;
             text-align: center;
-            &--max { top: 0%;   }
-            &--min { top: 100%; }
+            &--max {
+                top: 0%;
+                .translate(0, -(@legend-font-size + 10px));
+            }
+            &--min { 
+                top: 100%; 
+                .translate(0,  (@legend-font-size - 5px));
+            }
             
         }
     }

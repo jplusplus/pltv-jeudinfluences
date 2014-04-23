@@ -77,7 +77,7 @@ angular.module("spin.service").factory("Results", [
                     resultWrapingObject =
                         userChoice: choice
                         percentage:
-                            sentence: "Comme <b>#{percentage}%</b> des utilisateurs, #{title}"
+                            sentence: "Comme <b>#{percentage}%</b> des utilisateurs précédents, #{title}"
                             raw: percentage
                             style: 
                                 width: "#{percentage}%"
