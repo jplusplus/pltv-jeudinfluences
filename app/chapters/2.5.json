@@ -4,7 +4,7 @@
         {
             "background": "/medias/chap2/illustrations/illustr-ch2-fb-00_a.jpg",
             "background_transition": "fade",
-            "soundtrack": "/medias/chap2/voix-off/louis-ch2-flashback-00.mp3"
+            "soundtrack": null,
         }
     ],
     "sequence": [
@@ -17,6 +17,11 @@
             "timeout": 30,
             "body": "/medias/chap2/illustrations/illustr-ch2-fb-00_b.jpg",
             "transition": "fadout"
+        },
+        {
+            "type": "voixoff",
+            "character": "Louis",
+            "body": "/medias/chap2/voix-off/louis-ch2-flashback-00.mp3"
         }
     ]
 }

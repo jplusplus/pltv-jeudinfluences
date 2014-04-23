@@ -13,7 +13,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Écoutez Louis, je ne vais pas pouvoir rester avec vous si vous faites systématiquement les choix les plus incohérents.\nSi vous laisser les syndicats sans réponse, c'est l'escalade assurée. Ils vont revenir à la charge et vous allez vous barricader. Il n'y aura pas d'issue."
+            "body": "Écoutez Louis, je ne vais pas pouvoir rester avec vous si vous faites systématiquement les choix les plus incohérents.  \nSi vous laisser les syndicats sans réponse, c'est l'escalade assurée. Ils vont revenir à la charge et vous allez vous barricader. Il n'y aura pas d'issue."
         },
         {
             "condition": {"fermer_usine": true},

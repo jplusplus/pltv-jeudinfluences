@@ -12,7 +12,7 @@
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "Je mettrais :\n\"Mickael était le meilleur d'entre nous. Sa perte est inestimable. Nous bâtirons à sa mémoire.\""
+            "body": "Je mettrais :  \n\"Mickael était le meilleur d'entre nous. Sa perte est inestimable. Nous bâtirons à sa mémoire.\""
         },
         {
             "type": "dialogue",
@@ -30,7 +30,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Voilà ce que je vous propose :\n\n\"Mickael était un collègue hors pair devenu un ami infaillible. Sa perte est inestimable. Rien n'existera plus comme avant.\"\n\nVous n'ouvrez aucune piste, aucune voie d'eau. Vous vous placez simplement du coté de ceux qui porteront sa mémoire.\nC'est bien ce que vous souhaitez ?"
+            "body": "Voilà ce que je vous propose :\n\n\"Mickael était un collègue hors pair devenu un ami infaillible. Sa perte est inestimable. Rien n'existera plus comme avant.\"\n\nVous n'ouvrez aucune piste, aucune voie d'eau. Vous vous placez simplement du coté de ceux qui porteront sa mémoire.  \nC'est bien ce que vous souhaitez ?"
         },
         {
             "type": "choice",

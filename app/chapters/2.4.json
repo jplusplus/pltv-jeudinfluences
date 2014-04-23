@@ -13,16 +13,10 @@
         "body": "..." 
         },
         {
-            "type": "notification",
-            "sound": "/medias/chap2/voix-off/siri-ch2-01.mp3",
-            "header": null,
-            "body": "À 50 mètres, tournez à droite."
-        },
-        {
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "Mika, Mickael... Mon plus proche collaborateur.\nC'est avec lui que j'ai transformé l'entreprise. Lui et sa femme, Nadia, notre dir' com'."
+            "body": "Mika, Mickael... Mon plus proche collaborateur.  \nC'est avec lui que j'ai transformé l'entreprise. Lui et sa femme, Nadia, notre dir' com'."
         }
     ]
 }

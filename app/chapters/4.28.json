@@ -58,7 +58,7 @@
             "type": "dialogue",
             "charcter": "Patrick Luaud",
             "header": null,
-            "body": "Ils seraient vite considérés comme une entité pilotée par la direction de Rouvroy - ce qu'ils sont peut-être, d'ailleurs !\nÇa pourrait nous aider.\n\nAlors, on fuite ?"
+            "body": "Ils seraient vite considérés comme une entité pilotée par la direction de Rouvroy - ce qu'ils sont peut-être, d'ailleurs !  \nÇa pourrait nous aider.\n\nAlors, on fuite ?"
         },
         {
             "type" : "choice",
