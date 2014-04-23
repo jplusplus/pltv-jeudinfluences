@@ -70,8 +70,8 @@ angular.module("spin.service").factory("User", [
             pos: ()=> @chapter + "." + @scene
 
             chapterProgression: ()=>
-                inter =_.intersection settings.mainScenes[@chapter], @scenes
-                Math.round( Math.min(inter.length, 3)/3 * 100)
+                inter =_.intersection settings.mainScenes[@chapter], @scenes                
+                Math.round( Math.min(inter.length, 4)/4 * 100)
 
             newUser: ()=>
                 # Remove value in localStorage
@@ -172,9 +172,11 @@ angular.module("spin.service").factory("User", [
                     sequence = Plot.sequence(chapterIdx, sceneIdx, @sequence)
                     # Propagate the choices only if this sequence has options
                     if sequence.options?
-                        option = sequence.options[choice.choice]                    
+                        option = sequence.options[choice.choice] 
+                        state.reached_scene = option.next_scene
                 else
-                    state = reached_scene: @pos()
+                    state = reached_scene: @pos()                  
+                    
 
                 state.is_game_done = @isGameDone
                 # Get value using the token

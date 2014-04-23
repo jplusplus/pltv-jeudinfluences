@@ -7,7 +7,7 @@
         {% block meta %}
             <meta charset="utf-8">
             <meta name="description" content="Jusqu'ici j'ai fait les bons choix, je gère la crise. Et vous, quels seraient les vôtres ?">
-            <meta name="viewport" content="initial-scale=1, width=900">
+            <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=900">
             <meta name="archimade_idsite" content="{{ ARCHIMADE_IDSITE }}">
             <meta name="archimade_token"  content="default">
 
@@ -55,7 +55,7 @@
         {% endfor %}
 
     </head>
-    <body>
+    <body ng-class="{ 'body--in-game' : user.inGame }">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->

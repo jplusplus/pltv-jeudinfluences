@@ -100,7 +100,7 @@
         &--notification {
 
             position:absolute;
-            top:20px;
+            top:20px  + @metanav-height;
             right:0;
             background:fade(#000, 75);
             width:270px;
@@ -179,6 +179,14 @@
                     background-image:url("/img/ui/btn_pause.png");
                 }
 
+            }
+
+            &__load {
+                background-image:url("/img/ui/spinner.gif");
+
+                &:focus, &:active {
+                    background-image:url("/img/ui/spinner.gif");
+                }
             }
 
             &__progression {

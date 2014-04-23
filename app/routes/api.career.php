@@ -72,12 +72,13 @@ $app->post('/api/career', function() use ($app) {
         $choices                 = json_decode($career->choices);
         $choices->$data["scene"] = $data["choice"];
         $career->choices         = json_encode($choices);
-        // Get the scene to retreive available options
-        $scene      = \app\helpers\Game::getScene($data["scene"]);
-        $options    = \app\helpers\Game::getOptionsFromScene($scene);
-        // Get the next_scene from the selected option.
-        // We save it into data to save the scene reached
-        $data["reached_scene"] = $options[$data["choice"]]["next_scene"];
+        // NOTE : commented to prevent a heavy and unecessary operation
+        // // Get the scene to retreive available options
+        // $scene      = \app\helpers\Game::getScene($data["scene"]);
+        // $options    = \app\helpers\Game::getOptionsFromScene($scene);
+        // // Get the next_scene from the selected option.
+        // // We save it into data to save the scene reached
+        // $data["reached_scene"] = $options[$data["choice"]]["next_scene"];
     }
 
     // Recording progression...

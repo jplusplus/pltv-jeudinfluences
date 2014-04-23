@@ -30,14 +30,15 @@
         <!-- Player box, a the bottom of the screen -->
         <div ng-if="sequence.isPlayer()">
             <p class="scene__sequence--voixoff__character" ng-if="sequence.character">
-                [[sequence.character]]&nbsp;:                
+                [[sequence.character]]&nbsp;:
             </p>
-            <button class="btn btn-default scene__sequence--voixoff__play" ng-click="toggleVoicetrack()" ng-class="{ 'active': sound.voicetrack.isPlaying }">
+            <button ng-if="sound.voicetrack._loaded" class="btn btn-default scene__sequence--voixoff__play" ng-click="toggleVoicetrack()" ng-class="{ 'active': sound.voicetrack.isPlaying }">
                 <span class="sr-only" ng-show="sound.voicetrack.isPlaying">Pause<span>
                 <span class="sr-only" ng-hide="sound.voicetrack.isPlaying">Play<span>
-            </button>                
+            </button>
+            <button ng-if="!sound.voicetrack._loaded" class="btn btn-default scene__sequence--voixoff__play scene__sequence--voixoff__load"></button>
             <div class="scene__sequence--voixoff__progression">
-                <div class="progress">                
+                <div class="progress">
                     <div class="progress-bar" role="progressbar" ng-style="{ width: (sound.voicetrack._position/sound.voicetrack._duration)*100 + '%'}"></div>
                 </div>
                 <span class="scene__sequence--voixoff__progression__timestamp">
@@ -46,7 +47,7 @@
             </div>
             <div class="scene__sequence--voixoff__head" ng-if="sequence.getHeadSrc()">
                 <img ng-src="[[sequence.getHeadSrc()]]" />
-            </div> 
+            </div>
             <a class="scene__sequence--dialogue__next btn btn-default" ng-show="$parent.sequence.hasNext()" ng-click="goToNextSequence()">
                 <span class="sr-only">Continuer</span>
             </a>
@@ -58,12 +59,12 @@
                 [[sequence.body]]
             </h3>
             <button ng-repeat="option in sequence.options"
-                    class="btn btn-lg btn-default scene__sequence--choice__option" 
+                    class="btn btn-lg btn-default scene__sequence--choice__option"
                     ng-click="selectOption(option, $index)">
                 [[option.header]]
             </button>
             <div ng-if="sequence.delay" class="scene__sequence--choice__timeout">
-                <div circle 
+                <div circle
                      percentage="timeout.remainingTime"
                      colors="transparent,#FF7F00"
                      width="5"
