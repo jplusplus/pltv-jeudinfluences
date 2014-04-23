@@ -1,11 +1,12 @@
 angular.module("spin.service").factory "Progression", [
     '$rootScope'
+    'constant.keys'
     'Plot'
     'User'
     'Sound'
     'Timeout'
-    'Xiti'
-    ($rootScope, Plot, User, Sound, Timeout)->
+    'KeyboardCommands'
+    ($rootScope, keys, Plot, User, Sound, Timeout, KeyboardCommands)->
         new class Progression    
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
@@ -24,6 +25,10 @@ angular.module("spin.service").factory "Progression", [
 
                 # Update the volume
                 $rootScope.$watch (=>User.volume), Sound.updateVolume
+
+                # keyboard commands parametering 
+                KeyboardCommands.register keys.next, @onKeyPressed
+
 
             onChapterChanged: (newId, oldId)->
                 i = (v)-> parseInt v # little alias to parseInt
@@ -54,6 +59,10 @@ angular.module("spin.service").factory "Progression", [
                     # Record begining date of a chapter
                     User.saveChapterChanging true 
 
+            onKeyPressed: (e)=>
+                seq = Plot.sequence(User.chapter, User.scene, User.sequence)
+                if seq.hasNext()
+                    do User.nextSequence
 
 ]
 # EOF

@@ -189,15 +189,16 @@ $app->post('/api/career/erase', function() use ($app) {
     $scene   = intval($since[1]);
 
     $filter_iter = function($var) use ($chapter, $scene){
-        $_chapter = split('\.', $var);
+        $var = split('\.', $var);
         $_chapter = intval($var[0]);
-        $_scene   = split('\.', $var);
         $_scene   = intval($var[1]);
         if ($_chapter > $chapter) { return false; }
         else if ($_chapter == $chapter && $_scene > $scene) { return false; }
         return true;
     };
-    
+
+    // Clean the scenes array
+    $career->scenes = array_filter($career->scenes, $filter_iter);
     $career->scenes = array_values($career->scenes);
 
     // Clean the choices object
