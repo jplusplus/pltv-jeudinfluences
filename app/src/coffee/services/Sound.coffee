@@ -39,6 +39,9 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                 if @notificationtrack?
                     do @notificationtrack.stop
                     @notificationtrack = null
+                if @voicetrack?
+                    do @voicetrack.stop
+                    @voicetrack = null
                 if @soundtrack?
                     if (do @soundtrack.volume) < User.volume
                         @soundtrack.fade( (do @soundtrack.volume), User.volume, 500 )
