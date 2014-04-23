@@ -1,48 +1,82 @@
-.dot-mixin(@width){ 
+.round-dot(@dot-width) { 
+    .translate( -@dot-width / 2, -@dot-width / 2 );
+    width: @dot-width;
+    height: @dot-width;
+    border-radius: @dot-width / 2;
 }
+
 .scatterplot {
-    .round-dot(@dot-width) { 
-        .translate( -@dot-width / 2, -@dot-width / 2 );
-        width: @dot-width;
-        height: @dot-width;
-        border-radius: @dot-width / 2;
-    }
+    @dot-width: 10px;
+    @legend-font-size: 25px;
+    @padding: 20px;
+
     position: absolute;
-    top: 50px;
-    left: 50px;
-    right: 200px;
-    bottom: 50px;
+    top:    @padding;
+    left:   @padding;
+    width: 560px;
+    height: 560px;
     .dot {
-        .round-dot(10px);
+        .round-dot(@dot-width);
         border: 1px solid black;
         position: absolute;
         background: #3b3b3b;
         &--user-dot { 
-            .round-dot(20px);
-            background: white;
+            width: 27px;
+            height: 27px;
+            .translate(-13px, -13px);
+            .box-shadow(0 5px rgba(0, 0, 0, 0.5));
+            background: url('/img/ui/scatterplot_user-dot.png') center center no-repeat;
+
+            &:after {
+                position: absolute;
+                content: "";
+                z-index: @scatterplot-user-tooltip-zindex; 
+                height: 40px;
+                width: 60px;
+                .translate(-47px, -27px);
+                background: url('/img/ui/scatterplot_user-tooltip.png') center center no-repeat;
+            }
         }
     }
 
     &__legend {
+        z-index: @scatterplot-legend-zindex;
         position: absolute; 
         width: 100%;
+        margin:0;
+        padding:0;
+        color: white;
+        font-size: @legend-font-size;
+        line-height: @legend-font-size;
+        text-transform: uppercase;
+        text-shadow:0 0 10px @brand-primary;
+        font-family: @font-family-sans-serif;
+
         &.horizontal-axe {
             top: 50%;
-            &--max { 
-                text-align: right;
-                // left: 100%; 
-            }
-            &--min { 
-                text-align: left;
-                // left: 0%;   
-            }
+            .translate(0, -@legend-font-size / 2 );
+            &--max { text-align: right; }
+            &--min { text-align: left;  }
         }
         &.vertical-axe {
-            // left: 50%;
             text-align: center;
-            &--max { top: 0%;   }
-            &--min { top: 100%; }
+            &--max {
+                top: 0%;
+            }
+            &--min { 
+                .translate(0, -@legend-font-size);
+                top: 100%; 
+            }
             
         }
+    }
+
+    &:after {
+        z-index: @scatterplot-grid-zindex;
+        content: " ";
+        width: 560px;
+        height: 560px;
+        background-image: url('/img/ui/scatterplot_grid.png');
+        position: absolute;
     }
 }
