@@ -7,33 +7,39 @@
 
 .scatterplot {
     @dot-width: 10px;
-    @legend-font-size: 25px;
-    @padding: 20px;
-
+    @legend-font-size: 22px;
+    @left-padding: 80px;
+    @top-padding: 50px;
     position: absolute;
-    top:    @padding;
-    left:   @padding;
-    width: 560px;
-    height: 560px;
+    width: 540px;
+    height: 540px;
+    top:  @top-padding ;
+    left: @left-padding;
+
     .dot {
-        .round-dot(@dot-width);
-        border: 1px solid black;
+        z-index: @scatterplot-dot-zindex; 
         position: absolute;
+        .round-dot(@dot-width);
+        
+        border: 1px solid black;
         background: #3b3b3b;
+        
         &--user-dot { 
             width: 27px;
             height: 27px;
-            .translate(-13px, -13px);
-            .box-shadow(0 5px rgba(0, 0, 0, 0.5));
+            .translate(-7px, -8px);
+            .box-shadow(0 0 5px 1px rgba(0, 0, 0, 0.8));
+            border-radius: 100%;
             background: url('/img/ui/scatterplot_user-dot.png') center center no-repeat;
 
             &:after {
+                // after user dot we need to display its tooltip 
+                .translate(-47px, -27px);
                 position: absolute;
                 content: "";
                 z-index: @scatterplot-user-tooltip-zindex; 
                 height: 40px;
                 width: 60px;
-                .translate(-47px, -27px);
                 background: url('/img/ui/scatterplot_user-tooltip.png') center center no-repeat;
             }
         }
@@ -55,17 +61,25 @@
         &.horizontal-axe {
             top: 50%;
             .translate(0, -@legend-font-size / 2 );
-            &--max { text-align: right; }
-            &--min { text-align: left;  }
+            &--max { 
+                text-align: right;
+                right: -100px;
+            }
+            &--min { 
+                text-align: left;
+                left: -70px;
+                
+            }
         }
         &.vertical-axe {
             text-align: center;
             &--max {
                 top: 0%;
+                .translate(0, -(@legend-font-size + 10px));
             }
             &--min { 
-                .translate(0, -@legend-font-size);
                 top: 100%; 
+                .translate(0,  (@legend-font-size - 5px));
             }
             
         }
@@ -73,9 +87,11 @@
 
     &:after {
         z-index: @scatterplot-grid-zindex;
-        content: " ";
+        content: "";
         width: 560px;
         height: 560px;
+        left: -10px;
+        top: -10px;
         background-image: url('/img/ui/scatterplot_grid.png');
         position: absolute;
     }
