@@ -67,9 +67,11 @@
             }
 
             &__option {
-                height:60px;
+                min-height:60px;
                 width:150px;
+                padding:10px;
                 margin:0 10px 15px;
+                white-space: normal;
             }
 
             &__timeout {
@@ -93,6 +95,17 @@
                     left:50%;
                     top:50%;
                 }
+            }
+        }
+
+
+        // Full width choices
+        &--inline-choices {
+
+            .scene__sequence--choice__option {
+                white-space: normal;
+                width:420px;
+                display:block;
             }
         }
 
