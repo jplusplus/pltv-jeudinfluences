@@ -27,12 +27,14 @@
 
         {% block head %}
 
+            <link rel="icon" href="{{STATIC_URL}}img/icon.png" />
+
             <script type="text/javascript">
                 // Values passed throught server-side app configuration
                 window.MEDIA_URL  = "{{MEDIA_URL|raw}}";
                 window.STATIC_URL = "{{STATIC_URL|raw}}";
             </script>
-            
+
             {% if MODE == "development" %}
                 <link rel="stylesheet" href="{{STATIC_URL}}css/lib.css" />
                 <link rel="stylesheet" href="{{STATIC_URL}}dev/css/styles.css" />
