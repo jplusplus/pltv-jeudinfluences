@@ -199,6 +199,7 @@ $app->post('/api/career/erase', function() use ($app) {
 
     // Clean the scenes array
     $career->scenes = array_filter($career->scenes, $filter_iter);
+    $career->scenes = array_values($career->scenes);
 
     // Clean the choices object
     $kept_choices = array_filter(array_keys($career->choices), $filter_iter);
