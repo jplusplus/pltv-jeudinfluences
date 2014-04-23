@@ -16,6 +16,18 @@
     top:  @top-padding ;
     left: @left-padding;
 
+    &:after {
+        // we display the grid above the scatterplot
+        z-index: @scatterplot-grid-zindex;
+        content: "";
+        width: 560px;
+        height: 560px;
+        left: -10px;
+        top: -10px;
+        background-image: url('/img/ui/scatterplot_grid.png');
+        position: absolute;
+    }
+    
     .dot {
         z-index: @scatterplot-dot-zindex; 
         position: absolute;
@@ -83,16 +95,5 @@
             }
             
         }
-    }
-
-    &:after {
-        z-index: @scatterplot-grid-zindex;
-        content: "";
-        width: 560px;
-        height: 560px;
-        left: -10px;
-        top: -10px;
-        background-image: url('/img/ui/scatterplot_grid.png');
-        position: absolute;
     }
 }
