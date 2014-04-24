@@ -1,7 +1,7 @@
 angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'constant.xiti', ($rootScope, User, Plot, xiti)->
     new class Xiti
         constructor:->     
-            do @updateConfig
+            # do @updateConfig
             # Initial state
             @currentPage = "home"
             # Chapter change in game
@@ -52,12 +52,14 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'c
                 @img        = document.createElement("img")
                 @img.height = 1
                 @img.width  = 1
-                @img.src    = "#{window.xtsd}.xiti.com/"
-                @img.src   += "hit.xiti?s=#{window.xtsite}"
-                @img.src   += "&s2=#{xtn2}"
-                @img.src   += "&p=#{xtpage}"
-                @img.src   += "&di=#{window.xtdi}"
-                @img.src   += "&na=#{(new Date).getTime()}"            
+                src         = "#{window.xtsd}.xiti.com/"
+                src        += "hit.xiti?s=#{window.xtsite}"
+                src        += "&s2=#{xtn2}"
+                src        += "&p=#{xtpage}"
+                src        += "&di=#{window.xtdi}"
+                src        += "&na=#{(new Date).getTime()}"            
+                # Update the image src once
+                @img.src    = src
                 # Appends the image to the body
                 angular.element("body").append @img
 
