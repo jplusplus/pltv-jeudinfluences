@@ -21,6 +21,12 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
             @soundtrack.play => @soundtrack.fade(0, User.volume, 1000)
 
         startScene: (chapter=User.chapter, scene=User.scene)=>
+            if @notificationtrack?
+                do @notificationtrack.stop
+                @notificationtrack = null
+            if @voicetrack?
+                do @voicetrack.stop
+                @voicetrack = null
             # Start a new scene
             if scene? and Plot.chapters.length and Plot.scene(chapter, scene)?
                 # Get scene object
