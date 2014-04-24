@@ -8,7 +8,6 @@ angular.module('spin.directive').directive  'keyboardNavigation', [
                 cmd = KeyboardCommands.get e.which
                 if typeof cmd is 'function'
                     $rootScope.safeApply ->
-                        console.log 'I was applied'
                         cmd(e)
                     do e.preventDefault
                     false
