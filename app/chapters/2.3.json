@@ -19,7 +19,13 @@
             "type": "dialogue",
             "character": "Nadia",
             "header": null,
-            "body": "Mika s'est suicidé.\n\nViens."
+            "body": "Mika s'est suicidé."
+        },
+        {
+            "type": "dialogue",
+            "character": "Nadia",
+            "header": null,
+            "body": "Viens."
         },
         {
             "type": "dialogue",

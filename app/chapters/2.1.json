@@ -10,12 +10,10 @@
     "sequence": [
         {
         "type": "narrative", 
-        "timeout": 1,
-        "body": "&nbsp;" 
+        "body": "..." 
         },
         {
             "type": "new_background",
-            "timeout": 1,
             "body": "/medias/chap2/illustrations/illustr-ch2-02.gif",
             "transition": null
         },
