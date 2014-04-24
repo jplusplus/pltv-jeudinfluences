@@ -2,6 +2,8 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'c
     new class Xiti
         constructor:->     
             do @updateConfig
+            # Initial state
+            @currentPage = "home"
             # Chapter change in game
             @watchInGame (->[User.inGame, User.chapter]), => @loadPage @chapter()
             # Scene change in game
@@ -37,7 +39,7 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'c
 
         loadPage: =>  
             # Convert arguments object to an array
-            args = Array.prototype.slice.call(arguments)      
+            args = Array.prototype.slice.call(arguments)  
             # Current page must be different
             if @currentPage isnt args.join("::")
                 # Record the current page slug to avoid declare the page twice

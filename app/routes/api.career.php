@@ -84,7 +84,7 @@ $app->post('/api/career', function() use ($app) {
     // Recording progression...
     if (isset($data["reached_scene"])) {
         // TODO: check if already exists
-        if (!in_array((string)$data["reached_scene"], $scenes)) {
+        if (!in_array((string)$data["reached_scene"], $scenes, true)) {
             $scenes[] = (string)$data["reached_scene"];
             $career->scenes = json_encode($scenes);
         }

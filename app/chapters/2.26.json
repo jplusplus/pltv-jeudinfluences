@@ -10,18 +10,40 @@
     "sequence": [
         {
             "condition": {
-                "tweet": false
+                "tweet": false,
+                "tweet_de_merde": false
             },
-            "result": {"ubm": 64},
+            "result": {"ubm": 56},
             "type": "voixoff",
             "character": "Radio",
             "body": "/medias/chap2/voix-off/flash-ch2-01-cond-1.mp3"
         },
         {
             "condition": {
-                "tweet": true
+                "tweet": false,
+                "tweet_de_merde": true
             },
             "result": {"ubm": 64},
+            "type": "voixoff",
+            "character": "Radio",
+            "body": "/medias/chap2/voix-off/flash-ch2-01-cond-2.mp3"
+        },
+        {
+            "condition": {
+                "tweet": true,
+                "tweet_de_merde": false
+            },
+            "result": {"ubm": 52},
+            "type": "voixoff",
+            "character": "Radio",
+            "body": "/medias/chap2/voix-off/flash-ch2-01-cond-2.mp3"
+        },
+        {
+            "condition": {
+                "tweet": true,
+                "tweet_de_merde": true
+            },
+            "result": {"ubm": 60},
             "type": "voixoff",
             "character": "Radio",
             "body": "/medias/chap2/voix-off/flash-ch2-01-cond-2.mp3"

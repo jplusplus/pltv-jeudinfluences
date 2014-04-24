@@ -1,4 +1,4 @@
-<div keyboard-navigation class="scene scene-entrance-animation" ng-if="shouldShowScene()">              
+<div class="scene scene-entrance-animation" ng-if="shouldShowScene()">              
 
     <!-- This is the main illustration -->      
     <img class="scene__bg" ng-src="[[bg.src | media]]" ng-repeat="bg in getSceneBgs() | filter:shouldDisplayBg" /> 

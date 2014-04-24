@@ -14,9 +14,8 @@
         },
         {
             "type": "new_background",
-            "timeout": 30,
-            "body": "/medias/chap2/illustrations/illustr-ch2-fb-00_b.jpg",
-            "transition": "fadout"
+            "body": "/medias/chap2/illustrations/illustr-ch2-fb-00.gif",
+            "transition": null
         },
         {
             "type": "voixoff",

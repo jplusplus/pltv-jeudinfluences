@@ -9,9 +9,13 @@
     ],
     "sequence": [
         {
+            "type": "narrative",
+            "body": "29 mai, 11h27."
+        },
+        {
             "type": "dialogue",
             "character": "Patrick Luaud",
-            "header": "29 mai, 11h27.",
+            "header": null,
             "body": "Voilà pourquoi je vous ai demandé de me rejoindre \"au plus vite\". Lisez directement la fin, ça vous semblera plus clair."
         },
         {

@@ -48,7 +48,8 @@
                             "stress": 0,
                             "ubm": 0,
                             "honesty": -1,
-                            "trust": 4
+                            "trust": 4,
+                            "tweet": true
                         }
                     ]
                 },
