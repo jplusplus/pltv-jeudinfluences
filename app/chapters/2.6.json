@@ -10,7 +10,7 @@
     "sequence": [
         {
             "type": "narrative",
-            "body": "Jeudi 24 mai, 4h35"
+            "body": "Jeudi 24 mai, 4h35."
         },
         {
             "type": "voixoff",
@@ -27,15 +27,15 @@
             "body": "&nbsp;"
         },
         {
+            "type": "new_background",
+            "body": "/medias/chap2/illustrations/illustr-ch2-07.gif",
+            "transition": null
+        },
+        {
             "result": {"ubm": 8},
             "type": "voixoff",
             "character": "Journaliste",
             "body": "/medias/chap2/voix-off/journaliste-ch2-01.mp3"
-        },
-        {
-            "type": "new_background",
-            "body": "/medias/chap2/illustrations/illustr-ch2-07.gif",
-            "transition": null
         },
         {
             "type": "voixoff",

@@ -1,25 +1,25 @@
 {
-    "4" : {
+    "4" : { 
         "share_sentence" : "Jusqu'ici j'ai fait les bons choix, je gère la crise. Et vous, quels seraient les vôtres ?",
         "scenes" : {
             "4.31" : {
-                "title" : "Cacher votre connaissance de la pollution à Patrick Luaud ?",
+                "title" : "Omettre n'est pas mentir",
                 "options" : [
                     "vous avez choisi de reconnaitre votre connaissance de la pollution.",
-                    "vous avez choisi de cacher votre connaissance de la pollution à Patrick Luaud."
+                    "vous avez menti à Patrick Luaud et caché votre connaissance de la pollution." 
                 ]
             },
             "4.7" : {
-                "title" : "Prévenir Nadia de l'utilisation médiatique des obsèques ?",
+                "title" : "L'absolution",
                 "options" : [
-                    "vous avez choisi de prévenir Nadia de l'utilisation médiatique des obsèques.",
-                    "vous avez choisi de ne pas prévenir Nadia de l'utilisation médiatique des obsèques."
+                    "vous avez choisi de prévenir Nadia de votre utilisation médiatique des obsèques.", 
+                    "vous n'avez pas dit à Nadia que vous alliez communiquer lors des obsèques."
                 ]
             },
             "4.28" : {
-                "title" : "Lier les bloggueurs à l'entreprise Rouvroy et jouer le complot ?",
+                "title" : "Le bouc émissaire",
                 "options" : [
-                    "vous avez choisi de lier les bloggueurs à l'entreprise Rouvroy.",
+                    "vous avez choisi de lier les bloggueurs à l'entreprise Rouvroy.", 
                     "vous avez choisi de ne pas lier les bloggueurs à l'entreprise Rouvroy."
                 ]
             }

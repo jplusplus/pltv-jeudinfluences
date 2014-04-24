@@ -9,10 +9,6 @@
     ],
     "sequence": [
         {
-        "type": "narrative", 
-        "body": "..." 
-        },
-        {
             "type": "dialogue",
             "character": "Louis",
             "header": null,

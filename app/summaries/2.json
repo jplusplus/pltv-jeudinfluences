@@ -1,23 +1,23 @@
 {
-    "2" : {
+    "2" : { 
         "share_sentence" : "Jusqu'ici j'ai fait les bons choix, je gère la crise. Et vous, quels seraient les vôtres ?",
         "scenes" : {
             "2.37" : {
-                "title" : "Diriger les médias vers le couple Nadia / Mika ?",
+                "title" : "Le prix de la tranquilité",
                 "options" : [
-                    "vous avez choisi de détourner la pression médiatique vers le couple Nadia / Mika.",
-                    "vous avez choisi de ne pas détourner la pression médiatique vers le couple Nadia / Mika."
+                    "vous avez choisi de diriger la pression médiatique sur vos plus proches collaborateurs.", 
+                    "vous n'avez pas utilisé la vie privée de vos collaborateurs pour détourner l'attention." 
                 ]
             },
             "2.27" : {
-                "title" : "Mentir à Patrick Luaud au sujet des tensions avec Mika dans l'entreprise ?",
+                "title" : "Le déni",
                 "options" : [
                     "vous avez choisi de ne pas mentir à Patrick Luaud.",
                     "vous avez choisi de mentir à Patrick Luaud."
                 ]
             },
             "2.7" : {
-                "title" : "Être insistant avec Nadia ?",
+                "title" : "Une employée (pas) comme les autres",
                 "options" : [
                     "vous avez choisi de ne pas insister et de respecter le deuil de Nadia.",
                     "vous avez choisi d'insister pour que Nadia vous aide."

@@ -1,12 +1,12 @@
 {
-    "6" : {
+    "6" : { 
         "share_sentence" : "Jusqu'ici j'ai fait les bons choix, je gère la crise. Et vous, quels seraient les vôtres ?",
         "scenes" : {
             "6.1" : {
-                "title" : "Tout raconter à Patrick Luaud ?",
+                "title" : "L'heure de vérité",
                 "options" : [
-                    "vous avez choisi de tout raconter à Patrick Luaud.",
-                    "vous avez choisi de rester fidèle à vos mensonges."
+                    "vous avez choisi de tout raconter à Patrick Luaud.", 
+                    "vous avez choisi de rester fidèle à vos mensonges jusqu'au bout." 
                 ]
             }
         }

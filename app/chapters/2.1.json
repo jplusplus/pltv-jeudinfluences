@@ -4,17 +4,16 @@
         {
             "background": "/medias/chap2/illustrations/illustr-ch2-01.gif",
             "background_transition": "fade",
-            "soundtrack": null
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
         }
     ],
     "sequence": [
         {
         "type": "narrative", 
-        "body": "&nbsp;" 
+        "body": "..." 
         },
         {
             "type": "new_background",
-            "timeout": 1,
             "body": "/medias/chap2/illustrations/illustr-ch2-02.gif",
             "transition": null
         },
