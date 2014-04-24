@@ -78,6 +78,9 @@
         <div ng-if="sequence.isNotification()">
             <div class="scene__sequence--notification__header">[[sequence.header]]&nbsp;:</div>
             <div class="scene__sequence--notification__body" btf-markdown="sequence.body"></div>            
+            <a class="scene__sequence--notification__next btn btn-default" ng-if="sequence.isNotificationWithButton()" ng-click="goToNextSequence()">
+                <span class="sr-only">Continuer</span>
+            </a>
         </div>
 
 

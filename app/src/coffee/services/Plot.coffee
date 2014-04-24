@@ -39,6 +39,9 @@ angular.module("spin.service").factory "Plot", [
                     isNotification: ->
                         this.lowerType() is types.sequence.notification
 
+                    isNotificationWithButton: ->
+                        (this.lowerType() is types.sequence.notification) and this.next_button
+
                     isFeedback: ->
                         this.lowerType() is types.sequence.feedback
 

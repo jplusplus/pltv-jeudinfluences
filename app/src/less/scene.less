@@ -127,6 +127,31 @@
                 padding-left:20px;
                 background:url("/img/ui/notification.png") left center no-repeat;
             }
+
+            &__next {
+                position:absolute;
+                bottom:-15px;
+                right:5px;
+                height:30px;
+                width:30px;
+                display:block;
+                padding:0;
+                background:url("/img/ui/btn_next.png") no-repeat center center #000;
+                .animation(0.3s move-next linear alternate infinite);
+
+                &:before {
+                    content:"";
+                    position:absolute;
+                    top:100%;
+                    right:0;
+                    background:no-repeat right top url("/img/ui/question_right.png");
+                    width:15px;
+                    height:7px;
+                    margin-right:-2px;
+                    margin-top:2px;
+                    z-index:-1;
+                }
+            }
         }
 
         // Player box, a the bottom of the screen
