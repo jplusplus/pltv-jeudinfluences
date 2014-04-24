@@ -27,12 +27,17 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                 scene  = Plot.scene(chapter, scene)
                 tracks = [ $filter('media')(scene.decor[0].soundtrack) ]
                 # Update the soundtrack if it is different
-                if scene.decor[0].soundtrack?
-                    if (not @soundtrack?)
-                        @startSoundTrack tracks
-                    else if (not angular.equals( @soundtrack.urls(), tracks))
-                        @soundtrack.fade User.volume, 0, 1000, =>
+                if scene.decor[0].hasOwnProperty 'soundtrack'
+                    if scene.decor[0].soundtrack?
+                        if (not @soundtrack?)
                             @startSoundTrack tracks
+                        else if (not angular.equals( @soundtrack.urls(), tracks))
+                            @soundtrack.fade User.volume, 0, 1000, =>
+                                @startSoundTrack tracks
+                    else if @soundtrack?
+                        @soundtrack.fade (do @soundtrack.volume), 0, 1000, =>
+                            do @soundtrack.stop
+                            @soundtrack = undefined
 
         toggleSequence: (chapterIdx=User.chapter, sceneIdx=User.scene, sequenceIdx=User.sequence)=>
             if sequenceIdx?
