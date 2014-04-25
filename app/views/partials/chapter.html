@@ -1,6 +1,6 @@
 <div class="chapter chapter-entrance-animation" ng-if="shouldShowChapter()" ng-class="chapterClasses()">    
 
-    <preload images="getBackgrounds()" />
+    <preload images="getBackgrounds()" object="chapter" attr="isReady" />
 
     <div class="chapter__intro" ng-show="user.isStartingChapter() && !user.isGameOver">
         <div class="chapter__intro__id">Chapitre [[chapter.id]]</div>
@@ -19,7 +19,7 @@
     </div>
     
     
-    <ul class="chapter__cmd list-unstyled" ng-hide="user.isStartingChapter() || user.isGameOver">
+    <ul class="chapter__cmd list-unstyled" ng-hide="user.isStartingChapter() || user.isGameOver">             
         <li class="chapter__cmd__indicator chapter__cmd__indicator--ubm">
             <abbr class="chapter__cmd__indicator__help">
                 ?<span class="chapter__cmd__indicator__help__definition">Unité de Bruit Médiatique : présence de votre crise dans les médias</span>
@@ -45,7 +45,7 @@
         </li>
         <li class="chapter__cmd__indicator chapter__cmd__indicator--stress">
             <abbr class="chapter__cmd__indicator__help">
-                ?<span class="chapter__cmd__indicator__help__definition">Votre état Emotionnel</span>
+                ?<span class="chapter__cmd__indicator__help__definition">Votre état émotionnel</span>
             </abbr>
             <span class="chapter__cmd__indicator__label">Stress</span>
             <span class="chapter__cmd__indicator__value">[[user.indicators.stress]]%</span>
