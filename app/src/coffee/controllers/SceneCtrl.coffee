@@ -2,6 +2,7 @@ class SceneCtrl
     @$inject: ['$scope', 'Plot', 'User', 'Sound', 'Timeout', 'constant.characters']
     constructor: (@scope, @Plot, @User, @Sound, @Timeout, characters) ->
         @scope.plot  = @Plot
+        @scope.user  = @User         
         @scope.sound = @Sound
         @scope.timeout = @Timeout
         # Establishes a bound between "src" and "chapter" arguments

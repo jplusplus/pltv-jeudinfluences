@@ -4,6 +4,7 @@ class ResultsCtrl
     constructor: (@scope, @Progression, @User,  @Plot,  @Results)->
         # scope variable binding
         @scope.plot    = @Plot
+        @scope.user    = @User
         # scope function binding
         @scope.shouldShowResults  = @shouldShowResults 
         @scope.goNextChapter      = @goNextChapter
