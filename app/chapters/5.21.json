@@ -48,7 +48,7 @@
             "options": [
                 {
                     "header": "Oui",
-                    "next_scene": "5.21.suite",
+                    "next_scene": "5.21suite",
                     "outro": null,
                     "result": [
                         {
