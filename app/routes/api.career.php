@@ -193,11 +193,13 @@ $app->post('/api/career/erase', function() use ($app) {
     if (!array_search($since, $career->scenes)) { return wrong(array('error' => 'Scene '.$data->since.' not found')); }
 
     // Clean the scenes array
-    array_splice($career->scenes, array_search($since, $career->scenes));
+    array_splice($career->scenes, array_search($since, $career->scenes) + 1);
     $career->scenes = array_values($career->scenes);
 
     // Clean the choices object
-    $kept_choices = array_fill_keys(array_values($career->scenes), '');
+    $kept_choices = array_values($career->scenes);
+    array_splice($kept_choices, sizeof($kept_choices) - 1);
+    $kept_choices = array_fill_keys($kept_choices, '');
     $career->choices = array_intersect_key($career->choices, $kept_choices);
 
     // Encode the JSON
