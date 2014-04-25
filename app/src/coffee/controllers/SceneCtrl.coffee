@@ -73,11 +73,12 @@ class SceneCtrl
             chapterIdx  = @User.chapter
             sceneIdx    = @User.scene
             sequenceIdx = @User.sequence
+            console.log "a", sequenceIdx      
             while yes
                 sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)
                 break if sequenceIdx <= 0 or not sequence? or sequence.hasExit()
                 sequenceIdx--   
-            console.log sequenceIdx      
+            console.log "b", sequenceIdx      
             sequenceIdx
 
 
