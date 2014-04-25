@@ -101,20 +101,13 @@ angular.module("spin.service").factory("User", [
                 do @checkProgression
 
             checkProgression: =>
+                return unless @inGame
                 # will check if user progression lead him to a game over.
-                is_gameover = no 
-                breakme     = no 
-                # while a game over has not been detected or "break" like 
-                # instruction is set we loop (I dont like break) 
-                while (is_gameover is no) and (breakme is no)
-                    for key, value of @indicators
-                        indicator_rule = UserIndicators[key]
-                        if indicator_rule
-                            is_gameover = indicator_rule.isGameOver(value)
-                    breakme = yes
-
-                @isGameOver = is_gameover
-                is_gameover
+                for key, value of @indicators
+                    if UserIndicators[key]? and UserIndicators[key].isGameOver(value)
+                        @isGameOver =yes
+                        break
+                @isGameOver
 
             isStartingChapter: =>       
                 # Chapter is considered as starting during {settings.chapterEntrance} millisecond
