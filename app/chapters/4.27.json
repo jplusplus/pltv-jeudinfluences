@@ -10,13 +10,13 @@
     "sequence": [
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Vous êtes sûr ?  \nTendre la main à ceux qui vous attaquent a souvent tendance à les déstabiliser. Du coup, ça affaiblit leur position."
         },
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Vous devriez y réfléchir à deux fois. On ne fait vraiment rien ?"
         },
@@ -35,7 +35,8 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": -2,
-                            "trust": 2
+                            "trust": 2,
+                            "visite_usine_bloggers": true
                         }
                     ]
                 },

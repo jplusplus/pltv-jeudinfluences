@@ -33,6 +33,7 @@
         },
         {
             "result": {"guilt": 24},
+            "result": {"meurtre": true},
             "type": "voixoff",
             "character": "Louis",
             "header": null,

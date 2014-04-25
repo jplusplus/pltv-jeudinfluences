@@ -16,6 +16,7 @@
         },
         {
             "condition": {"backing_nadia":true},
+            "result": {"stress": -4},
             "type": "dialogue",
             "character": "Nadia",
             "header": null,
@@ -23,6 +24,7 @@
         },
         {
             "condition": {"backing_nadia":false},
+            "result": {"stress": 8},
             "type": "dialogue",
             "character": "Nadia",
             "header": null,

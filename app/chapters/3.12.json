@@ -43,7 +43,8 @@
                             "stress": 0,
                             "ubm": 0,
                             "honesty": -4,
-                            "trust": 0
+                            "trust": 0,
+                            "trashing_rouvroy": true
                         }
                     ]
                 }

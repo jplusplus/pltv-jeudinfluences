@@ -27,10 +27,8 @@
             "body": "/medias/chap3/illustrations/illustr-ch3-14.jpg"
         },
         {
-            "type": "new_background",
-            "timeout": 7,
-            "transition": "fade",
-            "body": "/medias/illustrations/ecrannoir.jpg"
+            "type": "narrative",
+            "body": "..."
         }
     ]
 }
