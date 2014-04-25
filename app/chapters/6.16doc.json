@@ -1,0 +1,16 @@
+{
+    "next_scene" : "6.17",
+    "decor": [
+        {
+            "background": "/medias/illustrations/tablette.jpg",
+            "background_transition": null,
+            "soundtrack": null
+        }
+    ],
+    "sequence": [
+        {
+            "type": "video_background",
+            "body": "http://www.dailymotion.com/video/k7kvN70NcaHDOG6oltw?autoplay=1&chromeless=1&hideInfos=0"
+        }
+    ]
+}
