@@ -118,9 +118,9 @@ angular.module("spin.service").factory("User", [
 
             isStartingChapter: =>       
                 # Chapter is considered as starting during {settings.chapterEntrance} millisecond
-                Date.now() - @lastChapterChanging < settings.chapterEntrance
-                # The chapter may also be ready (all image loaded)
-                # Plot.chapter(@chapter).isReady
+                Date.now() - @lastChapterChanging < settings.chapterEntrance or
+                # The user may also be ready (all image loaded)
+                not @isReady
 
             saveChapterChanging: (chapter)=>
                 # Stop here until a chapter id is set
