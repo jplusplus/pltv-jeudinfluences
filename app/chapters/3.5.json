@@ -29,7 +29,8 @@
                             "ubm": 0,
                             "honesty": -8,
                             "guilt": 3,
-                            "trust": 0
+                            "trust": 0,
+                            "destruction_docs": true
                         }
                     ]
                 },

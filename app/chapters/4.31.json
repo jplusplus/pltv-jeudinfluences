@@ -10,7 +10,7 @@
     "sequence": [
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Une dernière question Louis. De vous à moi.\n\nVous étiez au courant de quelque chose sur cette pollution ?"
         },

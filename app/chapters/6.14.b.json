@@ -27,6 +27,8 @@
             "timeout": 30
         },
         {
+            "result": {"meurtre": true},
+            "result": {"guilt": 24},
             "type": "voixoff",
             "character": "Louis",
             "header": null,

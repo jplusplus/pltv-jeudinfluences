@@ -9,12 +9,9 @@
     ],
     "sequence": [
         {
-        "type": "narrative", 
-        "body": "..." 
-        },
-        {
             "type": "notification",
             "sound": "/medias/sounddesign/notif-1.mp3",
+            "next_button": true,
             "header": null,
             "body": "Votre message \"Mickael était un collègue hors pair devenu un ami infaillible. Sa perte est inestimable. Rien n'existera plus comme avant.\" a bien été envoyé avec le compte @l_esmond"
         },

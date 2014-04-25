@@ -49,7 +49,7 @@
             "options": [
                 {
                     "header": "Oui",
-                    "next_scene": "4.18.a",
+                    "next_scene": "4.18a",
                     "outro": null,
                     "result": [
                         {
@@ -85,7 +85,7 @@
             "options": [
                 {
                     "header": "Oui",
-                    "next_scene": "4.18.b",
+                    "next_scene": "4.18b",
                     "outro": null,
                     "result": [
                         {

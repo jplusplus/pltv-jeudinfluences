@@ -1,7 +1,6 @@
 class WelcomeCtrl
     @$inject: ['$scope', 'User']
     constructor: (@scope, @User) ->  
-        @scope.user  = @User
         @scope.email = @User.email
         # Takes the chapter only when the controller is instanciated
         @token       = @User.token

@@ -1,7 +1,6 @@
 class GameOverCtrl
-    @$inject: ['$scope', 'User']
-    constructor: (@scope, @User) ->  
-        @scope.user  = @User
+    @$inject: ['$scope']
+    constructor: (@scope) ->  
         @scope.restart = =>
             @User.restartChapter()
 

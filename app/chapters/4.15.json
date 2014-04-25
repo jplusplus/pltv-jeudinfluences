@@ -9,10 +9,8 @@
     ],
     "sequence": [
         {
-            "type": "new_background",
-            "timeout": 3,
-            "transition": null,
-            "body": "/medias/chap4/illustrations/illustr-ch4-06.jpg"
+            "type": "narrative",
+            "body": "..."
         }
     ]
 }

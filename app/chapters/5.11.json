@@ -9,8 +9,9 @@
     ],
     "sequence": [
         {
-            "result": {"karma": -1, "guilt": 3},
+            "result": {"karma": -1, "guilt": 3, "chantage_jarendeau": true},
             "type": "notification",
+            "next_button": true,
             "header": "Le message suivant a bien été envoyé à Martin Jarendeau :",
             "body": "Une grosse enquête va sortir. Besoin de votre soutien. Comme vous de mon silence."
         }

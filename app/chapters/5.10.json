@@ -16,7 +16,7 @@
         },
         {
             "condition": {"pression_jarendeau":false},
-            "type": "dialogue",
+            "type": "voixoff",
             "character": "Patrick Luaud",
             "header": null,
             "body": "/medias/chap5/voix-off/louis-ch5-01_cond2.mp3"

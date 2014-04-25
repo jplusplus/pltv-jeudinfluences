@@ -20,7 +20,7 @@
         },
         {
             "type": "narrative",
-            "body": "\"En ce qui concerne la concentration d'adjuvants chimiques dans les eaux du Nizerand, il est étonnant de constater un tel décrochage dans le seuil d'alerte. Alors qu'il était de 0,65 particules par mètre cube, comme dans tous les autres départements français, ce seuil est passé il y a un an à 1,50 particules par mètres cubes sans raison apparente. Sans cette modification de seuil, la pollution actuelle du Nizerand aurait été détectée bien plus tôt.\""
+            "body": "\"En ce qui concerne la concentration d'adjuvants chimiques dans les eaux du Nizerand, il est étonnant de constater un tel décrochage dans le seuil d'alerte. Alors qu'il était de 0,65 particules par mètre cube, comme dans tous les autres départements français, ce seuil est passé il y a un an à 1,50 particules par mètre cube sans raison apparente. Sans cette modification de seuil, la pollution actuelle du Nizerand aurait été détectée bien plus tôt.\""
         },
         {
             "type": "narrative",
@@ -28,7 +28,7 @@
         },
         {
             "type": "narrative",
-            "body": "\"Ces adjuvants chimiques, potentiellement cancérigènes, sont principalement utilisés dans la fabrication de matériaux de construction. Or, après quelques recherches, il s'avère que la dernière version du béton \"écologique\" de l'usine Habinat est entré en production dans leur usine du Nizerand un mois avant que le seuil d'alerte ne soient arbitrairement relevé.\""
+            "body": "\"Ces adjuvants chimiques, potentiellement cancérigènes, sont principalement utilisés dans la fabrication de matériaux de construction. Or, après quelques recherches, il s'avère que la dernière version du béton \"écologique\" d'Habinat est entré en production dans leur usine du Nizerand un mois avant que le seuil d'alerte ne soit arbitrairement relevé.\""
         },
         {
             "type": "narrative",
@@ -68,7 +68,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Depuis quelque temps, les administrations mettent en ligne différents jeux de données considérés comme utiles pour les citoyens. La région Rhône-Alpes a mis en ligne une série d'archives sur les seuils d'alerte de différents polluants recherchés dans les cours d'eau. Et les hôpitaux font pareil avec certains chiffres, comme le nombre de cas sur certaines grandes pathologies."
+            "body": "Depuis quelque temps, les administrations mettent en ligne différents jeux de données considérés comme utiles pour les citoyens. La région Rhône-Alpes a publié une série d'archives sur les seuils d'alerte de différents polluants recherchés dans les cours d'eau. Et les hôpitaux font pareil avec certains chiffres, comme le nombre de cas sur certaines grandes pathologies."
         },
         {
             "type": "dialogue",
@@ -104,13 +104,14 @@
                 {
                     "header": "Non",
                     "next_scene": "4.23",
-                    "outro": null,
+                    "outro": "Jarendeau s'en souviendra...",
                     "result": [
                         {
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
-                            "trust": 0
+                            "trust": 0,
+                            "ministre_venere": true
                         }
                     ]
                 }

@@ -2,7 +2,6 @@ class ChapterCtrl
     @$inject: ['$scope', 'Plot', 'User', '$filter']
     constructor: (@scope, @Plot, @User, @filter) ->                          
         @scope.plot  = @Plot
-        @scope.user  = @User         
         # Establishes a bound between "src" argument 
         # provided by the chapter directive and the Countroller
         @chapter = @scope.chapter = @scope.src     
@@ -11,7 +10,7 @@ class ChapterCtrl
 
         # Returns the class to apply to the Chapter
         @scope.chapterClasses = =>
-            "chapter--starting": User.isStartingChapter()
+            "chapter--starting": @User.isStartingChapter()
         @scope.getBackgrounds = =>        
             # Cache bgs to avoid infinite digest iteration
             return @bgs if @bgs?            
