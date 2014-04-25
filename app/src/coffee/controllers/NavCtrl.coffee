@@ -1,7 +1,6 @@
 class NavCtrl
     @$inject: ['$scope', 'User', 'ThirdParty']
     constructor: (@scope, @User, @ThirdParty) ->
-        @scope.user       = @User
         @scope.thirdParty = @ThirdParty
         @scope.volume     = @User.volume * 100
         # True if the volume is on

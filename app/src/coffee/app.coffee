@@ -1,6 +1,6 @@
 angular.module('spin.constant',  [])
 angular.module('spin.animation', ['ngAnimate', 'spin.constant'])
-angular.module('spin.config',    ['ngRoute',  'ngSanitize', 'spin.constant'])
+angular.module('spin.config',    ['ngRoute',  'ngSanitize', 'spin.constant', 'spin.service'])
 angular.module('spin.controller',['ngResource', 'spin.constant', 'spin.filter'])
 angular.module('spin.directive', ['ngResource', 'spin.constant'])
 angular.module('spin.filter',    ['ngResource', 'spin.constant'])

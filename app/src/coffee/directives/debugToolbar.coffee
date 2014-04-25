@@ -7,7 +7,6 @@ angular.module('spin.directive').directive "debugToolbar", [
         templateUrl: "partials/debug-toolbar.html"
         scope: false
         controller: ['$scope', 'User', ($scope, User)->            
-            $scope.user = User
             # Update user progression
             $scope.update = ->
                 # Collect input values
