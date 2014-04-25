@@ -127,6 +127,31 @@
                 padding-left:20px;
                 background:url("/img/ui/notification.png") left center no-repeat;
             }
+
+            &__next {
+                position:absolute;
+                bottom:-15px;
+                right:5px;
+                height:30px;
+                width:30px;
+                display:block;
+                padding:0;
+                background:url("/img/ui/btn_next.png") no-repeat center center #000;
+                .animation(0.3s move-next linear alternate infinite);
+
+                &:before {
+                    content:"";
+                    position:absolute;
+                    top:100%;
+                    right:0;
+                    background:no-repeat right top url("/img/ui/question_right.png");
+                    width:15px;
+                    height:7px;
+                    margin-right:-2px;
+                    margin-top:2px;
+                    z-index:-1;
+                }
+            }
         }
 
         // Player box, a the bottom of the screen
@@ -267,15 +292,27 @@
         // Feedback, in the middle of the screen 
         &--video {
 
-            &__body {                
-                .translate(-50%, -50%);
-                position:absolute;
-                top:40%;
-                left:50%;
-                background:fade(#fff, 75);  
-                padding:5px;          
-                width:490px;
-                height:280px;
+            z-index:@scene-zindex - 10;     
+            position: absolute;            
+            top: 50%; 
+            left: 50%;
+            .translate(-50%, -50%);    
+
+            &__body {                              
+                position: absolute;
+                top:0;
+                left:0;
+                width:80.7%;
+                height:72.5%;
+                
+                &:after {
+                    content:"";
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    right:0;
+                    bottom:0;
+                }            
             }
         }
 

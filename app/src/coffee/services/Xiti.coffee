@@ -1,7 +1,6 @@
 angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'constant.xiti', ($rootScope, User, Plot, xiti)->
     new class Xiti
         constructor:->     
-            # do @updateConfig
             # Initial state
             @currentPage = "home"
             # Chapter change in game

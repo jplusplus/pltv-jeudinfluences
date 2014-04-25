@@ -78,11 +78,14 @@
         <div ng-if="sequence.isNotification()">
             <div class="scene__sequence--notification__header">[[sequence.header]]&nbsp;:</div>
             <div class="scene__sequence--notification__body" btf-markdown="sequence.body"></div>            
+            <a class="scene__sequence--notification__next btn btn-default" ng-if="sequence.isNotificationWithButton()" ng-click="goToNextSequence()">
+                <span class="sr-only">Continuer</span>
+            </a>
         </div>
 
 
         <!-- Video, in the middle of the screen -->
-        <div ng-if="sequence.isVideo()">
+        <div ng-if="sequence.isVideo()" cover min-width="1280" min-height="800">
             <div class="scene__sequence--video__body">
                 <iframe frameborder="0" width="100%" height="100%" ng-src="[[sequence.getEmbedSrc()]]" allowfullscreen ng-if="shouldShowSequence($index)"></iframe>
             </div>            
