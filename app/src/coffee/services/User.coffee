@@ -277,15 +277,12 @@ angular.module("spin.service").factory("User", [
                 @inGame = @isSummary = @isGameDone = @isGameOver = no
                 @newUser()
 
-            restartChapter: => 
+            restartChapter: =>
                 # will restart churrent chapter to its first scene.
-                chapter = Plot.chapter @chapter
-                return unless chapter?
-                @scene  = chapter.scenes[0].id
-                @sequence = 0
                 @isGameOver = no
                 @inGame     = yes
-                do @eraseCareerChapter
+                (do @eraseCareerChapter).success (career) =>
+                    @goToScene career.reached_scene, yes
 
 
             singMeTheEnd: =>

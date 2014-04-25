@@ -202,6 +202,9 @@ $app->post('/api/career/erase', function() use ($app) {
     $kept_choices = array_fill_keys($kept_choices, '');
     $career->choices = array_intersect_key($career->choices, $kept_choices);
 
+    $copied_scenes = $career->scenes;
+    $copied_choices = $career->choices;
+
     // Encode the JSON
     $career->scenes = json_encode($career->scenes);
     $career->choices = json_encode((object)$career->choices);
@@ -209,7 +212,15 @@ $app->post('/api/career/erase', function() use ($app) {
     // Save in database
     R::store($career);
 
-    return ok(array('status' => 'done'));
+    $response = array(
+        "token"         => $career->token,
+        "reached_scene" => end($copied_scenes),
+        "context"       => \app\helpers\Game::computeContext($career->export()),
+        "scenes"        => $copied_scenes,
+        "choices"       => $copied_choices
+    );
+
+    return ok($response);
 });
 
 // EOF
