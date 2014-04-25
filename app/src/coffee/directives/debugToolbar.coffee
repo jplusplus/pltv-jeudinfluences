@@ -10,9 +10,10 @@ angular.module('spin.directive').directive "debugToolbar", [
             # Update user progression
             $scope.update = ->
                 # Collect input values
-                values = [$scope.inputChapter, $scope.inputScene]                
+                values = [$scope.inputChapter, $scope.inputScene, $scope.inputSequence]
                 # Update user object
-                User.goToScene values.join(".")
+                [User.chapter, User.scene, User.sequence] = values
+                do User.eraseCareerSinceNow
             # Action on the game state
             $scope.gameOver = -> User.isGameOver = !User.isGameOver
             $scope.gameDone = -> 
