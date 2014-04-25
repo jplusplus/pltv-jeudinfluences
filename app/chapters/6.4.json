@@ -11,12 +11,12 @@
         {
             "condition": {"soutien_jarendeau":true},
             "type": "video_background",
-            "body": "http://www.dailymotion.com/video/k4VIZPGptTkJ0U70GLB?autoplay=1&chromeless=1&hideInfos=0"
+            "body": "http://www.dailymotion.com/video/k4VIZPGptTkJ0U70GLB?autoplay=1&chromeless=1&hideInfos=0&html=1"
         },
         {
             "condition": {"soutien_jarendeau":false},
             "type": "video_background",
-            "body": "http://www.dailymotion.com/video/k2In3Qfavumu6v70H3m?autoplay=1&chromeless=1&hideInfos=0"
+            "body": "http://www.dailymotion.com/video/k2In3Qfavumu6v70H3m?autoplay=1&chromeless=1&hideInfos=0&html=1"
         },
         {
             "type" : "choice",
