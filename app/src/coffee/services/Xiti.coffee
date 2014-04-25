@@ -40,7 +40,7 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'c
             # Convert arguments object to an array
             args = Array.prototype.slice.call(arguments)  
             # Current page must be different
-            if @currentPage isnt args.join("::")
+            if @currentPage isnt args.join("::") and window.xt_click?
                 # Record the current page slug to avoid declare the page twice
                 @currentPage = args.join("::")
                 # Create xtpage slug
