@@ -190,10 +190,10 @@ $app->post('/api/career/erase', function() use ($app) {
         } else { return wrong(array('error' => '\'chapter\' parameter malformed')); }
     }
 
-    if (!array_search($since, $career->scenes)) { return wrong(array('error' => 'Scene '.$data->since.' not found')); }
+    if (array_search($since, $career->scenes, true) === false) { return wrong(array('error' => 'Scene '.$data->since.' not found')); }
 
     // Clean the scenes array
-    array_splice($career->scenes, array_search($since, $career->scenes) + 1);
+    array_splice($career->scenes, array_search($since, $career->scenes, true) + 1);
     $career->scenes = array_values($career->scenes);
 
     // Clean the choices object

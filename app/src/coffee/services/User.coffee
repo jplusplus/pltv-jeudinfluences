@@ -292,7 +292,7 @@ angular.module("spin.service").factory("User", [
                 @sequence = 0
                 @isGameOver = no
                 @inGame     = yes
-                do @eraseCareerSinceNow
+                do @eraseCareerChapter
 
 
             singMeTheEnd: =>
@@ -305,5 +305,12 @@ angular.module("spin.service").factory("User", [
                     method : 'POST'
                     data :
                         since : @chapter + '.' + @scene
-                    
-]) 
+
+            eraseCareerChapter: =>
+                $http
+                    url : "#{api.erase}?token=#{@token}"
+                    method : 'POST'
+                    data :
+                        chapter : @chapter
+
+])
