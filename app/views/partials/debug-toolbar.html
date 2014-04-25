@@ -14,7 +14,10 @@
             Game done
         </button>
     </div>
-    <form class="debug-toolbar__summary text-right" ng-submit="update()">
+    <form class="debug-toolbar__summary text-right" ng-submit="update()">    
+        <div class="alert alert-warning text-left">
+            Se déplacer avec la debug-toolbar modifie le cheminement logique de<br />l'histoire et provoquer des bugs.
+        </div>
         <div class="form-inline form-group">
             <label>Chapitre&nbsp;:</label>
             <input ng-model="inputChapter" type="text" required class="debug-toolbar__summary__info form-control"/>
@@ -27,15 +30,15 @@
             <label>Séquence&nbsp;:</label>
             <input ng-model="inputSequence" type="number" required class="debug-toolbar__summary__info form-control"/>       
         </div>
-        <button type="submit" class="btn btn-default btn-xs">OK</button>            
+        <button type="submit" class="btn btn-default btn-xs">OK</button>                    
     </form>
-    <button ng-click="hidden = !hidden"  class="btn btn-default debug-toolbar__toggler">
-        <span class="caret" ng-class="{ 'caret-reversed': !hidden }"></span>
-    </button>
     <hr />
     <ul class="list-inline">
         <li>Guilt : <span class="label">[[user.indicators.guilt]]%</span></li>            
         <li>Honesty : <span class="label">[[user.indicators.honesty]]%</span></li>
         <li>Karma : <span class="label">[[user.indicators.karma]]%</span></li>
     </ul>
+    <button ng-click="hidden = !hidden"  class="btn btn-default debug-toolbar__toggler">
+        <span class="caret" ng-class="{ 'caret-reversed': !hidden }"></span>
+    </button>
 </div>
