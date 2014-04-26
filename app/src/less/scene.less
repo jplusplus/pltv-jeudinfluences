@@ -166,6 +166,13 @@
             padding:20px;
             .translate(-50%, 0);
 
+            @media (max-width: @screen-md-min) {
+                width:auto;
+                left:40px;
+                right:40px;
+                .translate(0, 0);
+            }
+
             &__head {
                 position:absolute;
                 top:20px;
@@ -335,6 +342,14 @@
         // Dialog box, a the bottom of the screen
         &--dialogue,
         &--narrative {
+
+
+            @media (max-width: @screen-md-min) {
+                width:auto;
+                left:40px;
+                right:40px;
+                .translate(0, 0);
+            }
 
             position:absolute;
             bottom:60px;

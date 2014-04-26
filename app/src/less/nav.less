@@ -8,7 +8,6 @@
 	background:fade(black, 75);
     z-index:@nav-zindex;
 
-
     .body--in-game & {
         .transition(0.6s);  
         .translate(0, 100%);       
@@ -48,7 +47,17 @@
 		position:absolute;
 		left:50%;
 		top:0;	
-		.translate(-50%, 0);	
+        .translate(-50%, 0);    
+
+        @media (max-width: @screen-md-min) {
+            left:0;
+		    .translate(0, 0);	
+        }
+
+        @media (max-width: 1300px) and (min-width: @screen-md-min) {
+            left:470px;
+            .translate(0, 0);   
+        }
 
 		li {
 			padding:0;
@@ -72,6 +81,16 @@
 		right:0;
 		top:0;		
 		text-transform: uppercase;
+
+
+        @media (max-width: 1200px) {
+            right: -120px;
+
+            &__volume__slider-holder {
+                display: none;
+            } 
+        }
+
 
 		// Overide .btn padding
 		&__save.btn {

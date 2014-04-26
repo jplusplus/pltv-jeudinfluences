@@ -6,9 +6,40 @@
         left:0;
         bottom:50px;
         width:280px;
+        .transition(0.25s );
+
+        &__toggler {
+            position:absolute;
+            top:100%;
+            right:30px;
+            height:40px;
+            width:40px;
+            background:black;
+            color:white;
+            font-size:130%;
+            display: none;
+            .translate(0, -10px);
+
+            @media (max-width: @screen-md-min) { 
+                display: block;
+            }
+        }
 
 
-        @media (max-width: 1100px) {
+        @media (max-width: @screen-md-min) {
+            .translate(0, -100%);
+            width: 100%;       
+            padding-bottom:5px;
+            top:0;
+            bottom:auto;
+            background:fade(black, 75);
+
+            &--touch-visible {
+                .translate(0, 0);
+            }
+        }
+
+        @media (max-width: 1100px) and (min-width: @screen-md-min) {
             width: 225px;
         }
 
@@ -48,6 +79,10 @@
                 margin-bottom:24px*2px + 15px;
             }
 
+            @media (max-width: @screen-md-min) {
+                background:none;
+            }
+
 
             &__value {
                 position:absolute;
@@ -61,6 +96,13 @@
                 opacity: 0;                             
                 .translate(-40px, 0);
                 .transition(0.6s cubic-bezier(0.23, 1, 0.32, 1) );
+
+                @media (max-width: @screen-md-min) {                        
+                    left:auto;
+                    right:0;                        
+                    opacity: 1;                     
+                    .translate(0, 0);
+                }
             }
 
             &:hover .chapter__cmd__indicator__value {
@@ -80,6 +122,7 @@
                 border:1px solid @text-color;
                 border-radius: 50%;
                 cursor:help;
+                z-index:@chapter-zindex+10;
 
                 &:hover .chapter__cmd__indicator__help__definition,
                 &:active .chapter__cmd__indicator__help__definition {
@@ -108,14 +151,25 @@
             &__label {
                 position:absolute;
                 right:150px;
+                z-index:-1;
                 top:0;
                 bottom:0;
                 text-transform: uppercase;
                 color:white;
+                text-align: right;
 
-                @media (max-width: 1100px) {
+
+                @media (max-width: @screen-md-min) {
+                    left:0px;
+                    right:auto;
+                    width:100px;
+                }
+
+                @media (max-width: 1100px)  and (min-width: @screen-md-min) {
                     right:120px;
                 }
+
+
             }
 
             &__progress {
@@ -129,9 +183,17 @@
                     border-radius:3px;
                 }
 
-                @media (max-width: 1100px) {
+                @media (max-width: @screen-md-min) {
+                    //.translate(-100%, 0);
+                    width: auto;
+                    left:110px;
+                    right:40px;
+                }
+
+                @media (max-width: 1100px) and (min-width: @screen-md-min) {
                     width:100px;
                 }
+
             }
         }
     }
