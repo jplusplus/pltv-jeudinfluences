@@ -9,10 +9,13 @@
     ],
     "sequence": [
         {
+            "type": "narrative",
+            "body": "Mercredi 23 mai, 21h57."
+        },
+        {
             "result": {"guilt": 0,"honesty": 100, "stress":2, "trust": 0},
             "type": "dialogue",
             "character": "Louis",
-            "header": "Mercredi 23 mai, 21h57.",
             "body": "Ce jour-là, je rentre tout juste du Brésil. Trois jours de rendez-vous ininterrompus, un marathon commercial. Le jeu en valait la chandelle. Mais je suis content de revenir sur mes terres, de retrouver mon entreprise, mon usine."
         },
         {

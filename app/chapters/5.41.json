@@ -9,10 +9,13 @@
     ],
     "sequence": [
         {
+            "type": "narrative",
+            "body": "Jeudi 31 mai, 17h20."  
+        },
+        {
             "condition": {"charger_interimaires":true},
             "type": "voixoff",
             "character": "Louis",
-            "header": "Jeudi 31 mai, 17h20.",
             "body": "/medias/chap5/voix-off/louis-ch5-14.mp3"
         },
         {
@@ -25,7 +28,6 @@
             "condition": {"charger_ministresante":true},
             "type": "voixoff",
             "character": "Louis",
-            "header": "Jeudi 31 mai, 17h20.",
             "body": "/medias/chap5/voix-off/louis-ch5-15.mp3"
         },
         {

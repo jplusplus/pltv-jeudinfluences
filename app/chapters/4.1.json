@@ -9,11 +9,15 @@
     ],
     "sequence": [
         {
+            "type": "narartive",
+            "body": "28 mai, 13h44."
+        },
+        {
             "condition": {"circulaire":true},
             "result": {"ubm": 16, "stress":8},
             "type": "dialogue",
             "character" : "Patrick Luaud",
-            "header": "28 mai, 13h44.",
+            "header": null,
             "body": "On ne peut pas fonctionner comme ça. Vous auriez dû m'en parler. Vous êtes au coeur d'une crise médiatique. Elle peut tout aussi bien s'éteindre que vous consumer. Alors tout élément de communication, qu'il soit interne ou externe, doit impérativement passer par moi. Sinon, je ne peux pas correctement faire mon travail.  \nVous comprenez ?"
         },
         {

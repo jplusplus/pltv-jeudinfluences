@@ -79,7 +79,7 @@
         {
             "type": "notification",
             "sound": "/medias/sounddesign/notif-1.mp3",
-            "header": null,
+            "header": "29/05, 11h35.",
             "body": "Vous avez reçu un mail libellé \"urgent\" de la part de Martin Jarendeau. Souhaitez-vous le lire ?"
         },
         {

@@ -9,10 +9,17 @@
     ],
     "sequence": [
         {
+            "condition": {
+                "pas_besoin_spin": true,
+            },
+            "type": "narrative",
+            "body": "Jeudi 24 mai, 9h20."
+        },
+        {
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Pour l'instant l'impact est limité. Seuls quelques sites d'info locale ou spécialisés dans le BTP ont repris la dépêche. Sur Twitter, ce sont des \"bots\" qui font le boulot. C'est mécanique et habituel. L'UBM, l'Unité de Bruit Médiatique, ne dépasse pas quelques %. L'info a très peu circulé."
+            "body": "Pour l'instant l'impact est limité. Seuls quelques sites d'info locale ou spécialisés dans le BTP ont repris la dépêche. Sur Twitter, ce sont des \"bots\" qui font le boulot. C'est mécanique et habituel. L'UBM, l'Unité de Bruit Médiatique, est encore basse. L'info a peu circulé."
         },
         {
             "type": "dialogue",

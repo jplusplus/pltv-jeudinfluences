@@ -10,10 +10,10 @@
     "sequence": [
         {
             "type": "notification",
-            "sound": null,
+            "sound": "/medias/sounddesign/notif-1.mp3",
             "header": null,
             "next_button": true,
-            "body": "Le tweet suivant a bien été envoyé avec le compte @l_esmond : \"Mickael était le meilleur d'entre nous. Sa perte est inestimable. Nous bâtirons à sa mémoire.\""
+            "body": "Le tweet suivant a bien été envoyé avec le compte @l_esmond :  \n\"Mickael était le meilleur d'entre nous. Sa perte est inestimable. Nous bâtirons à sa mémoire.\""
         },
         {
             "result": {"trust": -40},

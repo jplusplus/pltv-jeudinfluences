@@ -9,15 +9,18 @@
     ],
     "sequence": [
         {
+            "type": "narrative",
+            "body": "Lundi 24 septembre, 8h58."
+        },
+        {
             "type": "voixoff",
             "character": "Louis",
-            "header": "Lundi 24 septembre, 8h58.",
             "body": "/medias/chap6/voix-off/louis-ch6-06.mp3"
         },
         {
             "result": {"stress": 16},
             "type": "notification",
-            "sound": "/medias/soundesign/notif-1.mp3",
+            "sound": "/medias/soundesign/cellphone-vibre.mp3",
             "header": "10h00 / URGENT MEDIAPART",
             "body": "\"Qui est vraiment Louis Esmond ?\"  \nDes documents inédits transmis à notre rédaction éclairent d'un jour nouveau toute l'affaire Habinat. On y découvre un Louis Esmond manipulateur, ayant bâti toute un récit avec minutie pour éviter d'être inquiété. Depuis le début, l'ex-PDG de l'entreprise aurait été au courant de la fuite d'adjuvants chimiques dans le Nizerand en provenance son usine. Un pollution qui, d'après les autorités sanitaires, est à l'origine d'une dizaine de morts. Louis Esmond avait a toujours nié être au courant de quoique ce soit, il avait même pointé du doigt ses plus proches collaborateurs Mickael et Nadia Saulat lors d'une interview télévisée en juin dernier. Découvrez l'intégralité de notre enquête sur mediapart.fr."
         },
@@ -29,7 +32,6 @@
         {
             "type": "voixoff",
             "character": "Louis",
-            "header": "Lundi 24 septembre, 8h58.",
             "body": "/medias/chap6/voix-off/louis-ch6-07.mp3"
         }
     ]

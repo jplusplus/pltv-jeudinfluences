@@ -9,9 +9,12 @@
     ],
     "sequence": [
         {
+            "type": "narrative",
+            "body": "29 mai, 9h21."
+        },
+        {
             "type": "voixoff",
             "character": "Louis",
-            "header": "29 mai, 9h21.",
             "body": "/medias/chap4/voix-off/louis-ch4-02.mp3"
         },
         {
