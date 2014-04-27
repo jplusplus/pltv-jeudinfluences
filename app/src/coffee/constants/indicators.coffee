@@ -24,7 +24,7 @@ angular.module('spin.constant').constant 'constant.indicators',
         trust:
             min: 0
             max: 100
-            start: 0
+            start: 0.1
             gameOver:
                 on:   'min'
                 rule: 'lte'

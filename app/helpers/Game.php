@@ -40,7 +40,7 @@ class Game {
 		* Compute the context from the given career based on the initial context.
 		*/
 		$context = array( // initial context
-			"trust"       => 0,
+			"trust"       => 0.1,
 			"stress"      => 0,
 			"karma"       => 0,
 			"UBM"         => 0,
