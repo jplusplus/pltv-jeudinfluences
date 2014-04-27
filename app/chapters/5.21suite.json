@@ -12,21 +12,18 @@
             "condition": {"itw_connaissance_pollution":true},
             "type": "voixoff",
             "character": null,
-            "header": null,
             "body": "/medias/chap5/voix-off/louis-ch5-10-cond2_journaliste.mp3"
         },
         {
             "condition": {"itw_jarendeau_seuils":true},
             "type": "voixoff",
             "character": null,
-            "header": null,
             "body": "/medias/chap5/voix-off/louis-ch5-10-cond2_journaliste.mp3"
         },
         {
             "condition": {"itw_connaissance_pollution":false, "itw_jarendeau_seuils":false},
             "type": "voixoff",
             "character": null,
-            "header": null,
             "body": "/medias/chap5/voix-off/louis-ch5-10-cond1_journaliste.mp3"
         },
         {

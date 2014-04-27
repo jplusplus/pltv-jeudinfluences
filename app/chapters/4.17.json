@@ -9,6 +9,10 @@
     ],
     "sequence": [
         {
+            "type": "narrative",
+            "body": "29 mai, 10h43."
+        },
+        {
             "condition": {"conf_obseques":true},
             "type": "new_background",
             "transition": "fade",
@@ -18,7 +22,6 @@
             "condition": {"conf_obseques":true},
             "type": "voixoff",
             "character": "Louis",
-            "header": "29 mai, 10h43.",
             "body": "/medias/chap4/voix-off/louis-ch4-03.mp3"
         },
         {
@@ -31,12 +34,11 @@
             "condition": {"conf_obseques":false},
             "type": "voixoff",
             "character": "Louis",
-            "header": "29 mai, 10h43.",
             "body": "/medias/chap4/voix-off/louis-ch4-05.mp3"
         },
         {
             "type": "notification",
-            "sound": "",
+            "sound": null,
             "header": "Message reçu de Patrick Luaud :",
             "body": "Essayez d'être pris en photo avec Nadia."
         },

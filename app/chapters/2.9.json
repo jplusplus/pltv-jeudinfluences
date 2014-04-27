@@ -41,6 +41,7 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 0,
+                            "pas_besoin_spin": true,
                             "trust": 0
                         }
                     ]

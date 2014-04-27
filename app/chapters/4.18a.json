@@ -12,6 +12,10 @@
             "type": "voixoff",
             "character": "Louis",
             "body": "/medias/chap4/voix-off/louis-ch4-04.mp3"
+        },
+        {
+            "type": "narrative",
+            "body": "..."
         }
     ]
 }

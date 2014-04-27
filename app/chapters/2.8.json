@@ -30,7 +30,7 @@
             "result": {"karma": -1},
             "type": "dialogue",
             "character": "Nadia",
-            "header": "En une seconde son regard à changé.",
+            "header": null,
             "body": "Va-t'en. Appelle qui tu veux, Luaud ou pas, je m'en fous, mais pars. Vite. C'est la seule chose humaine dont tu sois encore capable."
         }
     ]

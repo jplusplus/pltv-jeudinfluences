@@ -2,30 +2,12 @@
     "next_scene" : "4.38",
     "decor": [
         {
-            "background": "/medias/chap4/illustrations/illustr-ch4-flashback-a.gif",
+            "background": "/medias/chap4/illustrations/illustr-ch4-flashback-a-anim.gif",
             "background_transition": "fade",
             "soundtrack": null
         }
     ],
     "sequence": [
-        {
-            "type": "new_background",
-            "transition": "fade",
-            "timeout" : 10,
-            "body": "/medias/chap4/illustrations/illustr-ch4-flashback-b.jpg"
-        },
-        {
-            "type": "new_background",
-            "transition": "fade",
-            "timeout" : 20,
-            "body": "/medias/chap4/illustrations/illustr-ch4-flashback-c.jpg"
-        },
-        {
-            "type": "new_background",
-            "transition": "fade",
-            "timeout" : 20,
-            "body": "/medias/chap4/illustrations/illustr-ch4-flashback-d.gif"
-        },
         {
             "type": "voixoff",
             "character": "Louis",

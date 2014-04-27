@@ -40,7 +40,7 @@
         },
         {
             "type": "notification",
-            "sound": null,
+            "sound": "/medias/sounddesign/notif-1.mp3",
             "header": null,
             "body": "Votre tweet : \"Mes pensées vont vers Nadia. Placer le couple à l'origine du suicide de Mika c'est faire fausse route. Il tenait profondément à elle.\" a bien été envoyé avec le compte @l_esmond."
         }

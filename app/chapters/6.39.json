@@ -2,22 +2,19 @@
     "next_scene": "the_end",
     "decor": [
         {
-            "background": "/medias/illustrations/ecrannoir.jpg",
+            "background": "/medias/chap6/illustrations/fin.gif",
             "background_transition": "fade",
-            "soundtrack": null
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-b.mp3"
         }
     ],
     "sequence": [
         {
-            "type": "new_background",
-            "transition": "fade",
-            "body": "/medias/chap6/illustrations/fin.gif",
-            "timeout": 7
+            "type": "narrative",
+            "body": "Quelques mois plus tard..."
         },
         {
             "type": "voixoff",
             "character": "Louis",
-            "header": "Quelques mois plus tard...",
             "body": "/medias/chap6/voix-off/louis-ch6-final-3.mp3"
         }
     ]

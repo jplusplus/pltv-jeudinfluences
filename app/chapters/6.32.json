@@ -9,17 +9,19 @@
     ],
     "sequence": [
         {
+            "type": "narrative",
+            "body": "Lundi 10 septembre, 19h51."
+        },
+        {
             "condition":{"demission":false},
             "type": "voixoff",
             "character": "Louis",
-            "header": "Lundi 10 septembre, 19h51.",
             "body": "/medias/chap6/voix-off/louis-ch6-05-cond1.mp3"
         },
         {
             "condition":{"demission":true},
             "type": "voixoff",
             "character": "Louis",
-            "header": "Lundi 10 septembre, 19h51.",
             "body": "/medias/chap6/voix-off/louis-ch6-05-cond2.mp3"
         },
         {

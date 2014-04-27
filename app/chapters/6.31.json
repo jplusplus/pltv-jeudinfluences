@@ -2,22 +2,19 @@
     "next_scene" : "6.32",
     "decor": [
         {
-            "background": "/medias/illustrations/ecrannoir.jpg",
+            "background": "/medias/chap6/illustrations/illustr-ch6-2.gif",
             "background_transition": "fade",
             "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-b.mp3"
         }
     ],
     "sequence": [
         {
-            "type":"new_background",
-            "transition": "fade",
-            "body": "/medias/chap6/illustrations/illustr-ch6-2.gif",
-            "timeout": "7"
+            "type": "narrative",
+            "body": "Vendredi 1er juin, 22h51."
         },
         {
             "type": "voixoff",
             "character": "Louis",
-            "header": "Vendredi 1er juin, 22h51.",
             "body": "/medias/chap6/voix-off/louis-ch6-04.mp3"
         }
     ]
