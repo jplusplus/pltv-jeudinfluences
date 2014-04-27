@@ -22,9 +22,9 @@
     <div class="chapter__cmd" ng-class="{ 'chapter__cmd--touch-visible': cmdVisible }">
         <ul class="list-unstyled" ng-hide="user.isStartingChapter() || user.isGameOver">                     
             <li class="chapter__cmd__indicator chapter__cmd__indicator--ubm">
-                <abbr class="chapter__cmd__indicator__help">
+                <a class="chapter__cmd__indicator__help">
                     ?<span class="chapter__cmd__indicator__help__definition">Unité de Bruit Médiatique : présence de votre crise dans les médias</span>
-                </abbr>
+                </a>
                 <span class="chapter__cmd__indicator__label">UBM</span>
                 <span class="chapter__cmd__indicator__value">[[user.indicators.ubm]]%</span>
                 <span class="chapter__cmd__indicator__progress progress">
@@ -33,9 +33,9 @@
                 </span>
             </li>
             <li class="chapter__cmd__indicator chapter__cmd__indicator--trust">
-                <abbr class="chapter__cmd__indicator__help">
+                <a class="chapter__cmd__indicator__help">
                     ?<span class="chapter__cmd__indicator__help__definition">La confiance que vous accorde votre Spin doctor</span>
-                </abbr>
+                </a>
                 <span class="chapter__cmd__indicator__label">Confiance</span>
 
                 <span class="chapter__cmd__indicator__value">[[user.indicators.trust]]%</span>
@@ -45,9 +45,9 @@
                 </span>
             </li>
             <li class="chapter__cmd__indicator chapter__cmd__indicator--stress">
-                <abbr class="chapter__cmd__indicator__help">
+                <a class="chapter__cmd__indicator__help">
                     ?<span class="chapter__cmd__indicator__help__definition">Votre état émotionnel</span>
-                </abbr>
+                </a>
                 <span class="chapter__cmd__indicator__label">Stress</span>
                 <span class="chapter__cmd__indicator__value">[[user.indicators.stress]]%</span>
                 <span class="chapter__cmd__indicator__progress progress">
