@@ -1,3 +1,5 @@
+@ipad-landscape: ~"only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)";
+
 .chapter {
     
     &__cmd {
@@ -6,11 +8,41 @@
         left:0;
         bottom:50px;
         width:280px;
+        .transition(0.25s );
 
-
-        @media (max-width: 1100px) {
-            width: 225px;
+        &__toggler {
+            position:absolute;
+            top:100%;
+            right:30px;
+            padding:0;
+            height:40px;
+            line-height:25px;
+            width:50px;
+            background:fade(black, 90);
+            color:white;
+            border:0;
+            font-size:130%;
+            display: none;
+            
+            @media (max-width: @screen-md-min), @ipad-landscape { 
+                display: block;
+            }
         }
+
+
+        @media (max-width: @screen-md-min), @ipad-landscape {
+            .translate(0, -100%);
+            width: auto;       
+            right:0;
+            padding-bottom:5px;
+            top:0;
+            bottom:auto;
+            background:fade(black, 90);
+
+            &--touch-visible {
+                .translate(0, 0);
+            }
+        }        
 
                         
         &.ng-hide-add,
@@ -48,6 +80,10 @@
                 margin-bottom:24px*2px + 15px;
             }
 
+            @media (max-width: @screen-md-min), @ipad-landscape {
+                background:none;
+            }
+
 
             &__value {
                 position:absolute;
@@ -61,6 +97,14 @@
                 opacity: 0;                             
                 .translate(-40px, 0);
                 .transition(0.6s cubic-bezier(0.23, 1, 0.32, 1) );
+
+                @media (max-width: @screen-md-min), @ipad-landscape {                        
+                    left:auto;
+                    right:0;          
+                    background:none;              
+                    opacity: 1;                     
+                    .translate(0, 0);
+                }
             }
 
             &:hover .chapter__cmd__indicator__value {
@@ -80,6 +124,7 @@
                 border:1px solid @text-color;
                 border-radius: 50%;
                 cursor:help;
+                z-index:@chapter-zindex+10;
 
                 &:hover .chapter__cmd__indicator__help__definition,
                 &:active .chapter__cmd__indicator__help__definition {
@@ -108,13 +153,18 @@
             &__label {
                 position:absolute;
                 right:150px;
+                z-index:-1;
                 top:0;
                 bottom:0;
                 text-transform: uppercase;
                 color:white;
+                text-align: right;
 
-                @media (max-width: 1100px) {
-                    right:120px;
+
+                @media (max-width: @screen-md-min), @ipad-landscape {
+                    left:0px;
+                    right:auto;
+                    width:100px;
                 }
             }
 
@@ -129,9 +179,13 @@
                     border-radius:3px;
                 }
 
-                @media (max-width: 1100px) {
-                    width:100px;
-                }
+                @media (max-width: @screen-md-min), @ipad-landscape {
+                    //.translate(-100%, 0);
+                    width: auto;
+                    left:110px;
+                    right:45px;
+                }                
+
             }
         }
     }

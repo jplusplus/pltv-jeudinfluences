@@ -16,7 +16,7 @@
     </div>
     <form class="debug-toolbar__summary text-right" ng-submit="update()">    
         <div class="alert alert-warning text-left">
-            Se déplacer avec la debug-toolbar modifie le cheminement logique de<br />l'histoire et provoquer des bugs.
+            Se déplacer avec la debug-toolbar modifie le cheminement logique de<br />l'histoire et peut provoquer des bugs.
         </div>
         <div class="form-inline form-group">
             <label>Chapitre&nbsp;:</label>
@@ -38,7 +38,7 @@
         <li>Honesty : <span class="label">[[user.indicators.honesty]]%</span></li>
         <li>Karma : <span class="label">[[user.indicators.karma]]%</span></li>
     </ul>
-    <button ng-click="hidden = !hidden"  class="btn btn-default debug-toolbar__toggler">
-        <span class="caret" ng-class="{ 'caret-reversed': !hidden }"></span>
+    <button ng-click="hidden = !hidden"  class="debug-toolbar__toggler">
+        <span class="fa fa-bug"></span>
     </button>
 </div>

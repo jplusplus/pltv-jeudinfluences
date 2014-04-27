@@ -3,7 +3,8 @@
 @import 'bootstrap.fix.less';
 @import 'bootstrap.forms.less';
 
-@scene-zindex         : 1000;
+@content-zindex       : 1000;
+@scene-zindex         : @content-zindex + 1000;
 @scenebg-zindex       : @scene-zindex   - 100;
 @chapter-zindex       : @scene-zindex   + 1000;
 @welcome-zindex       : @chapter-zindex + 1000;
@@ -32,6 +33,7 @@
 .site_content {
     @import 'angular.less';
     @import 'nav.less';
+    @import 'content.less';
     @import 'chapter.less';
     @import 'chapter.cmd.less';
     @import 'scene.less';
