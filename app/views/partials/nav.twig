@@ -1,4 +1,4 @@
-<header class="nav" ng-controller="NavCtrl">
+<header class="nav" ng-controller="NavCtrl"  ng-class="{ 'nav--touch-visible': navVisible }">
 	<ul class="nav__partners list-inline hidden-sm hidden-xs">
         <li>
             <a class="nav__partners__logo" href="http://pltv.fr/" target="_blank">
@@ -82,4 +82,9 @@
             <p ng-show="user.email != null" class="nav__save__form__indication">Merci ! Un e-mail vous a été envoyé.</p>
         </form>
     </div>
+
+
+    <button class="nav__toggler" ng-click="navVisible = !navVisible" ng-class="{ hidden: !user.inGame }">
+        <span class="fa fa-angle-up"></span>
+    </button>
 </header>

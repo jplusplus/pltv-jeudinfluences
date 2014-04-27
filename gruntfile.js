@@ -10,6 +10,7 @@ var jslib = [
   'bower_modules/angular-route/angular-route.min.js',
   'bower_modules/angular-resource/angular-resource.min.js',
   'bower_modules/angular-sanitize/angular-sanitize.min.js',
+  'bower_modules/angular-touch/angular-touch.min.js',
   'bower_modules/angular-markdown-directive/markdown.js',
   'bower_modules/circles/index.js',  
   'bower_modules/howler/howler.min.js',

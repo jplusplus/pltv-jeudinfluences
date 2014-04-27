@@ -1,3 +1,6 @@
+@ipad-landscape: ~"only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)";
+@ipad-portrait: ~"only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)";
+
 .metanav {
     z-index: @metanav-zindex;
 
@@ -20,8 +23,12 @@
         }
     }
 
-
-    @media (max-width: @screen-md-min) {
-        .responsive-invisibility();
+    @media (max-width: @screen-md-min) , @ipad-landscape, @ipad-portrait  { 
+        display: none;
     }
+}
+
+// Navbar is adding a padding top
+html.spin {
+    padding-top:0 !important;
 }

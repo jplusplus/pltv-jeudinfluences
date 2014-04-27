@@ -12,6 +12,7 @@ app = angular.module 'spin', [
     "ngRoute"
     "ngResource"
     "ngAnimate"
+    "ngTouch"
     "ngSanitize"
     "nouislider"
     # External dependencies

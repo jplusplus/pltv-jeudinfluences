@@ -9,7 +9,7 @@ if($env == 'development'){
 $app->configureMode('development', function () use ($app) {
 	$app->config(array(
 		'log.enabled'          => true,
-		'debug'                => true,
+		'debug'                => false,
 		'cache'                => false,
 		'archimade_idsite'     => 2439,		
 		// assets

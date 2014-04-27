@@ -4,7 +4,7 @@
     min-height:100%;
     min-width:100%;
     display:block;
-    position:fixed;
+    position:absolute;
     top:50%;
     left:50%;
     .translate(-50%, -50%);
@@ -16,6 +16,22 @@
     -ms-animation: @arguments;
     -o-animation: @arguments;
     animation: @arguments;
+}
+
+.transform(@arguments) {
+    -webkit-transform: @arguments;
+    -moz-transform: @arguments;
+    -ms-transform: @arguments;
+    -o-transform: @arguments;
+    transform: @arguments;
+}
+
+.origin(@arguments) {
+    -webkit-transform-origin: @arguments;
+    -moz-transform-origin: @arguments;
+    -ms-transform-origin: @arguments;
+    -o-transform-origin: @arguments;
+    transform-origin: @arguments;
 }
 
 .fade(){
