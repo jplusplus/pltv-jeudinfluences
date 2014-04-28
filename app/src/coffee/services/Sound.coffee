@@ -66,6 +66,8 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                     if (do @soundtrack.volume) < User.volume
                         @soundtrack.fade( (do @soundtrack.volume), User.volume, 500 )
 
+                return if do User.isStartingChapter
+
                 # Sequence is a voicetrack
                 if sequence? and sequence.type is "voixoff"
                     tracks = [$filter('media')(sequence.body or sequence.sound)]

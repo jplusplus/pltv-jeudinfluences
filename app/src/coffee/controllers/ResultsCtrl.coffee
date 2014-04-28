@@ -1,10 +1,11 @@
 class ResultsCtrl
-    @$inject: ['$scope', 'Progression', 'User', 'Plot', 'Results']
+    @$inject: ['$scope', 'ThirdParty', 'Progression', 'User', 'Plot', 'Results']
 
-    constructor: (@scope, @Progression, @User,  @Plot,  @Results)->
+    constructor: (@scope, @ThirdParty, @Progression, @User,  @Plot,  @Results)->
         # scope variable binding
-        @scope.plot    = @Plot
-        @scope.user    = @User
+        @scope.plot       = @Plot
+        @scope.user       = @User
+        @scope.thirdParty = @ThirdParty
         # scope function binding
         @scope.shouldShowResults  = @shouldShowResults 
         @scope.goNextChapter      = @goNextChapter

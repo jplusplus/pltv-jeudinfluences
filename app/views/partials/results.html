@@ -2,10 +2,10 @@
     <div class="results__feedbacks">
         <p>Ne rester pas seul(e) dans cette crise,<br /> partagez votre expérience.</p>
         <div class="results__feedbacks__share">
-            <button class="btn btn-default results__feedbacks__share__facebook">
+            <button ng-click="thirdParty.shareOnFacebook()" class="btn btn-default results__feedbacks__share__facebook">
                 <span class="sr-only">Facebook</span>
             </button>
-            <button class="btn btn-default results__feedbacks__share__twitter">
+            <button ng-click="thirdParty.shareOnTwitter()" class="btn btn-default results__feedbacks__share__twitter">
                 <span class="sr-only">Twitter</span>
             </button>
         </div>

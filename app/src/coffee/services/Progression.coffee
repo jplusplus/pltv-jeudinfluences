@@ -16,6 +16,7 @@ angular.module("spin.service").factory "Progression", [
             constructor: ->
                 $rootScope.$watch (=>User.inGame),  @onInGameChanged,  yes                
                 $rootScope.$watch (=>User.chapter), @onChapterChanged, yes
+                $rootScope.$watch (=>User.scene),   @onSceneChanged,   yes
                 $rootScope.$watch (=>User.isReady), User.saveChapterChanging, yes
                 # Update local storage
                 $rootScope.$watch (=>User), User.updateLocalStorage, yes                    
@@ -26,6 +27,9 @@ angular.module("spin.service").factory "Progression", [
                 # Sequence is changing
                 $rootScope.$watch (=>(User.scene+User.sequence)), ->
                     do Timeout.toggleSequence 
+                    do Sound.toggleSequence
+
+                $rootScope.$watch (=>do User.isStartingChapter), ->
                     do Sound.toggleSequence
 
                 # Update the volume
@@ -58,6 +62,9 @@ angular.module("spin.service").factory "Progression", [
 
                 User.lastChapter = oldId
 
+            onSceneChanged: (newScene, oldScene)=>
+                User.lastScene = oldScene
+
             onInGameChanged: =>
                 # special treatment for triggering end of the game, we need to 
                 # trigger sound ending (only for voices)
@@ -77,7 +84,6 @@ angular.module("spin.service").factory "Progression", [
             singMeTheEnd: (done) =>
                 return unless console? and console
                 if done
-                    console.log 'Progression.singMeTheEnd'
                     i = 0
                     for sentence in doors.theEnd
                         lapse = 3500 * i
