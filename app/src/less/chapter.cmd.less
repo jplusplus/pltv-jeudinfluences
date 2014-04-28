@@ -8,7 +8,7 @@
         left:0;
         bottom:50px;
         width:280px;
-        .transition(0.25s );
+        .transition(0.25s);
 
         &__toggler {
             position:absolute;
@@ -44,24 +44,25 @@
             }
         }        
 
-                        
-        &.ng-hide-add,
-        &.ng-hide-remove {
-            display:block!important;
-            .transition(@chapter-starting-duration-2);
-        }
+        @media (min-width: @screen-md-min) {            
+            &.ng-hide-add,
+            &.ng-hide-remove {
+                display:block!important;
+                .transition(@chapter-starting-duration-2);
+            }
 
-        &.ng-hide-add.ng-hide-add-active,
-        &.ng-hide-remove {          
-            opacity:0;
-            .translate(-100%, 0);    
-        }
+            &.ng-hide-add.ng-hide-add-active,
+            &.ng-hide-remove {          
+                opacity:0;
+                .translate(-100%, 0);    
+            }
 
-        &.ng-hide-remove.ng-hide-remove-active,    
-        &.ng-hide-add {          
-            opacity:1;
-            .translate(0, 0);
-        }
+            &.ng-hide-remove.ng-hide-remove-active,    
+            &.ng-hide-add {          
+                opacity:1;
+                .translate(0, 0);
+            }
+        }  
 
         &__indicator {
             width:auto;
