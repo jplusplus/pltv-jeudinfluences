@@ -87,7 +87,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                                         @soundtrack.fade( @soundtrack.volume(), User.volume/4, 500 )
                                         # Duration only on starting
                                         duration = if @soundtrack.pos() is 0 then 1000 else 0
-                                    @voicetrack.fade(0, User.volume, duration)
+                                    @voicetrack.fade(0, 1, duration)
                                     @voicetrack.isPlaying = yes
                                     @voicetrack._interval = setInterval ((context) =>
                                         context.voicetrack._position = context.voicetrack.pos() or 0
@@ -120,7 +120,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                             urls : tracks
                             loop : no
                             buffer : yes
-                            volume : User.volume
+                            volume : 1
                             autoplay : yes
                             onplay : =>
                                 $rootScope.safeApply =>
