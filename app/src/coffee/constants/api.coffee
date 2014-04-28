@@ -5,3 +5,4 @@ angular.module('spin.constant').constant 'constant.api',
     results: '/api/summary'
     erase: '/api/career/erase'
     finalSummary: '/api/summary/final'
+    page: '/api/page'

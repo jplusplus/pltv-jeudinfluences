@@ -1,5 +1,6 @@
 class SceneCtrl
     @$inject: ['$scope', 'Plot', 'User', 'Sound', 'Timeout', 'constant.characters']
+
     constructor: (@scope, @Plot, @User, @Sound, @Timeout, characters) ->
         @scope.plot  = @Plot
         @scope.user  = @User         
@@ -10,7 +11,13 @@ class SceneCtrl
         @scene = @scope.scene = @scope.src              
         @chapter = @scope.chapter
         # True if the given scene is visible
-        @shouldShowScene = @scope.shouldShowScene = => @scene.id is @User.scene
+        @shouldShowScene = @scope.shouldShowScene = => 
+            @scene.id is @User.scene or
+            @User.isSummary and @isLastScene()
+
+        @isLastScene = =>
+            @scene.id is @User.lastScene and @chapter.id is @User.lastChapter
+        
         # True if the given sequence is visible
         @scope.shouldShowSequence = (idx)=>   
             @shouldShowScene()            and
@@ -21,7 +28,6 @@ class SceneCtrl
             not @User.isSummary           and
             # And show the sequence if it is the last one with a next button
             [ @getLastDialogIdx(), @User.sequence ].indexOf(idx) > -1
-
 
         # Just wraps the function from the user service
         @scope.goToNextSequence = => do @User.nextSequence 
@@ -59,16 +65,23 @@ class SceneCtrl
             @bgs
         # True if we should display the given bg
         @scope.shouldDisplayBg = (bg)=>
+            should_display = no
             # Ids of every sequences            
             for id in _.map(@bgs, (bg)-> bg.sequence)
                 # Took the last higher id than the current sequence
                 higherId = id if id <= @User.sequence
-            # Return the following assertion                        
-            bg.sequence is 0 or (bg.sequence is higherId and @User.scene is @scene.id)
-        # Play of pause the soundtrack
+            should_display = bg.sequence is 0 or (bg.sequence is higherId)
+
+            if not @User.isSummary
+                should_display = should_display and @User.scene is @scene.id
+            else
+                should_display = should_display and @isLastScene()
+            return should_display
+
+        # Play or pause the soundtrack
         @scope.toggleVoicetrack = @Sound.toggleVoicetrack
         # Last dialog box that we see
-        @getLastDialogIdx = @scope.getLastDialogIdx = =>                    
+        @getLastDialogIdx = @scope.getLastDialogIdx = =>
             # Get current indexes
             chapterIdx  = @User.chapter
             sceneIdx    = @User.scene
@@ -78,7 +91,6 @@ class SceneCtrl
                 break if sequenceIdx <= 0 or not sequence? or sequence.hasExit()
                 sequenceIdx--         
             sequenceIdx
-
 
 angular.module('spin.controller').controller("SceneCtrl", SceneCtrl)
 # EOF
