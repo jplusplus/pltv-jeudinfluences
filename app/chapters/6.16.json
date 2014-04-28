@@ -11,7 +11,6 @@
         {
             "type": "voixoff",
             "character": "Louis",
-            "header": null,
             "body": "/medias/chap6/voix-off/louis-ch6-03.mp3"
         },
         {
@@ -40,7 +39,7 @@
             "options": [
                 {
                     "header": "Oui",
-                    "next_scene": "6.16.doc",
+                    "next_scene": "6.16doc",
                     "outro": null,
                     "result": [
                         {

@@ -6,7 +6,7 @@
         },
     "decor": [
         {
-            "background": "/medias/chap3/illustrations/illustr-ch3-09.jpg",
+            "background": "/medias/chap3/illustrations/illustr-ch3-10.jpg",
             "background_transition": null,
             "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
         }
@@ -32,7 +32,6 @@
         },
         {
             "type": "new_background",
-            "timeout": 0.5,
             "transition": "fade",
             "body": "/medias/chap3/illustrations/illustr-ch3-11.jpg"
         },

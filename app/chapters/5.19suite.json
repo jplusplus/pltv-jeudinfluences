@@ -12,14 +12,12 @@
             "condition": {"itw_connaissance_pollution":false},
             "type": "voixoff",
             "character": null,
-            "header": null,
             "body": "/medias/chap5/voix-off/louis-ch5-07-cond1_journaliste.mp3"
         },
         {
             "condition": {"itw_connaissance_pollution":true},
             "type": "voixoff",
             "character": null,
-            "header": null,
             "body": "/medias/chap5/voix-off/louis-ch5-07-cond2_journaliste.mp3"
         },
         {
@@ -31,7 +29,7 @@
             "options": [
                 {
                     "header": "Oui",
-                    "next_scene": "5.21.over",
+                    "next_scene": "5.21over",
                     "outro": null,
                     "result": [
                         {

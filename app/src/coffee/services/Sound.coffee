@@ -21,18 +21,29 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
             @soundtrack.play => @soundtrack.fade(0, User.volume, 1000)
 
         startScene: (chapter=User.chapter, scene=User.scene)=>
+            if @notificationtrack?
+                do @notificationtrack.stop
+                @notificationtrack = null
+            if @voicetrack?
+                do @voicetrack.stop
+                @voicetrack = null
             # Start a new scene
             if scene? and Plot.chapters.length and Plot.scene(chapter, scene)?
                 # Get scene object
                 scene  = Plot.scene(chapter, scene)
                 tracks = [ $filter('media')(scene.decor[0].soundtrack) ]
                 # Update the soundtrack if it is different
-                if scene.decor[0].soundtrack?
-                    if (not @soundtrack?)
-                        @startSoundTrack tracks
-                    else if (not angular.equals( @soundtrack.urls(), tracks))
-                        @soundtrack.fade User.volume, 0, 1000, =>
+                if scene.decor[0].hasOwnProperty 'soundtrack'
+                    if scene.decor[0].soundtrack?
+                        if (not @soundtrack?)
                             @startSoundTrack tracks
+                        else if (not angular.equals( @soundtrack.urls(), tracks))
+                            @soundtrack.fade User.volume, 0, 1000, =>
+                                @startSoundTrack tracks
+                    else if @soundtrack?
+                        @soundtrack.fade (do @soundtrack.volume), 0, 1000, =>
+                            do @soundtrack.stop
+                            @soundtrack = undefined
 
         toggleSequence: (chapterIdx=User.chapter, sceneIdx=User.scene, sequenceIdx=User.sequence)=>
             if sequenceIdx?
@@ -87,6 +98,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                                     @voicetrack.pos(0)
                                     @voicetrack.isPlaying = no
                                     clearInterval @voicetrack._interval
+                                    do User.nextSequence
                     # Just play the voice
                     else if @voicetrack? and not @voicetrack.isPlaying
                         do @voicetrack.play

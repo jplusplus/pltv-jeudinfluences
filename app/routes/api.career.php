@@ -84,7 +84,7 @@ $app->post('/api/career', function() use ($app) {
     // Recording progression...
     if (isset($data["reached_scene"])) {
         // TODO: check if already exists
-        if (!in_array((string)$data["reached_scene"], $scenes)) {
+        if (!in_array((string)$data["reached_scene"], $scenes, true)) {
             $scenes[] = (string)$data["reached_scene"];
             $career->scenes = json_encode($scenes);
         }
@@ -167,44 +167,43 @@ $app->post('/api/career/erase', function() use ($app) {
     $career = R::findOne('career', 'token=?', array($params['token']));
     if (empty($career)) { return wrong(array('error' => 'unknown token')); }
 
-    // Retrieve from when we should erase the career
-    $since = null;
-    if (isset($data->since)) {
-        if (preg_match('/^\d\.\d+$/', $data->since)) {
-            $since = $data->since;
-        } else { return wrong(array('error' => '\'since\' parameter malformed')); }
-    } else if (isset($data->chapter)) {
-        if (preg_match('/^\d$/', $data->chapter)) {
-            $since = $data->chapter . ".1";
-        } else { return wrong(array('error' => '\'chapter\' parameter malformed')); }
-    }
-
     // Decode the JSON
     $career->scenes = json_decode($career->scenes, true);
     $career->choices = json_decode($career->choices, true);
 
-    $chapter = split('\.', $since);
-    $chapter = intval($chapter[0]);
-    $scene   = split('\.', $since);
-    $scene   = intval($since[1]);
+    // Retrieve from when we should erase the career
+    $since = null;
+    if (isset($data->since)) {
+        if (preg_match('/^\d\..+$/', $data->since)) {
+            $since = $data->since;
+        } else { return wrong(array('error' => '\'since\' parameter malformed')); }
+    } else if (isset($data->chapter)) {
+        if (preg_match('/^\d$/', $data->chapter)) {
+            foreach ($career->scenes as $scene) {
+                if (preg_match('/^'.$data->chapter.'\./', $scene)) {
+                    $since = $scene;
+                    break;
+                }
+            }
+            if (!isset($since)) { return wrong(array('error' => 'Chapter '.$data->chapter.' not found')); }
 
-    $filter_iter = function($var) use ($chapter, $scene){
-        $var = split('\.', $var);
-        $_chapter = intval($var[0]);
-        $_scene   = intval($var[1]);
-        if ($_chapter > $chapter) { return false; }
-        else if ($_chapter == $chapter && $_scene > $scene) { return false; }
-        return true;
-    };
+        } else { return wrong(array('error' => '\'chapter\' parameter malformed')); }
+    }
+
+    if (array_search($since, $career->scenes, true) === false) { return wrong(array('error' => 'Scene '.$data->since.' not found')); }
 
     // Clean the scenes array
-    $career->scenes = array_filter($career->scenes, $filter_iter);
+    array_splice($career->scenes, array_search($since, $career->scenes, true) + 1);
     $career->scenes = array_values($career->scenes);
 
     // Clean the choices object
-    $kept_choices = array_filter(array_keys($career->choices), $filter_iter);
+    $kept_choices = array_values($career->scenes);
+    array_splice($kept_choices, sizeof($kept_choices) - 1);
     $kept_choices = array_fill_keys($kept_choices, '');
     $career->choices = array_intersect_key($career->choices, $kept_choices);
+
+    $copied_scenes = $career->scenes;
+    $copied_choices = $career->choices;
 
     // Encode the JSON
     $career->scenes = json_encode($career->scenes);
@@ -213,7 +212,15 @@ $app->post('/api/career/erase', function() use ($app) {
     // Save in database
     R::store($career);
 
-    return ok(array('status' => 'done'));
+    $response = array(
+        "token"         => $career->token,
+        "reached_scene" => end($copied_scenes),
+        "context"       => \app\helpers\Game::computeContext($career->export()),
+        "scenes"        => $copied_scenes,
+        "choices"       => $copied_choices
+    );
+
+    return ok($response);
 });
 
 // EOF

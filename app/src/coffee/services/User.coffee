@@ -101,24 +101,19 @@ angular.module("spin.service").factory("User", [
                 do @checkProgression
 
             checkProgression: =>
+                return unless @inGame
                 # will check if user progression lead him to a game over.
-                is_gameover = no 
-                breakme     = no 
-                # while a game over has not been detected or "break" like 
-                # instruction is set we loop (I dont like break) 
-                while (is_gameover is no) and (breakme is no)
-                    for key, value of @indicators
-                        indicator_rule = UserIndicators[key]
-                        if indicator_rule
-                            is_gameover = indicator_rule.isGameOver(value)
-                    breakme = yes
+                for key, value of @indicators
+                    if UserIndicators[key]? and UserIndicators[key].isGameOver(value)
+                        @isGameOver =yes
+                        break
+                @isGameOver
 
-                @isGameOver = is_gameover
-                is_gameover
-
-            isStartingChapter: =>                 
+            isStartingChapter: =>       
                 # Chapter is considered as starting during {settings.chapterEntrance} millisecond
                 Date.now() - @lastChapterChanging < settings.chapterEntrance
+                # The user may also be ready (all image loaded)
+                # not @isReady
 
             saveChapterChanging: (chapter)=>
                 # Stop here until a chapter id is set
@@ -282,21 +277,35 @@ angular.module("spin.service").factory("User", [
                 @inGame = @isSummary = @isGameDone = @isGameOver = no
                 @newUser()
 
-            restartChapter: => 
+            restartChapter: =>
                 # will restart churrent chapter to its first scene.
-                chapter = Plot.chapter @chapter
-                return unless chapter?
-                @scene  = chapter.scenes[0].id
-                @sequence = 0
                 @isGameOver = no
                 @inGame     = yes
+<<<<<<< HEAD
                 do @eraseCareerSinceNow
             
+=======
+                (do @eraseCareerChapter).success (career) =>
+                    @goToScene career.reached_scene, yes
+
+
+            singMeTheEnd: =>
+                console.log "This is the end"
+                console.log "My only friend, the end"
+
+>>>>>>> a07d52022504b227e25370d2b12bf3073e5371d0
             eraseCareerSinceNow: =>
                 $http
                     url : "#{api.erase}?token=#{@token}"
                     method : 'POST'
                     data :
                         since : @chapter + '.' + @scene
-                    
-]) 
+
+            eraseCareerChapter: =>
+                $http
+                    url : "#{api.erase}?token=#{@token}"
+                    method : 'POST'
+                    data :
+                        chapter : @chapter
+
+])

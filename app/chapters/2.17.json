@@ -4,7 +4,7 @@
         {
             "background": "/medias/illustrations/tablette.jpg",
             "background_transition": null,
-            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-a.mp3"
+            "soundtrack": null
         }
     ],
     "sequence": [
@@ -16,8 +16,12 @@
             "body": "Je dois passer un coup de fil en urgence. Regardez cette vidéo d'Hugues Lebret, un collègue qui était dir' com' de la Société Générale pendant l'affaire Kerviel, vous comprendrez mieux ce qu'est l'UBM."
         },
         {
+            "type": "narrative",
+            "body": "..."
+        },
+        {
             "type": "video",
-            "body": "http://www.dailymotion.com/video/k5g9LPYP74uWuR6of23?autoplay=1&chromeless=1&hideInfos=0"
+            "body": "http://www.dailymotion.com/video/k5g9LPYP74uWuR6of23?autoplay=1&chromeless=1&hideInfos=0&html=1"
         }
     ]
 }

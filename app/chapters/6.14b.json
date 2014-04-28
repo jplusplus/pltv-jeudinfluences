@@ -1,19 +1,19 @@
 {
-    "next_scene": "6.41",
+    "next_scene" : "6.15",
     "decor": [
         {
-            "background": "/medias/chap6/illustrations/illustr-ch6-flashback-anim-b.gif",
+            "background": "/medias/chap6/illustrations/illustr-ch6-flashback-anim-d.gif",
             "background_transition": "fade",
             "soundtrack": null
         }
     ],
     "sequence": [
         {
-            "result": {"guilt": 24},
             "result": {"meurtre": true},
+            "result": {"guilt": 24},
             "type": "voixoff",
             "character": "Louis",
-            "body": "/medias/chap6/voix-off/louis-ch6-flashback-05_b.mp3"
+            "body": "/medias/chap6/voix-off/louis-ch6-flashback-05_d.mp3"
         }
     ]
 }

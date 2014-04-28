@@ -11,7 +11,6 @@
         {
             "type": "voixoff",
             "character": null,
-            "header": null,
             "body": "/medias/chap5/voix-off/louis-ch5-09_journaliste.mp3"
         },
         {
@@ -48,7 +47,7 @@
             "options": [
                 {
                     "header": "Oui",
-                    "next_scene": "5.21.suite",
+                    "next_scene": "5.21suite",
                     "outro": null,
                     "result": [
                         {

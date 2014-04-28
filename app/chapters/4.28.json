@@ -11,52 +11,52 @@
         {
             "condition": {"plainte_bloggers":true},
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Comme vous voulez. Mais alors, laissez-moi vous proposer une chose en plus."
         },
         {
             "condition": {"visite_usine_bloggers":true, "prevenir_presse":true},
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Comme vous voulez. On peut peut-être faire d'une pierre deux coup. J'ai une autre info à vous donner."
         },
         {
             "condition": {"visite_usine_bloggers":true, "prevenir_presse":false},
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Oui, c'est mieux de ne pas donner à penser qu'on est en pleine opération de com'. J'ai une autre info à vous donner."
         },
         {
             "condition": {"plainte_bloggers":false, "visite_usine_bloggers":false},
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Très bien. J'ai une dernière proposition à vous faire."
         },
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "En faisant quelques recherches autour de ce blog, on a découvert que l'un des membres de l'association était le mari de la directrice financière de Rouvroy Industries. Comme vous le savez, une de leurs usines est elle aussi située sur le Nizerand, et donc potentiellement responsable de la pollution. Le rapport d'inspection sur la vétusté de leurs installations, vous vous souvenez ?"
         },
         {
             "type": "dialogue",
-            "charcter": "Louis",
+            "character": "Louis",
             "header": null,
             "body": "Oui, bien sûr."
         },
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Évidemment, ça ne veut rien dire, mais le bénéfice du doute peut jouer dans les deux sens. Glisser cette info à quelques journalistes influents pourrait discréditer complètement la démarche de ces bloggueurs."
         },
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Ils seraient vite considérés comme une entité pilotée par la direction de Rouvroy - ce qu'ils sont peut-être, d'ailleurs !  \nÇa pourrait nous aider.\n\nAlors, on fuite ?"
         },
@@ -76,7 +76,8 @@
                             "stress": 2,
                             "ubm": -4,
                             "honesty": -2,
-                            "trust": 8
+                            "trust": 8,
+                            "decredibiliser_bloggers": true
                         }
                     ]
                 },

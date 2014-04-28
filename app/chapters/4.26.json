@@ -11,19 +11,19 @@
         {
             "condition": {"visite_usine_bloggers":true},
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Nous sommes d'accord. Tendez la main à vos ennemis, ils seront toujours surpris."
         },
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Après une telle mise en cause de l'usine, ils ne pourront pas refuser. Nous interdirons les zones les plus sensibles en invoquant le secret industriel. Je vais faire rédiger un message assez court et précis que vous enverrez depuis votre mail professionnel."
         },
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Par contre, je pense qu'il vaudrait mieux éviter de prévenir la presse. Mais c'est vous qui décidez..."
         },

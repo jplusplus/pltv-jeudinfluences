@@ -19,9 +19,11 @@ angular.module("spin.service").factory "Progression", [
                 # Update local storage
                 $rootScope.$watch (=>User), User.updateLocalStorage, yes                    
                 # Scene is changing
-                $rootScope.$watch (=> [Plot.chapters, User.scene] ), (-> do Sound.startScene), yes
+                $rootScope.$watch (=> [Plot.chapters, User.scene] ), (->
+                    do Sound.startScene
+                ), yes
                 # Sequence is changing
-                $rootScope.$watch (=>User.sequence), ->
+                $rootScope.$watch (=>(User.scene+User.sequence)), ->
                     do Timeout.toggleSequence 
                     do Sound.toggleSequence
 
@@ -65,9 +67,10 @@ angular.module("spin.service").factory "Progression", [
                     User.saveChapterChanging true 
 
             onKeyPressed: (e)=>
-                seq = Plot.sequence(User.chapter, User.scene, User.sequence)
-                if seq.hasNext()
-                    do User.nextSequence
+                if User.inGame
+                    seq = Plot.sequence(User.chapter, User.scene, User.sequence)
+                    if seq.hasNext()
+                        do User.nextSequence
 
 
             singMeTheEnd: (done) =>

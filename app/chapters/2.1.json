@@ -9,10 +9,6 @@
     ],
     "sequence": [
         {
-        "type": "narrative", 
-        "body": "..." 
-        },
-        {
             "type": "new_background",
             "body": "/medias/chap2/illustrations/illustr-ch2-02.gif",
             "transition": null
@@ -20,6 +16,7 @@
         {
             "result": {"stress": 8},
             "type": "notification",
+            "next_button": true,
             "sound": "/medias/sounddesign/sonnerie-tel.mp3",
             "header": "4h12",
             "body": "Nadia tente de vous joindre."

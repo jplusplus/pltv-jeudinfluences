@@ -1,6 +1,6 @@
 <div class="chapter chapter-entrance-animation" ng-if="shouldShowChapter()" ng-class="chapterClasses()">    
 
-    <preload images="getBackgrounds()" />
+    <preload images="getBackgrounds()" object="user" attr="isReady" />
 
     <div class="chapter__intro" ng-show="user.isStartingChapter() && !user.isGameOver">
         <div class="chapter__intro__id">Chapitre [[chapter.id]]</div>
@@ -19,43 +19,47 @@
     </div>
     
     
-    <ul class="chapter__cmd list-unstyled" ng-hide="user.isStartingChapter() || user.isGameOver">
+    <div class="chapter__cmd" ng-class="{ 'chapter__cmd--touch-visible': cmdVisible }">
+        <ul class="list-unstyled" ng-hide="user.isStartingChapter() || user.isGameOver">                     
+            <li class="chapter__cmd__indicator chapter__cmd__indicator--ubm">
+                <a class="chapter__cmd__indicator__help">
+                    ?<span class="chapter__cmd__indicator__help__definition">Unité de Bruit Médiatique : présence de votre crise dans les médias</span>
+                </a>
+                <span class="chapter__cmd__indicator__label">UBM</span>
+                <span class="chapter__cmd__indicator__value">[[user.indicators.ubm]]%</span>
+                <span class="chapter__cmd__indicator__progress progress">
+                    <span class="progress-bar progress-bar-danger" ng-style="{ width: user.indicators.ubm + '%' }">
+                    </span>                
+                </span>
+            </li>
+            <li class="chapter__cmd__indicator chapter__cmd__indicator--trust">
+                <a class="chapter__cmd__indicator__help">
+                    ?<span class="chapter__cmd__indicator__help__definition">La confiance que vous accorde votre Spin doctor</span>
+                </a>
+                <span class="chapter__cmd__indicator__label">Confiance</span>
 
-        <li class="chapter__cmd__indicator chapter__cmd__indicator--ubm">
-            <abbr class="chapter__cmd__indicator__help">
-                ?<span class="chapter__cmd__indicator__help__definition">Unité de Bruit Médiatique : présence de votre crise dans les médias</span>
-            </abbr>
-            <span class="chapter__cmd__indicator__label">UBM</span>
-            <span class="chapter__cmd__indicator__value">[[user.indicators.ubm]]%</span>
-            <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar progress-bar-danger" ng-style="{ width: user.indicators.ubm + '%' }">
-                </span>                
-            </span>
-        </li>
-        <li class="chapter__cmd__indicator chapter__cmd__indicator--trust">
-            <abbr class="chapter__cmd__indicator__help">
-                ?<span class="chapter__cmd__indicator__help__definition">Confiance accordée à Louis par le spin doctor</span>
-            </abbr>
-            <span class="chapter__cmd__indicator__label">Confiance</span>
-
-            <span class="chapter__cmd__indicator__value">[[user.indicators.trust]]%</span>
-            <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar progress-bar-info" ng-style="{ width: user.indicators.trust + '%' }">
-                </span>                
-            </span>
-        </li>
-        <li class="chapter__cmd__indicator chapter__cmd__indicator--stress">
-            <abbr class="chapter__cmd__indicator__help">
-                ?<span class="chapter__cmd__indicator__help__definition">État émotionnel de Louis</span>
-            </abbr>
-            <span class="chapter__cmd__indicator__label">Stress</span>
-            <span class="chapter__cmd__indicator__value">[[user.indicators.stress]]%</span>
-            <span class="chapter__cmd__indicator__progress progress">
-                <span class="progress-bar progress-bar-success" ng-style="{ width: user.indicators.stress + '%' }">
-                </span>                
-            </span>
-        </li>
-    </ul>
+                <span class="chapter__cmd__indicator__value">[[user.indicators.trust]]%</span>
+                <span class="chapter__cmd__indicator__progress progress">
+                    <span class="progress-bar progress-bar-info" ng-style="{ width: user.indicators.trust + '%' }">
+                    </span>                
+                </span>
+            </li>
+            <li class="chapter__cmd__indicator chapter__cmd__indicator--stress">
+                <a class="chapter__cmd__indicator__help">
+                    ?<span class="chapter__cmd__indicator__help__definition">Votre état émotionnel</span>
+                </a>
+                <span class="chapter__cmd__indicator__label">Stress</span>
+                <span class="chapter__cmd__indicator__value">[[user.indicators.stress]]%</span>
+                <span class="chapter__cmd__indicator__progress progress">
+                    <span class="progress-bar progress-bar-success" ng-style="{ width: user.indicators.stress + '%' }">
+                    </span>                
+                </span>
+            </li>
+        </ul>
+        <button class="chapter__cmd__toggler" ng-click="cmdVisible = !cmdVisible">
+            <span class="fa fa-dashboard"></span>
+        </button>
+    </div>
 
     <scene ng-repeat="scene in chapter.scenes" src="scene" chapter="chapter"></scene>    
 

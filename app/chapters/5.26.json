@@ -17,6 +17,7 @@
         },
         {
            "condition": {"rumeur_journaliste": true},
+           "result": {"ubm": -4},
            "type": "dialogue",
            "character": "Patrick Luaud",
            "header": null,
@@ -76,7 +77,8 @@
                             "karma": 0,
                             "stress": 4,
                             "ubm": 0,
-                            "trust": 8
+                            "trust": 8,
+                            "fermer_usine": true
                         }
                     ]
                 },

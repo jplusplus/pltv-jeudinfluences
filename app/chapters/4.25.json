@@ -11,20 +11,20 @@
         {
             "condition": {"hesitation_plainte_bloggers":false},
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Vous avez raison, ce serait un très mauvais choix. On attirerait encore plus l'attention sur eux, et donc sur nous. Ils deviendraient des victimes qu'on tente de bâillonner. Et surtout, quand bien même la justice trancherait en notre faveur, ce texte se retrouverait sur une dizaine, voire une centaine d'autres blogs le soir même. Ça s'appelle \"l'effet Streisand\" : la censure n'est jamais efficace bien longtemps sur le web."
         },
         {
             "condition": {"hesitation_plainte_bloggers":true},
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Ouf. Vous m'avez fait peur. Vous savez, quand bien même la justice trancherait en notre faveur, ce texte se retrouverait sur une dizaine, voire une centaine d'autres blogs le soir même. Ça s'appelle \"l'effet Streisand\" : la censure n'est jamais efficace très longtemps sur le web."
         },
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Que diriez-vous, à l'inverse, d'ouvrir grand les portes de votre usine à ces bloggeurs ? Vous pourriez les inviter à visiter vos installations le temps d'une matinée."
         },

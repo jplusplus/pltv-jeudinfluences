@@ -9,8 +9,12 @@
     ],
     "sequence": [
         {
+            "type": "narrative",
+            "body": "..."
+        },
+        {
             "type": "video",
-            "body": "http://www.dailymotion.com/video/k1DzjikTtGeo0g6oftP?autoplay=1&chromeless=1&hideInfos=0"
+            "body": "http://www.dailymotion.com/video/k1DzjikTtGeo0g6oftP?autoplay=1&chromeless=1&hideInfos=0&html=1"
         }
     ]
 }

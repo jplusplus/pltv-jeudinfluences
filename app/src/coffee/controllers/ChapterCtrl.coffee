@@ -12,6 +12,7 @@ class ChapterCtrl
         # Returns the class to apply to the Chapter
         @scope.chapterClasses = =>
             "chapter--starting": User.isStartingChapter()
+            "chapter--loading" : not User.isReady
         @scope.getBackgrounds = =>        
             # Cache bgs to avoid infinite digest iteration
             return @bgs if @bgs?            

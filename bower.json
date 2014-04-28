@@ -10,6 +10,7 @@
     "angular-nouislider": "~0.2.6",
     "angular-resource": "1.2.5",
     "angular-route": "1.2.5",
+    "angular-touch": "1.2.5",
     "angular-sanitize": "1.2.5",
     "bootstrap": "3.1.1",
     "underscore": "1.6.0",

@@ -1,7 +1,8 @@
 angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'constant.xiti', ($rootScope, User, Plot, xiti)->
     new class Xiti
         constructor:->     
-            do @updateConfig
+            # Initial state
+            @currentPage = "home"
             # Chapter change in game
             @watchInGame (->[User.inGame, User.chapter]), => @loadPage @chapter()
             # Scene change in game
@@ -37,9 +38,9 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'c
 
         loadPage: =>  
             # Convert arguments object to an array
-            args = Array.prototype.slice.call(arguments)      
+            args = Array.prototype.slice.call(arguments)  
             # Current page must be different
-            if @currentPage isnt args.join("::")
+            if @currentPage isnt args.join("::") and window.xt_click?
                 # Record the current page slug to avoid declare the page twice
                 @currentPage = args.join("::")
                 # Create xtpage slug
@@ -50,12 +51,14 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'c
                 @img        = document.createElement("img")
                 @img.height = 1
                 @img.width  = 1
-                @img.src    = "#{window.xtsd}.xiti.com/"
-                @img.src   += "hit.xiti?s=#{window.xtsite}"
-                @img.src   += "&s2=#{xtn2}"
-                @img.src   += "&p=#{xtpage}"
-                @img.src   += "&di=#{window.xtdi}"
-                @img.src   += "&na=#{(new Date).getTime()}"            
+                src         = "#{window.xtsd}.xiti.com/"
+                src        += "hit.xiti?s=#{window.xtsite}"
+                src        += "&s2=#{xtn2}"
+                src        += "&p=#{xtpage}"
+                src        += "&di=#{window.xtdi}"
+                src        += "&na=#{(new Date).getTime()}"            
+                # Update the image src once
+                @img.src    = src
                 # Appends the image to the body
                 angular.element("body").append @img
 

@@ -39,6 +39,9 @@ angular.module("spin.service").factory "Plot", [
                     isNotification: ->
                         this.lowerType() is types.sequence.notification
 
+                    isNotificationWithButton: ->
+                        (this.lowerType() is types.sequence.notification) and this.next_button
+
                     isFeedback: ->
                         this.lowerType() is types.sequence.feedback
 
@@ -46,10 +49,11 @@ angular.module("spin.service").factory "Plot", [
                         settings.sequenceWithNext.indexOf( this.lowerType() ) > -1 
 
                     hasExit: ->
-                        this.isPlayer() or 
-                        this.isDialog() or 
-                        this.isChoice() or 
-                        this.isFeedback()
+                        this.isPlayer() or
+                        this.isDialog() or
+                        this.isChoice() or
+                        this.isFeedback() or
+                        this.isNotificationWithButton()
 
                     getEmbedSrc: ->
                         this.body.replace("dailymotion.com/video/", "dailymotion.com/embed/video/")

@@ -10,31 +10,31 @@
     "sequence": [
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": "Patrick Luaud laisse échapper un éclat de rire.",
             "body": "Vous tombez vraiment dans tous les panneaux ! Il y a toutes les chances que cela accentue la pression médiatique. Les médias vont interpréter ça comme un geste défensif pour cacher quelque chose."
         },
         {
             "type": "dialogue",
-            "charcter": "Louis",
+            "character": "Louis",
             "header": null,
             "body": "Mais je n'ai rien à cacher ! Ces informations sont tout simplement fausses et diffamatoires !"
         },
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "La question n'est pas le bien fondé de votre éventuelle action en justice, mais la façon dont elle sera perçue médiatiquement. Et dans le contexte - suicide de Mika puis affaire Lionel Gianno - ce ne sera pas à votre avantage."
         },
         {
             "type": "dialogue",
-            "charcter": "Louis",
+            "character": "Louis",
             "header": null,
             "body": "..."
         },
         {
             "type": "dialogue",
-            "charcter": "Patrick Luaud",
+            "character": "Patrick Luaud",
             "header": null,
             "body": "Ne me dites pas que vous avez réellement l'intention de déposer plainte ?"
         },

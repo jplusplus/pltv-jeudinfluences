@@ -12,7 +12,7 @@ class SceneCtrl
         # True if the given scene is visible
         @shouldShowScene = @scope.shouldShowScene = => @scene.id is @User.scene
         # True if the given sequence is visible
-        @scope.shouldShowSequence = (idx)=> 
+        @scope.shouldShowSequence = (idx)=>     
             @shouldShowScene()            and
             # Hide the sequence is the user in one of this states
             not @User.isStartingChapter() and
@@ -76,7 +76,7 @@ class SceneCtrl
             while yes
                 sequence = @Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)
                 break if sequenceIdx <= 0 or not sequence? or sequence.hasExit()
-                sequenceIdx--            
+                sequenceIdx--         
             sequenceIdx
 
 
