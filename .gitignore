@@ -14,3 +14,4 @@ npm-debug.log
 fabfile.py
 *.pyc
 *.sqlite
+*.sublime-*
