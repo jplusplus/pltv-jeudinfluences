@@ -12,13 +12,13 @@ angular.module('spin.directive').directive "scatterPlot", [
         link: (scope, elem, attrs)->
             axes =
                 horizontal: 
-                    key: 'culpabilite'
+                    key: 'guilt'
                     names: 
                         max: 'non coupable'
                         min: 'coupable'
 
-                vertical:   
-                    key: 'honnetete'
+                vertical:
+                    key: 'honesty'
                     names: 
                         max: 'aveux'
                         min: 'mensonges'
@@ -34,8 +34,8 @@ angular.module('spin.directive').directive "scatterPlot", [
 
             user_dot = ->
                 user: true
-                culpabilite: User.indicators.culpabilite
-                honnetete:   User.indicators.honnetete
+                guilt: User.indicators.guilt
+                honesty:   User.indicators.honesty
 
             get_min = (arr, el_key)->
                 _.min(arr, (el)-> el[el_key])[el_key]
@@ -51,21 +51,19 @@ angular.module('spin.directive').directive "scatterPlot", [
                 # destroy me when its set.
                 while i < 75
                     res.push
-                        culpabilite: Math.floor(Math.random() * 100)
-                        honnetete:   Math.floor(Math.random() * 100)
+                        guilt: Math.floor(Math.random() * 100)
+                        honesty:   Math.floor(Math.random() * 100)
                     i++
                 res
 
             update  = (res)->
                 processResults = (results)->
                     scales =
-                        culpabilite:
-                            # min: get_min(results, 'culpabilite')
-                            max: get_max(results, 'culpabilite')
+                        guilt:
+                            max: get_max(results, 'guilt')
 
-                        honnetete: 
-                            # min: get_min(results, 'honnetete')
-                            max: get_max(results, 'honnetete')
+                        honesty: 
+                            max: get_max(results, 'honesty')
 
                     create_dot = (result)->
                         h_axe = axes.horizontal.key

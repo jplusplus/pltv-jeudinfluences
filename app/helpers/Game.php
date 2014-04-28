@@ -43,9 +43,9 @@ class Game {
 			"trust"       => 0.1,
 			"stress"      => 0,
 			"karma"       => 0,
-			"UBM"         => 0,
-			"honnetete"   => 100,
-			"culpabilite" => 0
+			"ubm"         => 0,
+			"honesty"    => 100,
+			"guilt"       => 0
 		);
 
 		$plot           = Game::getPlot();
@@ -114,9 +114,9 @@ class Game {
 			"karma"       => array(-50, 50),
 			"trust"       => array(0, 100),
 			"stress"      => array(0, 100),
-			"UBM"         => array(0, 100),
-			"honnetete"   => array(0, 100),
-			"culpabilite" => array(0, 100)
+			"ubm"         => array(0, 100),
+			"honesty"     => array(0, 100),
+			"guilt"       => array(0, 100)
 		);
 
 		foreach ($update_to as $key => $value) {
