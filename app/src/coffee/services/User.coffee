@@ -24,7 +24,6 @@ angular.module("spin.service").factory("User", [
                 @token    = $location.search().token or master.token or null
                 @email    = master.email or null
                 if (do $location.search).token?
-                if (do $location.search).token?/home/toutenrab/Dev/_PRO/pltv-spin/app/src/coffee/services/User.coffee
                     @email = yes if @email is null
                     $location.search 'token', null
                 # Load the career if a token is given
