@@ -31,9 +31,9 @@ angular.module("spin.service").factory("User", [
                 # Load career data from the API when the player enters the game
                 $rootScope.$watch (=>@inGame), (newValue, oldValue) =>
                     if @token is null and newValue and not oldValue
-                        do @loadCareer                           
+                        do @loadCareer 
                 , yes
-                return @            
+                return @
 
             setInitialValues: (master={})=>
                 # Scenes the user passed
@@ -49,13 +49,13 @@ angular.module("spin.service").factory("User", [
                 # User progression indiciators
                 @indicators =
                     # Visible indicators
-                    stress     : UserIndicators.stress.meta.start
-                    trust      : UserIndicators.trust.meta.start
-                    ubm        : UserIndicators.ubm.meta.start
+                    stress  : UserIndicators.stress.meta.start
+                    trust   : UserIndicators.trust.meta.start
+                    ubm     : UserIndicators.ubm.meta.start
                     # Hidden indicators
-                    culpabilite: 0 
-                    honnetete  : 100 
-                    karma      : 0 
+                    guilt   : 0
+                    honesty : 0
+                    karma   : 0 
 
                 # Load career data from the API when the player enters the game
                 $rootScope.$watch =>
@@ -89,7 +89,7 @@ angular.module("spin.service").factory("User", [
                         [@chapter, @scene] = career.reached_scene.split "."
                         # Saved passed scenes
                         @scenes = career.scenes
-                        # Save indicators                     
+                        # Save indicators
                         for own key, value of career.context
                             @indicators[key]  = value
                         # Start to the first sequence

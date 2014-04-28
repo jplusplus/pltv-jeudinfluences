@@ -18,8 +18,8 @@ response:
     },
     "context": {
         "UBM": 0,
-        "culpabilite": 0,
-        "honnetete": 100,
+        "guilt": 0,
+        "honesty": 100,
         "karma": 0,
         "stress": 0,
         "trust": 100,
@@ -123,12 +123,12 @@ response:
 ```json
 [
     {
-        "culpabilite" : 100,
-        "honnetete" : 57
+        "guilt" : 100,
+        "honesty" : 57
     },
     {
-        "culpabilite" : 28,
-        "honnetete" : 44
+        "guilt" : 28,
+        "honesty" : 44
     },
 ]
 ```
