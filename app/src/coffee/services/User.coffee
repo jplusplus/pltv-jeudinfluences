@@ -203,6 +203,7 @@ angular.module("spin.service").factory("User", [
                     Plot.sequence(@chapter, @scene, @sequence)
 
             isSequenceConditionOk: (seq) =>
+                return true unless seq?
                 # check that every sequence condition are met or not. 
                 # condition are set with variables while doing some choices
                 is_ok = yes
@@ -283,11 +284,6 @@ angular.module("spin.service").factory("User", [
                 @inGame     = yes
                 (do @eraseCareerChapter).success (career) =>
                     @goToScene career.reached_scene, yes
-
-
-            singMeTheEnd: =>
-                console.log "This is the end"
-                console.log "My only friend, the end"
 
             eraseCareerSinceNow: =>
                 $http

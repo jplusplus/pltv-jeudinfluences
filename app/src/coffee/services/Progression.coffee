@@ -1,12 +1,14 @@
 angular.module("spin.service").factory "Progression", [
     '$rootScope'
+    '$timeout'
     'constant.keys'
+    'constant.doors'
     'Plot'
     'User'
     'Sound'
     'Timeout'
     'KeyboardCommands'
-    ($rootScope, keys, Plot, User, Sound, Timeout, KeyboardCommands)->
+    ($rootScope, $timeout, keys, doors, Plot, User, Sound, Timeout, KeyboardCommands)->
         new class Progression    
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
@@ -27,6 +29,9 @@ angular.module("spin.service").factory "Progression", [
 
                 # Update the volume
                 $rootScope.$watch (=>User.volume), Sound.updateVolume
+
+                $rootScope.$watch (=>User.isGameDone),  @singMeTheEnd,  yes                
+
 
                 # keyboard commands parametering 
                 KeyboardCommands.register keys.next, @onKeyPressed
@@ -66,6 +71,21 @@ angular.module("spin.service").factory "Progression", [
                     seq = Plot.sequence(User.chapter, User.scene, User.sequence)
                     if seq.hasNext()
                         do User.nextSequence
+
+
+            singMeTheEnd: (done) =>
+                return unless console? and console
+                if done
+                    console.log 'Progression.singMeTheEnd'
+                    i = 0
+                    for sentence in doors.theEnd
+                        lapse = 3500 * i
+                        $timeout(do(phrase=sentence)->
+                            -> console.log phrase
+                        , lapse)
+                        i++
+
+
 
 ]
 # EOF

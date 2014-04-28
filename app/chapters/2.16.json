@@ -10,7 +10,7 @@
     "sequence": [
         {
             "condition": {
-                "pas_besoin_spin": true,
+                "pas_besoin_spin": true
             },
             "type": "narrative",
             "body": "Jeudi 24 mai, 9h20."

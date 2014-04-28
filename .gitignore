@@ -11,4 +11,4 @@ fabfile.py
 *.pyc
 public/dev
 *.sqlite
-
+*.sublime-*
