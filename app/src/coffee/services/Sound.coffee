@@ -145,14 +145,8 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
         updateVolume: (volume)=>
             # New volume set
             if volume?
-                switch yes
-                    when @voicetrack? and @soundtrack?
-                        @voicetrack.volume(volume)
-                        @soundtrack.volume(volume/4)
-                    when @voicetrack?
-                        @voicetrack.volume(volume)
-                    when @soundtrack?
-                        @soundtrack.volume(volume)
+                if @soundtrack?
+                    @soundtrack.volume(volume)
 
 ]
 # EOF
