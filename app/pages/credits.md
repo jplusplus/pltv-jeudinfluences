@@ -1,4 +1,4 @@
-# CRÉDITS
+# Crédits
 
 ####Auteurs
 Luc Hermann, Julien Goetz
