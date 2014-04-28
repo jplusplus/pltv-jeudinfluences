@@ -28,7 +28,7 @@
                     ?<span class="chapter__cmd__indicator__help__definition">Unité de Bruit Médiatique : présence de votre crise dans les médias</span>
                 </a>
                 <span class="chapter__cmd__indicator__label">UBM</span>
-                <span class="chapter__cmd__indicator__value">[[user.indicators.ubm]]%</span>
+                <span class="chapter__cmd__indicator__value">[[user.indicators.ubm | number:0]]%</span>
                 <span class="chapter__cmd__indicator__progress progress">
                     <span class="progress-bar progress-bar-danger" ng-style="{ width: user.indicators.ubm + '%' }">
                     </span>                
@@ -40,7 +40,7 @@
                 </a>
                 <span class="chapter__cmd__indicator__label">Confiance</span>
 
-                <span class="chapter__cmd__indicator__value">[[user.indicators.trust]]%</span>
+                <span class="chapter__cmd__indicator__value">[[user.indicators.trust | number:0]]%</span>
                 <span class="chapter__cmd__indicator__progress progress">
                     <span class="progress-bar progress-bar-info" ng-style="{ width: user.indicators.trust + '%' }">
                     </span>                
@@ -51,7 +51,7 @@
                     ?<span class="chapter__cmd__indicator__help__definition">Votre état émotionnel</span>
                 </a>
                 <span class="chapter__cmd__indicator__label">Stress</span>
-                <span class="chapter__cmd__indicator__value">[[user.indicators.stress]]%</span>
+                <span class="chapter__cmd__indicator__value">[[user.indicators.stress | number:0]]%</span>
                 <span class="chapter__cmd__indicator__progress progress">
                     <span class="progress-bar progress-bar-success" ng-style="{ width: user.indicators.stress + '%' }">
                     </span>                
