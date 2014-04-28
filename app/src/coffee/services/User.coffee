@@ -70,6 +70,7 @@ angular.module("spin.service").factory("User", [
             pos: ()=> @chapter + "." + @scene
 
             chapterProgression: ()=>
+                return 100 if @isSummary
                 inter =_.intersection settings.mainScenes[@chapter], @scenes                
                 Math.round( Math.min(inter.length, 4)/4 * 100)
 
