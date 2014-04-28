@@ -1,0 +1,39 @@
+.page {
+    z-index: @static-page-zindex;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:50%;
+    .translate(-50%, 0);
+    width:550px;
+    background:fade(black, 85);
+    overflow: auto;
+
+    .fade > .show(@chapter-starting-duration-2);
+
+    &__content {        
+        position:absolute;
+        top:40px;
+        left:20px;
+        right:20px;
+        padding:40px 0;
+        z-index: @static-page-zindex;
+        color:lghter(@text-color, 10);
+
+        h1 {
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;            
+            font-size:200%;
+            height:auto;
+        }
+
+        &__close {   
+            position:absolute;
+            right:0;
+            top:0;
+        } 
+    }
+
+}

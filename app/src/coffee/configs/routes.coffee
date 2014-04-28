@@ -4,8 +4,9 @@ angular.module('spin.config').config ['$routeProvider', '$locationProvider', ($r
     $locationProvider.html5Mode yes
 
     $routeProvider.when("/",
-        templateUrl: "partials/main.html"
-        controller : "MainCtrl"
+        templateUrl   : "partials/main.html"
+        controller    : "MainCtrl"
+        reloadOnSearch: no
     ).otherwise redirectTo : "/"    
 
 ]

@@ -1,7 +1,7 @@
 var jslib = [
   'bower_modules/jquery/jquery.min.js',
+  // 'bower_modules/jquery.jscrollpane/jquery.jscrollpane.js',    
   'bower_modules/underscore/underscore.js',
-  'bower_modules/bootstrap/dist/js/bootstrap.min.js',
   'bower_modules/angular/angular.min.js',
   'bower_modules/nouislider/jquery.nouislider.js',
   'bower_modules/angular-nouislider/src/nouislider.js',
