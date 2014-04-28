@@ -16,6 +16,7 @@ angular.module("spin.service").factory "Progression", [
             constructor: ->
                 $rootScope.$watch (=>User.inGame),  @onInGameChanged,  yes                
                 $rootScope.$watch (=>User.chapter), @onChapterChanged, yes
+                $rootScope.$watch (=>User.isReady), User.saveChapterChanging, yes
                 # Update local storage
                 $rootScope.$watch (=>User), User.updateLocalStorage, yes                    
                 # Scene is changing
