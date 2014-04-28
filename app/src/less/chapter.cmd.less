@@ -44,7 +44,7 @@
             }
         }        
 
-        @media (min-width: @screen-md-min) {            
+        @media (min-width: @screen-md-min) {                    
             &.ng-hide-add,
             &.ng-hide-remove {
                 display:block!important;
@@ -63,6 +63,11 @@
                 .translate(0, 0);
             }
         }  
+
+
+        @media (max-width: 1070px) and (min-width: @screen-md-min) {   
+            width:240px;
+        }
 
         &__indicator {
             width:auto;
@@ -177,7 +182,8 @@
                 color:white;
                 text-align: right;
 
-                @media (max-width: @screen-md-min), @ipad-landscape {                    
+                @media (max-width: @screen-md-min), 
+                @ipad-landscape {
                     width:70px;
                 }
             }
@@ -199,6 +205,11 @@
                     left:110px;
                     right:45px;
                 }                
+
+
+                @media (max-width: 1070px) and (min-width: @screen-md-min) {
+                    width: 90px;
+                }
 
             }
         }
