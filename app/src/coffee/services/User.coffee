@@ -281,19 +281,9 @@ angular.module("spin.service").factory("User", [
                 # will restart churrent chapter to its first scene.
                 @isGameOver = no
                 @inGame     = yes
-<<<<<<< HEAD
-                do @eraseCareerSinceNow
-            
-=======
                 (do @eraseCareerChapter).success (career) =>
                     @goToScene career.reached_scene, yes
 
-
-            singMeTheEnd: =>
-                console.log "This is the end"
-                console.log "My only friend, the end"
-
->>>>>>> a07d52022504b227e25370d2b12bf3073e5371d0
             eraseCareerSinceNow: =>
                 $http
                     url : "#{api.erase}?token=#{@token}"
