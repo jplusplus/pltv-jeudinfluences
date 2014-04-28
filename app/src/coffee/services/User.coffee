@@ -291,12 +291,7 @@ angular.module("spin.service").factory("User", [
                 @isGameOver = no
                 @inGame     = yes
                 do @eraseCareerSinceNow
-
-
-            singMeTheEnd: =>
-                console.log "This is the end"
-                console.log "My only friend, the end"
-
+            
             eraseCareerSinceNow: =>
                 $http
                     url : "#{api.erase}?token=#{@token}"
