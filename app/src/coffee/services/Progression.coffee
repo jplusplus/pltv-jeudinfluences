@@ -28,6 +28,9 @@ angular.module("spin.service").factory "Progression", [
                     do Timeout.toggleSequence 
                     do Sound.toggleSequence
 
+                $rootScope.$watch (=>do User.isStartingChapter), ->
+                    do Sound.toggleSequence
+
                 # Update the volume
                 $rootScope.$watch (=>User.volume), Sound.updateVolume
 
