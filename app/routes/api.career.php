@@ -58,8 +58,8 @@ $app->post('/api/career', function() use ($app) {
         $career->scenes  = "[]";
         $career->created = R::isoDateTime();
         $career->finished = false;
-        $career->culpabilite = 0;
-        $career->honnetete = 0;
+        $career->guilt = 0;
+        $career->honesty = 0;
     }
     // update the career (json syntax)
     $data = json_decode($app->request()->getBody(), true);
@@ -94,8 +94,8 @@ $app->post('/api/career', function() use ($app) {
         $context = \app\helpers\Game::computeContext($career);
 
         $career->finished = true;
-        $career->culpabilite = $context['culpabilite'];
-        $career->honnetete = $context['honnetete'];
+        $career->guilt = $context['guilt'];
+        $career->honesty = $context['honesty'];
     }
 
     // save
