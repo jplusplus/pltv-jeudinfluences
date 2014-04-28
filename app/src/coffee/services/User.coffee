@@ -2,7 +2,7 @@ angular.module("spin.service").factory("User", [
     'constant.api'
     'constant.settings'
     'constant.types'
-	'TimeoutStates'
+    'TimeoutStates'
     'UserIndicators'
     'Plot'
     'localStorageService'
@@ -35,9 +35,9 @@ angular.module("spin.service").factory("User", [
                 , yes
                 return @            
 
-            setInitialValues: (master={})=>                
+            setInitialValues: (master={})=>
                 # Scenes the user passed
-                @scenes   = master.scenes or []       
+                @scenes   = master.scenes or []
                 # Sound control
                 @volume   = if isNaN(master.volume) then 0.5 else master.volume
                 # Reset identication tokens
@@ -62,7 +62,7 @@ angular.module("spin.service").factory("User", [
                     @inGame
                 , (newValue, oldValue) =>
                     if newValue and not oldValue
-                        do @loadCareer                           
+                        do @loadCareer
                 , yes
 
                 return @
@@ -71,7 +71,7 @@ angular.module("spin.service").factory("User", [
 
             chapterProgression: ()=>
                 return 100 if @isSummary
-                inter =_.intersection settings.mainScenes[@chapter], @scenes                
+                inter =_.intersection settings.mainScenes[@chapter], @scenes
                 Math.round( Math.min(inter.length, 4)/4 * 100)
 
             newUser: ()=>
