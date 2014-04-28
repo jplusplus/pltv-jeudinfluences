@@ -43,7 +43,7 @@ angular.module("spin.service").factory("User", [
                 # Reset identication tokens
                 [@token, @email] = [null, null] 
                 # Reset user states 
-                @inGame = @isGameOver = @isGameDone = @isSummary  = no
+                @inGame = @isGameOver = @isGameDone = @isSummary  = @isReady = no
                 # Reset progression
                 [@chapter, @scene, @sequence] = ["1", "1", 0]
                 # User progression indiciators
@@ -94,7 +94,7 @@ angular.module("spin.service").factory("User", [
                         # Start to the first sequence
                         @sequence = 0
                         # Check that the sequence's condition is OK
-                        if not do @isSequenceConditionOk
+                        if not do @isSequenceConditionOk 
                             # If not, go to the next sequence
                             do @nextSequence
 
@@ -111,9 +111,9 @@ angular.module("spin.service").factory("User", [
 
             isStartingChapter: =>       
                 # Chapter is considered as starting during {settings.chapterEntrance} millisecond
-                Date.now() - @lastChapterChanging < settings.chapterEntrance
+                Date.now() - @lastChapterChanging < settings.chapterEntrance or
                 # The user may also be ready (all image loaded)
-                # not @isReady
+                not @isReady
 
             saveChapterChanging: (chapter)=>
                 # Stop here until a chapter id is set
@@ -202,12 +202,12 @@ angular.module("spin.service").factory("User", [
                     # Return the new sequence
                     Plot.sequence(@chapter, @scene, @sequence)
 
-            isSequenceConditionOk: (seq) =>
-                return true unless seq?
+            isSequenceConditionOk: (seq) =>              
                 # check that every sequence condition are met or not. 
                 # condition are set with variables while doing some choices
                 is_ok = yes
-                seq = seq or Plot.sequence @chapter, @scene, @sequence
+                seq = seq or Plot.sequence @chapter, @scene, @sequence  
+                return true unless seq?
                 if seq.condition
                     for key, value of seq.condition
                         user_variable_value = @indicators[key]
@@ -249,7 +249,7 @@ angular.module("spin.service").factory("User", [
                     return
 
                 [chapter, scene] = next_scene_str.split "."
-
+                    
                 # Check that the next step exists
                 warn = (m)-> console.warn "#{m} doesn't exist (#{next_scene_str})."
                 # Chapter exits?

@@ -12,17 +12,20 @@ angular.module("spin.directive").directive "preload", ['$timeout', ($timeout)->
         # Any
         checkQueue = -> 
             if queue is 0
-                scope.$broadcast "imagesPreloaded"  
-                scope.object[attrs.attr] = yes                                   
+                $timeout ->
+                    scope.$broadcast "imagesPreloaded"  
+                    scope.object[attrs.attr] = yes
+                , 5000
         
-        queue  = 0
+        # Only queue for 50% of the images
+        queue = -1 * scope.images().length * 0.5
         scope.object[attrs.attr] = no
         angular.forEach scope.images(), (imageSrc) ->                
             image = new Image()
             queue++
-            image.onload = ->
+            image.onerror = image.onload = ->
                 queue--
-                do checkQueue
+                do checkQueue        
             image.src = imageSrc
         do checkQueue
 ]

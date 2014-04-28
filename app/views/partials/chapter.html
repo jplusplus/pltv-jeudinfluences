@@ -1,5 +1,7 @@
 <div class="chapter chapter-entrance-animation" ng-if="shouldShowChapter()" ng-class="chapterClasses()">    
 
+    <div class="chapter__spinner" ng-hide="user.isReady"></div>
+
     <preload images="getBackgrounds()" object="user" attr="isReady" />
 
     <div class="chapter__intro" ng-show="user.isStartingChapter() && !user.isGameOver">
