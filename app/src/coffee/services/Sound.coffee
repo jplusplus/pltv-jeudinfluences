@@ -20,13 +20,19 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
             # Play the sound with a fadein entrance
             @soundtrack.play => @soundtrack.fade(0, User.volume, 1000)
 
+        stopVoiceTrack: (sequence=null) =>
+            if @voicetrack?
+                if sequence? and sequence.type is 'notification'
+                    do @voicetrack.pause
+                else
+                    do @voicetrack.stop
+                    @voicetrack = null
+
         startScene: (chapter=User.chapter, scene=User.scene)=>
             if @notificationtrack?
                 do @notificationtrack.stop
                 @notificationtrack = null
-            if @voicetrack?
-                do @voicetrack.stop
-                @voicetrack = null
+            do @stopVoiceTrack
             # Start a new scene
             if scene? and Plot.chapters.length and Plot.scene(chapter, scene)?
                 # Get scene object
@@ -47,17 +53,19 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
 
         toggleSequence: (chapterIdx=User.chapter, sceneIdx=User.scene, sequenceIdx=User.sequence)=>
             if sequenceIdx?
+                # Get sequence object
+                sequence = Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)
+
                 if @notificationtrack?
                     do @notificationtrack.stop
                     @notificationtrack = null
-                if @voicetrack?
-                    do @voicetrack.stop
-                    @voicetrack = null
+
+                @stopVoiceTrack sequence
+
                 if @soundtrack?
                     if (do @soundtrack.volume) < User.volume
                         @soundtrack.fade( (do @soundtrack.volume), User.volume, 500 )
-                # Get sequence object
-                sequence = Plot.sequence(chapterIdx, sceneIdx, sequenceIdx)
+
                 # Sequence is a voicetrack
                 if sequence? and sequence.type is "voixoff"
                     tracks = [$filter('media')(sequence.body or sequence.sound)]
@@ -79,7 +87,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                                         @soundtrack.fade( @soundtrack.volume(), User.volume/4, 500 )
                                         # Duration only on starting
                                         duration = if @soundtrack.pos() is 0 then 1000 else 0
-                                    @voicetrack.fade(0, User.volume, duration)
+                                    @voicetrack.fade(0, 1, duration)
                                     @voicetrack.isPlaying = yes
                                     @voicetrack._interval = setInterval ((context) =>
                                         context.voicetrack._position = context.voicetrack.pos() or 0
@@ -106,16 +114,13 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                     else if @voicetrack? and @voicetrack.isPlaying?
                         do @voicetrack.pause
                 else
-                    if @voicetrack?
-                        do @voicetrack.stop
-                        @voicetrack = null
                     if sequence? and sequence.type is "notification"
                         tracks = [$filter('media')(sequence.sound)]
                         @notificationtrack = new Howl
                             urls : tracks
                             loop : no
                             buffer : yes
-                            volume : User.volume
+                            volume : 1
                             autoplay : yes
                             onplay : =>
                                 $rootScope.safeApply =>
@@ -145,14 +150,8 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
         updateVolume: (volume)=>
             # New volume set
             if volume?
-                switch yes
-                    when @voicetrack? and @soundtrack?
-                        @voicetrack.volume(volume)
-                        @soundtrack.volume(volume/4)
-                    when @voicetrack?
-                        @voicetrack.volume(volume)
-                    when @soundtrack?
-                        @soundtrack.volume(volume)
+                if @soundtrack?
+                    @soundtrack.volume(volume)
 
 ]
 # EOF

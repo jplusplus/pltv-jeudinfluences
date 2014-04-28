@@ -8,6 +8,18 @@
     bottom:0;
     overflow: hidden;
 
+    &__spinner {
+        background:black url("/img/ui/spinner-big.gif") no-repeat center center;
+        position: absolute;
+        bottom:0;
+        top:0;
+        left:0;
+        right:0;        
+        z-index:@chapter-zindex  + 100;
+
+        .fade > .show(0.6s);
+    }
+
     &__intro {
         z-index:@chapter-zindex;
         position:absolute;
