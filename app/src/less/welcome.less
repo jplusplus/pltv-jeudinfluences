@@ -15,6 +15,34 @@
         background-image:url("/img/bg/wait.jpg");   
     }
 
+    &__guide {
+        .covering();
+
+        &.ng-hide-remove {
+            display:block!important;
+            .transition(1000ms);
+        }        
+
+        &.ng-hide-remove {          
+            opacity:0;       
+        }
+
+        &.ng-hide-remove.ng-hide-remove-active {          
+            opacity:1;        
+        }
+
+        background:black no-repeat center center;
+        z-index:@welcome-zindex + 100;
+
+        &--headphone {
+            background-image:url("/img/ui/guide-headphone.gif");   
+        }
+
+        &--control {
+            background-image:url("/img/ui/guide-control.gif");   
+        }
+    }
+
     &__wrapper {        
         width:440px;
         position:absolute;

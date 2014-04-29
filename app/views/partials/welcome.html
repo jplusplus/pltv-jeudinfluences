@@ -2,6 +2,9 @@
 
     <div class="welcome__bg"></div>
 
+    <div ng-show="showHeadphone"class="welcome__guide welcome__guide--headphone"></div>
+    <div ng-show="showControl"class="welcome__guide welcome__guide--control"></div>
+
     <div class="welcome__wrapper">
         <div class="welcome__intro">
             <h1>Jeu d'influences</h1>            
@@ -44,7 +47,7 @@
 
         <div class="welcome__start" ng-hide="isNewUser()">
             <button class="welcome__start__btn btn btn-default btn-lg" ng-click="newGame()">Recommencer</button>
-            <button class="welcome__start__btn btn btn-default btn-lg" ng-click="startGame()">Reprendre la partie</button>
+            <button class="welcome__start__btn btn btn-default btn-lg" ng-click="startGame(false)">Reprendre la partie</button>
         </div>
     </div>
 </div>
