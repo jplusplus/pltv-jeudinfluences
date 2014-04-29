@@ -22,6 +22,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
 
         stopVoiceTrack: (sequence=null) =>
             if @voicetrack?
+                clearInterval @voicetrack._interval
                 if sequence? and sequence.type is 'notification'
                     do @voicetrack.pause
                 else
@@ -83,6 +84,13 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                             # Default states
                             onload  : =>
                                 do @voicetrack.play
+                                @voicetrack._interval = setInterval (do =>
+                                    @voicetrack._position = (do @voicetrack.pos) or 0
+                                    =>
+                                        if @voicetrack? and @voicetrack.isPlaying
+                                            $rootScope.safeApply =>
+                                                @voicetrack._position = do @voicetrack.pos
+                                ), 500
                             onplay  : =>
                                 $rootScope.safeApply =>
                                     if @soundtrack?
@@ -91,13 +99,6 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                                         duration = if @soundtrack.pos() is 0 then 1000 else 0
                                     @voicetrack.fade(0, 1, duration)
                                     @voicetrack.isPlaying = yes
-                                    @voicetrack._interval = setInterval ((context) =>
-                                        context.voicetrack._position = context.voicetrack.pos() or 0
-                                        return =>
-                                            if context.voicetrack? and context.voicetrack.isPlaying
-                                                $rootScope.safeApply =>
-                                                    context.voicetrack._position = do context.voicetrack.pos
-                                    )(@), 500
                             onpause : =>
                                 $rootScope.safeApply =>
                                     @voicetrack.isPlaying = no

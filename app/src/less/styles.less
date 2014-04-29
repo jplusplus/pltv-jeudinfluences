@@ -17,11 +17,11 @@
 @cookie-cnil-zindex   : @metanav-zindex     + 1000;
 @debug-toolbar-zindex : @cookie-cnil-zindex + 1000;
 
-@scatterplot-dot-zindex:  100;
-@scatterplot-grid-zindex: 100;
-@scatterplot-legend-zindex: @scatterplot-grid-zindex + 100;
-@scatterplot-dot-zindex: @scatterplot-legend-zindex + 100;
-@scatterplot-user-tooltip-zindex: @scatterplot-dot-zindex + 100;
+@scatterplot-grid-zindex        : 100;
+@scatterplot-dot-zindex         : @scatterplot-grid-zindex   + 100;
+@scatterplot-legend-zindex      : @scatterplot-dot-zindex    + 100;
+@scatterplot-you-zindex         : @scatterplot-legend-zindex + 100;
+@scatterplot-user-tooltip-zindex: @scatterplot-you-zindex    + 100;
 
 @chapter-starting-duration-1: 6s;
 @chapter-starting-duration-2: 1s;

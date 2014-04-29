@@ -52,7 +52,7 @@ class SceneCtrl
                 @scope.goToNextSequence()
                 
         # Get the list of the background for the given scene
-        @scope.getSceneBgs = =>
+        @scope.getSceneBgs = ()=>
             # Cache bgs to avoid infinite digest iteration
             return @bgs if @bgs?
             return [] if (not @scene? or not @scene.decor)
@@ -66,6 +66,8 @@ class SceneCtrl
         # True if we should display the given bg
         @scope.shouldDisplayBg = (bg)=>
             should_display = no
+            # Do not show the next background it he chapter is starting
+            return bg.sequence is -1 if @User.isStartingChapter()
             # Ids of every sequences            
             for id in _.map(@bgs, (bg)-> bg.sequence)
                 # Took the last higher id than the current sequence

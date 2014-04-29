@@ -15,12 +15,11 @@ angular.module("spin.directive").directive "preload", ['$timeout', ($timeout)->
                 scope.$broadcast "imagesPreloaded"  
                 scope.object[attrs.attr] = yes
                 
-        
         queue = 0
         scope.object[attrs.attr] = no
         angular.forEach scope.images(), (imageSrc) ->                
-            image = new Image()
-            queue++
+            image = new Image()            
+            queue++ if queue < 10
             image.onerror = image.onload = ->
                 queue--
                 do checkQueue        

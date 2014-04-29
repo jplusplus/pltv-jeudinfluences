@@ -14,7 +14,8 @@
         background:fade(black, 90);
     }
 
-    .body--in-game & {
+    .body--in-game &,
+    .body--game-done &{
         .transition(0.6s);  
         .translate(0, 100%);       
 
@@ -59,7 +60,7 @@
 		left:0;
 		top:0;
 
-        @media @ipad-landscape {
+        @media @ipad-landscape, (max-width: 1100px) {
             display: none;
         }
 	}
@@ -70,7 +71,7 @@
 		top:0;	
         .translate(-50%, 0);    
 
-        @media (max-width: @screen-md-min), @ipad-landscape {
+        @media (max-width: 1100px), @ipad-landscape {
             left:0 !important;
 		    .translate(0, 0);	
         }

@@ -12,7 +12,7 @@
            "result": {"ubm": 16},
            "type": "dialogue",
            "character": "Patrick Luaud",
-           "header": "Jeudi 31 mai, 06h22.",
+           "header": "Jeudi 31 mai, 6h22.",
            "body": "Bon, je ne vais pas vous mentir. Ça commence à se fissurer. Le volet de l'enquête sur les cancers potentiellement liés à la pollution crée des remous."
         },
         {
@@ -27,14 +27,14 @@
            "type": "dialogue",
            "character": "Patrick Luaud",
            "header": null,
-           "body": "Le Ministre de la Santé est déjà monté au créneau. À peine sorti du conseil des ministres, il vous a directement ciblé : \"la confiance est rompue. Louis Esmond doit répondre aux juges\". Une enquête devrait être ouverte dans les heures à venir et les malades vont forcément se porter partie civile."
+           "body": "Le ministre de la Santé est déjà monté au créneau. À peine sorti du Conseil des ministres, il vous a directement ciblé : \"la confiance est rompue. Louis Esmond doit répondre aux juges.\". Une enquête devrait être ouverte dans les heures à venir et les malades vont forcément se porter partie civile."
         },
         {
            "condition": {"pression_jarendeau": true},
            "type": "dialogue",
            "character": "Patrick Luaud",
            "header": null,
-           "body": "Heureusement, le Ministre de l'Industrie a rapidement sorti un communiqué vous assurant tout son soutien. Il a mis la présomption d'innocence en avant. Jarendeau a du poids au gouvernement et il est plutôt populaire.\n\nJe ne sais pas pourquoi il s'est mouillé comme ça pour vous, politiquement c'est risqué... Mais peu importe : ça nous donne un peu de répit."
+           "body": "Heureusement, le ministre de l'Industrie a rapidement sorti un communiqué vous assurant tout son soutien. Il a mis la présomption d'innocence en avant. Jarendeau a du poids au gouvernement et il est plutôt populaire.\n\nJe ne sais pas pourquoi il s'est mouillé comme ça pour vous, politiquement c'est risqué... Mais peu importe : ça nous donne un peu de répit."
         },
         {
            "condition": {"pression_jarendeau": true},

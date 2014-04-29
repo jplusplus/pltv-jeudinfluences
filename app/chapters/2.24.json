@@ -10,12 +10,6 @@
     "sequence": [
         {
             "type": "dialogue",
-            "character": "Louis",
-            "header": null,
-            "body": "Non, je ne suis pas très à l'aise avec ce tweet."
-        },
-        {
-            "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
             "body": "De quoi avez-vous peur ? D'attirer l'attention ?"

@@ -7,12 +7,18 @@
     <preload images="getBackgrounds()" object="user" attr="isReady" />
 
     <div class="chapter__intro" ng-show="user.isStartingChapter() && !user.isGameOver">
-        <div class="chapter__intro__id">Chapitre [[chapter.id]]</div>
+        <div class="chapter__intro__id">
+            Chapitre [[chapter.id]]
+            <span ng-if="chapter.id === '1'"> - Prologue</span>
+        </div>
         <h2 class="chapter__intro__title">[[chapter.title]]</h2>  
     </div>
 
     <div class="chapter__track" ng-hide="user.isStartingChapter() || user.isGameOver">
-        <div class="chapter__track__id">Chapitre <b>[[chapter.id]]</b> / 6</div>
+        <div class="chapter__track__id">        
+            <span ng-if="chapter.id !== '1'">Chapitre <b>[[chapter.id]]</b> / 6</span>
+            <span ng-if="chapter.id === '1'">Prologue</span>
+        </div>
         <div class="chapter__track__bullets">
             <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 5" ng-class="{ active: i*25 <= user.chapterProgression() }"></i>
         </div>
