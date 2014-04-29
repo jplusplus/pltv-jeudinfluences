@@ -56,10 +56,16 @@
             {{tag|raw}}
         {% endfor %}
 
+        {% if partner %}
+            <script type="text/javascript">
+                var xt_multc = "&x1={{partner|raw}}";
+            </script>
+        {% endif %}
+
     </head>
     <body ng-class="{ 'body--in-game' : user.inGame, 'body--is-loading': !user.isReady }" keyboard-navigation>
 
-        {{archimade.header|raw}}
+        {{archimade.header|raw}}        
 
         <div id="content" class="site_content">
             {% block content %}
