@@ -214,7 +214,7 @@ angular.module("spin.service").factory("User", [
                         user_variable_value = @indicators[key]
                         unless user_variable_value?
                             user_variable_value = false
-                        is_ok =  user_variable_value is value
+                        is_ok = is_ok and (user_variable_value is value)
                 if seq.isSkipped()
                     is_ok = no
                 if seq.isGameOver()

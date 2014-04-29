@@ -10,14 +10,14 @@
     "sequence": [
         {
             "type": "narrative",
-            "body": "Vendredi 1er juin, 08h55."
+            "body": "Vendredi 1er juin, 8h55."
         },
         {
             "condition": {"soixantemille":true},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Vous avez eu raison de suivre mon conseil. Je sais que cette somme peu sembler faible, mais c'est tout l'intérêt. Aujourd'hui, la moitié des éditorialistes et de l'opinon, trouvera que c'est peu. Demain, nous annoncerons 100.000 euros d'indemnités par victime, les protestations s'éteindront et vous passerez pour un patron généreux."
+            "body": "Vous avez eu raison de suivre mon conseil. Je sais que cette somme peu sembler faible, mais c'est tout l'intérêt. Aujourd'hui, la moitié des éditorialistes et de l'opinon, trouvera que c'est peu. Demain, nous annoncerons 100.000&nbsp;euros d'indemnités par victime, les protestations s'éteindront et vous passerez pour un patron généreux."
         },
         {
             "condition": {"soixantemille":true},
@@ -31,7 +31,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Vous avez eu tort de ne pas suivre mon conseil. 100.000 euros par victime, vous ne pouvez pas vous permettre d'aller au-delà. Ou alors les autres industriels ne vous suivront pas. C'est le chiffre que nous aurions annoncé demain et vous auriez eu le beau rôle, celui du patron qui ne compte pas."
+            "body": "Vous avez eu tort de ne pas suivre mon conseil. 100.000&nbsp;euros par victime, vous ne pouvez pas vous permettre d'aller au-delà. Ou alors les autres industriels ne vous suivront pas. C'est le chiffre que nous aurions annoncé demain et vous auriez eu le beau rôle, celui du patron qui ne compte pas."
         },
         {
             "condition": {"centmille":true},
@@ -66,14 +66,14 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Le journaliste vous aurait demandé \"combien par victime ?\". Raisonnablement vous savez qu'on ne pourrait pas aller au-delà de 100.000 euros, alors on aurait proposé 60.000 euros."
+            "body": "Le journaliste vous aurait demandé \"combien par victime ?\". Raisonnablement vous savez qu'on ne pourrait pas aller au-delà de 100.000&nbsp;euros, alors on aurait proposé 60.000&nbsp;euros."
         },
         {
             "condition": {"zero_indemn":true},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Les éditorialistes y seraient tous allés de leur petite remarque et le demain on annonçait qu'on montait à 100.000 euros. Vous seriez alors passé pour le généreux patron, soucieux de ses concitoyens."
+            "body": "Les éditorialistes y seraient tous allés de leur petite remarque et le demain on annonçait qu'on montait à 100.000&nbsp;euros. Vous seriez alors passé pour le généreux patron, soucieux de ses concitoyens."
         },
         {
             "condition": {"zero_indemn":true},

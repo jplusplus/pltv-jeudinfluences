@@ -11,7 +11,7 @@
         {
             "type": "dialogue",
             "character": "Patrick Luaud",
-            "header": "Vendredi 1er juin, 08h05.",
+            "header": "Vendredi 1er juin, 8h05.",
             "body": "Rappelez-vous bien ce que l'on s'est dit Louis."
         },
         {
@@ -38,7 +38,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Sans compter que les chiffres qu'il présente n'est qu'une tendance statistique calculée avec pour seules données de base deux petits mois de relevés, ça ne tient pas la route."
+            "body": "Sans compter que les chiffres qu'il présente n'est qu'une tendance statistique calculée avec pour seules données de base deux petits mois de relevés. Ça ne tient pas la route."
         },
         {
             "type": "dialogue",
@@ -56,7 +56,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Vous donnerez l'impression d'être responsable dans le sens positif du terme : vigilant et à l'écoute des citoyens. Et surtout : vous resterez dans l'action."
+            "body": "Vous donnerez l'impression d'être responsable dans le sens positif du terme : vigilant et à l'écoute des citoyens. Et, surtout, vous resterez dans l'action."
         },
         {
             "result": {"stress": -4},

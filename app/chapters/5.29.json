@@ -13,7 +13,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": "Jeudi 31 mai, 12h48.",
-            "body": "Le choix de la fermeture était le bon. Le Ministre de la Santé n'a rien ajouté depuis ce matin et les commentaires des éditorialistes s'apaisent. Mais un autre front s'ouvre, au sein même d'Habinat."
+            "body": "Le choix de la fermeture était le bon. Le ministre de la Santé n'a rien ajouté depuis ce matin et les commentaires des éditorialistes s'apaisent. Mais un autre front s'ouvre, au sein même d'Habinat."
         },
         {
             "condition": {"fermer_usine": false},
@@ -27,7 +27,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "On se retrouve avec le même résultat que si vous aviez annoncé vous-même la fermeture de l'usine mais sans le bénéfice d'une belle séquence de com'. Bref. Pas le temps de s'apitoyer car un autre front s'ouvre, au sein même d'Habinat."
+            "body": "On se retrouve avec le même résultat que si vous aviez annoncé vous-même la fermeture de l'usine mais sans le bénéfice d'une belle séquence de com'. Bref, pas le temps de s'apitoyer car un autre front s'ouvre, au sein même d'Habinat."
         },
         {
             "type": "dialogue",
@@ -39,11 +39,11 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Il y a un côté provoc' médiatique dans leur démarche, faire un communiqué plutôt que de vous appeler directement. Les syndicats n'échappent pas au jeux de pouvoir, ils marquent leur territoire. Mais peu importe, pour l'instant, ils réclament simplement de pouvoir discuter, à mon avis, il faut accepter sans hésiter."
+            "body": "Il y a un côté provoc' médiatique dans leur démarche, faire un communiqué plutôt que de vous appeler directement. Les syndicats n'échappent pas au jeux de pouvoir, ils marquent leur territoire. Mais peu importe, pour l'instant, ils réclament simplement de pouvoir discuter. À mon avis, il faut accepter sans hésiter."
         },
         {
             "type" : "choice",
-            "body": "Suivre l'avis de Patrick Luaud et aller rencontrer les syndicats de l'entreprise ?",
+            "body": "Suivre l'avis de Patrick Luaud et aller rencontrer les syndicats de l'entreprise&nbsp;?",
             "delay" : null,
             "default_option" : null,
             "options": [

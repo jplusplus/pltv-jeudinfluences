@@ -25,7 +25,7 @@
         {
             "condition": {"video_costa":true},
             "type": "video",
-            "body": "http://www.dailymotion.com/video/k29tmqvYyT27556ofAB?autoplay=1&chromeless=1&hideInfos=0&html=1"
+            "body": "http://www.dailymotion.com/video/k29tmqvYyT27556ofAB?autoplay=1&chromeless=0&hideInfos=0&html=1"
         }
     ]
 }

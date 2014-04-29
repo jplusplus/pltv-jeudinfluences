@@ -18,7 +18,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Le temps presse : vous voulez pointer les équipes de Mickael Saulat ou les liens entre Rouvroy et le Ministre de la Santé ?"
+            "body": "Le temps presse : vous voulez pointer les équipes de Mickael Saulat ou les liens entre Rouvroy et le ministre de la Santé ?"
         },
         {
             "type" : "choice",
@@ -41,7 +41,7 @@
                     ]
                 },
                 {
-                    "header": "Pointer les liens entre Rouvroy et le Ministre de la Santé",
+                    "header": "Pointer les liens entre Rouvroy et le ministre de la Santé",
                     "next_scene": "5.40",
                     "outro": null,
                     "result": [

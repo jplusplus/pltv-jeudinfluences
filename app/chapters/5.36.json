@@ -24,7 +24,7 @@
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "Vous avez déjà un membre du gouvernement contre vous, Alain Gravielle à la Santé, ça ne vous suffit pas ? Vous voulez en plus pointer Martin Jarendeau, le Ministre de l'Industrie ? Car c'est lui qui était président de région à l'époque de la hausse des seuils."
+            "body": "Vous avez déjà un membre du gouvernement contre vous, Alain Gravielle à la Santé, ça ne vous suffit pas ? Vous voulez en plus pointer Martin Jarendeau, le ministre de l'Industrie ? Car c'est lui qui était président de région à l'époque de la hausse des seuils."
         },
         {
             "type" : "choice",

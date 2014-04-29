@@ -11,8 +11,14 @@ use Mandrill;
 $app->get("/api/career", function() use ($app) {
     /**
     * Retrieve the career progression for the given token from the database.
-    *
     */
+
+    // cache on production
+    if( $app->getMode() != "development" ) {        
+        $app->etag('api-career');
+        $app->expires('0');
+    }
+
     $params = $app->request()->params();
     if (isset($params['token'])) {
         $career = R::findOne('career', 'token=?', array($params['token']));

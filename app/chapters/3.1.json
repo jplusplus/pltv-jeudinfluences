@@ -41,7 +41,7 @@
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "Mais apparemment, ces derniers temps, Mika aurait eu des doutes sur la fiabilité de notre béton dans cette histoire. C'est lui qui aurait repris contact avec ce ouvrier."
+            "body": "Mais apparemment, ces derniers temps, Mika aurait eu des doutes sur la fiabilité de notre béton dans cette histoire. C'est lui qui aurait repris contact avec cet ouvrier."
         },
         {
             "type": "dialogue",
@@ -59,7 +59,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Ok. Envoyez-moi son nom et la date de l'accident par sms, je vais mener ma petite enquête. Via les réseaux sociaux, on devrait pouvoir trouver quelques pistes intéressantes sur lui. Il faut que l'on aie de quoi affaiblir sa parole dès qu'elle passera dans les médias."
+            "body": "Ok. Envoyez-moi son nom et la date de l'accident par SMS, je vais mener ma petite enquête. Via les réseaux sociaux, on devrait pouvoir trouver quelques pistes intéressantes sur lui. Il faut que l'on aie de quoi affaiblir sa parole dès qu'elle passera dans les médias."
         },
         {
             "type" : "choice",

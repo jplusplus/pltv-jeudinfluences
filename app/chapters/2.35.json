@@ -5,23 +5,12 @@
     },
     "decor": [
         {
-            "background": "/medias/chap2/illustrations/illustr-ch2-17_a.jpg",
-            "background_transition": null,
+            "background": "/medias/chap2/illustrations/illustr-ch2-18.jpg",
+            "background_transition": "fade",
             "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
         }
     ],
     "sequence": [
-        {
-            "type": "dialogue",
-            "character": "Louis",
-            "header": null,
-            "body": "Oui."
-        },
-        {
-            "type": "new_background",
-            "transition": null,
-            "body": "/medias/chap2/illustrations/illustr-ch2-18.jpg"
-        },
         {
             "result": {"ubm": -4},
             "type": "dialogue",

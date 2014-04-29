@@ -12,7 +12,7 @@
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "Oui. Je n'avais pas le choix. Tu sais que les journalistes seraient venus quoi que l'on fasse..."
+            "body": "Je n'avais pas le choix. Tu sais que les journalistes seraient venus quoi que l'on fasse..."
         },
         {
             "condition": {"backing_nadia":true},

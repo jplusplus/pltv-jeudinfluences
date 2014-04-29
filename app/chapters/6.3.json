@@ -9,12 +9,12 @@
     ],
     "sequence": [
         {
-            "type": "narrative",
-            "body": "Vendredi 1er juin, 20h00."
+            "type": "video_background",
+            "body": "http://www.dailymotion.com/video/k2flrkXBwlM1YI70GH8?autoplay=1&chromeless=0&hideInfos=0&html=1"
         },
         {
-            "type": "video_background",
-            "body": "http://www.dailymotion.com/video/k2flrkXBwlM1YI70GH8?autoplay=1&chromeless=1&hideInfos=0&html=1"
+            "type": "narrative",
+            "body": "..."
         },
         {
             "type" : "choice",

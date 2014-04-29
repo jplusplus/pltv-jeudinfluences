@@ -4,7 +4,7 @@
         {
             "background": "/medias/chap1/illustrations/illustr-ch1-03.gif",
             "background_transition": "fade",
-            "soundtrack": null
+            "soundtrack": "/medias/chap1/musiques/soundtrack-ch1-a.mp3"
         }
     ],
     "sequence": [
