@@ -98,17 +98,19 @@ angular.module("spin.service").factory("User", [
                         if not do @isSequenceConditionOk 
                             # If not, go to the next sequence
                             do @nextSequence
-
-                do @checkProgression
+                gameOver = @checkProgression()
+                if gameOver
+                    @isGameOver = yes
 
             checkProgression: =>
                 return unless @inGame
+                gameOver = false 
                 # will check if user progression lead him to a game over.
                 for key, value of @indicators
                     if UserIndicators[key]? and UserIndicators[key].isGameOver(value)
-                        @isGameOver =yes
+                        gameOver =yes
                         break
-                @isGameOver
+                gameOver
 
             isStartingChapter: =>       
                 # Chapter is considered as starting during {settings.chapterEntrance} millisecond
@@ -140,7 +142,7 @@ angular.module("spin.service").factory("User", [
                     $http.get("#{api.career}?token=#{@token}")
                         # Update chapter, scene and sequence according 
                         # the last scene given by the career
-                        .success(@updateProgression)
+                        .success( @updateProgression )
                         # Something wrong happends, restores the User model
                         .error (data)=> do @newUser if @token? or @email?
                 # Or create a new one
@@ -259,16 +261,22 @@ angular.module("spin.service").factory("User", [
                 return warn('Scene') unless Plot.scene(chapter, scene)?
                 # If we effectively change
                 if @chapter isnt chapter or @scene isnt scene
-                    # Update values
-                    [@chapter, @scene, @sequence] = [chapter, scene, 0]
+                    unless @isGameOver
+                        gameOver = @checkProgression()
+                        @isGameOver = gameOver
+                    else
+                        @isGameOver = gameOver = false
+                    unless gameOver
+                        # Update values
+                        [@chapter, @scene, @sequence] = [chapter, scene, 0]
 
-                    # Check that the sequence's condition is OK
-                    if not do @isSequenceConditionOk
-                        # If not, go to the next sequence
-                        do @nextSequence
+                        # Check that the sequence's condition is OK
+                        if not do @isSequenceConditionOk
+                            # If not, go to the next sequence
+                            do @nextSequence
 
-                    # Save the career
-                    do @updateCareer if shouldUpdateCareer
+                        # Save the career
+                        do @updateCareer if shouldUpdateCareer
                 else
                     # Next sequence exits?
                     return warn('Next sequence') unless Plot.sequence(chapter, scene, @sequence+1)?  
@@ -281,8 +289,8 @@ angular.module("spin.service").factory("User", [
 
             restartChapter: =>
                 # will restart churrent chapter to its first scene.
-                @isGameOver = no
                 @inGame     = yes
+                @isSummary  = no
                 (do @eraseCareerChapter).success (career) =>
                     @goToScene career.reached_scene, yes
 

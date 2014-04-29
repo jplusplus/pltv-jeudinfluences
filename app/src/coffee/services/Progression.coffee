@@ -14,7 +14,7 @@ angular.module("spin.service").factory "Progression", [
             # Public method
             # ──────────────────────────────────────────────────────────────────────────
             constructor: ->
-                $rootScope.$watch (=>User.inGame),  @onInGameChanged,  yes                
+                $rootScope.$watch (=>User.inGame),  @onInGameChanged,  yes
                 $rootScope.$watch (=>User.chapter), @onChapterChanged, yes
                 $rootScope.$watch (=>User.scene),   @onSceneChanged,   yes
                 $rootScope.$watch (=>User.isReady), User.saveChapterChanging, yes
@@ -37,7 +37,6 @@ angular.module("spin.service").factory "Progression", [
 
                 $rootScope.$watch (=>User.isGameDone),  @singMeTheEnd,  yes                
 
-
                 # keyboard commands parametering 
                 KeyboardCommands.register keys.next, @onKeyPressed
 
@@ -45,7 +44,7 @@ angular.module("spin.service").factory "Progression", [
             onChapterChanged: (newId, oldId)->
                 i = (v)-> parseInt v # little alias to parseInt
                 should_show_summary = false
-                new_chapter = Plot.chapter newId 
+                new_chapter = Plot.chapter newId
                 old_chapter = Plot.chapter oldId
 
                 # results are show in a single way (when moving forward in
@@ -60,7 +59,7 @@ angular.module("spin.service").factory "Progression", [
                 else 
                     User.saveChapterChanging newId
 
-                User.lastChapter = oldId
+                User.lastChapter = oldId 
 
             onSceneChanged: (newScene, oldScene)=>
                 User.lastScene = oldScene
