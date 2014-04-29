@@ -43,13 +43,18 @@
     &__results {
         z-index: @game-done-zindex;
         position: absolute;
-        top: 25px;
-        left: 35%;
-        bottom: 150px;
+        top: 40px;
+        right: 20px;
 
-        width: 560px + 200px;
+        width: 560px + 150px;
         min-height: 650px;
         background: fade(black, 25);
+
+
+        @media (max-width: 1100px) {                 
+            width: 360px + 150px;
+            min-height: 380px;
+        }
 
         &__restart-button {
             position: absolute;
