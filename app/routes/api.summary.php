@@ -94,7 +94,7 @@ $app->get('/api/summary', function() use ($app) {
 $app->get('/api/summary/final', function() use ($app) {
 
     // cache on production
-    if( $app->getMode() != "development" ) {        
+    if( $app->getMode() != "development" ) {
         $app->etag('api-career');
         $app->expires('+30 seconds');
     }
@@ -105,7 +105,7 @@ $app->get('/api/summary/final', function() use ($app) {
     }
 
     $result = R::getAll("SELECT guilt, honesty FROM career WHERE finished = 1" . $tokencondition);
-    return ok($result);
+    return ok($result, true, true);
 });
 
 // EOF

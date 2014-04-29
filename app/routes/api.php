@@ -7,12 +7,14 @@ use RedBean_Facade as R;
 #    OUPUTS
 #
 # -----------------------------------------------------------------------------
-function ok($body, $json_encode=true) {
+function ok($body, $json_encode=true, $numeric_check=false) {
 	global $app;
 	$response = $app->response();
 	$response['Content-Type'] = 'application/json';
 	$response->status(200);
-	if ($json_encode) {$body = json_encode($body);}
+	$options = 0;
+	if ($numeric_check) { $options |= JSON_NUMERIC_CHECK; }
+	if ($json_encode) {$body = json_encode($body, $options);}
 	$response->body($body);
 }
 
