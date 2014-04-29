@@ -103,8 +103,9 @@ $app->get('/api/summary/final', function() use ($app) {
     if (isset($params['token'])) {
         $tokencondition = " AND token <> " . $params['token'];
     }
-    
-    return ok(R::getAll("SELECT guilt, honesty FROM career WHERE finished = 1" . $tokencondition));
+
+    $result = R::getAll("SELECT guilt, honesty FROM career WHERE finished = 1" . $tokencondition);
+    return ok($result);
 });
 
 // EOF
