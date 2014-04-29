@@ -80,6 +80,8 @@ angular.module('spin.directive').directive "scatterPlot", [
                     
                     _.map results, create_dot
 
+                if res.length < 1
+                    res = fakeData()
                 res.push user_dot()
                 # do stuff & more
                 scope.points = processResults(res) 
