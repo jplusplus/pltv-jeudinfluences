@@ -56,7 +56,11 @@ angular.module("spin.service").factory "Plot", [
                         this.isNotificationWithButton()
 
                     getEmbedSrc: ->
-                        this.body.replace("dailymotion.com/video/", "dailymotion.com/embed/video/")
+                        isSafari = navigator.userAgent.toLowerCase().indexOf('safari') != -1                        
+                        # Force HTML5 player only with Safari
+                        this.body = this.body.replace("&html=1", "") unless isSafari
+                        # Create embed url
+                        this.body = this.body.replace("dailymotion.com/video/", "dailymotion.com/embed/video/")
 
                     getHeadSrc: ->
                         if this.character?

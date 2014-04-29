@@ -92,11 +92,20 @@ $app->get('/api/summary', function() use ($app) {
 });
 
 $app->get('/api/summary/final', function() use ($app) {
+
+    // cache on production
+    if( $app->getMode() != "development" ) {
+        $app->etag('api-career');
+        $app->expires('+30 seconds');
+    }
+
     $tokencondition = "";
     if (isset($params['token'])) {
         $tokencondition = " AND token <> " . $params['token'];
     }
-    return ok(R::getAll("SELECT guilt, honesty FROM career WHERE finished = 1" . $tokencondition));
+
+    $result = R::getAll("SELECT guilt, honesty FROM career WHERE finished = 1" . $tokencondition);
+    return ok($result, true, true);
 });
 
 // EOF
