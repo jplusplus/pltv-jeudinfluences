@@ -12,7 +12,7 @@ function ok($body, $json_encode=true) {
 	$response = $app->response();
 	$response['Content-Type'] = 'application/json';
 	$response->status(200);
-	if ($json_encode) {$body = json_encode($body);}
+	if ($json_encode) {$body = json_encode($body, JSON_NUMERIC_CHECK);}
 	$response->body($body);
 }
 
