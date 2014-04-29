@@ -29,7 +29,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "...  \nOui, c'est vrai, on imagine toujours des choses hors-normes. Enfin, ça serait quand même dingue que ça vienne juste du couple. Bon allez, je dois y retourner."
+            "body": "...  \nOui, c'est vrai, on imagine toujours des choses hors-norme. Enfin, ça serait quand même dingue que ça vienne juste du couple. Bon allez, je dois y retourner."
         },
         {
             "type": "dialogue",
@@ -52,7 +52,7 @@
             "type": "notification",
             "sound": "/medias/sounddesign/notif-1.mp3",
             "header": null,
-            "body": "Une dépêche en provenance de l'Agence France Presse, mentionnant votre entreprise, vient de paraitre. Souhaitez-vous la lire ?"
+            "body": "Une dépêche de l'Agence France Presse mentionnant votre entreprise vient de paraitre. Souhaitez-vous la lire ?"
         },
         {
             "type": "choice",

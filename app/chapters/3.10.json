@@ -9,13 +9,13 @@
     ],
     "sequence": [
         {
-            "type": "narrative",
-            "body": "..."
-        },
-        {
             "result": {"ubm":24, "stress":2},
             "type": "video_background",
-            "body": "http://www.dailymotion.com/video/k49XuQoDRiE7RH70Gzo?autoplay=1&chromeless=1&hideInfos=0&html=1"
+            "body": "http://www.dailymotion.com/video/k49XuQoDRiE7RH70Gzo?autoplay=1&chromeless=0&hideInfos=0&html=1"
+        },
+        {
+            "type": "narrative",
+            "body": "..."
         }
     ]
 }

@@ -15,7 +15,7 @@
         },
         {
             "type": "narrative",
-            "body": "Il nous fallait attendre la confirmation réelle du lien entre ces cas et la pollution mais aujourd'hui, c'est chose faite. Je peux l'affirmer sans l'ombre d'un doute, grâce au travail du professeur Coudart. Ces 10 cas de cancer, qui ont malheureusement tous connu une issue fatale, sont bel et bien liés à la pollution dans le Nizerand. Celle-là même qui s'échappe de l'usine Habinat depuis plus d'un an. Monsieur Esmond devra en répondre devant la justice car ces pièces seront bien sûr portées au dossier."
+            "body": "Il nous fallait attendre la confirmation réelle du lien entre ces cas et la pollution mais aujourd'hui, c'est chose faite. Je peux l'affirmer sans l'ombre d'un doute, grâce au travail du professeur Coudart. Ces dix cas de cancer, qui ont malheureusement tous connu une issue fatale, sont bel et bien liés à la pollution dans le Nizerand. Celle-là même qui s'échappe de l'usine Habinat depuis plus d'un an. Monsieur Esmond devra en répondre devant la justice car ces pièces seront bien sûr portées au dossier."
         },
         {
             "type": "voixoff",
@@ -26,7 +26,7 @@
             "type": "dialogue",
             "character": "Journaliste",
             "header": null,
-            "body": "Louis Esmond, 10 morts, c'est beaucoup. Que souhaitez-vous dire aux familles de ces premières victimes \"officielles\" ?"
+            "body": "Louis Esmond, dix morts, c'est beaucoup. Que souhaitez-vous dire aux familles de ces premières victimes \"officielles\" ?"
         },
         {
             "type": "voixoff",
@@ -35,7 +35,7 @@
         },
         {
             "type" : "choice",
-            "body": "Attaquer le Pr. Coudart ?",
+            "body": "Attaquer le professeur Coudart ?",
             "delay" : 5,
             "default_option" : 1,
             "options": [

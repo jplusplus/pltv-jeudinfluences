@@ -12,7 +12,7 @@
             "type":"dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Il ne faut pas attaquer frontalement Lionnel Gianno, tentons d'être plus fins que lui. Si son état physique joue pour lui, les circonstances jouent pour nous. Paralysie contre suicide. Ça peut sembler cynique, mais c'est la réalité et c'est sur elle que l'on doit s'appuyer."
+            "body": "Il ne faut pas attaquer frontalement Lionel Gianno, tentons d'être plus fins que lui. Si son état physique joue pour lui, les circonstances jouent pour nous. Paralysie contre suicide. Ça peut sembler cynique, mais c'est la réalité et c'est sur elle que l'on doit s'appuyer."
         },
         {
             "condition": {"stalk_ouvrier":true},
@@ -38,7 +38,7 @@
             "type":"dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Ré-ouvrir le procès avec un soutien médiatique, c'est, pour lui, s'offrir la possibilité de revoir à la hausse ses indemnités. Il en fait un combat personnel pour améliorer sa situation présente désastreuse."
+            "body": "Rouvrir le procès avec un soutien médiatique, c'est, pour lui, s'offrir la possibilité de revoir à la hausse ses indemnités. Il en fait un combat personnel pour améliorer sa situation présente désastreuse."
         },
         {
             "type":"dialogue",

@@ -4,7 +4,7 @@
         {
             "background": "/medias/chap1/illustrations/illustr-ch1-05_a.gif",
             "background_transition": null,
-            "soundtrack": null
+            "soundtrack": "/medias/chap1/musiques/soundtrack-ch1-a.mp3"
         }
     ],
     "sequence": [
@@ -30,7 +30,7 @@
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "Habinat ne s'est jamais aussi bien porté que depuis que j'en suis P-DG. J'ai fait ce qu'il fallait pour ça.  \nTout ce qu'il fallait."
+            "body": "Habinat ne s'est jamais aussi bien porté que depuis que j'en suis PDG. J'ai fait ce qu'il fallait pour ça.  \nTout ce qu'il fallait."
         }
     ]
 }
