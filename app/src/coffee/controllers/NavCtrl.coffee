@@ -4,7 +4,7 @@ class NavCtrl
         @scope.user       = @User
         @scope.thirdParty = @ThirdParty
         @scope.volume     = @User.volume * 100
-        @scope.volumeBp   = if @scope.volume is 0 then 50 else @scope.volume
+        @scope.volumeBp   = if @scope.volume is 0 then 100 else @scope.volume
         # True if the volume is on
         @scope.isVolumeOn = => @User.volume > 0
         # Mute or unmute the volume

@@ -39,7 +39,7 @@ angular.module("spin.service").factory("User", [
                 # Scenes the user passed
                 @scenes   = master.scenes or []
                 # Sound control
-                @volume   = if isNaN(master.volume) then 0.5 else master.volume
+                @volume   = if isNaN(master.volume) then 1 else master.volume
                 # Reset identication tokens
                 [@token, @email] = [null, null] 
                 # Reset user states 

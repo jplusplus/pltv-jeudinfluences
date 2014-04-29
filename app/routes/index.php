@@ -25,8 +25,6 @@ $app->get('/', function() use ($app) {
     if( file_exists($archimade) and is_integer($app->config("archimade_idsite")) ) {        
         require_once $archimade;
         $token = $mode == "wait" ? 'page-attente' : 'home';
-        $token = $locales["partner"] ? 'partenaire' : $token;
-
         $arche = \ArcheHtml::getArche( $app->config("archimade_idsite"), $token);
         
         $locales["archimade"] = array(
