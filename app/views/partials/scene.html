@@ -75,14 +75,10 @@
         </div>
 
         <!-- Notification, a the top right corner of the screen -->
-        <div ng-if="sequence.isNotification()">
-            <div class="scene__sequence--notification__header">[[sequence.header]]&nbsp;:</div>
-            <div class="scene__sequence--notification__body" btf-markdown="sequence.body"></div>            
-            <a class="scene__sequence--notification__next btn btn-default" ng-if="sequence.isNotificationWithButton()" ng-click="goToNextSequence()">
-                <span class="sr-only">Continuer</span>
-            </a>
+        <div ng-if="sequence.isNotification()" class="scene__sequence--notification__wrapper">
+            <div class="scene__sequence--notification__wrapper__header">[[sequence.header]]&nbsp;:</div>
+            <div class="scene__sequence--notification__wrapper__body" btf-markdown="sequence.body"></div>            
         </div>
-
 
         <!-- Video, in the middle of the screen -->
         <div ng-if="sequence.isVideo()" cover min-width="1280" min-height="800">
@@ -98,10 +94,16 @@
             </div>            
         </div>
 
-
         <!-- Feedback, in the middle of the screen -->
         <div ng-if="sequence.isFeedback()">
             <div class="scene__sequence--feedback__body" btf-markdown="sequence.body"></div>            
+        </div>
+
+        <!-- generic next button -->
+        <div class="scene__sequence__next" ng-if="sequence.next_button">
+            <a class="scene__sequence__next__btn btn btn-default" ng-click="goToNextSequence()">
+                <span class="sr-only">Continuer</span>
+            </a>
         </div>
 
     </div>   
