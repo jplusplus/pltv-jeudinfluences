@@ -8,7 +8,7 @@ angular.module('spin.service').service 'Xiti', ['$rootScope', 'User', 'Plot', 'c
             # Scene change in game
             @watchInGame (->[User.inGame, User.scene]), => @loadPage @chapter()
             # Sequence change in game
-            @watchInGame (->[User.inGame, User.sequence]), => @loadPage @chapter(), @scene(), @sequence()
+            # @watchInGame (->[User.inGame, User.sequence]), => @loadPage @chapter(), @scene(), @sequence()
             # Game states
             @watchIf (->User.isGameOver), ((v)->v), => @loadPage "game-over"                     
             @watchIf (->User.isGameDone), ((v)->v), => @loadPage "bilan-fin-jeu"                 
