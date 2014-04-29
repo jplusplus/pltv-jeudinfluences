@@ -17,7 +17,7 @@
     <div class="chapter__track" ng-hide="user.isStartingChapter() || user.isGameOver">
         <div class="chapter__track__id">        
             <span ng-if="chapter.id !== '1'">Chapitre <b>[[chapter.id]]</b> / 6</span>
-            <span ng-if="chapter.id === '1'">Prologue</span>
+            <span ng-if="chapter.id === '1'">1 - Prologue</span>
         </div>
         <div class="chapter__track__bullets">
             <i class="chapter__track__bullets__bullet" ng-repeat="i in [] | range: 5" ng-class="{ active: i*25 <= user.chapterProgression() }"></i>
