@@ -15,9 +15,10 @@ $app->get("/api/career", function() use ($app) {
 
     // cache on production
     if( $app->getMode() != "development" ) {        
-        $app->etag('api-career');
-        $app->expires('0');
+        
     }
+    $app->etag('api-career');
+    $app->expires('+30 seconds');
 
     $params = $app->request()->params();
     if (isset($params['token'])) {
