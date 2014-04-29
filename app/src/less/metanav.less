@@ -4,7 +4,8 @@
 .metanav {
     z-index: @metanav-zindex;
 
-    .body--in-game & {
+    .body--in-game &,
+    .body--game-done & {
         .translate(0, -100%);
         .transition(0.6s);
 

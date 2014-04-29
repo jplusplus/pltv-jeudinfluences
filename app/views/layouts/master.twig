@@ -63,7 +63,7 @@
         {% endif %}
 
     </head>
-    <body ng-class="{ 'body--in-game' : user.inGame, 'body--is-loading': !user.isReady }" keyboard-navigation>
+    <body ng-class="{ 'body--in-game' : user.inGame, 'body--game-done': user.isGameDone, 'body--is-loading': !user.isReady }" keyboard-navigation>
 
         {{archimade.header|raw}}        
 
