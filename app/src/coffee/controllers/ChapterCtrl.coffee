@@ -14,7 +14,7 @@ class ChapterCtrl
             "chapter--starting": User.isStartingChapter()
             "chapter--loading" : not User.isReady
 
-        @scope.getBackgrounds = =>        
+        @scope.getBackgrounds = =>
             # Cache bgs to avoid infinite digest iteration
             return @bgs if @bgs?            
             @bgs = []
@@ -31,12 +31,10 @@ class ChapterCtrl
             @bgs
 
     shouldShowChapter: =>
-        should_display = @User.inGame
-        unless @User.isSummary
-            should_display = should_display and @chapter.id is @User.chapter
+        if @User.isSummary
+            return @User.lastChapter is @chapter.id
         else
-            should_display = @chapter.id is @User.lastChapter
-        should_display
+            return @User.inGame and @chapter.id is @User.chapter
 
 
 angular.module('spin.controller').controller("ChapterCtrl", ChapterCtrl)

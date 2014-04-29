@@ -11,13 +11,12 @@ class SceneCtrl
         @scene = @scope.scene = @scope.src              
         @chapter = @scope.chapter
         # True if the given scene is visible
-        @shouldShowScene = @scope.shouldShowScene = => 
-            @scene.id is @User.scene or
-            @User.isSummary and @isLastScene()
+        @shouldShowScene = @scope.shouldShowScene = =>
+            if @User.isSummary
+                return @User.lastScene and @chapter.id is @User.lastChapter
+            else
+                return @scene.id is @User.scene
 
-        @isLastScene = =>
-            @scene.id is @User.lastScene and @chapter.id is @User.lastChapter
-        
         # True if the given sequence is visible
         @scope.shouldShowSequence = (idx)=>   
             @shouldShowScene()            and
@@ -74,10 +73,10 @@ class SceneCtrl
                 higherId = id if id <= @User.sequence
             should_display = bg.sequence is 0 or (bg.sequence is higherId)
 
-            if not @User.isSummary
-                should_display = should_display and @User.scene is @scene.id
+            if @User.isSummary
+                should_display = should_display and @User.lastScene is @scene.id and @chapter.id is @User.lastChapter
             else
-                should_display = should_display and @isLastScene()
+                should_display = should_display and @User.scene is @scene.id
             return should_display
 
         # Play or pause the soundtrack
