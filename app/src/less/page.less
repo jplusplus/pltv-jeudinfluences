@@ -3,9 +3,8 @@
     position:absolute;
     top:0;
     bottom:0;
-    left:50%;
-    .translate(-50%, 0);
-    width:550px;
+    left:0;
+    right:0;
     background:fade(black, 85);
     overflow: auto;
 
@@ -14,8 +13,9 @@
     &__content {        
         position:absolute;
         top:40px;
-        left:20px;
-        right:20px;
+        left:50%;
+        .translate(-50%, 0);
+        width:550px;
         padding:40px 0;
         z-index: @static-page-zindex;
         color:lghter(@text-color, 10);

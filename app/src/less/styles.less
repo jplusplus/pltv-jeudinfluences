@@ -14,7 +14,8 @@
 @static-page-zindex   : @game-done-zindex   + 1000;
 @nav-zindex           : @static-page-zindex + 1000;
 @metanav-zindex       : @nav-zindex         + 1000;
-@debug-toolbar-zindex : @metanav-zindex     + 1000;
+@cookie-cnil-zindex   : @metanav-zindex     + 1000;
+@debug-toolbar-zindex : @cookie-cnil-zindex + 1000;
 
 @scatterplot-dot-zindex:  100;
 @scatterplot-grid-zindex: 100;
@@ -30,6 +31,7 @@
 @import 'mixins.less';
 @import 'animations.less';
 @import 'metanav.less';
+@import 'cookie-cnil.less';
 
 .site_content {
     @import 'angular.less';
@@ -46,7 +48,6 @@
     @import 'results.less';
     @import 'scatter-plot.less';
     @import 'scene.less';
-    @import 'scrollbar.less';
     @import 'welcome.less';
 }
 
