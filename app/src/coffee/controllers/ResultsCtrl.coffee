@@ -20,7 +20,7 @@ class ResultsCtrl
             @User.isSummary = no
             @User.saveChapterChanging true
 
-    shouldShowResults: => @User.isSummary and @User.inGame
+    shouldShowResults: => @User.isSummary and @User.inGame and not @User.isGameOver
 
     hasPreviousResults: => _.keys(@previousResults()).length > 0
 
