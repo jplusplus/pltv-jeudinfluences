@@ -23,6 +23,7 @@
             "type" : "choice",
             "body": "Proposer une indemnisation pour les victimes ?",
             "delay" : 3,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
             "options": [
                 {

@@ -24,6 +24,7 @@
             "type" : "choice",
             "body": "Prévenir Martin Jarendeau ?",
             "delay" : 10,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 2,
             "options": [
                 {

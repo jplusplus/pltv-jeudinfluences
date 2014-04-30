@@ -37,6 +37,7 @@
             "type" : "choice",
             "body": "Attaquer le professeur Coudart ?",
             "delay" : 5,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
             "options": [
                 {

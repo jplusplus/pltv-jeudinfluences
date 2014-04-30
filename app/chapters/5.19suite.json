@@ -25,6 +25,7 @@
             "type" : "choice",
             "body": "Mickael Saulat vous avait-t-il informé d'un ajout d'éléments chimiques dans la fabrication du béton ?",
             "delay" : 5,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
             "options": [
                 {
@@ -61,6 +62,7 @@
             "type" : "choice",
             "body": "Mickael Saulat vous avait-t-il informé d'un ajout d'éléments chimiques dans la fabrication du béton ?",
             "delay" : 5,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
             "options": [
                 {

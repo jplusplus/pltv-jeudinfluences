@@ -11,7 +11,7 @@
         {
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k2M2jj8e4OTlMu70HbO?autoplay=1&chromeless=0&hideInfos=0&html=1"
+            "body": "http://www.dailymotion.com/video/k2M2jj8e4OTlMu70HbO?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "type": "narrative",
@@ -21,6 +21,7 @@
             "type" : "choice",
             "body": "Est-ce vous qui avez demandé à Jean Durollier de reprendre l'entreprise ?",
             "delay" : 5,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
             "options": [
                 {
