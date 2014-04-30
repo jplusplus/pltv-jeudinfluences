@@ -17,7 +17,6 @@ response:
         "2.12": 0
     },
     "context": {
-        "UBM": 0,
         "guilt": 0,
         "honesty": 100,
         "karma": 0,
