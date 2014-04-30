@@ -8,8 +8,8 @@
 
     <div class="chapter__intro" ng-show="user.isStartingChapter() && !user.isGameOver">
         <div class="chapter__intro__id">
-            Chapitre [[chapter.id]]
-            <span ng-if="chapter.id === '1'"> - Prologue</span>
+            <span ng-if="chapter.id === '1'">Prologue</span>
+            <span ng-if="chapter.id !== '1'">Chapitre [[chapter.id]]</span>
         </div>
         <h2 class="chapter__intro__title">[[chapter.title]]</h2>  
     </div>
@@ -33,7 +33,16 @@
         <ul class="list-unstyled">                     
             <li class="chapter__cmd__indicator chapter__cmd__indicator--ubm">
                 <a class="chapter__cmd__indicator__help">
-                    ?<span class="chapter__cmd__indicator__help__definition">Unité de Bruit Médiatique : présence de votre crise dans les médias</span>
+                    ?
+                    <span class="chapter__cmd__indicator__help__definition">                    
+                        <span class="chapter__cmd__indicator__help__definition__abbr">
+                            Unité de Bruit Médiatique : présence de votre crise dans les médias
+                        </span>
+                        <br />
+                        <span class="chapter__cmd__indicator__help__definition__warning">
+                            S'elle atteint 100, vous perdez la partie
+                        </span>
+                    </span>
                 </a>
                 <span class="chapter__cmd__indicator__label">UBM</span>
                 <span class="chapter__cmd__indicator__value">[[user.indicators.ubm | number:0]]%</span>
@@ -44,7 +53,16 @@
             </li>
             <li class="chapter__cmd__indicator chapter__cmd__indicator--trust">
                 <a class="chapter__cmd__indicator__help">
-                    ?<span class="chapter__cmd__indicator__help__definition">La confiance que vous accorde votre Spin doctor</span>
+                    ?
+                    <span class="chapter__cmd__indicator__help__definition">
+                        <span class="chapter__cmd__indicator__help__definition__abbr">
+                            La confiance que vous accorde votre Spin doctor
+                        </span>
+                        <br />
+                        <span class="chapter__cmd__indicator__help__definition__warning">
+                            S'il atteint 0, vous perdez la partie
+                        </span>
+                    </span>
                 </a>
                 <span class="chapter__cmd__indicator__label">Confiance</span>
 
@@ -56,7 +74,16 @@
             </li>
             <li class="chapter__cmd__indicator chapter__cmd__indicator--stress">
                 <a class="chapter__cmd__indicator__help">
-                    ?<span class="chapter__cmd__indicator__help__definition">Votre état émotionnel</span>
+                    ?
+                    <span class="chapter__cmd__indicator__help__definition">
+                        <span class="chapter__cmd__indicator__help__definition__abbr">
+                            Votre état émotionnel
+                        </span>
+                        <br />
+                        <span class="chapter__cmd__indicator__help__definition__warning">
+                            S'il atteint 100, vous perdez la partie
+                        </span>
+                    </span>
                 </a>
                 <span class="chapter__cmd__indicator__label">Stress</span>
                 <span class="chapter__cmd__indicator__value">[[user.indicators.stress | number:0]]%</span>

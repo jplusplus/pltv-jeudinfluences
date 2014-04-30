@@ -76,7 +76,7 @@
 
         <!-- Notification, a the top right corner of the screen -->
         <div ng-if="sequence.isNotification()" class="scene__sequence--notification__wrapper">
-            <div class="scene__sequence--notification__wrapper__header">[[sequence.header]]&nbsp;:</div>
+            <div class="scene__sequence--notification__wrapper__header" ng-if="sequence.header">[[sequence.header]]&nbsp;:</div>
             <div class="scene__sequence--notification__wrapper__body" btf-markdown="sequence.body"></div>            
         </div>
 
