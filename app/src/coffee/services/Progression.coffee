@@ -16,8 +16,8 @@ angular.module("spin.service").factory "Progression", [
             constructor: ->
                 $rootScope.$watch (=>User.inGame),  @onInGameChanged,  yes
                 $rootScope.$watch (=>User.isGameOver), (newVal, oldVal)=>
-                    if newVal is no and User.gameOverSentence
-                        User.gameOverSentence = undefined
+                    if newVal is no and User.gameOverReason
+                        User.gameOverReason = undefined
 
                 $rootScope.$watch (=>User.chapter), @onChapterChanged, yes
                 $rootScope.$watch (=>User.scene),   @onSceneChanged,   yes
