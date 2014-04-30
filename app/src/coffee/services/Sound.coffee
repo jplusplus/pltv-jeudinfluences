@@ -117,7 +117,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                     else if @voicetrack? and @voicetrack.isPlaying?
                         do @voicetrack.pause
                 else
-                    if sequence? and sequence.type is "notification"
+                    if sequence? and (sequence.type is "notification" or (sequence.type is "choice" and sequence.delay?))
                         tracks = [$filter('media')(sequence.sound)]
                         @notificationtrack = new Howl
                             urls : tracks
