@@ -11,11 +11,8 @@
         {
             "result": {"honesty": -8, "stress": 4},
             "type": "video_background",
+            "next_button": true,
             "body": "http://www.dailymotion.com/video/k67rSTC1aDo0Kn70HuD?autoplay=1&chromeless=0&hideInfos=0&html=1"
-        },
-        {
-            "type": "narrative",
-            "body": "..."
         },
         {
             "type": "gameover"

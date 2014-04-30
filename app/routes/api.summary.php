@@ -95,7 +95,7 @@ $app->get('/api/summary/final', function() use ($app) {
 
     // cache on production
     if( $app->getMode() != "development" ) {
-        $app->etag('api-career');
+        $app->etag('api-summary-final');
         $app->expires('+30 seconds');
     }
 
