@@ -14,7 +14,6 @@ var jslib = [
   'bower_modules/angular-markdown-directive/markdown.js',
   'bower_modules/circles/index.js',  
   'bower_modules/howler/howler.min.js',
-  'bower_modules/markdown/lib/markdown.js',
   'bower_modules/showdown/src/showdown.js'
 ];
 
