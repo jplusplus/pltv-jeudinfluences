@@ -91,7 +91,7 @@ angular.module("spin.service").factory("User", [
                         @scenes = career.scenes
                         # Save indicators
                         for own key, value of career.context
-                            @indicators[key]  = value
+                            @indicators[key] = value
                         # Start to the first sequence
                         @sequence = 0
                         # Check that the sequence's condition is OK
@@ -170,12 +170,11 @@ angular.module("spin.service").factory("User", [
                     sequence = Plot.sequence(chapterIdx, sceneIdx, @sequence)
                     # Propagate the choices only if this sequence has options
                     if sequence.options?
-                        option = sequence.options[choice.choice] 
+                        option = sequence.options[choice.choice]
                         state.reached_scene = option.next_scene
                 else
                     state = reached_scene: @pos()                  
                     
-
                 state.is_game_done = @isGameDone
                 # Get value using the token
                 $http.post("#{api.career}?token=#{@token}", state).success @updateProgression
@@ -183,11 +182,8 @@ angular.module("spin.service").factory("User", [
             nextSequence: =>
                 # will show next sequence or next scene if next sequence in 
                 # current scene doesn't exists
-                scene    = Plot.scene(@chapter, @scene)
-                sequence = Plot.sequence(@chapter, @scene, @sequence)
-                if sequence.result
-                    for key, value of sequence.result
-                        @indicators[key] += value
+                scene        = Plot.scene(@chapter, @scene)
+                lastSequence = Plot.sequence(@chapter, @scene, @sequence)
                 # Go to the next sequence within the current scene
                 if Plot.sequence(@chapter, @scene, @sequence + 1)? 
                     # Go simply to the next sequence
@@ -196,15 +192,18 @@ angular.module("spin.service").factory("User", [
                     sequence = Plot.sequence(@chapter, @scene, @sequence)
                     if not @isSequenceConditionOk sequence
                         sequence = do @nextSequence
-                    # Return the new sequence
-                    sequence
                 # Go the next scene
                 else if scene and scene.next_scene?
                     # Shouldn't we reset to first sequence here?
                     @goToScene scene.next_scene   
                     # Return the new sequence
-                    Plot.sequence(@chapter, @scene, @sequence)
+                    sequence = Plot.sequence(@chapter, @scene, @sequence)
 
+                if lastSequence.result and @isSequenceConditionOk lastSequence 
+                    for key, value of lastSequence.result
+                        @indicators[key] += value
+
+                sequence
             isSequenceConditionOk: (seq) =>              
                 # check that every sequence condition are met or not. 
                 # condition are set with variables while doing some choices
