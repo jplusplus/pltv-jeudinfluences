@@ -9,6 +9,13 @@ use RedBean_Facade as R;
 # -----------------------------------------------------------------------------
 
 $app->get('/api/summary', function() use ($app) {
+
+    // cache on production
+    if( $app->getMode() != "development" ) {
+        $app->etag('api-summary-final');
+        $app->expires('+10 seconds');
+    }
+
     /**
     * Chapter must have a name like [0-9].json
     */
