@@ -16,6 +16,12 @@ angular.module("spin.service").factory "Timeout", [
                 @_lastStep = null
                 @_timeout = undefined
 
+            cancel: =>
+                $timeout.cancel @_timeout
+                @_timeout = undefined
+                @remainingTime = 0
+                @_lastStep = null
+
             toggleSequence: (chapterIdx=User.chapter, sceneIdx=User.scene, sequenceIdx=User.sequence) =>
                 if sequenceIdx?
                     if @_timeout?
@@ -49,7 +55,7 @@ angular.module("spin.service").factory "Timeout", [
                 @remainingTime += (now - @_lastStep) * (100 / (@sequence.delay * 1000))
                 return if isNaN(@remainingTime)
                 if @remainingTime < 100
-                    $timeout @timeStep, settings.timeoutRefRate
+                    @_timeout = $timeout @timeStep, settings.timeoutRefRate
                     @_lastStep = now
                 else
                     @_timeout = undefined
