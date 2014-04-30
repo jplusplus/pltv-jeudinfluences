@@ -2,6 +2,7 @@ angular.module("spin.service").factory("User", [
     'constant.api'
     'constant.settings'
     'constant.types'
+    'constant.gameover-sentences'
     'TimeoutStates'
     'UserIndicators'
     'Plot'
@@ -10,7 +11,7 @@ angular.module("spin.service").factory("User", [
     '$timeout'
     '$location'
     '$rootScope'
-    (api, settings, types, TimeoutStates, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
+    (api, settings, types, sentences, TimeoutStates, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
         new class User
             # ─────────────────────────────────────────────────────────────────
             # Public method
@@ -108,8 +109,10 @@ angular.module("spin.service").factory("User", [
                 # will check if user progression lead him to a game over.
                 for key, value of @indicators
                     if UserIndicators[key]? and UserIndicators[key].isGameOver(value)
+                        @gameOverSentence = sentences[key]
                         gameOver =yes
                         break
+                    else 
                 gameOver
 
             isStartingChapter: =>       
@@ -202,8 +205,12 @@ angular.module("spin.service").factory("User", [
                 if lastSequence.result and @isSequenceConditionOk lastSequence 
                     for key, value of lastSequence.result
                         @indicators[key] += value
+                        gameOver = do @checkProgression
+                        if gameOver
+                            @isGameOver = true
 
                 sequence
+                
             isSequenceConditionOk: (seq) =>              
                 # check that every sequence condition are met or not. 
                 # condition are set with variables while doing some choices
