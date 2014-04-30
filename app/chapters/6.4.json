@@ -12,18 +12,19 @@
             "condition": {"soutien_jarendeau":true},
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k4VIZPGptTkJ0U70GLB?autoplay=1&chromeless=0&hideInfos=0&html=1"
+            "body": "http://www.dailymotion.com/video/k4VIZPGptTkJ0U70GLB?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "condition": {"soutien_jarendeau":false},
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k2In3Qfavumu6v70H3m?autoplay=1&chromeless=0&hideInfos=0&html=1"
+            "body": "http://www.dailymotion.com/video/k2In3Qfavumu6v70H3m?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "type" : "choice",
             "body": "Avez-vous échangé avec Martin Jarendeau au sujet du la hausse des seuils d'alerte ?",
             "delay" : 5,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
             "options": [
                 {

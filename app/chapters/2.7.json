@@ -24,6 +24,7 @@
             "type": "choice",
             "body": "Prendre la carte ?",
             "delay": 10,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option": 2,
             "options": [
                 {

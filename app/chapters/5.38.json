@@ -24,6 +24,7 @@
             "type" : "choice",
             "body": "Que décidez-vous ?",
             "delay" : 3,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
             "options": [
                 {

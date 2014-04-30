@@ -11,12 +11,13 @@
         {
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k3EHudwFbI3dQL70Hjn?autoplay=1&chromeless=0&hideInfos=0&html=1"
+            "body": "http://www.dailymotion.com/video/k3EHudwFbI3dQL70Hjn?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "type" : "choice",
             "body": "Pensez vous qu'ils puissent être coupables ?",
             "delay" : 5,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
             "options": [
                 {

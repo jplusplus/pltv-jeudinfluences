@@ -35,6 +35,7 @@
             "type": "choice",
             "body": "Aucune difficulté avec Mickael au sein de l'entreprise ?",
             "delay": 10,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option": 2,
             "options": [
                 {
