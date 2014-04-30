@@ -11,12 +11,13 @@
         {
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k2RUcdkG3SceQf70H7h?autoplay=1&chromeless=0&hideInfos=0&html=1"
+            "body": "http://www.dailymotion.com/video/k2RUcdkG3SceQf70H7h?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "type" : "choice",
             "body": "Avez-vous une idée des raisons de ce comportement ?",
             "delay" : 5,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
             "options": [
                 {

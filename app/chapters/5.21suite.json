@@ -30,6 +30,7 @@
             "type" : "choice",
             "body": "Mais vous connaissiez quand même le détail des recherches de Monsieur Saulat ?",
             "delay" : 5,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 2,
             "options": [
                 {

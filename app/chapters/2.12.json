@@ -27,6 +27,7 @@
             "type": "choice",
             "body": "Faire un tweet ?",
             "delay": 10,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option": 1,
             "options": [
                 {

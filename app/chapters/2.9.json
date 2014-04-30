@@ -19,6 +19,7 @@
             "type": "choice",
             "body": "Rejoindre Patrick Luaud ?",
             "delay": 15,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option": 2,
             "options": [
                 {

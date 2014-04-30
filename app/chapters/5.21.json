@@ -43,6 +43,7 @@
             "type" : "choice",
             "body": "Suivre le conseil de Patrick Luaud ?",
             "delay" : 5,
+            "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
             "options": [
                 {
