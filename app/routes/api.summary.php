@@ -81,13 +81,15 @@ $app->get('/api/summary', function() use ($app) {
     // We inject the percentages in the returned object
     $returned_summary = $summary[$asked_chapter];
     $chapter_choices  = json_decode($summary_in_db['choices'], true);
-    $chapter_choices  = $chapter_choices[$asked_chapter];
+    $chapter_choices  = $chapter_choices[$asked_chapter];              
     foreach ($returned_summary['scenes'] as $choice_key => &$choice) {
-        foreach ($choice['options'] as $key => &$option) {
-            $option = array(
-                "title" => $option,
-                "percentage" => $chapter_choices[$choice_key][$key]
-            );
+        foreach ($choice['options'] as $key => &$option) {  
+            if( isset($chapter_choices[$choice_key]) ) {                
+                $option = array(
+                    "title" => $option,
+                    "percentage" => $chapter_choices[$choice_key][$key]
+                );
+            }
         }
         if (isset($token_career) && isset($token_career['choices'][$choice_key])) {
             $choice['you'] = $token_career['choices'][$choice_key];
