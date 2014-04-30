@@ -1,5 +1,6 @@
 var jslib = [
   'bower_modules/jquery/jquery.min.js',
+  'bower_modules/modernizr/modernizr.js',
   'bower_modules/underscore/underscore.js',
   'bower_modules/angular/angular.min.js',
   'bower_modules/nouislider/jquery.nouislider.js',
