@@ -36,6 +36,11 @@ angular.module("spin.service").factory "Progression", [
                 $rootScope.$watch (=>do User.isStartingChapter), ->
                     do Sound.toggleSequence
 
+                $rootScope.$watch (=> User.isGameOver), (new_value, old_value) ->
+                    if new_value and (not old_value)
+                        do Sound.stopVoiceTrack
+                        do Timeout.cancel
+
                 # Update the volume
                 $rootScope.$watch (=>User.volume), Sound.updateVolume
 

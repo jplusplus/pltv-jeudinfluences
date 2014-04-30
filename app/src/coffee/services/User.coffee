@@ -258,7 +258,7 @@ angular.module("spin.service").factory("User", [
                     return
 
                 [chapter, scene] = next_scene_str.split "."
-                    
+
                 # Check that the next step exists
                 warn = (m)-> console.warn "#{m} doesn't exist (#{next_scene_str})."
                 # Chapter exits?

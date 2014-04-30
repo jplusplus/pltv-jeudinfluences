@@ -20,6 +20,14 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
             # Play the sound with a fadein entrance
             @soundtrack.play => @soundtrack.fade(0, User.volume, 1000)
 
+        extractAllTracks: (track) =>
+            tracks = [track]
+            tracks.push tracks[0]
+            tracks[1] = tracks[1].split '.'
+            tracks[1][tracks[1].length - 1] = 'ogg'
+            tracks[1] = tracks[1].join '.'
+            return tracks
+
         stopVoiceTrack: (sequence=null) =>
             if @voicetrack?
                 clearInterval @voicetrack._interval
@@ -38,7 +46,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
             if scene? and Plot.chapters.length and Plot.scene(chapter, scene)?
                 # Get scene object
                 scene  = Plot.scene(chapter, scene)
-                tracks = [ $filter('media')(scene.decor[0].soundtrack) ]
+                tracks = @extractAllTracks $filter('media')(scene.decor[0].soundtrack)
                 # Update the soundtrack if it is different
                 if scene.decor[0].hasOwnProperty 'soundtrack'
                     if scene.decor[0].soundtrack?
@@ -71,7 +79,7 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
 
                 # Sequence is a voicetrack
                 if sequence? and sequence.type is "voixoff"
-                    tracks = [$filter('media')(sequence.body or sequence.sound)]
+                    tracks = @extractAllTracks $filter('media')(sequence.body or sequence.sound)
                     # Update the voicetrack if it is different
                     if not @voicetrack? or not angular.equals( @voicetrack.urls(), tracks)
                         # Create the new sound
@@ -117,8 +125,8 @@ angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '
                     else if @voicetrack? and @voicetrack.isPlaying?
                         do @voicetrack.pause
                 else
-                    if sequence? and sequence.type is "notification"
-                        tracks = [$filter('media')(sequence.sound)]
+                    if sequence? and (sequence.type is "notification" or (sequence.type is "choice" and sequence.delay?))
+                        tracks = @extractAllTracks $filter('media')(sequence.sound)
                         @notificationtrack = new Howl
                             urls : tracks
                             loop : no

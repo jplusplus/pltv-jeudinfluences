@@ -6,47 +6,65 @@
     <div ng-show="showControl"class="welcome__guide welcome__guide--control"></div>
 
     <div class="welcome__wrapper">
-        <div class="welcome__intro">
-            <h1>Jeu d'influences</h1>            
-            <p class="welcome__intro__lead">
-                Jusqu'où suivrez-vous votre Spin Doctor ?
-            </p>
-            <p>
-                Je m'appelle Louis Esmond. J'ai 41 ans.
-            </p>
-            <p>                
-                Je suis l'ex-PDG de l'entreprise de BTP Habinat,<br />
-                leader national des constructions labellisées HQE,<br />
-                <em>Haute Qualité Environnementale</em>.
-            </p>
-            <p>
-                Je suis également ex-secrétaire d'État à la biodiversité<br />
-                auprès du Ministre de l'Industrie, Martin Jarendeau.
-            </p>
-            <p>
-                L'histoire qui va suivre raconte comment je suis arrivé jusqu'ici.
-            </p>
-            <p>
-                <strong>À moins que vous ne m'emmeniez ailleurs...</strong>
-            </p>
-        </div>
-
         <div ng-show="isNewUser()">
+            <div class="welcome__intro">
+                <h1>Jeu d'influences</h1>
+                <p class="welcome__intro__lead">
+                    Jusqu'où suivrez-vous votre Spin Doctor ?
+                </p>
+                <p>
+                    Je m'appelle Louis Esmond. J'ai 41 ans.
+                </p>
+                <p>
+                    Je suis l'ex-PDG de l'entreprise de BTP Habinat,<br />
+                    leader national des constructions labellisées HQE,<br />
+                    <em>Haute Qualité Environnementale</em>.
+                </p>
+                <p>
+                    Je suis également ex-secrétaire d'État à la biodiversité<br />
+                    auprès du Ministre de l'Industrie, Martin Jarendeau.
+                </p>
+                <p>
+                    L'histoire qui va suivre raconte comment je suis arrivé jusqu'ici.
+                </p>
+                <p>
+                    <strong>À moins que vous ne m'emmeniez ailleurs...</strong>
+                </p>
+            </div>
+
             <div class="welcome__user">
-                <p>Renseignez votre e-mail pour sauvegarder votre progression</p>       
-                <form class="form-horizontal welcome__user__form" role="signin" ng-submit="submit()" name="form">                     
-                    <input class="form-control" placeholder="email@exemple.org" ng-model="email" required type="email" class="form-control" /> 
+                <p>Renseignez votre e-mail pour sauvegarder votre progression</p>
+                <form class="form-horizontal welcome__user__form" role="signin" ng-submit="submit()" name="form">
+                    <input class="form-control" placeholder="email@exemple.org" ng-model="email" required type="email" class="form-control" />
                     <button type="submit" class="welcome__user__form__submit btn btn-default" ng-disabled="form.$invalid">OK</button>
                 </form>
             </div>
-        
+
             <div class="welcome__start">
-                <button class="welcome__start__btn btn btn-default btn-lg" ng-click="startGame()">Commencer</button>            
+                <button class="welcome__start__btn btn btn-default btn-lg" ng-click="startGame()">Commencer</button>
             </div>
         </div>
 
         <div class="welcome__start" ng-hide="isNewUser()">
-            <button class="welcome__start__btn btn btn-default btn-lg" ng-click="newGame()">Recommencer</button>
+            <div class="welcome__intro">
+                <h1>Jeu d'influences</h1>
+                <p class="welcome__intro__lead">
+                    Jusqu'où suivrez-vous votre Spin Doctor ?
+                </p>
+                <p>
+                    Apparemment une partie est déjà en cours avec ce compte.<br />
+                    Louis Esmond vous attend.
+                </p>
+                <p>
+                    Si vous souhaitez le retrouver et poursuivre l'histoire,<br />
+                    cliquez sur "Reprendre la partie".
+                </p>
+                <p>
+                    Sinon choisissez "Recommencer au début".
+                </p>
+            </div>
+
+            <button class="welcome__start__btn btn btn-default btn-lg" ng-click="newGame()">Recommencer au début</button>
             <button class="welcome__start__btn btn btn-default btn-lg" ng-click="startGame(false)">Reprendre la partie</button>
         </div>
     </div>

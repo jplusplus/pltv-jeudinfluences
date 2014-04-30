@@ -16,7 +16,8 @@
     "underscore": "1.6.0",
     "circles": "https://raw.githubusercontent.com/lugolabs/circles/827b36f8f3cd47d73adedf5f361c06ce16d1d4ba/circles.js",
     "jquery": "1.9.1",
-    "howler": "~1.1.20"
+    "howler": "~1.1.20",
+    "modernizr": "~2.8.0"
   },
   "resolutions": {
     "angular-sanitize": "~1.2.5",
