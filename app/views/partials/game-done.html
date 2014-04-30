@@ -10,6 +10,10 @@
         <p class="game-done__summary__description">
             Raw denim organic put a bird on it, craft beer excepteur shabby chic bitters cardigan Thundercats nihil hella gentrify duis meh. Synth cillum leggings selfies, fanny pack swag eiusmod Vice biodiesel sed. 
         </p>
+
+        <button ng-click="user.newUser()" class="game-done__summary__restart-button btn btn-default btn-lg">
+            Recommencer
+        </button>
     </div>
 
     <div class="game-done__results">
@@ -24,10 +28,5 @@
         </div>
 
         <scatter-plot ng-if="shouldShowTheEnd()" results="results"></scatter-plot>
-
-        <button ng-click="user.newUser()" 
-                class="game-done__results__restart-button btn btn-default btn-lg">
-            Recommencer
-        </button>
     </div>
 </div>
