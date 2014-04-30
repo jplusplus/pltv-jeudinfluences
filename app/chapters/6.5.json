@@ -11,16 +11,14 @@
         {
             "condition": {"soutien_jarendeau":true},
             "type": "video_background",
+            "next_button": true,
             "body": "http://www.dailymotion.com/video/k3cKMSAE9QQAkt70H5i?autoplay=1&chromeless=0&hideInfos=0&html=1"
         },
         {
             "condition": {"soutien_jarendeau":false},
             "type": "video_background",
+            "next_button": true,
             "body": "http://www.dailymotion.com/video/kk5AtHe2RattpI70H6v?autoplay=1&chromeless=0&hideInfos=0&html=1"
-        },
-        {
-            "type": "narrative",
-            "body": "..."
         },
         {
             "type" : "choice",

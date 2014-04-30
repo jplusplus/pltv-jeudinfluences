@@ -10,11 +10,8 @@
     "sequence": [
         {
             "type": "video_background",
+            "next_button": true,
             "body": "http://www.dailymotion.com/video/kuLNduM73lpLTL70H8V?autoplay=1&chromeless=0&hideInfos=0&html=1"
-        },
-        {
-            "type": "narrative",
-            "body": "..."
         }
     ]
 }

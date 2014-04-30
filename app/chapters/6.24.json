@@ -11,16 +11,14 @@
         {
             "condition": {"plainte_nadia": false},
             "type": "video_background",
+            "next_button": true,
             "body": "http://www.dailymotion.com/video/kwwWZOBkSJcxmp70HlM?autoplay=1&chromeless=0&hideInfos=0&html=1"
         },
         {
             "condition": {"plainte_nadia": true},
             "type": "video_background",
+            "next_button": true,
             "body": "http://www.dailymotion.com/video/ka2pfpettI7VSr70Hmj?autoplay=1&chromeless=0&hideInfos=0&html=1"
-        },
-        {
-            "type": "narrative",
-            "body": "..."
         }
     ]
 }
