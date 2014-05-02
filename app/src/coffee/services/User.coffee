@@ -295,6 +295,11 @@ angular.module("spin.service").factory("User", [
                 @isGameOver = no
                 (do @eraseCareerChapter).success @updateProgression
 
+
+            leaveSummary: => 
+                @isSummary = no
+                @saveChapterChanging true
+
             eraseCareerSinceNow: =>
                 $http
                     url : "#{api.erase}?token=#{@token}"
