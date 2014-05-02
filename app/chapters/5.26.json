@@ -9,10 +9,13 @@
     ],
     "sequence": [
         {
+          "type": "narrative",
+          "body": "Jeudi 31 mai, 6h22." 
+        },
+        {
            "result": {"ubm": 16},
            "type": "dialogue",
            "character": "Patrick Luaud",
-           "header": "Jeudi 31 mai, 6h22.",
            "body": "Bon, je ne vais pas vous mentir. Ça commence à se fissurer. Le volet de l'enquête sur les cancers potentiellement liés à la pollution crée des remous."
         },
         {

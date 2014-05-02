@@ -23,7 +23,7 @@
                 {
                     "header": "Oui",
                     "next_scene": "4.32",
-                    "outro": null,
+                    "outro": "Patrick Luaud s'en souviendra...",
                     "result": [
                         {
                             "karma": 4,
@@ -37,7 +37,7 @@
                 {
                     "header": "Non [mentir]",
                     "next_scene": "4.36",
-                    "outro": null,
+                    "outro": "Patrick Luaud s'en souviendra...",
                     "result": [
                         {
                             "karma": -4,
