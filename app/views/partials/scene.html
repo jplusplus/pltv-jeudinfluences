@@ -56,8 +56,7 @@
 
         <!-- Choice box, at the middle of the screen -->
         <div ng-if="sequence.isChoice()">
-            <h3 class="scene__sequence--choice__question">
-                [[sequence.body]]
+            <h3 class="scene__sequence--choice__question" ng-bind-html="sequence.body">
             </h3>
             <button ng-repeat="option in sequence.options"
                     class="btn btn-lg btn-default scene__sequence--choice__option"
@@ -77,7 +76,7 @@
         <!-- Notification, a the top right corner of the screen -->
         <div ng-if="sequence.isNotification()" class="scene__sequence--notification__wrapper">
             <div class="scene__sequence--notification__wrapper__header" ng-if="sequence.header">[[sequence.header]]&nbsp;:</div>
-            <div class="scene__sequence--notification__wrapper__body" btf-markdown="sequence.body"></div>            
+            <div class="scene__sequence--notification__wrapper__body" btf-markdown="sequence.body"></div>
         </div>
 
         <!-- Video, in the middle of the screen -->

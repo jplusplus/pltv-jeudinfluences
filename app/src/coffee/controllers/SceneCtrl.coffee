@@ -74,11 +74,11 @@ class SceneCtrl
                 # Took the last higher id than the current sequence
                 higherId = id if id <= @User.sequence
 
-            sequence = @Plot.sequence(@User.chapter, @scene.id, bg.sequence)
-            should_display = (bg.sequence is 0) or 
-                             (bg.sequence is higherId) or 
-                             (@User.userMeetSequenceConditions sequence)
-
+            sequence = @Plot.sequence(@chapter.id, @scene.id, bg.sequence)
+            should_display = (bg.sequence is 0) or (bg.sequence is higherId)
+            if sequence and sequence.hasConditions()
+                should_display = @User.userMeetSequenceConditions sequence
+                
             if @User.isSummary
                 should_display = should_display and @User.lastScene is @scene.id and @chapter.id is @User.lastChapter
             else
