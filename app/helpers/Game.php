@@ -58,25 +58,22 @@ class Game {
 			if (isset($scene["sequence"])) {
 				foreach ($scene["sequence"] as $event) {
 					// check if there are conditions and if they are satisfied
+					$satisfied = true;
 					if (isset($event["result"]) && isset($event["condition"])) {
-						$satisfied = true;
 						foreach ($event["condition"] as $key => $value) { // over all the conditions
 							// check from the context and break if conditions are not satisfied
+							$user_val = false;
 							if (isset($context[$key])) {
-								if ($context[$key] != $value) {
-									$satisfied = false;
-									break;
-								}
-							} else {
-								if ($value) {
-									$satisfied = false;
-									break;
-								}
+								$user_val = $context[$key];
+							}
+
+							if ($user_val != $value) {
+								$satisfied = false;
+								break;
 							}
 						}
-						if (!$satisfied) break; // exit the event if conditions are not satisfied
 					}
-					if (isset($event["result"])) {
+					if (isset($event["result"]) && $satisfied) {
 						Game::updateContext($context, $event["result"]);
 					}
 				}
