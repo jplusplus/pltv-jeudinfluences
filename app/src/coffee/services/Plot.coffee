@@ -45,6 +45,9 @@ angular.module("spin.service").factory "Plot", [
                     isFeedback: ->
                         this.lowerType() is types.sequence.feedback
 
+                    hasConditions: ->
+                        this.condition?
+
                     hasNext: ->  
                         settings.sequenceWithNext.indexOf( this.lowerType() ) > -1 
 

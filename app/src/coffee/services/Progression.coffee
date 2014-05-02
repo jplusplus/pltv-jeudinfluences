@@ -89,12 +89,14 @@ angular.module("spin.service").factory "Progression", [
                 inGame = User.inGame
                 isSummary = User.isSummary
                 gameOver = User.isGameOver
-                    
-                if inGame and not isSummary and not isGameOver
+                isStartingChapter = User.isStartingChapter()
+
+                if _.every [ inGame, not isSummary, not gameOver, 
+                             not isStartingChapter] 
                     seq = Plot.sequence(User.chapter, User.scene, User.sequence)
                     if seq.hasNext()
                         do User.nextSequence
-                if isSummary and inGame and not isGameOver
+                if isSummary and inGame and not gameOver
                     do User.leaveSummary
 
 

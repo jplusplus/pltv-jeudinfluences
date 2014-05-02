@@ -100,7 +100,7 @@
         </div>
 
         <!-- generic next button -->
-        <div class="scene__sequence__next" ng-if="sequence.next_button">
+        <div class="scene__sequence__next" ng-if="sequence.next_button" ng-class="{ 'scene__sequence__next--video-on': sequence.isVideo()}">
             <a class="scene__sequence__next__btn btn btn-default" ng-click="goToNextSequence()">
                 <span class="sr-only">Continuer</span>
             </a>
