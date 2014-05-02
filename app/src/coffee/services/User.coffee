@@ -82,7 +82,7 @@ angular.module("spin.service").factory("User", [
             updateLocalStorage: (user=@)=>
                 localStorageService.set("user", user) if user?
 
-            updateProgression: (career)=>
+            updateProgression: (career, newGame=false)=>
                 # Do we start acting?
                 if career.reached_scene? and typeof(career.reached_scene) is "string"
                     unless TimeoutStates.feedback isnt undefined
@@ -98,7 +98,7 @@ angular.module("spin.service").factory("User", [
                         if not do @isSequenceConditionOk
                             # If not, go to the next sequence
                             do @nextSequence
-                if @checkProgression() # return 
+                if @checkProgression() and not newGame# return 
                     @isGameOver = yes
 
             checkProgression: =>
@@ -186,20 +186,6 @@ angular.module("spin.service").factory("User", [
                 # current scene doesn't exists
                 scene        = Plot.scene(@chapter, @scene)
                 lastSequence = Plot.sequence(@chapter, @scene, @sequence)
-                # Go to the next sequence within the current scene
-                if Plot.sequence(@chapter, @scene, @sequence + 1)? 
-                    # Go simply to the next sequence
-                    ++@sequence 
-                    # Retrieve the new sequence and check conditions
-                    sequence = Plot.sequence(@chapter, @scene, @sequence)
-                    if not @isSequenceConditionOk sequence
-                        sequence = do @nextSequence
-                # Go the next scene
-                else if scene and scene.next_scene?
-                    # Shouldn't we reset to first sequence here?
-                    @goToScene scene.next_scene   
-                    # Return the new sequence
-                    sequence = Plot.sequence(@chapter, @scene, @sequence)
 
                 if lastSequence.result and @isSequenceConditionOk lastSequence 
                     for key, value of lastSequence.result
@@ -207,6 +193,22 @@ angular.module("spin.service").factory("User", [
                         gameOver = do @checkProgression
                         if gameOver
                             @isGameOver = true
+                unless @isGameOver
+                    # Go to the next sequence within the current scene
+                    if Plot.sequence(@chapter, @scene, @sequence + 1)? 
+                        # Go simply to the next sequence
+                        ++@sequence 
+                        # Retrieve the new sequence and check conditions
+                        sequence = Plot.sequence(@chapter, @scene, @sequence)
+                        if not @isSequenceConditionOk sequence
+                            sequence = do @nextSequence
+                    # Go the next scene
+                    else if scene and scene.next_scene?
+                        # Shouldn't we reset to first sequence here?
+                        @goToScene scene.next_scene   
+                        # Return the new sequence
+                        sequence = Plot.sequence(@chapter, @scene, @sequence)
+                
                 sequence
                 
             isSequenceConditionOk: (seq) =>              
