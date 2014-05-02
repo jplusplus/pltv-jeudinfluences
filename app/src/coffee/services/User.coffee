@@ -95,15 +95,14 @@ angular.module("spin.service").factory("User", [
                         # Start to the first sequence
                         @sequence = 0
                         # Check that the sequence's condition is OK
-                        if not do @isSequenceConditionOk 
+                        if not do @isSequenceConditionOk
                             # If not, go to the next sequence
                             do @nextSequence
-                gameOver = @checkProgression()
-
-                if gameOver
+                if @checkProgression() # return 
                     @isGameOver = yes
 
             checkProgression: =>
+                # return false if user is in game over
                 return unless @inGame
                 gameOver = false 
                 # will check if user progression lead him to a game over.
@@ -208,7 +207,6 @@ angular.module("spin.service").factory("User", [
                         gameOver = do @checkProgression
                         if gameOver
                             @isGameOver = true
-
                 sequence
                 
             isSequenceConditionOk: (seq) =>              
@@ -282,9 +280,8 @@ angular.module("spin.service").factory("User", [
                         if not do @isSequenceConditionOk
                             # If not, go to the next sequence
                             do @nextSequence
-                        else 
-                            # Save the career
-                            do @updateCareer if shouldUpdateCareer
+                        # Save the career
+                        do @updateCareer if shouldUpdateCareer
                 else
                     # Next sequence exits?
                     return warn('Next sequence') unless Plot.sequence(chapter, scene, @sequence+1)?  
