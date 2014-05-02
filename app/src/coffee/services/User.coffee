@@ -99,6 +99,8 @@ angular.module("spin.service").factory("User", [
                             # If not, go to the next sequence
                             do @nextSequence
                 gameOver = @checkProgression()
+
+                console.log 'updated progression, reached: ', career.reached_scene
                 if gameOver
                     @isGameOver = yes
 
@@ -176,7 +178,7 @@ angular.module("spin.service").factory("User", [
                         state.reached_scene = option.next_scene
                 else
                     state = reached_scene: @pos()                  
-                    
+                
                 state.is_game_done = @isGameDone
                 # Get value using the token
                 $http.post("#{api.career}?token=#{@token}", state).success @updateProgression
@@ -213,6 +215,17 @@ angular.module("spin.service").factory("User", [
             isSequenceConditionOk: (seq) =>              
                 # check that every sequence condition are met or not. 
                 # condition are set with variables while doing some choices
+                seq = seq or Plot.sequence @chapter, @scene, @sequence  
+                return true unless seq?
+                is_ok = @userMeetSequenceConditions(seq)
+                if seq.isSkipped()
+                    is_ok = no
+                if seq.isGameOver()
+                    $rootScope.safeApply =>
+                        @isGameOver = true
+                is_ok
+
+            userMeetSequenceConditions: (seq)=>
                 is_ok = yes
                 seq = seq or Plot.sequence @chapter, @scene, @sequence  
                 return true unless seq?
@@ -222,11 +235,6 @@ angular.module("spin.service").factory("User", [
                         unless user_variable_value?
                             user_variable_value = false
                         is_ok = is_ok and (user_variable_value is value)
-                if seq.isSkipped()
-                    is_ok = no
-                if seq.isGameOver()
-                    $rootScope.safeApply =>
-                        @isGameOver = true
                 is_ok
 
             associate: (email) =>
@@ -275,9 +283,9 @@ angular.module("spin.service").factory("User", [
                         if not do @isSequenceConditionOk
                             # If not, go to the next sequence
                             do @nextSequence
-
-                        # Save the career
-                        do @updateCareer if shouldUpdateCareer
+                        else 
+                            # Save the career
+                            do @updateCareer if shouldUpdateCareer
                 else
                     # Next sequence exits?
                     return warn('Next sequence') unless Plot.sequence(chapter, scene, @sequence+1)?  
