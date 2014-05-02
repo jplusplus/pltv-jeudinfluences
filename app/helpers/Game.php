@@ -3,36 +3,41 @@
 namespace app\helpers;
 
 class Game {
+
+	protected static $plot;
 	
 	public static function getPlot($opening_dates=NULL) {
 		/**
 		* Return the story (chapter + scene).
 		* If an opening_dates array is given, takes care about the returned chapters.
 		*/
-		$response = array();
-		$chapters = glob('chapters/[0-9*].json', GLOB_BRACE);
-		foreach ($chapters as $chapter_filename) {
-			$chapter_number = basename($chapter_filename, ".json");
-			$content        = file_get_contents($chapter_filename);
-			$chapter        = json_decode($content, true);
-			$opening_date   = isset($opening_dates[$chapter_number]) ? $opening_dates[$chapter_number] : null;
-			// if there is an opening date, compare it with today : keep only opened chapters
-			if(empty($opening_date) || strtotime(date('Y-m-d H:i:s')) >= strtotime($opening_date))  {
-				// retrieve scenes files for the current chapter
-				$scenes  = glob('chapters/'.$chapter_number.'.?*.json', GLOB_BRACE);
-				$chapter['id']           = $chapter_number; # add the id from filename
-				$chapter['opening_date'] = $opening_date; # add the opening_date from config into the chapter object
-				$chapter['scenes']       = array();
-				foreach ($scenes as $scene_filename) {
-					$content     = file_get_contents($scene_filename);
-					$scene       = json_decode($content, true);
-					$scene["id"] = implode(array_slice(explode(".", basename($scene_filename, ".json")), 1)); # add the id from filename
-					$chapter['scenes'][] = $scene;
+		if (!isset(self::$plot)) {
+			$response = array();
+			$chapters = glob('chapters/[0-9*].json', GLOB_BRACE);
+			foreach ($chapters as $chapter_filename) {
+				$chapter_number = basename($chapter_filename, ".json");
+				$content        = file_get_contents($chapter_filename);
+				$chapter        = json_decode($content, true);
+				$opening_date   = isset($opening_dates[$chapter_number]) ? $opening_dates[$chapter_number] : null;
+				// if there is an opening date, compare it with today : keep only opened chapters
+				if(empty($opening_date) || strtotime(date('Y-m-d H:i:s')) >= strtotime($opening_date))  {
+					// retrieve scenes files for the current chapter
+					$scenes  = glob('chapters/'.$chapter_number.'.?*.json', GLOB_BRACE);
+					$chapter['id']           = $chapter_number; # add the id from filename
+					$chapter['opening_date'] = $opening_date; # add the opening_date from config into the chapter object
+					$chapter['scenes']       = array();
+					foreach ($scenes as $scene_filename) {
+						$content     = file_get_contents($scene_filename);
+						$scene       = json_decode($content, true);
+						$scene["id"] = implode(array_slice(explode(".", basename($scene_filename, ".json")), 1)); # add the id from filename
+						$chapter['scenes'][] = $scene;
+					}
+					$response[] = $chapter;
 				}
-				$response[] = $chapter;
 			}
+			self::$plot = $response;
 		}
-		return $response;
+		return self::$plot;
 	}
 
 	public static function computeContext($career){
