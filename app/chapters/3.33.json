@@ -27,6 +27,7 @@
             "body": "/medias/chap3/illustrations/illustr-ch3-14.jpg"
         },
         {
+            "result": {"stress": -8},
             "type": "narrative",
             "body": "..."
         }

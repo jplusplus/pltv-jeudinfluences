@@ -9,10 +9,6 @@
     ],
     "sequence": [
         {
-            "type": "narrative",
-            "header": "Mercredi 30 mai, 14h13."
-        },
-        {
             "type": "voixoff",
             "character": null,
             "body": "/medias/chap5/voix-off/louis-ch5-03_journaliste.mp3"

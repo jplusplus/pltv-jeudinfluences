@@ -55,6 +55,7 @@ Vanessa Martineau
 Julien Beaupé
 
 ####En coproduction avec
+**France Télévisions**
 **France télévisions nouvelles écritures**
 Boris Razon, Voyelle Acker, Antonin Lhôte
 
@@ -67,8 +68,11 @@ Sandrine Miguirian
 ####France Télévisions Editions Numériques
 Emmanuel Souillat, Stéphane Pessin, Arnaud Ragonnet, Bastien Dronneau
 
+####Avec le soutien du 
+Centre National du Cinéma et de l’Image Animée
+
 ####Remerciements
-Merci à Élise Lucet et aux équipes du 13h de France 2, à Hélène Roussel et aux équipes de France Inter qui se sont prêtées au jeu. Merci aux beta-testeuses et testeurs qui en ont fait autant : David Dufresne, Chadi Romanos, François Jacques, Fibre Tigre, Jérémy Pouilloux, Maria-Cécile Kalash, Nicolas Bole, Laurent Gontier. Merci aussi à David Carzon, Chadi Romanos (bis), Christophe Israel pour leur confiance. Merci à Rémi Labed et Jules Giraudat, piliers de plateau.
+Merci à Élise Lucet et aux équipes du 13h de France 2, à Hélène Roussel et aux équipes de France Inter qui se sont prêtées au jeu. Merci aux beta-testeuses et testeurs qui en ont fait autant : David Dufresne, Chadi Romanos, François Jacques, Fibre Tigre, Jérémy Pouilloux, Maria-Cécile Kalash, Nicolas Bole, Laurent Gontier, Cédric Mal. Merci aussi à David Carzon, Chadi Romanos (bis), Christophe Israel pour leur confiance. Merci à Rémi Labed et Jules Giraudat, piliers de plateau et à Henri Poulain, la voix mystère.
 
 ####Code
 L’intégralité du code est sous licence Creativ Commons et disponible sur GitHub à l’adresse suivante : [https://github.com/jplusplus](https://github.com/jplusplus)

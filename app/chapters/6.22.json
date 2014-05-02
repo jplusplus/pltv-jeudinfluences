@@ -11,11 +11,11 @@
         {
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k4BCkhVQNbB2vz70Hlc?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+            "body": "http://www.dailymotion.com/video/k34ArMvQyuFhp370Hlc?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "type" : "choice",
-            "body": "Vous sentez-vous responsable de ce qui s'est passé au sein de votre entreprise ?",
+            "body": "Vous sentez-vous responsable de ce qu'il s'est passé au sein de votre entreprise ?",
             "delay" : 5,
             "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 2,

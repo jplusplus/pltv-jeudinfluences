@@ -16,7 +16,7 @@
             "result": {"stress": 8},
             "type": "notification",
             "sound": "/medias/sounddesign/notif-1.mp3",
-            "header": "Vous avez reçu nouveau message de Patrick Luaud :",
+            "header": "Vous avez reçu nouveau message de Patrick Luaud",
             "body": "À propos de Nadia, il va falloir trouver un moyen de la neutraliser. Trop de risques. On en reparle."
         }
     ]

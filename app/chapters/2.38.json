@@ -4,7 +4,7 @@
         {
             "background": "/medias/chap2/illustrations/illustr-ch2-19.jpg",
             "background_transition": null,
-            "soundtrack": null
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
         }
     ],
     "sequence": [
@@ -18,7 +18,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Le cliché, c'est l'idéal car nos interlocuteurs adorent les raccourcis. Et le cliché, c'est le raccourci par excellence. Ensuite, il n'est pas question de faire l'enquête à la place de la presse. Ce que nous allons faire c'est utiliser le doute. Si cette piste est fausse, peu importe. En attendant, elle aura éloigné les journalistes d'Habinat pendant quelque temps.  \nC'est toujours ça de pris.\n\nOn y va ?"
+            "body": "Le cliché, c'est l'idéal car nos interlocuteurs adorent les raccourcis. Et le cliché, c'est le raccourci par excellence.\nEnsuite, il n'est pas question de faire l'enquête à la place de la presse. Ce que nous allons faire c'est utiliser le doute. Si cette piste est fausse, peu importe. En attendant, elle aura éloigné les journalistes d'Habinat pendant quelque temps. C'est toujours ça de pris.\n\nOn y va ?"
         },
         {
             "type": "dialogue",
@@ -30,7 +30,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Faites-moi confiance. Si on ne fait rien, les médias tourneront boucle sur la seule miette qu'ils ont à grignoter : Mickael Saulat s'est suicidé à cause d'un mal-être à vos côtés. C'est ce que vous voulez ?"
+            "body": "Faites-moi confiance. Si on ne fait rien, les médias tourneront en boucle sur la seule miette qu'ils ont à grignoter&nbsp;: Mickael Saulat s'est suicidé à cause d'un mal-être à vos côtés. C'est ce que vous voulez ?"
         },
         {
             "type": "choice",

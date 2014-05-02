@@ -4,7 +4,7 @@
         {
             "background": "/medias/chap2/illustrations/illustr-ch2-19.jpg",
             "background_transition": "fade",
-            "soundtrack": null
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
         }
     ],
     "sequence": [
@@ -18,7 +18,7 @@
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "..."
+            "body": "...?"
         },
         {
             "type": "dialogue",
@@ -30,7 +30,7 @@
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "Bah, justement, je n'ai pas de réponse. Rien de vraiment anormal. L'entreprise est plutôt en phase ascendante, il était en partie l'artisan de cette réussite. Rien de négatif de ce côté là. Et puis dans sa vie personnelle, pour ce que j'en sais, rien d'anormal non plus.  \nPeut-être quelques passages difficiles ces derniers temps avec Nadia, j'ai assisté à plusieurs engueulades, plutôt de loin. Mais bon, des périodes comme en traversent tous les couples."
+            "body": "Bah, justement, je n'ai pas de réponse. Rien de vraiment anormal. L'entreprise est plutôt en phase ascendante, il était en partie l'artisan de cette réussite. Rien de négatif de ce côté là. Et puis dans sa vie personnelle, pour ce que j'en sais, rien d'anormal non plus.\n\nPeut-être quelques passages difficiles ces derniers temps avec Nadia, j'ai assisté à plusieurs engueulades, plutôt de loin. Mais bon, des périodes comme en traversent tous les couples."
         },
         {
             "type": "narrative",

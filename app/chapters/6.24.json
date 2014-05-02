@@ -1,5 +1,5 @@
 {
-    "next_scene" : "6.28",
+    "next_scene" : null,
     "decor": [
         {
             "background": null,
@@ -9,16 +9,64 @@
     ],
     "sequence": [
         {
-            "condition": {"plainte_nadia": false},
+            "condition": {"plainte_nadia": false, "soutien_jarendeau":true},
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/kwwWZOBkSJcxmp70HlM?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+            "body": "http://www.dailymotion.com/video/k1QvF5TElxHnRf70HlM?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
-            "condition": {"plainte_nadia": true},
+            "condition": {"plainte_nadia": true, "soutien_jarendeau":true},
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/ka2pfpettI7VSr70Hmj?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+            "body": "http://www.dailymotion.com/video/k6G49P8KBWb1x370Hmj?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+        },
+        {
+            "condition": {"plainte_nadia": false, "soutien_jarendeau":false},
+            "type": "video_background",
+            "next_button": true,
+            "body": "http://www.dailymotion.com/video/k6kZq8VeEwDQjg70Hth?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+        },
+        {
+            "condition": {"plainte_nadia": true, "soutien_jarendeau":false},
+            "type": "video_background",
+            "next_button": true,
+            "body": "http://www.dailymotion.com/video/k5cAI8I16kpxQX70Huh?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+        },
+        {
+            "type" : "choice",
+            "body": "Nadia et Mika ont-ils négocié directement avec Martin Jarendeau ?",
+            "delay" : 5,
+            "sound": "/medias/sounddesign/tictac.mp3",
+            "default_option" : 2,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "6.29",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": -4,
+                            "stress": 0,
+                            "ubm": 0,
+                            "honesty": -4,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "6.30",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 4,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

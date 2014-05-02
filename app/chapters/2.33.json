@@ -31,11 +31,23 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "C'est un peu maigre pour justifier un suicide... Tant mieux pour nous.  \nMes équipes vont surveiller la circulation de l'info et je vais mettre un de mes rédacteurs sur le communiqué : condoléances et hommage rendu à l'un des artisans du succès d'Habinat. On insistera bien sur le fait que l'atmosphère était au beau fixe. Deux paragraphes suffiront.\n\nÇa vous va ?"
+            "body": "C'est un peu maigre pour justifier un suicide... Tant mieux pour nous.\n\nMes équipes vont surveiller la circulation de l'info et je vais mettre un de mes rédacteurs sur le communiqué : condoléances et hommage rendu à l'un des artisans du succès d'Habinat. On insistera bien sur le fait que l'atmosphère était au beau fixe. Deux paragraphes suffiront.\n\nÇa vous va ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "On ne met rien sur la solidité de l'entreprise malgré cet évènement ?"
+        },
+        {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "Ce n'est pas le meilleur moment pour ce type de discours. On y reviendra dans une seconde séquence de communication. Faites-moi confiance."
         },
         {
             "type": "choice",
-            "body": "Ça vous va ?",
+            "body": "Suivre l'avis de Patrick Luaud ?",
             "delay": null,
             "default_option": null,
             "options": [
@@ -53,7 +65,7 @@
                     ]
                 },
                 {
-                    "header": "Non",
+                    "header": "Non, recentrer sur Habinat",
                     "next_scene": "2.34",
                     "outro": null,
                     "result": [

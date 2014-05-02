@@ -14,7 +14,6 @@
         },
         {
             "condition": {"circulaire":true},
-            "result": {"ubm": 16, "stress":8},
             "type": "dialogue",
             "character" : "Patrick Luaud",
             "header": null,

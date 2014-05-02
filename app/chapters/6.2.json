@@ -14,6 +14,13 @@
             "body": "/medias/chap6/voix-off/louis-ch6-02.mp3"
         },
         {
+            "condition": {"meurtre":true},
+            "type": "dialogue",
+            "character" : "Louis",
+            "header": null,
+            "body": "Voilà, vous savez tout... Pratiquement tout... Je suis même allé encore plus loin, et je ne peux plus revenir en arrière. Mais tout ce que j'ai fait, je l'ai fait pour Habinat."
+        },
+        {
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
