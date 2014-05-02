@@ -100,7 +100,6 @@ angular.module("spin.service").factory("User", [
                             do @nextSequence
                 gameOver = @checkProgression()
 
-                console.log 'updated progression, reached: ', career.reached_scene
                 if gameOver
                     @isGameOver = yes
 
