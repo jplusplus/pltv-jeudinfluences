@@ -6,7 +6,24 @@
     </div>
     <div class="game-done__summary">
         <p class="game-done__summary__description">
-            Raw denim organic put a bird on it, craft beer excepteur shabby chic bitters cardigan Thundercats nihil hella gentrify duis meh. Synth cillum leggings selfies, fanny pack swag eiusmod Vice biodiesel sed. 
+            <span ng-if="!isInnocent() && isHonest()">
+                Voilà, c'est joué. <span ng-if="isMurderer()">Le meurtre vous va bien.</span>
+                Vous êtes un(e) pragmatique. Tout au long de cette histoire, vous avez glissé vers les aveux, et, des choses à raconter, vous en aviez. Dévoiler "votre" vérité au bon moment, comme un pansement sur votre culpabilité, pourquoi pas. À vous de voir si cela vous a mené là où vous l'espériez. À moins que d'autres choix ne vous attirent...
+            </span>
+            <span ng-if="isInnocent() && isHonest()">
+                Voilà, c'est joué. <span ng-if="isMurderer()">Le meurtre vous va bien.</span>
+                Vous êtes un étonnant paradoxe. Vous avez une tendance naturelle à l'aveu même dans un contexte où vous n'avez (presque) rien à vous reprocher. Disons que vous êtes perfectionniste : tout au lond de cette histoire vous avez tenté d'arrondir les angles, jusque dans les aveux. À vous de voir si cela vous a mené là où vous l'espériez. À moins que d'autres choix ne vous attirent...
+            </span>
+            
+            <span ng-if="isInnocent() && !isHonest()">
+                Voilà, c'est joué et apparemment vous êtes plein(e) d'humour. <span ng-if="isMurderer()">Le meurtre vous va bien.</span>
+                Tout au long de cette histoire vous avez glissé vers le mensonge sans pourtant avoir grand chose à cacher. Le mensonge pour égayer le quotidien en somme. Il n'y a pas de petits plaisirs, n'est-ce pas ? À vous de voir si cela vous a mené là où vous l'espériez. À moins que d'autres choix ne vous attirent...
+            </span>
+
+            <span ng-if="!isInnocent() && !isHonest()">
+                Voilà, c'est joué. <span ng-if="isMurderer()">Le meurtre vous va bien.</span>
+                Tout au long de cette histoire, vous avez été la cohérence même. Droit dans vos choix jusqu'au bout du mensonge. C'est une forme d'honnêteté en somme. Vis-à-vis de vous même. À vous de voir si cela vous a mené là où vous l'espériez. À moins que d'autres choix ne vous attirent...
+            </span>
         </p>
 
         <button ng-click="user.newUser()" class="game-done__summary__restart-button btn btn-default btn-lg">
