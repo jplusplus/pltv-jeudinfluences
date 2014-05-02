@@ -83,7 +83,11 @@ angular.module("spin.service").factory "Progression", [
                     User.saveChapterChanging true 
 
             onKeyPressed: (e)=>
-                if User.inGame
+                inGame = User.inGame and 
+                    not User.isSummary and 
+                    not User.isGameOver
+                    
+                if inGame
                     seq = Plot.sequence(User.chapter, User.scene, User.sequence)
                     if seq.hasNext()
                         do User.nextSequence
