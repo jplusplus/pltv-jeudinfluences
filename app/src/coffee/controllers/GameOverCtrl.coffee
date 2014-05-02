@@ -7,7 +7,7 @@ class GameOverCtrl
         @scope.user  = @User
 
         @scope.restart = =>
-            @scope.safeApply @User.restartChapter
+            do @User.restartChapter
 
 
 # EOF
