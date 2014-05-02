@@ -9,7 +9,7 @@ angular.module("spin.service").factory "Progression", [
     'Timeout'
     'KeyboardCommands'
     ($rootScope, $timeout, keys, doors, Plot, User, Sound, Timeout, KeyboardCommands)->
-        new class Progression    
+        new class Progression
             # ──────────────────────────────────────────────────────────────────────────
             # Public method
             # ──────────────────────────────────────────────────────────────────────────
@@ -26,12 +26,14 @@ angular.module("spin.service").factory "Progression", [
                 $rootScope.$watch (=>User), User.updateLocalStorage, yes                    
                 # Scene is changing
                 $rootScope.$watch (=> [Plot.chapters, User.scene] ), (->
-                    do Sound.startScene
+                    if User.inGame
+                        do Sound.startScene
                 ), yes
                 # Sequence is changing
                 $rootScope.$watch (=>(User.scene+User.sequence)), ->
-                    do Timeout.toggleSequence 
-                    do Sound.toggleSequence
+                    if User.inGame
+                        do Timeout.toggleSequence 
+                        do Sound.toggleSequence
 
                 $rootScope.$watch (=>do User.isStartingChapter), ->
                     do Sound.toggleSequence
@@ -80,13 +82,22 @@ angular.module("spin.service").factory "Progression", [
                     Sound.stopTracks yes, no
                 else
                     # Record begining date of a chapter
+                    do Sound.startScene
                     User.saveChapterChanging true 
 
             onKeyPressed: (e)=>
-                if User.inGame
+                inGame = User.inGame
+                isSummary = User.isSummary
+                gameOver = User.isGameOver
+                isStartingChapter = User.isStartingChapter()
+
+                if _.every [ inGame, not isSummary, not gameOver, 
+                             not isStartingChapter] 
                     seq = Plot.sequence(User.chapter, User.scene, User.sequence)
                     if seq.hasNext()
                         do User.nextSequence
+                if isSummary and inGame and not gameOver
+                    do User.leaveSummary
 
 
             singMeTheEnd: (done) =>

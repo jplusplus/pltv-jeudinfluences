@@ -7,7 +7,19 @@ class GameDoneCtrl
 
         @scope.shouldShowTheEnd = @shouldShowTheEnd
 
+        @scope.gameDoneSentence = @gameDoneSentence
+
         @scope.$watch 'user.isGameDone', @getResults
+
+        @scope.isInnocent = => @User.indicators.guilt < 50
+        @scope.isGuilty   = => not @scope.isInnocent()
+
+        @scope.isHonest   = => @User.indicators.honesty >= 50 
+        @scope.isLier     = => not @scope.isHonest()
+
+
+
+        @scope.isMurderer = => @User.indicators.meurtre?
 
     shouldShowTheEnd: => @User.isGameDone
 

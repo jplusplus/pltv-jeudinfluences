@@ -82,8 +82,7 @@ angular.module("spin.service").factory("User", [
             updateLocalStorage: (user=@)=>
                 localStorageService.set("user", user) if user?
 
-            updateProgression: (career)=>
-                console.log 'received career', career.reached_scene
+            updateProgression: (career, newGame=false)=>
                 # Do we start acting?
                 if career.reached_scene? and typeof(career.reached_scene) is "string"
                     unless TimeoutStates.feedback isnt undefined
@@ -96,15 +95,14 @@ angular.module("spin.service").factory("User", [
                         # Start to the first sequence
                         @sequence = 0
                         # Check that the sequence's condition is OK
-                        if not do @isSequenceConditionOk 
+                        if not do @isSequenceConditionOk
                             # If not, go to the next sequence
                             do @nextSequence
-                gameOver = @checkProgression()
-                if gameOver
-                    console.log 'updateProgression.isGameOver !'
+                if @checkProgression() and not newGame# return 
                     @isGameOver = yes
 
             checkProgression: =>
+                # return false if user is in game over
                 return unless @inGame
                 gameOver = false 
                 # will check if user progression lead him to a game over.
@@ -178,7 +176,7 @@ angular.module("spin.service").factory("User", [
                         state.reached_scene = option.next_scene
                 else
                     state = reached_scene: @pos()                  
-                    
+                
                 state.is_game_done = @isGameDone
                 # Get value using the token
                 $http.post("#{api.career}?token=#{@token}", state).success @updateProgression
@@ -188,34 +186,45 @@ angular.module("spin.service").factory("User", [
                 # current scene doesn't exists
                 scene        = Plot.scene(@chapter, @scene)
                 lastSequence = Plot.sequence(@chapter, @scene, @sequence)
-                # Go to the next sequence within the current scene
-                if Plot.sequence(@chapter, @scene, @sequence + 1)? 
-                    # Go simply to the next sequence
-                    ++@sequence 
-                    # Retrieve the new sequence and check conditions
-                    sequence = Plot.sequence(@chapter, @scene, @sequence)
-                    if not @isSequenceConditionOk sequence
-                        sequence = do @nextSequence
-                # Go the next scene
-                else if scene and scene.next_scene?
-                    # Shouldn't we reset to first sequence here?
-                    @goToScene scene.next_scene   
-                    # Return the new sequence
-                    sequence = Plot.sequence(@chapter, @scene, @sequence)
 
                 if lastSequence.result and @isSequenceConditionOk lastSequence 
                     for key, value of lastSequence.result
                         @indicators[key] += value
                         gameOver = do @checkProgression
                         if gameOver
-                            console.log 'nextSequence.isGameOver ! '
                             @isGameOver = true
-
+                unless @isGameOver
+                    # Go to the next sequence within the current scene
+                    if Plot.sequence(@chapter, @scene, @sequence + 1)? 
+                        # Go simply to the next sequence
+                        ++@sequence 
+                        # Retrieve the new sequence and check conditions
+                        sequence = Plot.sequence(@chapter, @scene, @sequence)
+                        if not @isSequenceConditionOk sequence
+                            sequence = do @nextSequence
+                    # Go the next scene
+                    else if scene and scene.next_scene?
+                        # Shouldn't we reset to first sequence here?
+                        @goToScene scene.next_scene   
+                        # Return the new sequence
+                        sequence = Plot.sequence(@chapter, @scene, @sequence)
+                
                 sequence
                 
             isSequenceConditionOk: (seq) =>              
                 # check that every sequence condition are met or not. 
                 # condition are set with variables while doing some choices
+                seq = seq or Plot.sequence @chapter, @scene, @sequence  
+                return true unless seq?
+                is_ok = @userMeetSequenceConditions(seq)
+                if seq.isSkipped()
+                    is_ok = no
+                if seq.isGameOver()
+                    $rootScope.safeApply =>
+                        @isGameOver = true
+                is_ok
+
+            userMeetSequenceConditions: (seq)=>
                 is_ok = yes
                 seq = seq or Plot.sequence @chapter, @scene, @sequence  
                 return true unless seq?
@@ -225,11 +234,6 @@ angular.module("spin.service").factory("User", [
                         unless user_variable_value?
                             user_variable_value = false
                         is_ok = is_ok and (user_variable_value is value)
-                if seq.isSkipped()
-                    is_ok = no
-                if seq.isGameOver()
-                    $rootScope.safeApply =>
-                        @isGameOver = true
                 is_ok
 
             associate: (email) =>
@@ -278,7 +282,6 @@ angular.module("spin.service").factory("User", [
                         if not do @isSequenceConditionOk
                             # If not, go to the next sequence
                             do @nextSequence
-
                         # Save the career
                         do @updateCareer if shouldUpdateCareer
                 else
@@ -297,6 +300,11 @@ angular.module("spin.service").factory("User", [
                 @isSummary  = no
                 @isGameOver = no
                 (do @eraseCareerChapter).success @updateProgression
+
+
+            leaveSummary: => 
+                @isSummary = no
+                @saveChapterChanging true
 
             eraseCareerSinceNow: =>
                 $http
