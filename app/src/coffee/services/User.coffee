@@ -83,7 +83,6 @@ angular.module("spin.service").factory("User", [
                 localStorageService.set("user", user) if user?
 
             updateProgression: (career)=>
-                console.log 'received career', career.reached_scene
                 # Do we start acting?
                 if career.reached_scene? and typeof(career.reached_scene) is "string"
                     unless TimeoutStates.feedback isnt undefined
@@ -101,7 +100,6 @@ angular.module("spin.service").factory("User", [
                             do @nextSequence
                 gameOver = @checkProgression()
                 if gameOver
-                    console.log 'updateProgression.isGameOver !'
                     @isGameOver = yes
 
             checkProgression: =>
@@ -208,7 +206,6 @@ angular.module("spin.service").factory("User", [
                         @indicators[key] += value
                         gameOver = do @checkProgression
                         if gameOver
-                            console.log 'nextSequence.isGameOver ! '
                             @isGameOver = true
 
                 sequence
