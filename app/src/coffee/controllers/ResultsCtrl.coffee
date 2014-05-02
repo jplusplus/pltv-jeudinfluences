@@ -16,10 +16,8 @@ class ResultsCtrl
         @scope.$watch 'user.chapter', @onChapterChanged, yes
 
     goNextChapter: =>
-        @scope.safeApply =>
-            @User.isSummary = no
-            @User.saveChapterChanging true
-
+        @scope.safeApply @User.leaveSummary
+            
     shouldShowResults: => @User.isSummary and @User.inGame and not @User.isGameOver
 
     hasPreviousResults: => _.keys(@previousResults()).length > 0
