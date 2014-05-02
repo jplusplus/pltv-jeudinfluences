@@ -73,7 +73,6 @@ angular.module('spin.directive').directive "scatterPlot", [
 
                         left_val = 100 - (100 * result[h_axe] / left_scale.max )
                         top_val  = 100 - (100 * result[v_axe] / top_scale.max  )
-                        # console.log 'left_val: ', left_val, ' - top_val: ', top_val
                         _.extend result, 
                             left: Math.floor left_val
                             top:  Math.floor top_val

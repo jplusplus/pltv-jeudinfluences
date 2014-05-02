@@ -16,8 +16,8 @@ angular.module("spin.service").factory "Progression", [
             constructor: ->
                 $rootScope.$watch (=>User.inGame),  @onInGameChanged,  yes
                 $rootScope.$watch (=>User.isGameOver), (newVal, oldVal)=>
-                    if newVal is no and User.gameOverSentence
-                        User.gameOverSentence = undefined
+                    if newVal is no and User.gameOverReason
+                        User.gameOverReason = undefined
 
                 $rootScope.$watch (=>User.chapter), @onChapterChanged, yes
                 $rootScope.$watch (=>User.scene),   @onSceneChanged,   yes
@@ -83,7 +83,11 @@ angular.module("spin.service").factory "Progression", [
                     User.saveChapterChanging true 
 
             onKeyPressed: (e)=>
-                if User.inGame
+                inGame = User.inGame and 
+                    not User.isSummary and 
+                    not User.isGameOver
+                    
+                if inGame
                     seq = Plot.sequence(User.chapter, User.scene, User.sequence)
                     if seq.hasNext()
                         do User.nextSequence

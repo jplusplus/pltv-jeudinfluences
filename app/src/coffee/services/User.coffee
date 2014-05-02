@@ -2,7 +2,6 @@ angular.module("spin.service").factory("User", [
     'constant.api'
     'constant.settings'
     'constant.types'
-    'constant.gameover-sentences'
     'TimeoutStates'
     'UserIndicators'
     'Plot'
@@ -11,7 +10,7 @@ angular.module("spin.service").factory("User", [
     '$timeout'
     '$location'
     '$rootScope'
-    (api, settings, types, sentences, TimeoutStates, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
+    (api, settings, types, TimeoutStates, UserIndicators, Plot, localStorageService, $http, $timeout, $location, $rootScope)->
         new class User
             # ─────────────────────────────────────────────────────────────────
             # Public method
@@ -109,7 +108,7 @@ angular.module("spin.service").factory("User", [
                 # will check if user progression lead him to a game over.
                 for key, value of @indicators
                     if UserIndicators[key]? and UserIndicators[key].isGameOver(value)
-                        @gameOverSentence = sentences[key]
+                        @gameOverReason = key
                         gameOver =yes
                         break
                     else 
@@ -267,11 +266,7 @@ angular.module("spin.service").factory("User", [
                 return warn('Scene') unless Plot.scene(chapter, scene)?
                 # If we effectively change
                 if @chapter isnt chapter or @scene isnt scene
-                    unless @isGameOver
-                        gameOver = @checkProgression()
-                        @isGameOver = gameOver
-                    else
-                        @isGameOver = gameOver = false
+                    gameOver = @checkProgression()
                     unless gameOver
                         # Update values
                         [@chapter, @scene, @sequence] = [chapter, scene, 0]
@@ -297,8 +292,8 @@ angular.module("spin.service").factory("User", [
                 # will restart churrent chapter to its first scene.
                 @inGame     = yes
                 @isSummary  = no
-                (do @eraseCareerChapter).success (career) =>
-                    @goToScene career.reached_scene, yes
+                @isGameOver = no
+                (do @eraseCareerChapter).success @updateProgression
 
             eraseCareerSinceNow: =>
                 $http
