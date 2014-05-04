@@ -22,7 +22,7 @@ class ChapterCtrl
             # Fetch each sequence
             angular.forEach @chapter.scenes, (scene)=>
                 # First background is the one from the scene      
-                @bgs.push media(scene.decor[0].background) if scene.decor[0].background?
+                @bgs.push media(scene.decor[0].background) if scene.decor? and scene.decor[0].background?
                 # Look into each scene's sequence to find the new background
                 angular.forEach scene.sequence, (sequence)=>
                     if sequence.isNewBg() and sequence.body isnt null
