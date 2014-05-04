@@ -9,7 +9,7 @@
     ],
     "sequence": [
         {
-            "result": {"karma": -1, "guilt": 3, "chantage_jarendeau": true},
+            "result": {"karma": -4, "guilt": 3, "ministre_venere": true},
             "type": "notification",
             "next_button": true,
             "header": "Le message suivant a bien été envoyé à Martin Jarendeau :",

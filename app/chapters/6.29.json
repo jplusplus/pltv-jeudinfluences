@@ -15,6 +15,12 @@
             "body": "http://www.dailymotion.com/video/kmsaAuLfkdfDQn70HuD?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
+            "type": "notification",
+            "sound": "/medias/sounddesign/notif-1.mp3",
+            "header": "Nouveau message de Martin Jarendeau",
+            "body": "Trop d'ambition, tue l'ambition Louis surtout lorque le mensonge vous uni à quelqu'un comme moi. Vous n'auriez pas dû essayer de me mettre hors course pour vous blanchir. Désolé que vous n'ayez pas su anticiper cette réalité."
+        },
+        {
             "type": "gameover"
         }
     ]
