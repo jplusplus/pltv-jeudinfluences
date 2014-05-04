@@ -4,7 +4,7 @@
         {
             "background": "/medias/chap6/illustrations/illustr-ch6-1.jpg",
             "background_transition": "fade",
-            "soundtrack": null
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-b.mp3"
         }
     ],
     "sequence": [
@@ -12,6 +12,13 @@
             "type": "voixoff",
             "character": "Louis",
             "body": "/medias/chap6/voix-off/louis-ch6-02.mp3"
+        },
+        {
+            "condition": {"meurtre":true},
+            "type": "dialogue",
+            "character" : "Louis",
+            "header": null,
+            "body": "Voilà, vous savez tout... Pratiquement tout... Je suis même allé encore plus loin, et je ne peux plus revenir en arrière. Mais tout ce que j'ai fait, je l'ai fait pour Habinat."
         },
         {
             "type": "dialogue",

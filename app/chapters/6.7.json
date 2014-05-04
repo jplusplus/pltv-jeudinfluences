@@ -1,5 +1,5 @@
 {
-    "next_scene" : "6.9",
+    "next_scene" : null,
     "decor": [
         {
             "background": null,
@@ -11,7 +11,43 @@
         {
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k4T2qiPM83woyt70H8p?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+            "body": "http://www.dailymotion.com/video/kZFWXbfJLFaq0070H8p?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+        },
+        {
+            "type" : "choice",
+            "body": "Est-ce que vos aveux sonnent la fin de votre \"communication\" ?",
+            "delay" : 5,
+            "sound": "/medias/sounddesign/tictac.mp3",
+            "default_option" : 2,
+            "options": [
+                {
+                    "header": "Oui",
+                    "next_scene": "6.10",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": -2,
+                            "honesty": -2,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                },
+                {
+                    "header": "Non",
+                    "next_scene": "6.11",
+                    "outro": null,
+                    "result": [
+                        {
+                            "karma": 1,
+                            "stress": 0,
+                            "ubm": 0,
+                            "trust": 0
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

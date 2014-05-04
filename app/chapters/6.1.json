@@ -4,7 +4,7 @@
         {
             "background": "/medias/chap6/illustrations/illustr-ch6-1.jpg",
             "background_transition": "fade",
-            "soundtrack": null
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-b.mp3"
         }
     ],
     "sequence": [
@@ -30,6 +30,12 @@
             "body": "/medias/illustrations/tablette.jpg"
         },
         {
+            "type": "dialogue",
+            "character": "Louis",
+            "header": null,
+            "body": "..."
+        },
+        {
             "type": "video",
             "next_button": true,
             "body": "http://www.dailymotion.com/video/k753coL0qABqB16ofJh?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
@@ -51,7 +57,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 8,
+                            "karma": 32,
                             "stress": 0,
                             "ubm": 0,
                             "trust": 0
@@ -64,11 +70,11 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": -2,
+                            "karma": -8,
                             "stress": 2,
                             "ubm": 0,
                             "guilt": 6,
-                            "honesty": -8,
+                            "honesty": -16,
                             "trust": 4
                         }
                     ]

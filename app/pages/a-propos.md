@@ -14,4 +14,6 @@ Gardez un oeil sur vos trois jauges. La première, "UBM", correspond à l'Unité
 
 À la fin de chaque chapitre, vos choix sont confrontés à ceux des autres joueurs sur les trois étapes majeures du chapitre que vous venez de traverser. À la fin du jeu, vos choix détermineront également votre position sur un graphique qui donnera du sens à votre parcours : qu'est-ce que vos choix de communication racontent de vous.
 
+Pour prolonger l'expérience, retrouvez **"Jeu d'influences"** dans une série de deux documentaires diffusés sur [France 5](http://www.france5.fr/emissions/le-monde-en-face/diffusions/06-05-2014_234947) ainsi qu'un livre édité aux éditions de La Martinière.
+
 Bonne aventure et n'oubliez pas, comme le dit [Christophe Reille](http://rldpartners.files.wordpress.com/2012/09/diapositive6.png) : "La vérité c'est ce que la majorité des gens croient.".

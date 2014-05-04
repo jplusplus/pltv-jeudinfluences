@@ -23,10 +23,10 @@
                 {
                     "header": "Oui",
                     "next_scene": "5.39",
-                    "outro": null,
+                    "outro": "Les syndicats s'en souviendront...",
                     "result": [
                         {
-                            "karma": -1,
+                            "karma": -4,
                             "stress": 1,
                             "ubm": 0,
                             "trust": 0,
@@ -40,7 +40,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 1,
+                            "karma": 4,
                             "stress": 1,
                             "ubm": 0,
                             "trust": 0

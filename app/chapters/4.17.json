@@ -38,7 +38,7 @@
         },
         {
             "type": "notification",
-            "sound": null,
+            "sound": "/medias/sounddesign/notif-1.mp3",
             "header": "Message reçu de Patrick Luaud :",
             "body": "Essayez d'être pris en photo avec Nadia."
         },
@@ -71,7 +71,7 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": -2,
+                            "stress": -4,
                             "ubm": -4,
                             "trust": 0
                         }

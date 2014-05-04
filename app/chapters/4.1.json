@@ -14,7 +14,6 @@
         },
         {
             "condition": {"circulaire":true},
-            "result": {"ubm": 16, "stress":8},
             "type": "dialogue",
             "character" : "Patrick Luaud",
             "header": null,
@@ -92,7 +91,7 @@
                     "next_scene": "4.6",
                     "result": [
                         {
-                            "karma": -2,
+                            "karma": -4,
                             "stress": 0,
                             "ubm": 0,
                             "trust": 8,
@@ -106,7 +105,7 @@
                     "next_scene": "4.2",
                     "result": [
                         {
-                            "karma": 2,
+                            "karma": 4,
                             "stress": 0,
                             "ubm": 0,
                             "trust": -8

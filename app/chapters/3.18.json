@@ -10,10 +10,14 @@
     ],
     "sequence": [
         {
+            "type": "narrative",
+            "body": "27 mai, 7h51."
+        },
+        {
             "type": "dialogue",
             "character": "Patrick Luaud",
-            "header": "27 mai, 7h51.",
-            "body": "On peut dire qu'ils ont fait vite. Même si c'était à prévoir, cette interview de Lionel Gianno tombe plutôt mal. Le reste de l'actu est vide en ce moment. Du coup, ils sont beaucoup plus réactifs sur les quelques sujets qui peuvent monter en une. Comme une potentielle \"affaire\" Habinat..."
+            "header": null,
+            "body": "On peut dire qu'ils ont fait vite. Même si c'était à prévoir, cette interview de Lionel Gianno tombe plutôt mal. Le reste de l'actu est vide en ce moment. Du coup, ils sont beaucoup plus réactifs sur les quelques sujets qui peuvent monter en une. Comme une potentielle \"affaire Habinat\"..."
         },
         {
             "type": "new_background",
@@ -24,18 +28,18 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Clairement, on ferait bien de mettre une équipe sur cette appellation \"affaire\" Habinat. Si on ne stoppe pas sa propagation dès maintenant, elle sera reprise partout en quelques heures et ce soir, elle sera au 20 heures. Parfois, ça permet un coup de pub, mais là, j'en doute."
+            "body": "Clairement, on ferait bien de mettre une équipe sur cette appellation d'\"affaire\" Habinat. Si on ne stoppe pas sa propagation dès maintenant, elle sera reprise partout en quelques heures et ce soir, elle sera au 20 heures. Parfois, ça permet un coup de pub, mais là, j'en doute."
         },
         {
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "C'est une technique qui a déjà fait ses preuves, notamment à l'époque de l'\"affaire\" Findus. Vous savez, les lasagnes au cheval.  \nVous voulez voir ?"
+            "body": "C'est une technique qui a déjà fait ses preuves, notamment à l'époque de \"l'affaire Findus\". Vous savez, les lasagnes au cheval.\n\nVous voulez voir ?"
         },
 
         {
             "type" : "choice",
-            "body": "Regarder la vidéo ?",
+            "body": "En savoir plus sur l'affaire Findus ?",
             "delay" : null,
             "default_option" : null,
             "options": [

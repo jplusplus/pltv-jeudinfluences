@@ -12,7 +12,7 @@
             "type":"dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Il ne faut pas attaquer frontalement Lionel Gianno, tentons d'être plus fins que lui. Si son état physique joue pour lui, les circonstances jouent pour nous. Paralysie contre suicide. Ça peut sembler cynique, mais c'est la réalité et c'est sur elle que l'on doit s'appuyer."
+            "body": "Il ne faut pas attaquer frontalement Lionel Gianno, tentons d'être plus fins que lui. Si son état physique joue pour lui, les circonstances jouent pour nous. Paralysie contre suicide.\nÇa peut sembler cynique, mais c'est la réalité et c'est sur elle que l'on doit s'appuyer."
         },
         {
             "condition": {"stalk_ouvrier":true},

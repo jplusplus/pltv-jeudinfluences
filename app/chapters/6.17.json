@@ -11,7 +11,7 @@
         {
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k5GLhmVFN7KjCM70Hi6?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+            "body": "http://www.dailymotion.com/video/k3hrhePoqAnyCc70Hi6?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "type" : "choice",
@@ -26,7 +26,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": -2,
+                            "karma": -8,
                             "stress": -2,
                             "ubm": -4,
                             "guilt": 6,
@@ -41,7 +41,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 2,
+                            "karma": 8,
                             "stress": 0,
                             "ubm": 0,
                             "trust": 0

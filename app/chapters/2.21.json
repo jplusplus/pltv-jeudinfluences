@@ -17,7 +17,7 @@
         {
             "type": "dialogue",
             "character": "Patrick Luaud",
-            "header": "Patrick Luaud reste dubitatif.",
+            "header": null,
             "body": "L'opinion est un animal très réactif. Les jeux de mots un peu vaseux, face à un décès soudain... Vous imaginez ce que ça peut donner ?"
         },
         {
@@ -41,7 +41,7 @@
                 {
                     "header": "Oui",
                     "next_scene": "2.23",
-                    "outro": null,
+                    "outro": "Les médias s'en souviendront...",
                     "result": [
                         {
                             "karma": 0,

@@ -12,13 +12,13 @@
             "condition": {"soutien_jarendeau":true},
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k4VIZPGptTkJ0U70GLB?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+            "body": "http://www.dailymotion.com/video/k5CBmooJSRDBn970GLB?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "condition": {"soutien_jarendeau":false},
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k2In3Qfavumu6v70H3m?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+            "body": "http://www.dailymotion.com/video/k5WWFALrD0Thwq70H3m?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "type" : "choice",
@@ -33,7 +33,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 2,
+                            "karma": 4,
                             "stress": -2,
                             "ubm": 0,
                             "trust": 0,
@@ -47,7 +47,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": -4,
+                            "karma": -8,
                             "stress": 1,
                             "guilt": 3,
                             "ubm": 0,
