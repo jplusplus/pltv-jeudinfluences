@@ -25,6 +25,12 @@ angular.module("spin.directive").directive "preload", ['$timeout', ($timeout)->
                 image.onerror = image.onload = ->
                     queue--
                     do checkQueue        
-            image.src = imageSrc
-        do checkQueue
+            image.src = imageSrc            
+        # Do check the queue once
+        do checkQueue        
+        # Force preload end after 15 secondes
+        $timeout ->
+            queue = 0
+            do checkQueue
+        , 15*1000
 ]
