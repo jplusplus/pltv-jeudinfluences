@@ -6,6 +6,7 @@
     left:0;
     right:0;
     z-index:@scene-zindex;
+    overflow: hidden;
     
     &__bg {
         .covering();
@@ -301,18 +302,20 @@
         // Feedback, in the middle of the screen 
         &--video {
 
-            z-index:@scene-zindex - 10;     
-            position: absolute;            
-            top: 50%; 
-            left: 50%;
-            .translate(-50%, -50%);    
+            &__body {
+                z-index:@scene-zindex - 10;     
+                position: absolute;            
+                top: 50%; 
+                left: 50%;
+                .translate(-50%, -50%);    
 
-            &__body {                              
-                position: absolute;
-                top:0;
-                left:0;
-                width:80.7%;
-                height:72.5%;                
+                &__center {                              
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    width:80.7%;
+                    height:72.5%;                
+                }
             }
         }
 
@@ -411,11 +414,7 @@
                     }
                 }
             }
-
-            &--video-on { 
-                .translate(-200px, -100px);
-            }
-
+            
             &__next, &__btn {
                 position:absolute;
                 bottom:20px;
@@ -446,6 +445,8 @@
         html &__next {
             min-height:70px;            
             background:none;
+            position:fixed;   
+
             #gradient > .horizontal( fade(#000, 0), fade(#000, 75) );
         }       
     }
