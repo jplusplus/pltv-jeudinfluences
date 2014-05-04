@@ -2,7 +2,7 @@
     "next_scene" : "6.31",
     "decor": [
         {
-            "background": null,
+            "background": "/medias/illustrations/ecrannoir.jpg",
             "background_transition": null,
             "soundtrack": null
         }
