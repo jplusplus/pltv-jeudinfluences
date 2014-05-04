@@ -32,5 +32,5 @@ angular.module("spin.directive").directive "preload", ['$timeout', ($timeout)->
         $timeout ->
             queue = 0
             do checkQueue
-        , 15*1000
+        , 30*1000
 ]
