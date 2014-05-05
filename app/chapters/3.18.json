@@ -2,7 +2,7 @@
     "next_scene" : null,
     "decor": [
         {
-            "result": {"ubm": 8},
+            "result": {"ubm": 16},
             "background": "/medias/chap3/illustrations/illustr-ch3-09.jpg",
             "background_transition": "fade",
             "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-b.mp3"
@@ -51,7 +51,7 @@
                         {
                             "karma": 0,
                             "stress": -16,
-                            "ubm": -16,
+                            "ubm": -8,
                             "trust": 16
                         }
                     ]
