@@ -2,7 +2,7 @@
     "next_scene" : null,
     "decor": [
         {
-            "background": null,
+            "background": "/medias/illustrations/ecrannoir.jpg",
             "background_transition": null,
             "soundtrack": null
         }
@@ -12,13 +12,13 @@
             "condition": {"soutien_jarendeau":true},
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k3cKMSAE9QQAkt70H5i?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+            "body": "http://www.dailymotion.com/video/k5KKtv03AEDF6070H5i?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "condition": {"soutien_jarendeau":false},
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/kk5AtHe2RattpI70H6v?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+            "body": "http://www.dailymotion.com/video/k1yWzVeNyckZOR70H6v?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "type" : "choice",
@@ -33,7 +33,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 2,
+                            "karma": 4,
                             "stress": -2,
                             "ubm": 0,
                             "trust": 0,
@@ -47,7 +47,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": -4,
+                            "karma": -8,
                             "stress": 1,
                             "guilt": 3,
                             "ubm": 0,

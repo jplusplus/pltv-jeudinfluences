@@ -81,8 +81,10 @@
 
         <!-- Video, in the middle of the screen -->
         <div ng-if="sequence.isVideo()" cover min-width="1280" min-height="800">
-            <div class="scene__sequence--video__body">
-                <iframe frameborder="0" width="100%" height="100%" ng-src="[[sequence.getEmbedSrc()]]" allowfullscreen ng-if="shouldShowSequence($index)"></iframe>
+            <div class="scene__sequence--video__body">            
+                <div class="scene__sequence--video__body__center">
+                    <iframe frameborder="0" width="100%" height="100%" ng-src="[[sequence.getEmbedSrc()]]" allowfullscreen ng-if="shouldShowSequence($index)" wmode="Opaque"></iframe>
+                </div>            
             </div>            
         </div>
 
@@ -99,7 +101,7 @@
         </div>
 
         <!-- generic next button -->
-        <div class="scene__sequence__next" ng-if="sequence.next_button" ng-class="{ 'scene__sequence__next--video-on': sequence.isVideo()}">
+        <div class="scene__sequence__next" ng-if="sequence.next_button">
             <a class="scene__sequence__next__btn btn btn-default" ng-click="goToNextSequence()">
                 <span class="sr-only">Continuer</span>
             </a>

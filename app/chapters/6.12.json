@@ -1,8 +1,11 @@
 {
-    "next_scene" : "6.14",
+    "next_scene" : {                                                                         
+        "positif_karma" : "6.14",                                                                         
+        "negatif_karma" : "6.14b"                                                                         
+    },
     "decor": [
         {
-            "background": null,
+            "background": "/medias/illustrations/ecrannoir.jpg",
             "background_transition": null,
             "soundtrack": null
         }
@@ -12,7 +15,7 @@
             "result": {"stress": -4},
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k7d9t3s3q7rRi770Hf1?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+            "body": "http://www.dailymotion.com/video/k7EaG2IxcXgcaI70Hf1?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         }
     ]
 }

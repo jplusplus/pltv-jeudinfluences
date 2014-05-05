@@ -56,7 +56,8 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": 2,
-                            "trust": 0
+                            "trust": 0,
+                            "refus_syndicats": true
                         }
                     ]
                 }

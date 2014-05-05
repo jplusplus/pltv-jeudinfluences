@@ -20,7 +20,7 @@
         {
             "condition": {"prevenir_luaud_pollution":false},
             "type" : "choice",
-            "body": "Étiez-vous au courant de cette pollution avant qu'elle ne soit révélée dans les médias ?",
+            "body": "Étiez-vous au courant de cette pollution avant qu'elle ne soit révélée ?",
             "delay" : 7,
             "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
@@ -31,7 +31,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 2,
+                            "karma": 8,
                             "stress": -2,
                             "ubm": 2,
                             "trust": 0,
@@ -45,7 +45,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": -1,
+                            "karma": -4,
                             "stress": 2,
                             "ubm": -1,
                             "honesty": -2,
@@ -58,7 +58,7 @@
         {
             "condition": {"prevenir_luaud_pollution":true},
             "type" : "choice",
-            "body": "Étiez-vous au courant de cette pollution avant qu'elle ne soit révélée dans les médias ?",
+            "body": "Étiez-vous au courant de cette pollution avant qu'elle ne soit révélée ?",
             "delay" : 7,
             "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,

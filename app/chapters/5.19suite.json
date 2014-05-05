@@ -23,7 +23,7 @@
         {
             "condition":{"itw_connaissance_pollution":true, "itw_jarendeau_seuils":true},
             "type" : "choice",
-            "body": "Mickael Saulat vous avait-t-il informé d'un ajout d'éléments chimiques dans la fabrication du béton ?",
+            "body": "Mickael Saulat vous avait-t-il informé de l'ajout d'éléments chimiques ?",
             "delay" : 5,
             "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,
@@ -34,7 +34,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 2,
+                            "karma": 8,
                             "stress": -4,
                             "ubm": 4,
                             "trust": 0,
@@ -48,7 +48,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": -2,
+                            "karma": -8,
                             "stress": 2,
                             "ubm": -4,
                             "honesty": -2,
@@ -71,7 +71,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 2,
+                            "karma": 8,
                             "stress": -4,
                             "ubm": 4,
                             "trust": 0,
@@ -85,7 +85,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": -2,
+                            "karma": -8,
                             "stress": 2,
                             "ubm": -4,
                             "honesty": -2,

@@ -36,7 +36,7 @@
                 {
                     "header": "Oui",
                     "next_scene": "5.40",
-                    "outro": null,
+                    "outro": "Le ministre de la santé s'en souviendra...",
                     "result": [
                         {
                             "karma": 0,

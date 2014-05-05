@@ -2,7 +2,7 @@
     "next_scene" : null,
     "decor": [
         {
-            "background": null,
+            "background": "/medias/illustrations/ecrannoir.jpg",
             "background_transition": null,
             "soundtrack": null
         }
@@ -11,11 +11,7 @@
         {
             "type": "video_background",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k2M2jj8e4OTlMu70HbO?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
-        },
-        {
-            "type": "narrative",
-            "body": "..."
+            "body": "http://www.dailymotion.com/video/k4n76ZBNTuKLXX70HbO?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         },
         {
             "type" : "choice",

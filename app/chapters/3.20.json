@@ -16,7 +16,7 @@
         },
         {
             "type" : "choice",
-            "body": "Éviter que le terme \"L'affaire Habinat\" ne s'installe ?",
+            "body": "Éviter que le terme \"affaire Habinat\" ne s'installe ?",
             "delay" : null,
             "default_option" : null,
             "options": [
@@ -27,7 +27,7 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 2,
+                            "stress": -4,
                             "ubm": -8,
                             "trust": 4
                         }

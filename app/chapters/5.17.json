@@ -15,7 +15,7 @@
         },
         {
             "type" : "choice",
-            "body": "Martin Jarendeau a-t-il évoqué avec vous le relèvement des seuils d'alerte ?",
+            "body": "Martin Jarendeau a-t-il évoqué le relèvement des seuils d'alerte ?",
             "delay" : 7,
             "sound": "/medias/sounddesign/tictac.mp3",
             "default_option" : 1,

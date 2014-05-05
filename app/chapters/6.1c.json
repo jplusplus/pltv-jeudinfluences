@@ -2,48 +2,49 @@
     "next_scene" : null,
     "decor": [
         {
-            "background": "/medias/chap4/illustrations/illustr-ch4-03.jpg",
+            "background": "/medias/chap6/illustrations/illustr-ch6-1.jpg",
             "background_transition": "fade",
-            "soundtrack": "/medias/chap4/musiques/soundtrack-ch4-b.mp3"
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-b.mp3"
         }
     ],
     "sequence": [
         {
             "type": "dialogue",
-            "character": "Nadia",
-            "header": "29 mai, 9h21.",
-            "body": "Et c'est toi qui a eu cette idée ?"
+            "character": "Louis",
+            "header": null,
+            "body": "..."
         },
         {
             "type" : "choice",
-            "body": "Prendre la responsabilité de cette initiative ?",
+            "body": "Quelle option choisir ?",
             "delay" : null,
             "default_option" : null,
             "options": [
                 {
-                    "header": "Oui",
-                    "next_scene": "4.9",
+                    "header": "Tout raconter à Patrick Luaud ?",
+                    "next_scene": "6.2",
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
+                            "karma": 32,
                             "stress": 0,
                             "ubm": 0,
-                            "honesty": -2,
                             "trust": 0
                         }
                     ]
                 },
                 {
-                    "header": "Non",
-                    "next_scene": "4.12",
+                    "header": "Rester fidèle à vos mensonges ?",
+                    "next_scene": "6.16",
                     "outro": null,
                     "result": [
                         {
-                            "karma": 0,
-                            "stress": 0,
+                            "karma": -8,
+                            "stress": 2,
                             "ubm": 0,
-                            "trust": 0
+                            "guilt": 6,
+                            "honesty": -16,
+                            "trust": 4
                         }
                     ]
                 }

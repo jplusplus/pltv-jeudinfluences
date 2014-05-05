@@ -12,12 +12,12 @@
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "Je mettrais :  \n\"Nous sommes profondément affectés part la perte de Mickael Saulat, pierre essentielle de notre édifice. Son geste reste incompréhensible.\""
+            "body": "Je mettrais :  \n\"Nous sommes profondément affectés par la perte de Mickael Saulat, pierre essentielle de notre édifice. Son geste reste incompréhensible.\""
         },
         {
             "type": "dialogue",
             "character": "Patrick Luaud",
-            "header": "Patrick Luaud hausse les sourcils.",
+            "header": null,
             "body": "Pourquoi tendre une telle perche ? Bien sûr que son geste est incompréhensible. Quel suicide ne l'est pas ? Et puis \"la pierre essentielle notre l'édifice\" pour un concepteur de béton... Ne prenez pas les gens pour des idiots."
         },
         {
@@ -41,7 +41,7 @@
                 {
                     "header": "Oui",
                     "next_scene": "2.23",
-                    "outro": null,
+                    "outro": "Les médias s'en souviendront...",
                     "result": [
                         {
                             "karma": 0,

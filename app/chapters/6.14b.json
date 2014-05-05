@@ -9,8 +9,7 @@
     ],
     "sequence": [
         {
-            "result": {"meurtre": true},
-            "result": {"guilt": 24},
+            "result": {"guilt": 24, "meurtre": true},
             "type": "voixoff",
             "character": "Louis",
             "body": "/medias/chap6/voix-off/louis-ch6-flashback-05_d.mp3"

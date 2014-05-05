@@ -9,10 +9,6 @@
     ],
     "sequence": [
         {
-            "type": "narrative",
-            "body": "Mercredi 30 mai, 14h13." 
-        },
-        {
             "type": "voixoff",
             "character": null,
             "body": "/medias/chap5/voix-off/louis-ch5-03_journaliste.mp3"
@@ -29,7 +25,6 @@
             "body": "Vous vous foutez de moi Louis ?"
         },
         {
-            "result": {"trust": -100},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,

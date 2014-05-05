@@ -1,9 +1,9 @@
 {
-    "next_scene" : "5.8",
+    "next_scene" : "6.1c",
     "decor": [
         {
             "background": "/medias/illustrations/tablette.jpg",
-            "background_transition": null,
+            "background_transition": "fade",
             "soundtrack": null
         }
     ],
@@ -11,7 +11,7 @@
         {
             "type": "video",
             "next_button": true,
-            "body": "http://www.dailymotion.com/video/k1DzjikTtGeo0g6oftP?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
+            "body": "http://www.dailymotion.com/video/k753coL0qABqB16ofJh?autoplay=1&chromeless=0&hideInfos=0&html=1&related=0"
         }
     ]
 }

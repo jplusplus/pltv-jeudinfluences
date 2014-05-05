@@ -11,8 +11,17 @@
         {
             "type": "dialogue",
             "character" : "Patrick Luaud",
-            "header": "Patrick Luaud esquisse alors un sourire.",
-            "body": "Je m'en occupe. Je savais que ça vous parlerait ! Je commence à vous cerner. La rumeur est souvent une bonne arme pour contre-attaquer. Vous devriez jeter un oeil là-dessus..."
+            "body": "Je m'en occupe. Je savais que ça vous parlerait ! Je commence à vous cerner."
+        },
+        {
+            "type": "new_background",
+            "body": "/medias/chap5/illustrations/illustr-ch5-02.jpg",
+            "transition": null
+        },
+        {
+            "type": "dialogue",
+            "character" : "Patrick Luaud",
+            "body": "La rumeur est souvent une bonne arme pour contre-attaquer. Vous devriez jeter un oeil là-dessus..."
         },
         {
             "type" : "choice",
@@ -26,9 +35,9 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": -8,
-                            "ubm": -8,
-                            "trust": 8
+                            "stress": -16,
+                            "ubm": -16,
+                            "trust": 16
                         }
                     ]
                 },

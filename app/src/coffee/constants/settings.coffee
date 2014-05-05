@@ -3,7 +3,7 @@ angular.module('spin.constant').constant 'constant.settings',
     # (Append using "media" filter )
     mediaUrl          : window.MEDIA_URL or ""
     # Animations
-    chapterEntrance   : 6*1000
+    chapterEntrance   : 5*1000
     sceneEntrance     : 1*1000
     feedbackDuration  : 2*1000
     # Some types of sequence have differents behavior
