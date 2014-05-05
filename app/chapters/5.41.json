@@ -37,12 +37,6 @@
             "body": "/medias/chap5/illustrations/illustr-ch5-12_b.jpg"
         },
         {
-            "condition": {"refus_syndicats": true},
-            "type":"new_background",
-            "transition": "fade",
-            "body": "/medias/chap5/illustrations/illustr-ch5-12_a.jpg"
-        },
-        {
             "type": "narrative",
             "body": "..."
         }

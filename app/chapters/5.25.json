@@ -17,30 +17,6 @@
             "body": "Bravo, vous vous en très êtes bien tiré ! Attendons demain pour lire cette enquête."
         },
         {
-            "condition": {"itw_connaissance_pollution":false, "itw_jarendeau_seuils":true, "itw_mika_beton":false},
-            "result": {"ubm": -4, "stress": -2, "trust": 8},
-            "type": "dialogue",
-            "character": "Patrick Luaud",
-            "header": null,
-            "body": "Bon, vous avez rectifié le tir. Heureusement. Mais vos hésitations sur les composants du béton ont du confirmer les doutes de ce journaliste. Il ne reste plus qu'à attendre demain pour lire cette \"enquête\"."
-        },
-        {
-            "condition": {"itw_connaissance_pollution":false, "itw_jarendeau_seuils":false, "itw_mika_beton":true},
-            "result": {"ubm": -4, "stress": -2, "trust": 8},
-            "type": "dialogue",
-            "character": "Patrick Luaud",
-            "header": null,
-            "body": "Bon, vous avez rectifié le tir. Heureusement. Mais vos hésitations sur les composants du béton ont du confirmer les doutes de ce journaliste. Il ne reste plus qu'à attendre demain pour lire cette \"enquête\"."
-        },
-        {
-            "condition": {"itw_connaissance_pollution":false, "itw_jarendeau_seuils":true, "itw_mika_beton":true},
-            "result": {"ubm": -4, "stress": -2, "trust": 8},
-            "type": "dialogue",
-            "character": "Patrick Luaud",
-            "header": null,
-            "body": "Bon, vous avez rectifié le tir. Heureusement. Mais vos hésitations sur les composants du béton ont du confirmer les doutes de ce journaliste. Il ne reste plus qu'à attendre demain pour lire cette \"enquête\"."
-        },
-        {
             "condition": {"itw_connaissance_pollution":true, "itw_jarendeau_seuils":false, "itw_mika_beton": false},
             "result": {"ubm": -4, "stress": -2, "trust": 8},
             "type": "dialogue",
@@ -57,12 +33,12 @@
             "body": "Bon, vous avez rectifié le tir. Heureusement. Mais vos hésitations sur la question de la pollution et vos liens avec Jarendeau ont du confirmer les doutes de ce journaliste. Il ne reste plus qu'à attendre demain pour lire cette \"enquête\"."
         },
         {
-            "condition": {"itw_connaissance_pollution":true, "itw_jarendeau_seuils":false, "itw_mika_beton": true},
+            "condition": {"itw_connaissance_pollution":false, "itw_jarendeau_seuils":false, "itw_mika_beton":true},
             "result": {"ubm": -4, "stress": -2, "trust": 8},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Bon, vous avez rectifié le tir. Heureusement. Mais vos hésitations sur la question de la pollution et vos liens avec Jarendeau ont du confirmer les doutes de ce journaliste. Il ne reste plus qu'à attendre demain pour lire cette \"enquête\"."
+            "body": "Bon, vous avez rectifié le tir. Heureusement. Mais vos hésitations sur les composants du béton ont du confirmer les doutes de ce journaliste. Il ne reste plus qu'à attendre demain pour lire cette \"enquête\"."
         }
     ]
 }

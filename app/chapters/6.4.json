@@ -2,7 +2,7 @@
     "next_scene" : null,
     "decor": [
         {
-            "background": "/medias/illustrations/ecrannoir.jpg",
+            "background": null,
             "background_transition": null,
             "soundtrack": null
         }
@@ -33,7 +33,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": 4,
+                            "karma": 2,
                             "stress": -2,
                             "ubm": 0,
                             "trust": 0,
@@ -47,7 +47,7 @@
                     "outro": null,
                     "result": [
                         {
-                            "karma": -8,
+                            "karma": -4,
                             "stress": 1,
                             "guilt": 3,
                             "ubm": 0,

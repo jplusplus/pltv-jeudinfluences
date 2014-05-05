@@ -2,23 +2,12 @@
     "next_scene": null,
     "decor": [
         {
-            "background": "/medias/chap2/illustrations/illustr-ch2-18.jpg",
+            "background": "/medias/chap2/illustrations/illustr-ch2-19.jpg",
             "background_transition": "fade",
             "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
         }
     ],
     "sequence": [
-        {
-            "type": "dialogue",
-            "character": "Louis",
-            "header": null,
-            "body": "..."
-        },
-        {
-            "type": "new_background",
-            "transition": "fade",
-            "body": "/medias/chap2/illustrations/illustr-ch2-19.jpg"
-        },
         {
             "type": "dialogue",
             "character": "Patrick Luaud",
@@ -51,7 +40,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Ça peut tenir. On doit pouvoir tourner ça de manière à ce que l'attention glisse vers le couple. Faire passer l'idée que le lien faible n'est pas entre Mickael et Habinat, mais entre Mickael et Nadia. L'entreprise passe au second plan, ce n'est que le décor d'un drame intime, personnel.  \nUne histoire de couple, d'amour blessé, de confiance. Très banal finalement, donc crédible.\n\nJe peux rapidement glisser cette histoire à quelques contacts. Évidemment, ça impactera Nadia, les médias vont se retourner vers elle dans leur course à la bonne info.\n\nVous en dites quoi ?"
+            "body": "Ça peut tenir. On doit pouvoir tourner ça de manière à ce que l'attention glisse vers le couple. Faire passer l'idée que le lien faible n'est pas entre Mickael et Habinat, mais entre Mickael et Nadia. L'entreprise passe au second plan, ce n'est que le décor d'un drame intime, personnel.  \nUne histoire de couple, d'amour blessé, de confiance. Très banal finalement, donc crédible.\n\nJe peux rapidement glisser cette histoire à quelques contacts. Vous en dites quoi ?"
         },
         {
             "type": "choice",

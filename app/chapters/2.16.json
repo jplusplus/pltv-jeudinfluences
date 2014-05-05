@@ -16,13 +16,6 @@
             "body": "Jeudi 24 mai, 9h20."
         },
         {
-            "condition": {"tweet_de_merde": true},
-            "type": "dialogue",
-            "character": "Patrick Luaud",
-            "header": null,
-            "body": "Franchement, vous auriez pu éviter ce premier tweet au saut du lit. Un conseil : ne faites rien dans la précipitation, on a rarement les idées claires dans ces moments là.\n\n\"Nous bâtirons à sa mémoire.\", c'est...\n\nBref, vous me payez pour trouver les bons mots alors, à l'avenir, ne faites rien sans m'en parler."
-        },
-        {
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,

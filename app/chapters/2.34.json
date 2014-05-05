@@ -15,10 +15,10 @@
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "J'aimerais vraiment que l'on parle de l'entreprise, de sa stabilité. C'est important que l'on sente que le geste de Mika ne nous déstabilise pas."
+            "body": "J'aimerais que l'on parle aussi de l'entreprise, de sa stabilité. C'est important que l'on sente que le geste de Mika ne nous déstabilise pas."
         },
         {
-            "result": {"trust": -8},
+            "result": {"ubm": -2},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
