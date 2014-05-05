@@ -14,7 +14,7 @@
             "body": "/medias/chap4/voix-off/louis-ch4-07.mp3"
         },
         {
-            "result": {"stress": 4},
+            "result": {"stress": 8},
             "type": "dialogue",
             "character": "Nadia",
             "header": null,
