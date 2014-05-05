@@ -1,31 +1,33 @@
 <div class="results" ng-controller="ResultsCtrl" ng-show="shouldShowResults()">
-    <div class="results__feedbacks">
-        <p>Ne rester pas seul(e) dans cette crise,<br /> partagez votre expérience.</p>
-        <div class="results__feedbacks__share">
-            <button ng-click="thirdParty.shareOnFacebook()" class="btn btn-default results__feedbacks__share__facebook">
-                <span class="sr-only">Facebook</span>
-            </button>
-            <button ng-click="thirdParty.shareOnTwitter()" class="btn btn-default results__feedbacks__share__twitter">
-                <span class="sr-only">Twitter</span>
-            </button>
-        </div>
-        
-        <div ng-repeat="(key, feedback) in currentResults.list" class="results__feedbacks__sample">
-            <h3 ng-bind="feedback.title"></h3>
-            <p ng-bind-html="feedback.percentage.sentence"></p>
-            <div class="progress results__feedbacks__sample__progress">
-                <div class="progress-bar" ng-style="feedback.percentage.style">
-                    [[ feedback.percentage.raw | number:0 ]]%
+    <div class="results__wrapper">
+        <div class="results__wrapper__feedbacks">
+            <p>Ne rester pas seul(e) dans cette crise,<br /> partagez votre expérience.</p>
+            <div class="results__wrapper__feedbacks__share">
+                <button ng-click="thirdParty.shareOnFacebook()" class="btn btn-default results__wrapper__feedbacks__share__facebook">
+                    <span class="sr-only">Facebook</span>
+                </button>
+                <button ng-click="thirdParty.shareOnTwitter()" class="btn btn-default results__wrapper__feedbacks__share__twitter">
+                    <span class="sr-only">Twitter</span>
+                </button>
+            </div>
+            
+            <div ng-repeat="(key, feedback) in currentResults.list" class="results__wrapper__feedbacks__sample">
+                <h3 ng-bind="feedback.title"></h3>
+                <p ng-bind-html="feedback.percentage.sentence"></p>
+                <div class="progress results__wrapper__feedbacks__sample__progress">
+                    <div class="progress-bar" ng-style="feedback.percentage.style">
+                        [[ feedback.percentage.raw | number:0 ]]%
+                    </div>
                 </div>
             </div>
+            <div class="results__wrapper__feedbacks__nav">
+                <button ng-click="goNextChapter()" class="btn btn-default results__wrapper__feedbacks__nav__continue">
+                    Continuer
+                </button>
+            </div>
         </div>
-        <div class="results__feedbacks__nav">
-            <button ng-click="goNextChapter()" class="btn btn-default results__feedbacks__nav__continue">
-                Continuer
-            </button>
-        </div>
-    </div>
 
+    </div>
     <div class="results__choices" ng-class="{ 'results__choices--on': shouldShowChoices }" ng-if="hasPreviousResults()">
         <button class="results__choices__toggler btn btn-default" ng-click="shouldShowChoices = !shouldShowChoices">
             Vos choix précédents
