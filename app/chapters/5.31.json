@@ -1,5 +1,5 @@
 {
-    "next_scene" : 5.41,
+    "next_scene" : null,
     "decor": [
         {
             "background": "/medias/chap5/illustrations/illustr-ch5-10.jpg",
@@ -13,7 +13,10 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Vous faites une grosse erreur Louis et cela risque de vous coûter cher. Mais, après tout, c'est votre choix."
+            "body": "Je ne sais pas ce que vous avez à cacher pour être si obtus mais, dans ces conditions, je refuse d'aller plus loin. Vous allez me faire passer pour un incompétent, et il est hors de question que je perde d'autres clients à cause de vos choix absurdes.\n\nBon courage Louis."
+        },
+        {
+            "type": "gameover"
         }
     ]
 }

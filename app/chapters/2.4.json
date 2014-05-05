@@ -9,9 +9,10 @@
     ],
     "sequence": [
         {
-            "type": "voixoff",
+            "type": "dialogue",
             "character": "Louis",
-            "body": "/medias/chap2/voix-off/louis-ch2-01.mp3"
+            "header": null,
+            "body": "Mika, Mickael... Mon plus proche collaborateur.  \nC'est avec lui que j'ai transformé l'entreprise. Lui et sa femme, Nadia, notre dir' com'."
         }
     ]
 }

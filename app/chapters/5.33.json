@@ -49,7 +49,7 @@
                 {
                     "header": "Non",
                     "next_scene": "5.39",
-                    "outro": "Les syndicats s'en souviendront...",
+                    "outro": null,
                     "result": [
                         {
                             "karma": 0,

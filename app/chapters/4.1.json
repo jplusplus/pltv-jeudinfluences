@@ -91,7 +91,7 @@
                     "next_scene": "4.6",
                     "result": [
                         {
-                            "karma": -4,
+                            "karma": -2,
                             "stress": 0,
                             "ubm": 0,
                             "trust": 8,
@@ -105,7 +105,7 @@
                     "next_scene": "4.2",
                     "result": [
                         {
-                            "karma": 4,
+                            "karma": 2,
                             "stress": 0,
                             "ubm": 0,
                             "trust": -8

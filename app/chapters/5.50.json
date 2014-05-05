@@ -13,21 +13,6 @@
             "body": "Vendredi 1er juin, 8h55."
         },
         {
-            "condition": {"charger_ministresante":true},
-            "result": {"stress": 4}, 
-            "type": "dialogue",
-            "character": "Patrick Luaud",
-            "header": null,
-            "body": "On peut dire qu'Alain Gravielle, le ministre de la Santé, n'a pas aimé que la presse s'intéresse à ses liens avec Bernard Rouvroy. Il s'est sûrement douté que l'info venait de chez nous. 10 minutes après la fin de votre interview, il passait à l'antenne d'une radio concurrente. Selon lui, vous chercheriez à fuir vos responsabilités... Une chose est sûre en tout cas, entre vous deux, la guerre est déclarée."
-        }, 
-        {
-            "condition": {"charger_coudart":true},
-            "type": "dialogue",
-            "character": "Patrick Luaud",
-            "header": null,
-            "body": "J'avoue que vous m'impressionnez. La fluidité de votre charge sur le professeur Coudart était remarquable. Elle a décrédibilisé l'argumentaire de nos adversaires, c'est certain. Mais le plus important, c'est la question des indemnités..."
-        },        
-        {
             "condition": {"soixantemille":true},
             "type": "dialogue",
             "character": "Patrick Luaud",

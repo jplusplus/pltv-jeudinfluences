@@ -30,7 +30,7 @@
                 {
                     "header": "Oui",
                     "next_scene": "5.11",
-                    "outro": "Jarendeau s'en souviendra...",
+                    "outro": null,
                     "result": [
                         {
                             "karma": 0,
