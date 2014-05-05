@@ -35,8 +35,7 @@
                             "karma": 0,
                             "stress": 0,
                             "ubm": -2,
-                            "trust": 4,
-                            "diffamation_ouvrier": true
+                            "trust": 4
                         }
                     ]
                 },
@@ -50,7 +49,8 @@
                             "stress": -2,
                             "ubm": 2,
                             "honesty": -2,
-                            "trust": -8
+                            "trust": -8,
+                            "diffamation_ouvrier": true
                         }
                     ]
                 }

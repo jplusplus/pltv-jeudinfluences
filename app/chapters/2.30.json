@@ -7,7 +7,7 @@
         {
             "background": "/medias/chap2/illustrations/illustr-ch2-17_a.jpg",
             "background_transition": null,
-            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-b.mp3"
+            "soundtrack": "/medias/chap2/musiques/soundtrack-ch2-a.mp3"
         }
     ],
     "sequence": [
@@ -18,7 +18,7 @@
             "body": "J'aimerais que l'on parle aussi de l'entreprise, de sa stabilité. C'est important que l'on sente que le geste de Mika ne nous déstabilise pas."
         },
         {
-            "result": {"ubm": -2, "trust":-8},
+            "result": {"trust":-8},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
