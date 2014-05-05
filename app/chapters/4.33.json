@@ -15,7 +15,7 @@
             "body": "De mon côté, j'ai rapidement prévenu le président de région de l'époque, avec qui j'étais en contact : Martin Jarendeau. C'est lui qui m'a proposé de relever les seuils d'alerte temporairement, le temps que l'on trouve une solution en interne."
         },
         {
-            "result": {"trust": -48},
+            "result": {"trust": -36},
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
@@ -31,7 +31,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Vous auriez dû me prévenir plus tôt."
+            "body": "Vous auriez vraiment dû me prévenir plus tôt..."
         }
     ]
 }

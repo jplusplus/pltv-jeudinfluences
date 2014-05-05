@@ -30,10 +30,10 @@
                 {
                     "header": "Pointer les équipes de Mickael Saulat",
                     "next_scene": "5.39",
-                    "outro": null,
+                    "outro": "Les syndicats s'en souviendront...",
                     "result": [
                         {
-                            "karma": -1,
+                            "karma": -4,
                             "stress": 0,
                             "ubm": 0,
                             "trust": 0,
@@ -44,10 +44,10 @@
                 {
                     "header": "Pointer les liens entre Rouvroy et le ministre de la Santé",
                     "next_scene": "5.40",
-                    "outro": null,
+                    "outro": "Le ministre de la santé s'en souviendra...",
                     "result": [
                         {
-                            "karma": 1,
+                            "karma": 4,
                             "stress": 0,
                             "ubm": 0,
                             "trust": 0,

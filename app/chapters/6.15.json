@@ -4,7 +4,7 @@
         {
             "background": "/medias/chap6/illustrations/fin.gif",
             "background_transition": "fade",
-            "soundtrack": null
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-b.mp3"
         }
     ],
     "sequence": [

@@ -2,7 +2,7 @@
     "next_scene" : null,
     "decor": [
         {
-            "background": "/medias/chap3/illustrations/illustr-ch3-01.jpg",
+            "background": "/medias/chap3/illustrations/illustr-ch3-02.jpg",
             "background_transition": "fade",
             "soundtrack": "/medias/chap3/musiques/soundtrack-ch3-a.mp3"
         }
@@ -17,6 +17,11 @@
             "type": "voixoff",
             "character": "Louis",
             "body": "/medias/chap3/voix-off/louis-ch3-01.mp3"
+        },
+        {
+            "type": "new_background",
+            "transition": null,
+            "body": "/medias/chap3/illustrations/illustr-ch3-01.jpg"
         },
         {
             "type": "dialogue",

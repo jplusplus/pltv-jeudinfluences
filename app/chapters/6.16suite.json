@@ -1,0 +1,18 @@
+{
+    "next_scene" : "6.17",
+    "decor": [
+        {
+            "background": "/medias/chap6/illustrations/illustr-ch6-1.jpg",
+            "background_transition": null,
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-b.mp3"
+        }
+    ],
+    "sequence": [
+        {
+            "type": "dialogue",
+            "character": "Patrick Luaud",
+            "header": null,
+            "body": "Faites-moi confiance. Ce coup-ci, c'est le bouquet final. Avec les derniers rebondissements de l'affaire, les demandes d'interviews se sont multipliées. Tout le monde vous veut. En un coup de fil, vous serez sur le plateau d'un JT, peut-être même dès 13 heures, et nous pourrons donner corps à cette histoire."
+        }
+    ]
+}
