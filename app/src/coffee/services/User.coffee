@@ -82,7 +82,7 @@ angular.module("spin.service").factory("User", [
             updateLocalStorage: (user=@)=>
                 localStorageService.set("user", user) if user?
 
-            updateProgression: (career, newGame=false)=>
+            updateProgression: (career)=>
                 # Do we start acting?
                 if career.reached_scene? and typeof(career.reached_scene) is "string"
                     unless TimeoutStates.feedback isnt undefined
@@ -98,7 +98,7 @@ angular.module("spin.service").factory("User", [
                         if not do @isSequenceConditionOk
                             # If not, go to the next sequence
                             do @nextSequence
-                if @checkProgression() and not newGame# return 
+                if @checkProgression()
                     @isGameOver = yes
 
             checkProgression: =>
@@ -111,7 +111,6 @@ angular.module("spin.service").factory("User", [
                         @gameOverReason = key
                         gameOver =yes
                         break
-                    else 
                 gameOver
 
             isStartingChapter: =>       
