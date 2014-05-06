@@ -34,10 +34,10 @@
     <div class="game-done__results">
         <!-- TODO: the summary viewer visualization -->
         <div class="results__feedbacks__share">
-            <button class="btn btn-default results__feedbacks__share__facebook">
+            <button ng-click="thirdParty.shareOnFacebook()" class="btn btn-default results__feedbacks__share__facebook">
                 <span class="sr-only">Facebook</span>
             </button>
-            <button class="btn btn-default results__feedbacks__share__twitter">
+            <button ng-click="thirdParty.shareOnTwitter()" class="btn btn-default results__feedbacks__share__twitter">
                 <span class="sr-only">Twitter</span>
             </button>
         </div>

@@ -4,7 +4,7 @@
         {
             "background": "/medias/chap6/illustrations/illustr-ch6-1.jpg",
             "background_transition": null,
-            "soundtrack": null
+            "soundtrack": "/medias/chap6/musiques/soundtrack-ch6-b.mp3"
         }
     ],
     "sequence": [
@@ -52,7 +52,7 @@
                 },
                 {
                     "header": "Non",
-                    "next_scene": "6.17",
+                    "next_scene": "6.16suite",
                     "outro": null,
                     "result": [
                         {

@@ -18,7 +18,6 @@
             "body": "/medias/chap6/voix-off/louis-ch6-06.mp3"
         },
         {
-            "result": {"stress": 16},
             "type": "notification",
             "sound": "/medias/soundesign/cellphone-vibre.mp3",
             "header": "10h00 / URGENT MEDIAPART",

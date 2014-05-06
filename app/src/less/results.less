@@ -242,10 +242,14 @@
                 }
 
                 &__percentage {
+                    position: relative;
+                    top: 0;
+                    left: 0;
 
                     &__progress {                    
                         height:6px;
                         margin-bottom:10px;
+                        width: calc(100% - 15px);
 
                         .progress-bar {
                             background:@brand-secondary;
@@ -254,8 +258,15 @@
                             border-radius:3px;
                         }
                     } 
-                }
 
+                    &__raw {
+                        position: absolute;
+                        bottom: -3px;
+                        right: 0;
+                        color: @brand-secondary;
+                        font-weight: bold;
+                    }
+                }
             }
         }
     }

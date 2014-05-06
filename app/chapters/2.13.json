@@ -16,7 +16,7 @@
             "body": "Le tweet suivant a bien été envoyé avec le compte @l_esmond :  \n\"Mickael était le meilleur d'entre nous. Sa perte est inestimable. Nous bâtirons à sa mémoire.\""
         },
         {
-            "result": {"trust": -40},
+            "result": {"trust": -50},
             "type": "dialogue",
             "character": "Louis",
             "header": null,

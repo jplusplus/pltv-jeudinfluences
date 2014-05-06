@@ -20,11 +20,18 @@
             "header": null,
             "body": "Je vais donc créer un nouveau poste : secrétaire d'état à la biodiversité rattaché au ministre de l'Industrie. Sa mission sera de veiller à ce que nos choix de développement industriels ne mettent pas en péril tel ou tel écosystème. Il faudra bien sûr négocier avec les entreprises, souvent."
         },
-        {
+                {
             "type": "dialogue",
             "character": "Martin Jarendeau",
             "header": null,
             "body": "Vous avez fait preuve d'un grand sang-froid lors de la crise que vous avez traversée il y a quelques mois. Vous avez fait les bons choix. Médiatiquement, cette histoire de pollution ne vous a jamais atteint. Votre image reste celle d'un entrepreneur à la fois innovant et préservant la nature."
+        },
+        {
+            "condition": {"ministre_venere": true},
+            "type": "dialogue",
+            "character": "Martin Jarendeau",
+            "header": null,
+            "body": "Nous avons eu quelques frictions, je ne peux pas le nier. Mais mettons cela sur le dos du stress. L'important, c'est que vous n'ayez jamais oublié que nous étions dans le même bateau."
         },
         {
             "type": "dialogue",

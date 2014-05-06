@@ -17,7 +17,7 @@
         {
             "type": "dialogue",
             "character": "Patrick Luaud",
-            "header": "Patrick Luaud reste dubitatif.",
+            "header": null,
             "body": "L'opinion est un animal très réactif. Les jeux de mots un peu vaseux, face à un décès soudain... Vous imaginez ce que ça peut donner ?"
         },
         {

@@ -13,7 +13,7 @@
           "body": "Jeudi 31 mai, 6h22." 
         },
         {
-           "result": {"ubm": 16},
+           "result": {"ubm": 24},
            "type": "dialogue",
            "character": "Patrick Luaud",
            "body": "Bon, je ne vais pas vous mentir. Ça commence à se fissurer. Le volet de l'enquête sur les cancers potentiellement liés à la pollution crée des remous."
@@ -42,6 +42,7 @@
         {
            "condition": {"pression_jarendeau": true},
            "type": "notification",
+           "sound": "/medias/sounddesign/notif-1.mp3",
            "header": "Nouveau message reçu de Martin Jarendeau",
            "body": "C'est la dernière fois. Prochain coup, vous chutez seul.",
            "result": {"soutien_jarendeau":true}

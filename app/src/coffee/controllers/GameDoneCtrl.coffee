@@ -1,9 +1,11 @@
 # GameDone controller is responsible to handle the ending
 class GameDoneCtrl
-    @$inject: ['$scope', '$http' , 'constant.api', 'User']
+    @$inject: ['$scope', '$http' , 'constant.api', 'User', 'ThirdParty']
 
-    constructor: (@scope, @http, @api, @User)->
+    constructor: (@scope, @http, @api, @User, @ThirdParty)->
         @scope.user = @User
+
+        @scope.thirdParty = @ThirdParty
 
         @scope.shouldShowTheEnd = @shouldShowTheEnd
 

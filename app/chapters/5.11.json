@@ -9,8 +9,9 @@
     ],
     "sequence": [
         {
-            "result": {"karma": -1, "guilt": 3, "chantage_jarendeau": true},
+            "result": {"karma": -4, "guilt": 3, "ministre_venere": true},
             "type": "notification",
+            "sound": "/medias/sounddesign/notif-1.mp3",
             "next_button": true,
             "header": "Le message suivant a bien été envoyé à Martin Jarendeau :",
             "body": "Une grosse enquête va sortir. Besoin de votre soutien. Comme vous de mon silence."
