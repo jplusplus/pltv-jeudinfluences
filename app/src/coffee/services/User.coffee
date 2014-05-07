@@ -258,7 +258,6 @@ angular.module("spin.service").factory("User", [
                 if next_scene_str is types.scene.theEnd
                     @isGameDone = true
                     @inGame = false
-                    @singMeTheEnd()
                     do @updateCareer if shouldUpdateCareer
                     return
 
