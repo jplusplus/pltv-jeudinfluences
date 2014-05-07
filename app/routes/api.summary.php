@@ -75,7 +75,9 @@ $app->get('/api/summary', function() use ($app) {
 
     if (isset($params['token'])) {
         $token_career = R::findOne('career', 'token=?', array($params['token']));
-        $token_career['choices'] = json_decode($token_career['choices'], true);
+        if (isset($token_career)) {
+            $token_career['choices'] = json_decode($token_career['choices'], true);
+        }
     }
 
     // We inject the percentages in the returned object
@@ -111,7 +113,7 @@ $app->get('/api/summary/final', function() use ($app) {
     $tokencondition = "";
     $params = $app->request()->params();
     if (isset($params['token'])) {
-        $tokencondition = " AND token <> " . $params['token'];
+        $tokencondition = " AND token <> '" . $params['token'] . "'";
     }
 
     $result = R::getAll("SELECT guilt, honesty FROM career WHERE finished = 1" . $tokencondition . " ORDER BY id DESC LIMIT 100");
