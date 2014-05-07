@@ -75,7 +75,9 @@ $app->get('/api/summary', function() use ($app) {
 
     if (isset($params['token'])) {
         $token_career = R::findOne('career', 'token=?', array($params['token']));
-        $token_career['choices'] = json_decode($token_career['choices'], true);
+        if (isset($token_career)) {
+            $token_career['choices'] = json_decode($token_career['choices'], true);
+        }
     }
 
     // We inject the percentages in the returned object
