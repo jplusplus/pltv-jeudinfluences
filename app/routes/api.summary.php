@@ -44,17 +44,34 @@ $app->get('/api/summary', function() use ($app) {
                 $all_choices[$chapter][$key] = array(0, 0);
             }
         }
-        $all_careers = R::find('career');
-        foreach ($all_careers as $career) {
-            $_choices = json_decode($career['choices'], true);
-            foreach ($all_choices as $chapter => $choicesgroup) {
-                foreach ($choicesgroup as $choice => $choicearray) {
-                    if (isset($_choices[$choice])) {
-                        $all_choices[$chapter][$choice][$_choices[$choice]] += 1;
+
+        R::transaction(function() use (&$all_choices) {
+            $security = 0;
+            $get_by = 1;
+            $offset = 0;
+            while ($security < 1000) {
+                $all_careers = R::find('career', "LIMIT " . $get_by . " OFFSET " . $offset);
+                if (!isset($all_careers)) { break; }
+
+                foreach ($all_careers as $career) {
+                    $_choices = json_decode($career['choices'], true);
+                    foreach ($all_choices as $chapter => $choicesgroup) {
+                        foreach ($choicesgroup as $choice => $choicearray) {
+                            if (isset($_choices[$choice])) {
+                                $all_choices[$chapter][$choice][$_choices[$choice]] += 1;
+                            }
+                        }
                     }
                 }
+
+                if (count($all_careers) < $get_by) {
+                    break;
+                }
+
+                $offset += $get_by;
+                $security += 1;
             }
-        }
+        });
 
         // We compute the percentages
         foreach ($all_choices as &$choicegroup) {
