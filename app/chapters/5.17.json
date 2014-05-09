@@ -27,7 +27,7 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 2,
+                            "stress": -2,
                             "ubm": 4,
                             "trust": 0,
                             "itw_jarendeau_seuils": true
@@ -41,7 +41,7 @@
                     "result": [
                         {
                             "karma": 0,
-                            "stress": 4,
+                            "stress": 0,
                             "ubm": -1,
                             "honesty": -4,
                             "trust": 0
