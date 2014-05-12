@@ -1,4 +1,4 @@
-#À PROPOS
+# À propos
 
 **“Jeu d’influences”** propose une expérience inédite pour explorer de l’intérieur le monde de la communication de crise. Ici vous êtes à la place de celui ou celle qui va devoir faire appel à un Spin Doctor. Vous incarnez celui qui doit trancher sur les options de communication proposées.
 
