@@ -32,7 +32,7 @@
             "type": "dialogue",
             "character": "Patrick Luaud",
             "header": null,
-            "body": "Vous avez eu raison de suivre mon conseil. Je sais que cette somme peu sembler faible, mais c'est tout l'intérêt. Aujourd'hui, la moitié des éditorialistes et de l'opinon, trouvera que c'est peu. Demain, nous annoncerons 100.000&nbsp;euros d'indemnités par victime, les protestations s'éteindront et vous passerez pour un patron généreux."
+            "body": "Vous avez eu raison de suivre mon conseil. Je sais que cette somme peut sembler faible, mais c'est tout l'intérêt. Aujourd'hui, la moitié des éditorialistes et de l'opinon, trouvera que c'est peu. Demain, nous annoncerons 100.000&nbsp;euros d'indemnités par victime, les protestations s'éteindront et vous passerez pour un patron généreux."
         },
         {
             "condition": {"soixantemille":true},
@@ -67,7 +67,7 @@
             "type": "dialogue",
             "character": "Louis",
             "header": null,
-            "body": "Mais enfin, Habinat n'est pour rien dans tout cela. Accepter de payer c'est reconnaitre que je suis est coupable."
+            "body": "Mais enfin, Habinat n'est pour rien dans tout cela. Accepter de payer c'est reconnaitre que je suis coupable."
         },
         {
             "condition": {"zero_indemn":true},

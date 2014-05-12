@@ -88,7 +88,7 @@ Merci à Élise Lucet et aux équipes du 13h de France 2, à Hélène Roussel et
 
 
 ####Code
-L’intégralité du code est sous licence Creativ Commons et disponible sur GitHub à l’adresse suivante : [https://github.com/jplusplus](https://github.com/jplusplus)
+L’intégralité du code est sous licence Creative Commons et disponible sur GitHub à l’adresse suivante : [https://github.com/jplusplus](https://github.com/jplusplus)
 
 @ France Télévisions - Premières Lignes - 2014
 
