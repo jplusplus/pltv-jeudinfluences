@@ -1,9 +1,13 @@
 angular.module("spin.service").factory "Sound", ['User', 'Plot', '$rootScope', '$filter', (User, Plot, $rootScope, $filter)->
     new class Sound
+        constructor: ->
+            @is_ipad = (navigator.userAgent.match /iPad/i)?
+
         # ──────────────────────────────────────────────────────────────────────────
         # Public method
         # ──────────────────────────────────────────────────────────────────────────
         startSoundTrack: (tracks) =>
+            return if @is_ipad
             if @soundtrack?
                 do @soundtrack.stop
                 @soundtrack = undefined
