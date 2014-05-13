@@ -65,6 +65,39 @@
             min-height: 380px;
         }
 
+ 
+        &__feedbacks {
+            padding:15px;
+            background:fade(black, 75);        
+            font-size:@font-size-base - 2px;
+
+
+            &__share  {
+                position:absolute;
+                top:15px;
+                right:15px;
+
+                button {
+                    display:inline-block;
+                    height:40px;
+                    width:40px;
+                    background-position:center center;
+                    background-repeat:no-repeat;
+                    background-color:@btn-default-bg;    
+                    margin-left:10px;        
+                }
+
+                &__facebook {
+                    background-image:url("/img/ui/pic_facebook-big.png");
+                }
+
+                &__twitter {
+                    background-image:url("/img/ui/pic_twitter-big.png");
+                }
+                    
+            }
+        }
+        
         &:after {
             content:"";
             position:absolute;
