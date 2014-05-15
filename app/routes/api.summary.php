@@ -47,10 +47,10 @@ $app->get('/api/summary', function() use ($app) {
 
         R::transaction(function() use (&$all_choices) {
             $security = 0;
-            $get_by = 1;
+            $get_by = 100;
             $offset = 0;
-            while ($security < 1000) {
-                $all_careers = R::find('career', "LIMIT " . $get_by . " OFFSET " . $offset);
+            while ($security < 15) {
+                $all_careers = R::find('career', "ORDER BY id DESC LIMIT " . $get_by . " OFFSET " . $offset);
                 if (!isset($all_careers)) { break; }
 
                 foreach ($all_careers as $career) {
