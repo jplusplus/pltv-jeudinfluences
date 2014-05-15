@@ -13,7 +13,7 @@
             "type": "notification",
             "sound": "/medias/sounddesign/notif-1.mp3",
             "next_button": true,
-            "header": "Le message suivant a bien été envoyé à Martin Jarendeau :",
+            "header": "Le message suivant a bien été envoyé à Martin Jarendeau",
             "body": "Une grosse enquête va sortir. Besoin de votre soutien. Comme vous de mon silence."
         }
     ]
