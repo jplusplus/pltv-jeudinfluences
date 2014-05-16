@@ -28,6 +28,7 @@ class NavCtrl
         @scope.save = @save
 
         @_shouldShowSaveButton = yes
+        @scope.shouldShowSubmitButton = yes
 
         @scope.$watch =>
             User.inGame
@@ -44,12 +45,12 @@ class NavCtrl
 
     save: =>
         email = @scope.email
-        @_shouldShowSaveButton = no
+        @scope.shouldShowSubmitButton = no
         (@User.associate email)
             .success =>
                 @User.email = email
             .error =>
-                @_shouldShowSaveButton = yes
+                @scope.shouldShowSubmitButton = yes
                 return
 
 angular.module('spin.controller').controller("NavCtrl", NavCtrl)
