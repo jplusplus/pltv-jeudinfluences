@@ -22,7 +22,7 @@ class NavCtrl
 
 
         # Udate the User volume according the scope attribute
-        @scope.$watch "volume", (v)=> @User.volume = v/100 if v?    
+        @scope.$watch "volume", (v)=> @User.volume = v/100 if v?
 
         @scope.shouldShowSaveButton = @shouldShowSaveButton
         @scope.save = @save
@@ -44,10 +44,12 @@ class NavCtrl
 
     save: =>
         email = @scope.email
+        @_shouldShowSaveButton = no
         (@User.associate email)
             .success =>
                 @User.email = email
             .error =>
+                @_shouldShowSaveButton = yes
                 return
 
 angular.module('spin.controller').controller("NavCtrl", NavCtrl)

@@ -26,16 +26,20 @@ class ResultsCtrl
         if @scope.currentChapter?
             # it will look in the already loaded result list to see if there are 
             # some previous results or not
-            _.omit @Results.list, @scope.currentChapter.id
+            _.filter @Results.list, (value, key) =>
+                key < @scope.currentChapter.id
 
     onChapterChanged: (newId, oldId)=>
         chapter = @Plot.chapter oldId
         if chapter and chapter.bilan
             @scope.safeApply =>
                 @scope.currentChapter  = chapter
+                @Results.list = []
+                do @Results.getPreviousResults
                 @Results.get(chapter).then(
                         # success callback
-                        (data)=> @scope.currentResults = data
+                        (data)=>
+                            @scope.currentResults = data
                     ,   ()=>
                             @User.isSummary = false
                             @scope.currentResults = undefined

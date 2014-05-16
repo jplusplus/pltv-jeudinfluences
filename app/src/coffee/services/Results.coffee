@@ -16,13 +16,13 @@ angular.module("spin.service").factory("Results", [
                 @list = @list or {}
                 # if we have a chapter > 1 on init it means its a returning user
                 # and therefore we should check for all previous saw chapter 
-                $rootScope.$watch (=> Plot.chapters.length), =>
-                    if parseInt(User.chapter) > 1
-                        @getPreviousResults()
+                # $rootScope.$watch (=> Plot.chapters.length), =>
+                #     if parseInt(User.chapter) > 1
+                #         @getPreviousResults()
 
             getPreviousResults: =>
-                candidates  = _.filter Plot.chapters, (el)->
-                    parseInt(el.id) < parseInt(User.chapter) and el.bilan
+                candidates  = _.filter Plot.chapters, (el) =>
+                    (parseInt(el.id) < parseInt(User.chapter)) and el.bilan
                 # will load every candidate
                 _.map candidates, @get
 
