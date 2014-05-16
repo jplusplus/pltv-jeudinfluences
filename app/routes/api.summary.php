@@ -133,7 +133,28 @@ $app->get('/api/summary/final', function() use ($app) {
         $tokencondition = " AND token <> '" . $params['token'] . "'";
     }
 
-    $result = R::getAll("SELECT guilt, honesty FROM career WHERE finished = 1" . $tokencondition . " ORDER BY id DESC LIMIT 100");
+    $result = [];
+
+    R::transaction(function() use (&$result, $tokencondition) {
+        $security = 0;
+        $get_by = 100;
+        $offset = 0;
+        while ($security < 5) {
+            $request = "SELECT id, guilt, honesty FROM career WHERE finished = 1" . $tokencondition . " ORDER BY id DESC";
+            $request .= " LIMIT " . strval($get_by) . " OFFSET " . strval($offset);
+            $partial_result = R::getAll($request);
+
+            $result = array_merge($result, $partial_result);
+
+            if (count($partial_result) < $get_by) {
+                break;
+            }
+
+            $offset += $get_by;
+            $security += 1;
+        }
+    });
+
     return ok($result, true, true);
 });
 
