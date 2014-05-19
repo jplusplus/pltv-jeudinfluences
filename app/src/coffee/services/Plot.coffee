@@ -56,7 +56,8 @@ angular.module("spin.service").factory "Plot", [
                         this.isDialog() or
                         this.isChoice() or
                         this.isFeedback() or
-                        this.isNotificationWithButton()
+                        this.isNotificationWithButton() or
+                        this.isVideoBg()
 
                     getEmbedSrc: ->
                         isSafari = navigator.userAgent.toLowerCase().indexOf('safari') != -1                        
