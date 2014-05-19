@@ -281,6 +281,15 @@
                 line-height: @input-height-base;
                 font-size:10px;
 
+                &--nosubmit {
+                    display: none !important;
+                }
+            }
+
+            &--nosubmit {
+                &:after {
+                    display: none !important;
+                }
             }
 
             &__indication {
