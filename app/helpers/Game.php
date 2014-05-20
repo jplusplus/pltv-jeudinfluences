@@ -86,7 +86,9 @@ class Game {
 			// search if a choice was made for this scene and compute the new context
 			if (isset($choices[$scene_id])) {
 				$options = Game::getOptionsFromScene($scene);
-				Game::updateContext($context, $options[$choices[$scene_id]]["result"][0]);
+				if (isset($options[$choices[$scene_id]]["result"])) {
+					Game::updateContext($context, $options[$choices[$scene_id]]["result"][0]);
+				}
 			}
 		}
 		return $context;
