@@ -4,6 +4,7 @@ use RedBean_Facade as R;
 
 if($env == 'production'){
 	R::setup('mysql:host=127.0.0.1;dbname=AddYourDBNameHere','AddYourDBUser','AddYourDBPass');
+	R::freeze();
 }
 
 $app->configureMode('production', function () use ($app) {
