@@ -301,9 +301,18 @@
 
         // Feedback, in the middle of the screen 
         &--video {
-            &__body {
-                z-index:@scene-zindex - 10;     
-                position: absolute;            
+
+            .translate(-50%, -50%);
+            z-index:@scene-zindex - 20;    
+            position: absolute;            
+            left:50%;
+            top:50%;         
+
+
+            &__body { 
+                position: absolute;   
+                left:0;
+                top:0;         
                 width:80.7%;
                 height:72.5%;                
 
@@ -313,6 +322,10 @@
                     left:0;
                     width: 100%;
                     height: 100%;
+
+                    iframe {          
+                        position: relative;
+                    }
                 }
             }
         }
