@@ -133,7 +133,7 @@ $app->get('/api/summary/final', function() use ($app) {
         $tokencondition = " AND token <> '" . $params['token'] . "'";
     }
 
-    $result = [];
+    $result = array();
 
     R::transaction(function() use (&$result, $tokencondition) {
         $security = 0;
