@@ -1,0 +1,1 @@
+CREATE INDEX career_token_idx ON career(token);
