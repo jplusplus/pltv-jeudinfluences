@@ -1,7 +1,27 @@
 Jeu d'influences
 ================
 
-_March 2014_
+_Mai 2014_
+
+## Options
+
+| Option name                     | Default value                                   | Definition
+| ------------------------------- | ----------------------------------------------- | -------------------
+| **archimade_idsite**            | 2439                                            | Set here the Archimade ID to generate the metanav
+| **cache**                       | false                                           | Disable or enable server side cache
+| **debug**                       | true                                            | Display debug message
+| **email_saving_subject**        | Jeu d'influences : Votre partie est sauvegardée | Subject of the mail to save a game
+| **launching_date**              | 2010-01-01T10:00:00"                            | After this date , switch to the game home page
+| **log.enabled**                 | true                                            | Disable or enable server logs
+| **mailchimp_apikey**            |                                                 |
+| **mailchimp_datacenter**        |                                                 |
+| **mailchimp_id**                |                                                 | Mailchimp configuration
+| **mandrill_api_key**            |                                                 | Configure mandrill mailler here
+| **mandrill_from**               | info@jeudinfluences.fr                          |
+| **media_url**                   | http://d328jlweo9aqvq.cloudfront.net            | Repository of the video sounds and large files
+| **opening_dates**               | array()                                         | Opening dates of each chapter (disabled feature)
+| **static_url**                  | /                                               | Assets URL (if you  want to move static files)
+| **summary_aggregation_expired** | 0.2                                             | Time after which we should re-aggregate summary (in hours)
 
 ## Production
 
@@ -10,13 +30,15 @@ This part of the manuel explains how to install this project from the production
 * PHP 5.3 is prerequired
 * Your Apache configuration must support **URL Rewritting**
 * Setup your Apache Webserver DocumentRoot to `public/`
-* Change the mysql and others settings in [app/config/config.production.php](app/config/config.production.php) to your needs
+* Change the mysql and others settings in [app/config/config.production.php](app/config/config.production.php).
 * Install the composer dependancies:  
     ```
     curl -sS https://getcomposer.org/installer | php && php composer.phar install
     ```
 
 ## Development
+
+This part of the manuel explains how to install this project from the development branch and **is not suitable for production**.
 
 ### Requirements
 
