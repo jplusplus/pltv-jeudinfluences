@@ -8,14 +8,17 @@ _Mai 2014_
 
 This part of the manuel explains how to install this project from the production branch.
 
-* PHP 5.3 is prerequired
-* Your Apache configuration must support **URL Rewritting**
-* Setup your Apache Webserver DocumentRoot to `public/`
-* Change the mysql in [app/config/config.production.php](app/config/config.production.php).See also [available options](#options).
-* Install the composer dependancies:  
+1. Check these prerequisites
+	* PHP 5.3 is prerequired
+	* Your Apache configuration must support **URL Rewritting**
+1. Setup a virtualenv in your Apache Webserver with a DocumentRoot to `public/`
+1. Change the MySQL URI in [app/config/config.production.php](app/config/config.production.php) (line 6). 
+1. Change the [available options](#options) following your needs.
+1. Install the composer dependancies:  
     ```
     curl -sS https://getcomposer.org/installer | php && php composer.phar install
     ```
+1. Open your browser and go the website! **RedBean** will take care of installing the database for you.
 
 ## Development
 
