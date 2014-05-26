@@ -11,9 +11,10 @@ This part of the manuel explains how to install this project from the production
 1. Check these prerequisites
 	* PHP 5.3 is prerequired
 	* Your Apache configuration must support **URL Rewritting**
-1. Setup a virtualenv in your Apache Webserver with a DocumentRoot to `public/`
-1. Change the MySQL URI in [app/config/config.production.php](app/config/config.production.php) (line 6). 
-1. Change the [available options](#options) following your needs.
+1. Setup a virtualhost in your Apache Webserver with a DocumentRoot to `public/`
+1. To configure the app:
+	* Change the MySQL URI in [app/config/config.production.php](app/config/config.production.php) (line 6). 
+	* Change the [available options](#options) following your needs.
 1. Install the composer dependancies:  
     ```
     curl -sS https://getcomposer.org/installer | php && php composer.phar install
