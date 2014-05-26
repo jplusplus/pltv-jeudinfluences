@@ -1,0 +1,1 @@
+ALTER TABLE career MODIFY token VARCHAR(35);
