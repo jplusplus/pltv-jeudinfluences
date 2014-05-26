@@ -52,6 +52,8 @@ This command will install (in this order): npm's packages, composer and his pack
 	
 ## Options
 
+These options are defined into [app/config/config.production.php](app/config/config.production.php).
+
 | Option name                     | Default value                                   | Definition
 | ------------------------------- | ----------------------------------------------- | -------------------
 | **archimade_idsite**            | 2439                                            | Set here the Archimade ID to generate the metanav
