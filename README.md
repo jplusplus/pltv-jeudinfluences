@@ -22,7 +22,7 @@ This part of the manuel explains how to install this project from the production
 
 ## Development
 
-This part of the manuel explains how to install this project from the development branch and **is not suitable for production**.
+This part of the manuel explains how to install this project from the master branch and **is not suitable for production**.
 
 ### Requirements
 
