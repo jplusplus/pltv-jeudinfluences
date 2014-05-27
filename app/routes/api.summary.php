@@ -128,21 +128,26 @@ $app->get('/api/summary/final', function() use ($app) {
     }
 
     $tokencondition = "";
+    $values = array();
     $params = $app->request()->params();
     if (isset($params['token'])) {
-        $tokencondition = " AND token <> '" . $params['token'] . "'";
+        $tokencondition = " AND token <> :token";
+        $values = array(":token" => $params['token']);
     }
 
     $result = array();
 
-    R::transaction(function() use (&$result, $tokencondition) {
+    R::transaction(function() use (&$result, $tokencondition, $values) {
         $security = 0;
         $get_by = 100;
         $offset = 0;
         while ($security < 5) {
-            $request = "SELECT id, guilt, honesty FROM career WHERE finished = 1" . $tokencondition . " ORDER BY id DESC";
+            $request  = "SELECT id, guilt, honesty FROM career";
+            $request .= " WHERE finished = 1";
+            $request .= $tokencondition;
+            $request .= " ORDER BY id DESC";
             $request .= " LIMIT " . strval($get_by) . " OFFSET " . strval($offset);
-            $partial_result = R::getAll($request);
+            $partial_result = R::getAll($request, $values);
 
             $result = array_merge($result, $partial_result);
 
