@@ -154,12 +154,18 @@ class Game {
 		* Return the career for the given token
 		*/
         $fields = "id, choices, time";
-        // Use the fields above to avoid 'SELECT *'
-        $summaryRow = R::$f->begin()
-                       ->select($fields)
-                       ->from('summary')
-                       ->limit(1)
-                       ->get('row');
+        try {   
+	        // Use the fields above to avoid 'SELECT *'
+	        $summaryRow = R::$f->begin()
+	                       ->select($fields)
+	                       ->from('summary')
+	                       ->limit(1)
+	                       ->get('row');
+		// First time try to access to the database:
+		// we *must* select all columns      
+        } catch(\RedBean_Exception_SQL $ex) {        	
+        	return R::findOne("summary");
+        }
         // Convert row values to RedBean's ojects
         $summaryBeans = R::convertToBeans('summary', array($summaryRow) ); 
         // By default, the summary is null       
@@ -178,14 +184,20 @@ class Game {
 		* Return the career for the given token
 		*/
         $fields = "id, token, created, choices, scenes, culpabilite, guilt, honesty";
-        // Use the fields above to avoid 'SELECT *'
-        $careerRow = R::$f->begin()
-                       ->select($fields)
-                       ->from('career')
-                       ->where('token = ?')
-                       ->limit(1)
-                       ->put($token)
-                       ->get('row');
+        try {        	
+	        // Use the fields above to avoid 'SELECT *'
+	        $careerRow = R::$f->begin()
+	                       ->select($fields)
+	                       ->from('career')
+	                       ->where('token = ?')
+	                       ->limit(1)
+	                       ->put($token)
+	                       ->get('row');	
+		// First time try to access to the database:
+		// we *must* select all columns      
+        } catch(\RedBean_Exception_SQL $ex) {        	
+        	return R::findOne("carrer", "token =?", array($token));
+        }
         // Convert row values to RedBean's ojects
         $careerBeans = R::convertToBeans('career', array($careerRow) ); 
         // By default, the Career is null       

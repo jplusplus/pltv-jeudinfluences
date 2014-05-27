@@ -6,6 +6,7 @@ if($env == 'development'){
 	R::setup('sqlite:../db.sqlite', NULL, NULL);
 }
 
+
 $app->configureMode('development', function () use ($app) {
 	$app->config(array(
 		'log.enabled'          => true,
