@@ -24,10 +24,10 @@ $app->get('/api/summary', function() use ($app) {
     $asked_chapter = $params['chapter'];
 
     // We retrieve the object in the database
-    $summary_in_db = R::findOne('summary');
+    $summary_in_db =  \app\helpers\Game::findSummary();    
 
     // We retrieve the content of the .json files
-    $summary = \app\helpers\Game::getSummary();
+    $summary = \app\helpers\Game::getSummary();    
 
     // We check if the summary store in database is not too old
     $expired_limit = $app->config("summary_aggregation_expired") * 60 * 60;
@@ -91,7 +91,7 @@ $app->get('/api/summary', function() use ($app) {
     }
 
     if (isset($params['token'])) {
-        $token_career = R::findOne('career', 'token=?', array($params['token']));
+        $token_career = \app\helpers\Game::findCareer($params['token']);
         if (isset($token_career)) {
             $token_career['choices'] = json_decode($token_career['choices'], true);
         }

@@ -1,6 +1,7 @@
 <?php
 
 namespace app\helpers;
+use RedBean_Facade as R;
 
 class Game {
 
@@ -146,6 +147,55 @@ class Game {
 				$context[$key] = $value;
 			}
 		}
+	}
+
+	public static function findSummary() {
+		/**
+		* Return the career for the given token
+		*/
+        $fields = "id, choices, time";
+        // Use the fields above to avoid 'SELECT *'
+        $summaryRow = R::$f->begin()
+                       ->select($fields)
+                       ->from('summary')
+                       ->limit(1)
+                       ->get('row');
+        // Convert row values to RedBean's ojects
+        $summaryBeans = R::convertToBeans('summary', array($summaryRow) ); 
+        // By default, the summary is null       
+        $summary = NULL;
+        // At least one summary
+        foreach($summaryBeans as $bean) {
+            $summary = $bean;            
+        }
+
+        return $summary;
+	}
+
+
+	public static function findCareer($token) {
+		/**
+		* Return the career for the given token
+		*/
+        $fields = "id, token, created, choices, scenes, culpabilite, guilt, honesty";
+        // Use the fields above to avoid 'SELECT *'
+        $careerRow = R::$f->begin()
+                       ->select($fields)
+                       ->from('career')
+                       ->where('token = ?')
+                       ->limit(1)
+                       ->put($token)
+                       ->get('row');
+        // Convert row values to RedBean's ojects
+        $careerBeans = R::convertToBeans('career', array($careerRow) ); 
+        // By default, the Career is null       
+        $career = NULL;
+        // At least one career
+        foreach($careerBeans as $bean) {
+            $career = $bean;            
+        }
+
+        return $career;
 	}
 
 	public static function getChapter($chapter_id) {

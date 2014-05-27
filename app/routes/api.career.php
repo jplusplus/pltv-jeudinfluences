@@ -18,10 +18,10 @@ $app->get("/api/career", function() use ($app) {
         $app->etag('api-career');
         $app->expires('+30 seconds');    
     }
-
+    
     $params = $app->request()->params();
     if (isset($params['token'])) {
-        $career = R::findOne('career', 'token=?', array($params['token']));
+        $career = \app\helpers\Game::findCareer($params['token']);
     } else {
         return wrong(array('error' => 'token needed'));
     }
@@ -53,7 +53,7 @@ $app->post('/api/career', function() use ($app) {
     $params = $app->request()->params();
     if (isset($params['token'])) {
         $token  = $params['token'];
-        $career = R::findOne('career', 'token=?', array($token));
+        $career = \app\helpers\Game::findCareer($token);
         if (empty($career)) return wrong(array('error' => 'empty'));
     } else {
         // generate a token and add it to the attribute
@@ -126,7 +126,7 @@ $app->post('/api/career/associate_email', function() use ($app) {
     $params = $app->request()->params();
     if (!isset($params['token'])) {return wrong(array('error' => 'token needed'));}
     $token  = $params['token'];
-    $career = R::findOne('career', 'token=?', array($token));
+    $career = \app\helpers\Game::findCareer($token);
     if (empty($career)) {return wrong(array('error' => 'unknown token'));}
     $data = json_decode($app->request()->getBody(), false);
     if(isset($data->email) && filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
@@ -170,7 +170,7 @@ $app->post('/api/career/erase', function() use ($app) {
     if (!isset($data->chapter) && !isset($data->since)) { return wrong(array()); }
 
     // Retrieve the career from the token
-    $career = R::findOne('career', 'token=?', array($params['token']));
+    $career = \app\helpers\Game::findCareer($params['token']);
     if (empty($career)) { return wrong(array('error' => 'unknown token')); }
 
     // Decode the JSON
