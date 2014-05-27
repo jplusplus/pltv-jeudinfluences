@@ -1,0 +1,1 @@
+CREATE INDEX career_finished_idx ON career(finished);
