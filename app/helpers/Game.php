@@ -183,7 +183,7 @@ class Game {
 		/**
 		* Return the career for the given token
 		*/
-        $fields = "id, token, created, choices, scenes, culpabilite, guilt, honesty";
+        $fields = "id, token, created, choices, scenes, guilt, honesty";
         try {        	
 	        // Use the fields above to avoid 'SELECT *'
 	        $careerRow = R::$f->begin()
