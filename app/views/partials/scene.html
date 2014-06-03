@@ -80,11 +80,13 @@
         </div>
 
         <!-- Video, in the middle of the screen -->
-        <div ng-if="sequence.isVideo()" cover min-width="1280" min-height="800">
-            <div class="scene__sequence--video__body">            
-                <div class="scene__sequence--video__body__center">
-                    <iframe frameborder="0" width="100%" height="100%" ng-src="[[sequence.getEmbedSrc()]]" allowfullscreen ng-if="shouldShowSequence($index)" wmode="Opaque"></iframe>
-                </div>            
+        <div ng-if="sequence.isVideo()">
+            <div class="scene__sequence--video__body">
+                <div cover min-width="1280" min-height="800">            
+                    <div class="scene__sequence--video__body__center">
+                        <iframe frameborder="0" width="100%" height="100%" ng-src="[[sequence.getEmbedSrc()]]" allowfullscreen ng-if="shouldShowSequence($index)" wmode="Opaque"></iframe>
+                    </div>            
+                </div>
             </div>            
         </div>
 
