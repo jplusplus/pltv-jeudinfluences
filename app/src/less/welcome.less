@@ -11,10 +11,16 @@
     .fade > .show(@chapter-starting-duration-2);
 
 
-    &__bg {       
+    &__lwf {
+        position:fixed;
+        right:20px;
+        bottom:40px + 20px;
+    }
+
+    &__bg {
         .covering();
         position:fixed;
-        background-image:url("/img/bg/wait.jpg");   
+        background-image:url("/img/bg/wait.jpg");
     }
 
     &__guide {
@@ -24,14 +30,14 @@
         &.ng-hide-remove {
             display:block!important;
             .transition(1000ms);
-        }        
-
-        &.ng-hide-remove {          
-            opacity:0;       
         }
 
-        &.ng-hide-remove.ng-hide-remove-active {          
-            opacity:1;        
+        &.ng-hide-remove {
+            opacity:0;
+        }
+
+        &.ng-hide-remove.ng-hide-remove-active {
+            opacity:1;
         }
 
         background:black no-repeat center center;
@@ -39,24 +45,24 @@
         z-index:@welcome-zindex + 100;
 
         &--headphone {
-            background-image:url("/img/ui/guide-headphone.gif");   
+            background-image:url("/img/ui/guide-headphone.gif");
         }
 
         &--control {
-            background-image:url("/img/ui/guide-control.gif");   
+            background-image:url("/img/ui/guide-control.gif");
         }
     }
 
-    &__wrapper {        
+    &__wrapper {
         width:440px;
         position:absolute;
         top:10%;
         left:50%;
         padding-bottom:60px;
-        .translate(-50%, 0);        
+        .translate(-50%, 0);
     }
 
-    &__intro,    
+    &__intro,
     &__user {
         background:fade(black, 75);
         padding:10px 20px;
@@ -64,12 +70,12 @@
 
     &__intro {
         padding-top:15px;
-        text-align: left; 
-        font-size:12px;  
+        text-align: left;
+        font-size:12px;
         white-space: nowrap;
         margin-bottom:25px;
 
-        &__lead {                  
+        &__lead {
             padding:0;
             margin-bottom:20px;
             padding-bottom:5px;
@@ -86,12 +92,12 @@
         }
     }
 
-    &__user {        
+    &__user {
 
         padding:15px 20px;
         background:fade(black, 30);
         margin-bottom:20px;
-        
+
         &__form {
             position:relative;
             padding-right:10px;
@@ -102,10 +108,10 @@
                 position:absolute;
                 top:25px;
                 right:-31px;
-                background:url("/img/ui/triangle1.png") no-repeat right 0;                    
+                background:url("/img/ui/triangle1.png") no-repeat right 0;
                 height:5px;
                 width:11px;
-                z-index:-1;                
+                z-index:-1;
             }
 
             &__submit {
@@ -113,10 +119,10 @@
                 position:absolute;
                 top:0;
                 right:-32px;
-                padding:4px 0;   
-                width: @input-height-base;  
+                padding:4px 0;
+                width: @input-height-base;
                 height: @input-height-base;
-                font-size:10px;     
+                font-size:10px;
             }
         }
 
@@ -131,15 +137,15 @@
                 .opacity(0);
                 .translate(-60px, 0);
             }
-            
+
             &.ng-hide-add,
             &.ng-hide-remove {
                 display:block!important;
-            }             
+            }
         }
     }
 
-    &__start {        
+    &__start {
 
         text-align: center;
 
