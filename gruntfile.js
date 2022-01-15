@@ -225,15 +225,6 @@ module.exports = function(grunt) {
         },
         tasks: parallel
       }
-    },
-    jasmine: {
-      app: {
-        src: 'public/js/*.js',
-        options: {
-          vendor: jslib,
-          specs: 'test/jasmine/*.js'
-        }
-      }
     }
   });
 
@@ -252,9 +243,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  
-  // Testing tools
-  grunt.loadNpmTasks('grunt-contrib-jasmine');
 
   // Template tool  
   grunt.loadNpmTasks('grunt-angular-templates');
@@ -264,8 +252,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-php');
   grunt.loadNpmTasks('grunt-parallel');
   grunt.loadNpmTasks('assemble');
-
-
   
   // Basic tasks.
   grunt.registerTask('default', ['development']);
