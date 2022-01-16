@@ -149,11 +149,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    open : {
-      server : {
-        path: 'http://localhost:8080'
-      },
-    },
     assemble: {
       development_php: {
         options: {
@@ -233,7 +228,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mkdir');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-open');
 
   // Compile tools
   grunt.loadNpmTasks('grunt-contrib-coffee');
@@ -285,7 +279,6 @@ module.exports = function(grunt) {
   grunt.registerTask('browser', function(){
     var done = this.async();
     setTimeout(function(){
-      grunt.task.run(['open:server']);
       done();
     }, 1000);
   });
