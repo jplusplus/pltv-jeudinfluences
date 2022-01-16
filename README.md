@@ -38,7 +38,7 @@ In development, this application uses the following requirements:
 
 ```bash 
 sudo apt-get install nodejs npm php5-sqlite
-sudo npm install -g grunt-cli
+sudo npm install -g grunt-cli@0 bower
 ``` 
 
 ### Set up the application
