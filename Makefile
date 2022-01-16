@@ -4,6 +4,6 @@ run:
 	grunt server
 
 install:
-	npm install
+	yarn || npm install
 	grunt fetch
 
