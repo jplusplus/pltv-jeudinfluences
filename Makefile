@@ -1,7 +1,7 @@
 # Makefile -- PLTV-SPIN
 
 run:
-	grunt server
+	npx grunt server
 
 install:
 	yarn || npm install
