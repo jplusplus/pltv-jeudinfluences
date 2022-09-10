@@ -243,13 +243,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['development']);
   grunt.registerTask('build', ['concat:coffee','coffee','uglify:app','less']);
   grunt.registerTask('dist', ['production','copy:dist','clean:dist','mkdir:dist']);
-  grunt.registerTask('lib', function(env){
-    if(env == 'production'){
-      grunt.task.run(['concat:lib_js','concat:lib_css']);
-    } else {
-      grunt.task.run(['concat:lib_js','concat:lib_css']);
-    }
-  });
+  grunt.registerTask('lib', ['concat:lib_js','concat:lib_css']);
   grunt.registerTask('test', ['jasmine']);
 
   // Setup environment for development
