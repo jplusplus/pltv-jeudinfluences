@@ -57,7 +57,6 @@ These options are defined into [app/config/config.production.php](app/config/con
 
 | Option name                     | Default value                                   | Definition
 | ------------------------------- | ----------------------------------------------- | -------------------
-| **archimade_idsite**            | 2439                                            | Set here the Archimade ID to generate the metanav
 | **cache**                       | false                                           | Disable or enable server side cache
 | **debug**                       | true                                            | Display debug message
 | **email_saving_subject**        | Jeu d'influences : Votre partie est sauvegardée | Subject of the mail to save a game

@@ -20,25 +20,6 @@ $app->get('/', function() use ($app) {
     // Add partner option
     $locales["partner"] = (int) $app->request()->params('partner');
 
-    $archimade = realpath("../vendor/archimade/kit_archimade.php");
-    // As Archimade is a private submodule, we made not mandatory
-    if( file_exists($archimade) and is_integer($app->config("archimade_idsite")) ) {        
-        require_once $archimade;
-        $token = $mode == "wait" ? 'page-attente' : 'home';
-        $arche = \ArcheHtml::getArche( $app->config("archimade_idsite"), $token);
-        
-        $locales["archimade"] = array(
-            "variables"  => $arche->getTagsScript('variable'),
-            "tags"       => array_merge( 
-                $arche->getTagsCss(), 
-                $arche->getTagsLinks(), 
-                $arche->getTagsScript('header')
-            ),
-            "header" => $arche->getBodyHeader(),
-            "footer" => $arche->getFullFooter()
-        );
-    }
-
     if ($mode == "wait") {
         $template = "wait.twig";
     } else {

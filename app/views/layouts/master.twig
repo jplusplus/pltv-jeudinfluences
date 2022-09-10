@@ -28,8 +28,6 @@
             <meta charset="utf-8">
             <meta name="description" content="Jusqu'ici j'ai fait les bons choix, je gère la crise. Et vous, quels seraient les vôtres ?">
             <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=890, minimal-ui">
-            <meta name="archimade_idsite" content="{{ ARCHIMADE_IDSITE }}">
-            <meta name="archimade_token"  content="default">
 
             <meta property="og:title" content="Jeu d'influences : jusqu'où suivrez-vous votre Spin doctor ?" />
             <meta property="og:description" content="Jusqu'ici j'ai fait les bons choix, je gère la crise. Et vous, quels seraient les vôtres ?" />
@@ -70,12 +68,6 @@
             {% endif %}
         {% endblock %}
 
-        {{archimade.variables|raw}}
-
-        {% for tag in archimade.tags %}
-            {{tag|raw}}
-        {% endfor %}
-
         {% if partner %}
             <script type="text/javascript">
                 var xt_multc = "&x2={{partner|raw}}";
@@ -85,8 +77,6 @@
     </head>
     <body ng-class="{ 'body--in-game' : user.inGame, 'body--game-done': user.isGameDone, 'body--is-loading': !user.isReady }" keyboard-navigation>
 
-        {{archimade.header|raw}}        
-
         <div id="content" class="site_content">
             {% block content %}
                 {{ content|raw }}
@@ -95,12 +85,6 @@
         
         {% block inline%}{% endblock inline %}
 
-{# Archimade create the ending markup itself #}
-{% if archimade %}
-    {{archimade.footer|raw}}
-{# If Archimade is not set, we close the page #}
-{% else %}
-        </body>
-    </html>
-{% endif %}
+    </body>
+</html>
 

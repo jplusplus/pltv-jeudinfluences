@@ -1,4 +1,0 @@
-
-[submodule "vendor/archimade"]
-	path = vendor/archimade
-	url = git@gitlab.ftven.net:marketing/kit_archimade.git
