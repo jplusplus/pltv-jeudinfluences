@@ -38,12 +38,12 @@ In development, this application uses the following requirements:
 
 ```bash 
 sudo apt-get install nodejs npm php5-sqlite
-sudo npm install -g grunt-cli@0 bower
+sudo npm install -g grunt-cli@0
 ``` 
 
 ### Set up the application
 
-This command will install (in this order): npm's packages, composer and his packages, and bower's packages.
+This command will install (in this order): npm's packages, composer and his packages.
 
 	make install
 

@@ -5,5 +5,4 @@ run:
 
 install:
 	yarn || npm install
-	grunt fetch
 

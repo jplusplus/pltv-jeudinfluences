@@ -1,24 +1,24 @@
 var jslib = [
-  'bower_modules/jquery/jquery.min.js',
-  'bower_modules/modernizr/modernizr.js',
-  'bower_modules/underscore/underscore.js',
-  'bower_modules/angular/angular.min.js',
-  'bower_modules/nouislider/jquery.nouislider.js',
-  'bower_modules/angular-nouislider/src/nouislider.js',
-  'bower_modules/angular-animate/angular-animate.min.js',
-  'bower_modules/angular-local-storage/angular-local-storage.min.js',
-  'bower_modules/angular-route/angular-route.min.js',
-  'bower_modules/angular-resource/angular-resource.min.js',
-  'bower_modules/angular-sanitize/angular-sanitize.min.js',
-  'bower_modules/angular-touch/angular-touch.min.js',
-  'bower_modules/angular-markdown-directive/markdown.js',
-  'bower_modules/circles/index.js',  
-  'bower_modules/howler/howler.min.js',
-  'bower_modules/showdown/src/showdown.js'
+  'lib/vendor/assets/jquery/jquery.min.js',
+  'lib/vendor/assets/modernizr/modernizr.js',
+  'lib/vendor/assets/underscore/underscore.js',
+  'lib/vendor/assets/angular/angular.min.js',
+  'lib/vendor/assets/nouislider/jquery.nouislider.js',
+  'lib/vendor/assets/angular-nouislider/src/nouislider.js',
+  'lib/vendor/assets/angular-animate/angular-animate.min.js',
+  'lib/vendor/assets/angular-local-storage/angular-local-storage.min.js',
+  'lib/vendor/assets/angular-route/angular-route.min.js',
+  'lib/vendor/assets/angular-resource/angular-resource.min.js',
+  'lib/vendor/assets/angular-sanitize/angular-sanitize.min.js',
+  'lib/vendor/assets/angular-touch/angular-touch.min.js',
+  'lib/vendor/assets/angular-markdown-directive/markdown.js',
+  'lib/vendor/assets/circles/index.js',  
+  'lib/vendor/assets/howler/howler.min.js',
+  'lib/vendor/assets/showdown/src/showdown.js'
 ];
 
 var csslib = [
-  'bower_modules/nouislider/jquery.nouislider.css'
+  'lib/vendor/assets/nouislider/jquery.nouislider.css'
 ];
 
 module.exports = function(grunt) {
@@ -46,11 +46,11 @@ module.exports = function(grunt) {
         ],
         dest: 'tmp/app.coffee'
       },
-      bower_js: {
+      lib_js: {
         src: jslib,
         dest: 'public/js/lib.min.js'
       },
-      bower_css: {
+      lib_css: {
         src: csslib,
         dest: 'public/css/lib.css'
       }
@@ -58,15 +58,15 @@ module.exports = function(grunt) {
     copy: {
       bootstrap: {
         files: [
-          {expand: true, flatten: true, src: ['bower_modules/bootstrap/img/*'], dest: 'public/img/', filter: 'isFile'}
+          {expand: true, flatten: true, src: ['lib/vendor/assets/bootstrap/img/*'], dest: 'public/img/', filter: 'isFile'}
         ]
       },
       angular: {
         files: [
-          {expand: true, flatten: true, src: ['bower_modules/angular/angular.min.js.map'], dest: 'public/js/', filter: 'isFile'},
-          {expand: true, flatten: true, src: ['bower_modules/angular-animate/angular-animate.min.js.map'], dest: 'public/js/', filter: 'isFile'},
-          {expand: true, flatten: true, src: ['bower_modules/angular-resource/angular-resource.min.js.map'], dest: 'public/js/', filter: 'isFile'},
-          {expand: true, flatten: true, src: ['bower_modules/angular-rpite/angular-rpite.min.js.map'], dest: 'public/js/', filter: 'isFile'}
+          {expand: true, flatten: true, src: ['lib/vendor/assets/angular/angular.min.js.map'], dest: 'public/js/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['lib/vendor/assets/angular-animate/angular-animate.min.js.map'], dest: 'public/js/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['lib/vendor/assets/angular-resource/angular-resource.min.js.map'], dest: 'public/js/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['lib/vendor/assets/angular-rpite/angular-rpite.min.js.map'], dest: 'public/js/', filter: 'isFile'}
         ]
       },
       dist: {
@@ -83,13 +83,6 @@ module.exports = function(grunt) {
         cwd:  'app/views/',
         src:  'partials/*.html',
         dest: 'public/dev/js/template.js'
-      }
-    },
-    bower: {
-      install: {
-        options: {
-          copy: false
-        }
       }
     },
     coffee: {
@@ -227,7 +220,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-mkdir');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-bower-task');
 
   // Compile tools
   grunt.loadNpmTasks('grunt-contrib-coffee');
@@ -250,13 +242,12 @@ module.exports = function(grunt) {
   // Basic tasks.
   grunt.registerTask('default', ['development']);
   grunt.registerTask('build', ['concat:coffee','coffee','uglify:app','less']);
-  grunt.registerTask('fetch', ['exec','bower']);
   grunt.registerTask('dist', ['production','copy:dist','clean:dist','mkdir:dist']);
   grunt.registerTask('lib', function(env){
     if(env == 'production'){
-      grunt.task.run(['concat:bower_js','concat:bower_css']);
+      grunt.task.run(['concat:lib_js','concat:lib_css']);
     } else {
-      grunt.task.run(['concat:bower_js','concat:bower_css']);
+      grunt.task.run(['concat:lib_js','concat:lib_css']);
     }
   });
   grunt.registerTask('test', ['jasmine']);

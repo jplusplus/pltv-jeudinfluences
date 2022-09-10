@@ -1,12 +1,11 @@
 {
   "name": "pltv-spin",
   "author": "Journalism++",
+  "private": true,
   "devDependencies": {
     "assemble": "~0.3.80",
-    "bower": "1.3.3",
     "grunt": "~0.4.1",
     "grunt-angular-templates": "~0.5.3",
-    "grunt-bower-task": "~0.2.3",
     "grunt-cli": "^1.4.3",
     "grunt-contrib-clean": "~0.4.1",
     "grunt-contrib-coffee": "~0.8.0",

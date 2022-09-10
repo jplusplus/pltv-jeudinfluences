@@ -4,7 +4,6 @@ public/dev
 public/css
 public/partials
 dist
-bower_modules
 node_modules
 composer_modules
 composer.lock
