@@ -14,7 +14,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 # Add missing packages
 RUN apt update && \
   apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip libpq-dev \
-  && docker-php-ext-install mysqli pdo pdo_mysql \
+  && docker-php-ext-install pdo mysqli pdo_mysql sqlite3 \
   && docker-php-ext-enable pdo_mysql \
   && pecl install apcu \
   && docker-php-ext-enable apcu \
