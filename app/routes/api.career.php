@@ -73,10 +73,11 @@ $app->post('/api/career', function() use ($app) {
     $scenes  = json_decode($career->scenes, true);
     $choices = json_decode($career->choices);
 
+    
     // Recording choice...
     if (isset($data["scene"]) && isset($data["choice"])){
         $choices                 = json_decode($career->choices);
-        $choices->$data["scene"] = $data["choice"];
+        $choices->{$data["scene"]} = $data["choice"];
         $career->choices         = json_encode($choices);
         // NOTE : commented to prevent a heavy and unecessary operation
         // // Get the scene to retreive available options
