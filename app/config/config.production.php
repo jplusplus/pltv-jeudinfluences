@@ -33,11 +33,6 @@ $app->configureMode('production', function () use ($app) {
 		'static_url'           => "/",
 		// for video, sounds and large files
 		'media_url'            => getenv('MEDIA_URL') ?: "http://d328jlweo9aqvq.cloudfront.net",
-		'launching_date'       => "2014-05-06T10:00:00", # after this date, switch to the game home page
-		// Mailchimp configuration
-		'mailchimp_id'         => getenv('MAILCHIMP_ID') ?: '',
-		'mailchimp_datacenter' => getenv('MAILCHIMP_DATACENTER') ?: '', # ex: us8
-		'mailchimp_apikey'     => getenv('MAILCHIMP_APIKEY') ?: '',
 		// Configure mandrill mailler here
 		'mandrill_api_key' => getenv('MANDRILL_API_KEY') ?: '',
 		'mandrill_from' => getenv('MANDRILL_FROM') ?: 'info@jeudinfluences.fr',

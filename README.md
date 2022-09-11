@@ -60,11 +60,7 @@ These options are defined into [app/config/config.production.php](app/config/con
 | **cache**                       | false                                           | Disable or enable server side cache
 | **debug**                       | true                                            | Display debug message
 | **email_saving_subject**        | Jeu d'influences : Votre partie est sauvegardée | Subject of the mail to save a game
-| **launching_date**              | 2010-01-01T10:00:00"                            | After this date , switch to the game home page
 | **log.enabled**                 | true                                            | Disable or enable server logs
-| **mailchimp_apikey**            |                                                 |
-| **mailchimp_datacenter**        |                                                 |
-| **mailchimp_id**                |                                                 | Mailchimp configuration
 | **mandrill_api_key**            |                                                 | Configure mandrill mailler here
 | **mandrill_from**               | info@jeudinfluences.fr                          |
 | **media_url**                   | http://d328jlweo9aqvq.cloudfront.net            | Repository of the video sounds and large files

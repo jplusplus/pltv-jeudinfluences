@@ -16,12 +16,6 @@ $app->configureMode('development', function () use ($app) {
 		'static_url'           => "/",
 		// for video, sounds and large files
 		'media_url'            => "http://d328jlweo9aqvq.cloudfront.net",
-		// after this date, switch to the game home page
-		'launching_date'       => "2010-01-01T10:00:00", 
-		// Mailchimp configuration
-		'mailchimp_id'         => '',
-		'mailchimp_datacenter' => '', # ex: us8
-		'mailchimp_apikey'     => '',
 		// Configure mandrill mailler here
 		'mandrill_api_key'     => '',
 		'mandrill_from'        => 'info@jeudinfluences.fr',
