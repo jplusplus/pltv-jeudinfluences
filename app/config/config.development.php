@@ -23,8 +23,8 @@ $app->configureMode('development', function () use ($app) {
 		'email_saving_subject' => "Jeu d'influences : Votre partie est sauvegardée",
 		// Opening dates of each chapter
 		'opening_dates'        => array(
-			'1'                => "2014-03-19T16:00:00",
-			'4'                => "2014-03-19T16:00:00"
+			'1' => "2014-03-19T16:00:00",
+			'4' => "2014-03-19T16:00:00"
 		),
 		// Time after which we should re-aggregate summary (in hours)
 		'summary_aggregation_expired' => 0.2

@@ -33,14 +33,14 @@ $app->configureMode('production', function () use ($app) {
 		// for video, sounds and large files
 		'media_url'            => getenv('MEDIA_URL') ?: "http://d328jlweo9aqvq.cloudfront.net",
 		// Configure mandrill mailler here
-		'mandrill_api_key' => getenv('MANDRILL_API_KEY') ?: '',
-		'mandrill_from' => getenv('MANDRILL_FROM') ?: 'info@jeudinfluences.fr',
+		'mandrill_api_key'		 => getenv('MANDRILL_API_KEY') ?: '',
+		'mandrill_from' 			 => getenv('MANDRILL_FROM') ?: 'info@jeudinfluences.fr',
 		// Opening dates of each chapter
 		'opening_dates'        => array(
-			'1'                => "2014-03-10T16:00:00",
-			'2'                => "2014-03-10T16:00:00",
-			'3'                => "2014-03-10T16:00:00",
-			'4'                => "2014-03-10T16:00:00"
+			'1' => "2014-03-10T16:00:00",
+			'2' => "2014-03-10T16:00:00",
+			'3' => "2014-03-10T16:00:00",
+			'4' => "2014-03-10T16:00:00"
 		),
 		// Time after which we should re-aggregate summary (in hours)
 		'summary_aggregation_expired' => 6
