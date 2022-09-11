@@ -57,5 +57,7 @@ ENV MEDIA_URL=http://d328jlweo9aqvq.cloudfront.net
 ENV MANDRILL_API_KEY=
 ENV MANDRILL_FROM=info@jeudinfluences.fr
 
+RUN useradd -m dev
+USER dev
 
 CMD ["start-apache"]
