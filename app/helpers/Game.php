@@ -151,31 +151,9 @@ class Game {
 
 	public static function findSummary() {
 		/**
-		* Return the career for the given token
+		* Return summary
 		*/
-        $fields = "id, choices, time";
-        try {   
-	        // Use the fields above to avoid 'SELECT *'
-	        $summaryRow = R::$f->begin()
-	                       ->select($fields)
-	                       ->from('summary')
-	                       ->limit(1)
-	                       ->get('row');
-				// First time try to access to the database:
-				// we *must* select all columns      
-        } catch(\RedBean_Exception_SQL $ex) {        	
-        	return R::findOne("summary");
-        }
-        // Convert row values to RedBean's ojects
-        $summaryBeans = R::convertToBeans('summary', array($summaryRow) ); 
-        // By default, the summary is null       
-        $summary = NULL;
-        // At least one summary
-        foreach($summaryBeans as $bean) {
-            $summary = $bean;            
-        }
-
-        return $summary;
+		return R::findOne("summary");
 	}
 
 
@@ -183,31 +161,7 @@ class Game {
 		/**
 		* Return the career for the given token
 		*/
-        $fields = "id, token, created, choices, scenes, guilt, honesty";
-        try {        	
-	        // Use the fields above to avoid 'SELECT *'
-	        $careerRow = R::$f->begin()
-	                       ->select($fields)
-	                       ->from('career')
-	                       ->where('token = ?')
-	                       ->limit(1)
-	                       ->put($token)
-	                       ->get('row');	
-				// First time try to access to the database:
-				// we *must* select all columns      
-        } catch(\RedBean_Exception_SQL $ex) {        	
-        	return R::findOne("carrer", "token =?", array($token));
-        }
-        // Convert row values to RedBean's ojects
-        $careerBeans = R::convertToBeans('career', array($careerRow) ); 
-        // By default, the Career is null       
-        $career = NULL;
-        // At least one career
-        foreach($careerBeans as $bean) {
-            $career = $bean;            
-        }
-
-        return $career;
+		return R::findOne("career", "token = ?", array($token));
 	}
 
 	public static function getChapter($chapter_id) {
