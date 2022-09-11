@@ -28,7 +28,6 @@ $app->configureMode('production', function () use ($app) {
 		'debug'                => getenv_bool('SLIM_DEBUG'),
 		'display_debug_toolbar'=> getenv_bool('SLIM_DEBUG_TOOLBAR'),
 		'cache'                => getenv('SLIM_CACHE') ?: '../tmp/cache',
-		'archimade_idsite'     => 2439,
 		// assets
 		'static_url'           => "/",
 		// for video, sounds and large files
