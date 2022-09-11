@@ -1,4 +1,4 @@
 <?php
-$env = 'development';
+$env = getenv('SLIM_ENV') ?: 'development';
 
 ?>

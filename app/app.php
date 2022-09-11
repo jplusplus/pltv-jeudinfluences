@@ -1,7 +1,7 @@
 <?php
 
 namespace app;
-use RedBean_Facade as R;
+use RedBeanPHP\R;
 date_default_timezone_set('Europe/Paris');
 
 chdir ('../app/');

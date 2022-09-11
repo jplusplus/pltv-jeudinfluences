@@ -1,6 +1,6 @@
 <?php
 namespace app\routes;
-use RedBean_Facade as R;
+use RedBeanPHP\R;
 use Mandrill;
 
 # -----------------------------------------------------------------------------

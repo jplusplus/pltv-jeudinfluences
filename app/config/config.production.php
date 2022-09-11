@@ -1,6 +1,6 @@
 <?php
 
-use RedBean_Facade as R;
+use RedBeanPHP\R;
 
 function getenv_bool($name) {
 	return in_array(strtolower(getenv($name)), ['true', 't', 1]);

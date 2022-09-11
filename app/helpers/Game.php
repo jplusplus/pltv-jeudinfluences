@@ -1,7 +1,7 @@
 <?php
 
 namespace app\helpers;
-use RedBean_Facade as R;
+use RedBeanPHP\R;
 
 class Game {
 
@@ -161,8 +161,8 @@ class Game {
 	                       ->from('summary')
 	                       ->limit(1)
 	                       ->get('row');
-		// First time try to access to the database:
-		// we *must* select all columns      
+				// First time try to access to the database:
+				// we *must* select all columns      
         } catch(\RedBean_Exception_SQL $ex) {        	
         	return R::findOne("summary");
         }
@@ -193,8 +193,8 @@ class Game {
 	                       ->limit(1)
 	                       ->put($token)
 	                       ->get('row');	
-		// First time try to access to the database:
-		// we *must* select all columns      
+				// First time try to access to the database:
+				// we *must* select all columns      
         } catch(\RedBean_Exception_SQL $ex) {        	
         	return R::findOne("carrer", "token =?", array($token));
         }

@@ -1,6 +1,6 @@
 <?php
 
-use RedBean_Facade as R;
+use RedBeanPHP\R;
 
 if($env == 'development'){
 	R::setup('sqlite:../db.sqlite', NULL, NULL);
