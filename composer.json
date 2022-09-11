@@ -7,7 +7,7 @@
 		"slim/slim": "2.*",
 		"slim/views": "0.1.*",
 		"twig/twig": "1.*",
-		"gabordemooij/redbean": "3.5.1",
+		"gabordemooij/redbean": "5.*",
 		"phpmailer/phpmailer": "5.2.7",
 		"mandrill/mandrill": "1.0.*"
 	}
