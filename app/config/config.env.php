@@ -1,7 +1,4 @@
 <?php
-
 $env = 'development';
-
-
 
 ?>
