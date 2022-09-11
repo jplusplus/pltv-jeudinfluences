@@ -14,7 +14,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 # Add missing packages
 RUN apt update && \
   apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip libpq-dev \
-  && docker-php-ext-install pdo mysqli pdo_mysql sqlite3 \
+  && docker-php-ext-install pdo mysqli pdo_mysql \
   && docker-php-ext-enable pdo_mysql \
   && pecl install apcu \
   && docker-php-ext-enable apcu \
@@ -39,5 +39,23 @@ COPY . /var/www/
 RUN chown -R www-data:www-data /var/www
 RUN npx grunt production dist
 RUN chmod -Rf 777 ./dist/tmp
+
+# Slim configuration
+ENV SLIM_ENV=production
+ENV SLIM_LOG=true
+ENV SLIM_DEBUG=false
+ENV SLIM_DEBUG_TOOLBAR=false
+ENV SLIM_CACHE=../tmp/cache
+# Database configuration
+ENV DATABASE_DSN=mysql:host=127.0.0.1;dbname=pltv-jeudinfluences
+ENV DATABASE_USER=
+ENV DATABASE_PASS=
+ENV DATABASE_FREEZE=false
+# Media configuration
+ENV MEDIA_URL=http://d328jlweo9aqvq.cloudfront.net
+# Mandril configuration
+ENV MANDRILL_API_KEY=
+ENV MANDRILL_FROM=info@jeudinfluences.fr
+
 
 CMD ["start-apache"]
