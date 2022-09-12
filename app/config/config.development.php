@@ -15,7 +15,7 @@ $app->configureMode('development', function () use ($app) {
 		// assets
 		'static_url'           				=> "/",
 		// for video, sounds and large files
-		'media_url'            				=> "http://d328jlweo9aqvq.cloudfront.net",
+		'media_url'            				=> "https://df59amfngxauf.cloudfront.net",
 		// Configure mailler here
 		'mailgun_from' 			  	   		=> getenv('MAILGUN_FROM') ?: 'info@jeudinfluences.fr',
 		'mailgun_api_key'			  			=> getenv('MAILGUN_API_KEY') ?: '',

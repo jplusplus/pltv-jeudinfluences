@@ -59,7 +59,7 @@ ENV DATABASE_USER=
 ENV DATABASE_PASS=
 ENV DATABASE_FREEZE=false
 # Media configuration
-ENV MEDIA_URL=http://d328jlweo9aqvq.cloudfront.net
+ENV MEDIA_URL=https://df59amfngxauf.cloudfront.net
 # Mailgun configuration
 ENV MAILGUN_FROM=info@jeudinfluences.fr
 ENV MAILGUN_API_KEY=
