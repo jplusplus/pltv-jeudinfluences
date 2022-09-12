@@ -1,7 +1,7 @@
 Jeu d'influences
 ================
 
-_Mai 2014_
+_September 2022_
 
 
 ## Production
@@ -9,7 +9,8 @@ _Mai 2014_
 This part of the manuel explains how to install this project from the production branch.
 
 1. Check these prerequisites
-	* PHP 5.3 is prerequired
+	* PHP 7 is prerequired
+	* PHP extensions for SQLITE3 and MySQL
 	* Your Apache configuration must support **URL Rewritting**
 1. Setup a virtualhost in your Apache Webserver with a DocumentRoot to `public/`
 1. To configure the app:
@@ -37,7 +38,7 @@ In development, this application uses the following requirements:
 **On Ubuntu**, enter this to install the packages:
 
 ```bash 
-sudo apt-get install nodejs npm php5-sqlite
+sudo apt-get install nodejs npm php7-sqlite
 sudo npm install -g grunt-cli@0
 ``` 
 
@@ -61,7 +62,7 @@ These options are defined into [app/config/config.production.php](app/config/con
 | **debug**                       | true                                            | Display debug message
 | **email_saving_subject**        | Jeu d'influences : Votre partie est sauvegardée | Subject of the mail to save a game
 | **log.enabled**                 | true                                            | Disable or enable server logs
-| **media_url**                   | http://d328jlweo9aqvq.cloudfront.net            | Repository of the video sounds and large files
+| **media_url**                   | https://df59amfngxauf.cloudfront.net            | Repository of the video sounds and large files
 | **opening_dates**               | array()                                         | Opening dates of each chapter (disabled feature)
 | **static_url**                  | /                                               | Assets URL (if you  want to move static files)
 | **summary_aggregation_expired** | 0.2                                             | Time after which we should re-aggregate summary (in hours)
