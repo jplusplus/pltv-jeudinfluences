@@ -1,7 +1,7 @@
 <?php
 namespace app\routes;
+use Mailgun\Mailgun;
 use RedBeanPHP\R;
-use Mandrill;
 
 # -----------------------------------------------------------------------------
 #
@@ -134,23 +134,18 @@ $app->post('/api/career/associate_email', function() use ($app) {
         $career->email = $data->email;
         R::store($career);
 
-        // send email
         $app->view->appendData(array('token' => $token, 'host' => $_SERVER['HTTP_HOST']));
-        $mandrill = new Mandrill($app->config("mandrill_api_key"));
-        $message = array(
-            "html" => $app->view->fetch('emails/saved_and_send_token.twig'),
-            "subject" =>  $app->config("email_saving_subject"),
-            "from_email" => $app->config("mandrill_from"),
-            "to" => array(
-                array(
-                    "email" => $data->email,
-                )
-            ),
-            "headers" => array(
-                "Content-Type" => "text/plain; charset=UTF-8"
-            )
-        );
-        $result = $mandrill->messages->send($message);
+
+        $mailgun_key = $app->config("mailgun_api_key");
+        $mailgun_domain = $app->config("mailgun_domain");
+        $mailgun_client = Mailgun::create($mailgun_key);
+
+        $result = $mailgun_client->messages()->send($mailgun_domain, [
+            'subject' => $app->config("email_saving_subject"),
+            'from'    => $app->config("mailgun_from"),
+            'to'      => $data->email,
+            'html'    => $app->view->fetch("emails/saved_and_send_token.twig")
+        ]);
 
         return ok(array('status' => 'done', 'result' => $result));
     }

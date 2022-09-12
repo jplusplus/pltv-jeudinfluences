@@ -24,19 +24,22 @@ if($env == 'production'){
 
 $app->configureMode('production', function () use ($app) {
 	$app->config(array(
-		'log.enabled'          => getenv_bool('SLIM_LOG'),
-		'debug'                => getenv_bool('SLIM_DEBUG'),
-		'display_debug_toolbar'=> getenv_bool('SLIM_DEBUG_TOOLBAR'),
-		'cache'                => getenv('SLIM_CACHE') ?: '../tmp/cache',
+		'log.enabled'          				=> getenv_bool('SLIM_LOG'),
+		'debug'                				=> getenv_bool('SLIM_DEBUG'),
+		'display_debug_toolbar'				=> getenv_bool('SLIM_DEBUG_TOOLBAR'),
+		'cache'                				=> getenv('SLIM_CACHE') ?: '../tmp/cache',
 		// assets
-		'static_url'           => "/",
+		'static_url'           				=> "/",
 		// for video, sounds and large files
-		'media_url'            => getenv('MEDIA_URL') ?: "http://d328jlweo9aqvq.cloudfront.net",
-		// Configure mandrill mailler here
-		'mandrill_api_key'		 => getenv('MANDRILL_API_KEY') ?: '',
-		'mandrill_from' 			 => getenv('MANDRILL_FROM') ?: 'info@jeudinfluences.fr',
+		'media_url'            				=> getenv('MEDIA_URL') ?: "http://d328jlweo9aqvq.cloudfront.net",
+		// Configure mailler here
+		'mailgun_from' 			  	   		=> getenv('MAILGUN_FROM') ?: 'info@jeudinfluences.fr',
+		'mailgun_api_key'			  			=> getenv('MAILGUN_API_KEY') ?: '',
+		'mailgun_domain' 			  			=> getenv('MAILGUN_DOMAIN') ?: '',
+		// Mail settings
+		'email_saving_subject' => "Jeu d'influences : Votre partie est sauvegardée",
 		// Opening dates of each chapter
-		'opening_dates'        => array(
+		'opening_dates'         			=> array(
 			'1' => "2014-03-10T16:00:00",
 			'2' => "2014-03-10T16:00:00",
 			'3' => "2014-03-10T16:00:00",
@@ -45,7 +48,6 @@ $app->configureMode('production', function () use ($app) {
 		// Time after which we should re-aggregate summary (in hours)
 		'summary_aggregation_expired' => 6
 	));
-
 });
 
 // EOF
