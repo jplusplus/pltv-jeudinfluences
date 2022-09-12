@@ -12,8 +12,8 @@ COPY --from=node:10-buster /opt/ /opt/
 # Copy Composer binary
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-RUN apt update && \
-  apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev libpq-dev \
+RUN apt update \
+  && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev libpq-dev \
   && docker-php-ext-configure zip \
   && docker-php-ext-install zip
 
@@ -32,8 +32,10 @@ RUN npx grunt production dist
 FROM php:7-apache-buster
 
 # Add missing packages
-RUN docker-php-ext-install pdo mysqli pdo_mysql \
-  && docker-php-ext-enable pdo_mysql \
+RUN apt update \
+  && apt install -y libpq-dev \
+  && docker-php-ext-install pdo mysqli pdo_mysql pdo_pgsql \
+  && docker-php-ext-enable pdo_mysql pdo_pgsql \
   && pecl install apcu \
   && docker-php-ext-enable apcu
 
