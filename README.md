@@ -1,26 +1,26 @@
 Jeu d'influences
 ================
 
-_September 2022_
+_September 2022_ - Archive: [pltv-jeudinfluences.herokuapp.com](https://pltv-jeudinfluences.herokuapp.com/)
 
 
 ## Production
 
-This part of the manuel explains how to install this project from the production branch.
+This project is shipped with a Dockerfile. To run this app in production, the easiest solution is to use Docker as described bellow.
 
-1. Check these prerequisites
-	* PHP 7 is prerequired
-	* PHP extensions for SQLITE3 and MySQL
-	* Your Apache configuration must support **URL Rewritting**
-1. Setup a virtualhost in your Apache Webserver with a DocumentRoot to `public/`
-1. To configure the app:
-	* Change the MySQL URI in [app/config/config.production.php](app/config/config.production.php) (line 6). 
-	* Change the [available options](#options) following your needs.
-1. Install the composer dependancies:  
-    ```
-    curl -sS https://getcomposer.org/installer | php && php composer.phar install
-    ```
-1. Open your browser and go the website! **RedBean** will take care of installing the database for you.
+Build the app:
+
+```
+docker build -t jeudinfluences .
+```
+
+Start the docker container:
+
+```
+docker run -p 4444:4444 -e PORT=4444 -e DATABASE_DSN="sqlite:../tmp/db.sqlite" -it --rm jeudinfluences
+```
+
+The app is now available on port 4444. Please note this example uses sqlite to store progressions directly in the Docker container. It means the data is not persisted.
 
 ## Development
 
@@ -30,16 +30,14 @@ This part of the manuel explains how to install this project from the master bra
 
 In development, this application uses the following requirements:
 
-* node 
-    * npm
-    * grunt
-* php5-sqlite
+* node 10+
+* php7
+* php7-sqlite
 
 **On Ubuntu**, enter this to install the packages:
 
 ```bash 
-sudo apt-get install nodejs npm php7-sqlite
-sudo npm install -g grunt-cli@0
+sudo apt-get install nodejs npm php7 php7-sqlite
 ``` 
 
 ### Set up the application
